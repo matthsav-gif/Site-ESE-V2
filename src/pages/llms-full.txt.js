@@ -21,7 +21,7 @@ function metier(route) {
 export async function GET() {
   const body = `# ESE — Event & Safety Engineering — Contenu complet
 
-> Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris, depuis 2023.
+> Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris.
 
 Document texte intégral du site ${site}, destiné aux moteurs et aux IA. Société : Event & Safety Engineering (ESE), SAS au capital de 1 000 €, RCS Paris 951 249 937, TVA FR26 951 249 937, NAF 90.02Z, 15 rue des Halles, 75001 Paris, membre du Groupe MS. Fondateur : Matthieu Savatier.
 
@@ -35,7 +35,7 @@ Terrains d'intervention : concerts & tournées en stade, festivals outdoor, spec
 
 # Métiers
 
-${metier("direction-technique")}${metier("regie-generale")}${metier("expertise-securite")}# Références — productions depuis 2023
+${metier("direction-technique")}${metier("regie-generale")}${metier("expertise-securite")}# Références — productions
 
 ${REFERENCES.map((r) => `## ${r.k} — ${r.t}\n\n${r.names}\n\n${r.desc}`).join("\n\n")}
 
@@ -53,7 +53,7 @@ ESE est éditeur de SOCLE®. ESE accompagne par ailleurs la transformation organ
 
 # Qui sommes-nous
 
-ESE est portée par son fondateur, Matthieu Savatier. Avant ESE, il a exercé la direction technique et la régie générale chez Oliverdy, Paname 24, Impact Événement, REDITEC, DTE et au Puy du Fou International. Il a fondé ESE en 2023.
+ESE est portée par son fondateur, Matthieu Savatier. Avant ESE, il a exercé la direction technique et la régie générale chez Oliverdy, Paname 24, Impact Événement, REDITEC, DTE et au Puy du Fou International. Il a fondé ESE.
 
 Qualifications : Attestation de Compétence AP2 ENSOSP (prévention incendie et de panique pour les ERP et IGH) ; expertise Vectorworks ; compétences structures et rigging (Braceworks, MVR) ; formateur certifié et beta-testeur Team France Vectorworks.
 

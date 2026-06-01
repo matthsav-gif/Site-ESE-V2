@@ -193,9 +193,9 @@ export const METIER_DATA = {
 /* Chiffres-clés (bande accueil) */
 export const CHIFFRES = [
   { n: "12 ans", l: "de production technique événementielle" },
-  { n: "2023", l: "année de fondation d'ESE" },
-  { n: "102 000", l: "personnes — JUL, Stade de France 2026" },
+  { n: "3 métiers", l: "direction technique · régie · expertise sécurité" },
   { n: "AP2", l: "ENSOSP — qualification sécurité ERP" },
+  { n: "Stade", l: "jusqu'aux plus grandes configurations" },
 ];
 
 /* Process en 3 étapes (pages métier) */
@@ -233,7 +233,7 @@ export const FAQ = [
 export const SEO = {
   home: {
     title: "ESE — Société d'ingénierie pour la production technique événementielle",
-    description: "Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris, depuis 2023.",
+    description: "Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris.",
   },
   "direction-technique": {
     title: "Direction technique événementielle — ESE",
@@ -248,8 +248,8 @@ export const SEO = {
     description: "Notices de sécurité ERP et accompagnement face aux autorités. Qualification AP2 ENSOSP. Préfecture, mairie, commission de sécurité.",
   },
   references: {
-    title: "Références — Productions ESE depuis 2023",
-    description: "Productions ESE depuis 2023 : cérémonies JO/JOP Paris 2024, tournées en stade, défilés de luxe, sommets institutionnels, DJ sets internationaux.",
+    title: "Références — Productions ESE",
+    description: "Productions ESE : cérémonies JO/JOP Paris 2024, tournées en stade, défilés de luxe, sommets institutionnels, DJ sets internationaux.",
   },
   methodes: {
     title: "Méthodes & partenariats SOCLE® · COBEL® — ESE",
