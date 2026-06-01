@@ -1,0 +1,19 @@
+---
+import { CONTACT } from "../data/site.js";
+---
+<section class="cband">
+  <div class="cband__deco"></div>
+  <div class="cband__inner">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--taupe)">Contact</span>
+      <h2 style="margin-top:18px">Parlons de<br/>votre projet.</h2>
+    </div>
+    <div class="reveal" data-d="1" style="text-align:left">
+      <a class="btn btn--light" href="/contact">Nous contacter <span class="arr">→</span></a>
+      <div class="cband__meta">
+        <a href={CONTACT.telHref}>{CONTACT.tel}</a><br/>
+        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+      </div>
+    </div>
+  </div>
+</section>

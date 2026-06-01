@@ -1,0 +1,12 @@
+---
+import { REF_LIST } from "../data/site.js";
+---
+<div class="kgrid">
+  {REF_LIST.map((it, k) => (
+    <div class="kcell reveal" data-d={(k % 3) + 1}>
+      <div class="mono">{String(k + 1).padStart(2, "0")}</div>
+      <h4>{it.t}</h4>
+      <p>{it.d}</p>
+    </div>
+  ))}
+</div>

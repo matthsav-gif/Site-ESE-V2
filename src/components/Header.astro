@@ -1,0 +1,104 @@
+---
+import { METIERS, CONTACT } from "../data/site.js";
+const path = Astro.url.pathname;
+const isMetier = path.startsWith("/metiers/");
+const tallHero = path === "/"; // la home a un hero plein écran
+---
+<header class="hdr is-over" id="site-header" data-tall-hero={tallHero ? "1" : "0"}>
+  <div class="hdr__inner">
+    <a class="logo" href="/" aria-label="ESE — accueil">
+      <img class="logo-mark" src="/logo-ese.png" alt="ESE" />
+      <span class="logo-word">Event &amp; Safety<br/>Engineering</span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav__item" id="mega-trigger">
+        <a class={"nav__link" + (isMetier ? " active" : "")} href="/metiers/direction-technique">
+          Métiers <span class="nav__caret">▾</span>
+        </a>
+      </div>
+      <a class={"nav__link" + (path === "/references" ? " active" : "")} href="/references">Références</a>
+      <a class={"nav__link" + (path === "/methodes-partenariats" ? " active" : "")} href="/methodes-partenariats">Méthodes &amp; partenariats</a>
+      <a class={"nav__link" + (path === "/qui-sommes-nous" ? " active" : "")} href="/qui-sommes-nous">Qui sommes-nous</a>
+    </nav>
+
+    <div class="hdr__right">
+      <a class="hdr__tel" href={CONTACT.telHref}>{CONTACT.tel}</a>
+      <a class="btn" href="/contact">Nous contacter</a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mega" id="mega">
+  <div class="mega__inner">
+    {METIERS.map((m) => (
+      <a class="mega__col" href={m.href}>
+        <div class="mega__n">{m.n}</div>
+        <div class="mega__t">{m.t}</div>
+        <div class="mega__d">{m.d}</div>
+        <span class="tlink">En savoir plus <span class="arr">→</span></span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu__top">
+    <a class="logo" href="/" aria-label="ESE — accueil">
+      <img class="logo-mark" src="/logo-ese.png" alt="ESE" style="filter:brightness(0) invert(1)" />
+      <span class="logo-word" style="color:var(--paper)">Event &amp; Safety<br/>Engineering</span>
+    </a>
+    <button class="mobile-menu__close" aria-label="Fermer le menu" id="mobile-close">✕</button>
+  </div>
+  {METIERS.map((m) => <a href={m.href}>{m.short}</a>)}
+  <a href="/references">Références</a>
+  <a href="/methodes-partenariats">Méthodes &amp; partenariats</a>
+  <a href="/qui-sommes-nous">Qui sommes-nous</a>
+  <a href="/contact">Contact</a>
+</div>
+
+<script>
+  const header = document.getElementById("site-header");
+  const mega = document.getElementById("mega");
+  const trigger = document.getElementById("mega-trigger");
+  const burger = document.getElementById("burger");
+  const mobile = document.getElementById("mobile-menu");
+  const mobileClose = document.getElementById("mobile-close");
+  const tall = header?.dataset.tallHero === "1";
+
+  // Header transparent au-dessus du hero, solide au scroll
+  function onScroll() {
+    const threshold = tall ? window.innerHeight * 0.62 : 90;
+    const solid = window.scrollY > threshold;
+    header?.classList.toggle("is-solid", solid);
+    header?.classList.toggle("is-over", !solid);
+    mega?.classList.toggle("solid-top", solid);
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // Méga-menu Métiers (hover sur desktop)
+  let megaOpen = false;
+  const setMega = (v) => {
+    megaOpen = v;
+    mega?.classList.toggle("open", v);
+    trigger?.classList.toggle("open", v);
+    header?.classList.toggle("is-solid", v || window.scrollY > (tall ? window.innerHeight * 0.62 : 90));
+    if (v) header?.classList.remove("is-over");
+    else onScroll();
+  };
+  trigger?.addEventListener("mouseenter", () => setMega(true));
+  trigger?.addEventListener("mouseleave", () => setMega(false));
+  mega?.addEventListener("mouseenter", () => setMega(true));
+  mega?.addEventListener("mouseleave", () => setMega(false));
+
+  // Menu mobile
+  burger?.addEventListener("click", () => mobile?.classList.add("open"));
+  mobileClose?.addEventListener("click", () => mobile?.classList.remove("open"));
+  mobile?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => mobile?.classList.remove("open"))
+  );
+</script>

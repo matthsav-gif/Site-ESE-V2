@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactBanner from "./ContactBanner.astro";
+import RefList from "./RefList.astro";
+import Photo from "./Photo.astro";
+import { METIER_DATA, SEO } from "../data/site.js";
+
+const { route } = Astro.props;
+const d = METIER_DATA[route];
+const seo = SEO[route];
+const isSecu = route === "expertise-securite";
+const site = "https://ese-techsolutions.com";
+
+const serviceLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: d.h1.replace(/\.$/, ""),
+  serviceType: d.h1.replace(/\.$/, ""),
+  description: seo.description,
+  provider: { "@id": `${site}/#organization` },
+  areaServed: [{ "@type": "Country", name: "France" }, "International"],
+  url: `${site}${Astro.url.pathname}`,
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: d.perimTitle,
+    itemListElement: d.perim.map((p) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: p.replace(/\.$/, "") },
+    })),
+  },
+};
+---
+<BaseLayout title={seo.title} description={seo.description} ogImage={d.media.src || "/images/jo-para.jpg"} schema={[serviceLd]}>
+  {/* HERO */}
+  <section class="phero">
+    <div class="phero__deco"></div>
+    <div class="phero__grid">
+      <div>
+        <span class="eyebrow">{d.eyebrow}</span>
+        <h1 style="margin-top:22px">{d.h1}</h1>
+        <p class="phero__sub">{d.sub}</p>
+        <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
+          <a class="btn btn--light" href={`/contact?type=${route}`}>Nous contacter <span class="arr">→</span></a>
+          <a class="btn btn--ghost-light" href="/references">Références <span class="arr">→</span></a>
+        </div>
+      </div>
+      <div class="phero__media">
+        <Photo src={d.media.src} alt={d.media.alt} label={d.media.label} file={d.media.file} variant={d.media.variant} loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  {/* QUALIF (sécurité uniquement) */}
+  {d.qualif && (
+    <section class="section section--tight">
+      <div class="wrap split">
+        <div class="reveal col-head">
+          <span class="eyebrow">Une qualification rare</span>
+          <h2>{d.qualif.big}</h2>
+        </div>
+        <div>
+          {d.qualif.body.map((p, i) => (
+            <p class={"reveal" + (i === 0 ? " lead" : "")} data-d={i + 1} style={`margin-top:${i === 0 ? 0 : 22}px`}>{p}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* PÉRIMÈTRE */}
+  <section class="section" style={`background:${d.qualif ? "var(--paper-2)" : "var(--paper)"}`}>
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Périmètre</span>
+        <h2>{d.perimTitle}</h2>
+        {d.perimLead && <p>{d.perimLead}</p>}
+      </div>
+      <ul class="reveal clist" data-d="1">
+        {d.perim.map((li) => <li>{li}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  {/* OPÉRATIONS / INTERLOCUTEURS */}
+  <section class="section section--tight" style={`background:${d.qualif ? "var(--paper)" : "var(--paper-2)"}`}>
+    <div class="wrap">
+      <div class="reveal" style="max-width:60ch;margin-bottom:34px">
+        <span class="eyebrow">{isSecu ? "Autorités" : "Couverture"}</span>
+        <h2 class="display" style="font-size:clamp(24px,2.6vw,38px);margin-top:16px;line-height:1.1">{d.opsTitle}</h2>
+        {d.opsLead && <p class="lead" style="margin-top:16px">{d.opsLead}</p>}
+      </div>
+      {isSecu ? (
+        <div class="reveal chips" data-d="1">{d.ops.map((o) => <span class="chip">{o}</span>)}</div>
+      ) : (
+        <ul class="reveal clist clist--num" data-d="1" style="columns:2;column-gap:clamp(24px,4vw,72px)">
+          {d.ops.map((o) => <li style="break-inside:avoid">{o}</li>)}
+        </ul>
+      )}
+    </div>
+  </section>
+
+  {/* MODÈLE D'INTERVENTION */}
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Modèle d'intervention</span>
+        <h2>Ponctuel ou récurrent. Seul ou en complément.</h2>
+      </div>
+      <div>
+        {d.model.map((p, i) => (
+          <p class={"reveal" + (i === 0 ? " lead" : "")} data-d={i + 1} style={`margin-top:${i === 0 ? 0 : 22}px`}>{p}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* RÉFÉRENCES */}
+  <section class="section section--tight" style="background:var(--pale)">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:36px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px">
+        <div>
+          <span class="eyebrow">Références</span>
+          <h2 class="display" style="font-size:clamp(24px,2.6vw,38px);margin-top:16px">Quelques productions d'ESE.</h2>
+        </div>
+        <a class="btn btn--ghost" href="/references">Voir toutes les références <span class="arr">→</span></a>
+      </div>
+      <RefList />
+    </div>
+  </section>
+
+  <ContactBanner />
+</BaseLayout>

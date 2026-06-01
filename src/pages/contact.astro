@@ -1,0 +1,179 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SEO, CONTACT } from "../data/site.js";
+
+const PROJETS = ["Direction technique", "Régie générale", "Expertise sécurité", "Autre / Multi-métiers"];
+const ECHEANCES = ["Moins de 3 mois", "3 à 6 mois", "Plus de 6 mois", "Récurrence / accompagnement long"];
+---
+<BaseLayout title={SEO.contact.title} description={SEO.contact.description}>
+  <section class="phero">
+    <div class="phero__deco"></div>
+    <div class="phero__grid" style="grid-template-columns:1fr">
+      <div style="max-width:24ch">
+        <span class="eyebrow">Contact</span>
+        <h1 style="margin-top:22px">Contact.</h1>
+        <p class="phero__sub">Parlons de votre projet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="sent-note is-hidden" id="sent-note">
+        <span class="sent-note__tag">✓ DEMANDE ENVOYÉE</span>
+        <span class="sent-note__txt" id="sent-txt">Merci, ESE revient vers vous rapidement.</span>
+      </div>
+
+      <div class="formgrid" id="form-wrap">
+        <form id="contact-form" novalidate
+              data-endpoint={CONTACT.formEndpoint}>
+          <div class="field">
+            <label class="field__label">Type de projet <span class="field__req is-hidden" id="err-projet">· requis</span></label>
+            <div class="optset" id="opt-projet" role="group" aria-label="Type de projet">
+              {PROJETS.map((p) => <button type="button" class="opt" data-val={p}>{p}</button>)}
+            </div>
+            <input type="hidden" name="type_projet" id="in-projet" />
+          </div>
+
+          <div class="field">
+            <label class="field__label">Échéance</label>
+            <div class="optset" id="opt-echeance" role="group" aria-label="Échéance">
+              {ECHEANCES.map((p) => <button type="button" class="opt" data-val={p}>{p}</button>)}
+            </div>
+            <input type="hidden" name="echeance" id="in-echeance" />
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-prenom">Coordonnées</label>
+            <div class="inrow">
+              <input class="input" id="f-prenom" name="prenom" placeholder="Prénom *" aria-label="Prénom" />
+              <input class="input" id="f-nom" name="nom" placeholder="Nom *" aria-label="Nom" />
+            </div>
+            <input class="input" name="societe" placeholder="Société" aria-label="Société" />
+            <div class="inrow">
+              <input class="input" id="f-email" name="email" type="email" placeholder="Email *" aria-label="Email" />
+              <input class="input" name="telephone" type="tel" placeholder="Téléphone" aria-label="Téléphone" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-msg">Message <span style="color:var(--slate);letter-spacing:0">· optionnel</span></label>
+            <textarea class="textarea" id="f-msg" name="message" maxlength="500" placeholder="Décrivez votre projet en quelques lignes…"></textarea>
+            <div class="charcount"><span id="charnum">0</span> / 500</div>
+          </div>
+
+          <button class="btn" type="submit">Envoyer <span class="arr">→</span></button>
+          <p class="rgpd">Les informations recueillies via ce formulaire sont utilisées uniquement pour répondre à votre demande.</p>
+        </form>
+
+        <aside class="contact-aside">
+          <div class="blk">
+            <h4>Adresse</h4>
+            <p>{CONTACT.adresse1},<br/>{CONTACT.adresse2}.</p>
+          </div>
+          <div class="blk">
+            <h4>Téléphone</h4>
+            <a class="mono" href={CONTACT.telHref}>{CONTACT.tel}</a>
+          </div>
+          <div class="blk">
+            <h4>Email</h4>
+            <a class="mono" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+          </div>
+          <div class="blk">
+            <h4>LinkedIn</h4>
+            <p><a href={CONTACT.linkedinEntreprise} target="_blank" rel="noopener noreferrer">Event &amp; Safety Engineering</a></p>
+            <p style="margin-top:6px"><a href={CONTACT.linkedinMatthieu} target="_blank" rel="noopener noreferrer">Matthieu Savatier</a></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const inProjet = document.getElementById("in-projet");
+  const inEcheance = document.getElementById("in-echeance");
+  const errProjet = document.getElementById("err-projet");
+
+  // Groupes de boutons (sélection unique)
+  function bindGroup(groupId, hidden, { onPick } = {}) {
+    const group = document.getElementById(groupId);
+    group?.querySelectorAll(".opt").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const already = btn.classList.contains("sel");
+        group.querySelectorAll(".opt").forEach((b) => b.classList.remove("sel"));
+        if (already) { hidden.value = ""; }
+        else { btn.classList.add("sel"); hidden.value = btn.dataset.val; onPick && onPick(); }
+      });
+    });
+  }
+  bindGroup("opt-projet", inProjet, { onPick: () => errProjet?.classList.add("is-hidden") });
+  bindGroup("opt-echeance", inEcheance);
+
+  // Pré-remplissage via ?type=...
+  const TYPE_MAP = {
+    "direction-technique": "Direction technique",
+    "regie-generale": "Régie générale",
+    "expertise-securite": "Expertise sécurité",
+    "multi": "Autre / Multi-métiers",
+  };
+  const preset = TYPE_MAP[new URLSearchParams(location.search).get("type")];
+  if (preset) {
+    const group = document.getElementById("opt-projet");
+    group?.querySelectorAll(".opt").forEach((b) => {
+      if (b.dataset.val === preset) { b.classList.add("sel"); inProjet.value = preset; }
+    });
+  }
+
+  // Compteur de caractères
+  const msg = document.getElementById("f-msg");
+  const charnum = document.getElementById("charnum");
+  msg?.addEventListener("input", () => { charnum.textContent = String(msg.value.length); });
+
+  // Validation + envoi
+  const sentNote = document.getElementById("sent-note");
+  const sentTxt = document.getElementById("sent-txt");
+  const formWrap = document.getElementById("form-wrap");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const prenom = document.getElementById("f-prenom");
+    const nom = document.getElementById("f-nom");
+    const email = document.getElementById("f-email");
+    let ok = true;
+    const flag = (el, bad) => { el.classList.toggle("err", bad); if (bad) ok = false; };
+
+    flag(prenom, !prenom.value.trim());
+    flag(nom, !nom.value.trim());
+    flag(email, !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value));
+    if (!inProjet.value) { errProjet?.classList.remove("is-hidden"); ok = false; }
+
+    if (!ok) return;
+
+    const endpoint = form.dataset.endpoint;
+    const showSuccess = () => {
+      sentTxt.textContent = `Merci ${prenom.value.trim()}. ESE revient vers vous rapidement${inProjet.value ? ` au sujet de votre projet « ${inProjet.value} »` : ""}.`;
+      formWrap.classList.add("is-hidden");
+      sentNote.classList.remove("is-hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    if (endpoint) {
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        if (res.ok) showSuccess();
+        else alert("Une erreur est survenue. Merci de réessayer ou d'écrire à secretariat@ese-techsolutions.com.");
+      } catch (err) {
+        alert("Une erreur réseau est survenue. Merci de réessayer.");
+      }
+    } else {
+      // Mode démo : pas d'endpoint configuré → confirmation locale.
+      showSuccess();
+    }
+  });
+</script>

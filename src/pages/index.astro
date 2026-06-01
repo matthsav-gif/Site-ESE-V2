@@ -1,0 +1,177 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactBanner from "../components/ContactBanner.astro";
+import RefList from "../components/RefList.astro";
+import { HERO_SLIDES, METIERS, SEO, CONTACT } from "../data/site.js";
+---
+<BaseLayout title={SEO.home.title} description={SEO.home.description}>
+  {/* HERO */}
+  <section class="hero">
+    <div class="hero__bg" id="hero-bg">
+      {HERO_SLIDES.map((s, k) => (
+        <div class={"hero__slide" + (k === 0 ? " on" : "")}>
+          <div class="hero__media" style={`background-image:url('${s.src}')`} role="img" aria-label={s.alt}></div>
+        </div>
+      ))}
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="hero__index" id="hero-index">01 — {String(HERO_SLIDES.length).padStart(2, "0")}</div>
+    <div class="hero__dots" id="hero-dots">
+      {HERO_SLIDES.map((_, k) => (
+        <button class={"hero__dot" + (k === 0 ? " on" : "")} data-i={k} aria-label={`Visuel ${k + 1}`}></button>
+      ))}
+    </div>
+    <div class="hero__inner">
+      <div class="reveal in">
+        <h1>Société d'ingénierie pour la production technique événementielle.</h1>
+        <p class="hero__sub">Direction technique · Régie générale · Expertise sécurité — sur les productions live, événementielles et institutionnelles.</p>
+        <div class="hero__cta">
+          <a class="btn btn--light" href="/contact">Nous contacter <span class="arr">→</span></a>
+          <a class="btn btn--ghost-light" href="/references">Voir nos références <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ACCROCHE FONDATEUR */}
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Le fondateur</span>
+        <h2>Douze ans de production technique.</h2>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          Douze ans de production technique événementielle, des cérémonies des Jeux Olympiques de Paris 2024 aux tournées en stade et aux gros concerts internationaux, en passant par les grands défilés de mode et les événements institutionnels d'envergure internationale.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:24px">
+          J'ai fondé ESE — Event &amp; Safety Engineering — société d'ingénierie dédiée à la production technique événementielle. Trois métiers structurent son activité.
+        </p>
+        <div class="reveal" data-d="2" style="margin-top:28px">
+          <a class="tlink" href="/qui-sommes-nous">En savoir plus — Qui sommes-nous <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* TERRAINS D'INTERVENTION */}
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="reveal" style="max-width:58ch">
+        <span class="eyebrow">Terrains d'intervention</span>
+        <h2 class="display" style="font-size:clamp(22px,2.4vw,34px);margin-top:16px;line-height:1.1">
+          Tous les formats, toutes les configurations.
+        </h2>
+        <p style="margin-top:18px;color:var(--slate);font-weight:300">
+          ESE intervient sur l'ensemble des configurations de production technique événementielle — du plateau TV à l'hippodrome, de la salle de 300 places au stade de 100 000.
+        </p>
+      </div>
+      <div class="reveal terrains" data-d="1">
+        {["Concerts & tournées en stade", "Festivals outdoor", "Spectacle vivant & théâtre", "Défilés de mode", "Scénographie & muséographie", "Événements institutionnels", "Plateaux TV & captations", "Congrès & conventions", "Lancements produits", "Sites & lieux culturels en transformation"].map((t) => (
+          <span class="terrain">{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* NOS MÉTIERS */}
+  <section class="section section--tight" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:44px;max-width:62ch">
+        <span class="eyebrow">Nos métiers</span>
+        <h2 class="display" style="font-size:clamp(26px,3vw,42px);margin-top:18px;line-height:1.1">
+          Trois métiers, une même exigence d'ingénierie.
+        </h2>
+      </div>
+      <div class="mcards">
+        <a class="mcard reveal" data-d="1" href="/metiers/direction-technique">
+          <div class="mcard__n">01</div>
+          <div class="mcard__stat">Vectorworks · Braceworks · ConnectCAD · MVR</div>
+          <div class="mcard__t">Direction technique</div>
+          <div class="mcard__d">Rédaction du cahier des charges, choix des outils, arbitrages de production, pilotage des phases de conception et de réalisation, calculs de structures et de rigging.</div>
+          <span class="tlink">En savoir plus <span class="arr">→</span></span>
+        </a>
+        <a class="mcard reveal" data-d="2" href="/metiers/regie-generale">
+          <div class="mcard__n">02</div>
+          <div class="mcard__stat">102 000 pers. — JUL Stade de France 2026</div>
+          <div class="mcard__t">Régie générale &amp; stage management</div>
+          <div class="mcard__d">Coordination opérationnelle sur site, planning de montage et démontage, pilotage des équipes et des prestataires, interface avec l'organisateur.</div>
+          <span class="tlink">En savoir plus <span class="arr">→</span></span>
+        </a>
+        <a class="mcard reveal" data-d="3" href="/metiers/expertise-securite">
+          <div class="mcard__n">03</div>
+          <div class="mcard__stat">AP2 ENSOSP — qualification rare dans le métier</div>
+          <div class="mcard__t">Expertise sécurité</div>
+          <div class="mcard__d">Notices de sécurité ERP et accompagnement face aux autorités — préfecture, mairie, commission de sécurité, SDIS. Qualification AP2 ENSOSP, rare dans la production technique événementielle.</div>
+          <span class="tlink">En savoir plus <span class="arr">→</span></span>
+        </a>
+      </div>
+
+      <div class="callout reveal" data-d="2" style="margin-top:1px">
+        <div class="callout__big">Les trois ensemble, ou chacun à part</div>
+        <p style="max-width:70ch">Direction technique, régie générale et expertise sécurité fonctionnent ensemble pour porter une production de A à Z — ou séparément, en renfort d'une équipe déjà constituée. C'est vous qui fixez le périmètre, ESE s'y adapte.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* PRODUCTIONS RÉALISÉES */}
+  <section class="section">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px">
+        <div style="max-width:52ch">
+          <span class="eyebrow">Productions réalisées</span>
+          <h2 class="display" style="font-size:clamp(26px,3vw,42px);margin-top:18px;line-height:1.1">Une sélection de dossiers menés depuis 2023.</h2>
+        </div>
+        <a class="btn btn--ghost" href="/references">Voir toutes les références <span class="arr">→</span></a>
+      </div>
+      <RefList />
+      <p class="reveal lead" data-d="1" style="margin-top:36px;font-style:italic;max-width:74ch;color:var(--slate)">
+        Au-delà de ces productions phares, ESE intervient au quotidien auprès de marques, agences, lieux culturels et entreprises sur leurs dossiers de production.
+      </p>
+    </div>
+  </section>
+
+  {/* MÉTHODES & PARTENARIATS */}
+  <section class="section section--tight" style="background:var(--pale)">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:40px">
+        <span class="eyebrow">Méthodes &amp; partenariats</span>
+      </div>
+      <div class="split" style="grid-template-columns:1fr 1fr;align-items:stretch;gap:clamp(20px,2vw,28px)">
+        <div class="callout reveal" style="background:var(--white);border-left-color:var(--navy)">
+          <div class="mono" style="color:var(--taupe-deep);font-size:12px">ÉDITEUR</div>
+          <div class="callout__big" style="margin-top:12px">ESE est éditeur de SOCLE®</div>
+          <p>SOCLE® — transformation opérationnelle des bureaux d'études et agences sur l'écosystème Vectorworks.</p>
+          <a class="tlink" href="/socle" style="margin-top:10px">Découvrir SOCLE® <span class="arr">→</span></a>
+        </div>
+        <div class="callout reveal" data-d="1" style="background:var(--white);border-left-color:var(--taupe)">
+          <div class="mono" style="color:var(--taupe-deep);font-size:12px">PARTENARIAT</div>
+          <div class="callout__big" style="margin-top:12px">COBEL® Développeur de culture</div>
+          <p>ESE accompagne la transformation organisationnelle des structures créatives en partenariat avec COBEL® Développeur de culture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactBanner />
+</BaseLayout>
+
+<script>
+  // Carrousel hero — auto-play + dots
+  const slides = Array.from(document.querySelectorAll("#hero-bg .hero__slide"));
+  const dots = Array.from(document.querySelectorAll("#hero-dots .hero__dot"));
+  const index = document.getElementById("hero-index");
+  let cur = 0, timer;
+  const total = slides.length;
+  function show(n) {
+    cur = (n + total) % total;
+    slides.forEach((s, k) => s.classList.toggle("on", k === cur));
+    dots.forEach((d, k) => d.classList.toggle("on", k === cur));
+    if (index) index.textContent = String(cur + 1).padStart(2, "0") + " — " + String(total).padStart(2, "0");
+  }
+  function start() { timer = setInterval(() => show(cur + 1), 6500); }
+  dots.forEach((d) =>
+    d.addEventListener("click", () => { clearInterval(timer); show(Number(d.dataset.i)); start(); })
+  );
+  if (total > 1) start();
+</script>

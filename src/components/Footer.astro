@@ -1,0 +1,48 @@
+---
+import { METIERS, CONTACT } from "../data/site.js";
+---
+<footer class="ftr">
+  <div class="ftr__grid">
+    <div class="ftr__brand">
+      <a class="logo" href="/" aria-label="ESE — accueil">
+        <img class="logo-mark" src="/logo-ese.png" alt="ESE" />
+        <span class="logo-word">Event &amp; Safety<br/>Engineering</span>
+      </a>
+      <p>Société d'ingénierie dédiée à la production technique événementielle. Direction technique, régie générale et expertise sécurité.</p>
+    </div>
+    <div>
+      <div class="ftr__h">Métiers</div>
+      <ul class="ftr__list">
+        {METIERS.map((m) => <li><a href={m.href}>{m.short}</a></li>)}
+        <li><a href="/references">Références</a></li>
+        <li><a href="/methodes-partenariats">Méthodes &amp; partenariats</a></li>
+        <li><a href="/socle">SOCLE®</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ftr__h">Société</div>
+      <ul class="ftr__list">
+        <li><a href="/qui-sommes-nous">Qui sommes-nous</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href={CONTACT.linkedinEntreprise} target="_blank" rel="noopener noreferrer">LinkedIn entreprise</a></li>
+        <li><a href={CONTACT.linkedinMatthieu} target="_blank" rel="noopener noreferrer">LinkedIn Matthieu Savatier</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ftr__h">Contact</div>
+      <ul class="ftr__list">
+        <li class="ftr__mono">{CONTACT.adresse1}<br/>{CONTACT.adresse2}</li>
+        <li><a class="ftr__mono" href={CONTACT.telHref}>{CONTACT.tel}</a></li>
+        <li><a class="ftr__mono" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ftr__bottom">
+    <span>© 2026 ESE — Event &amp; Safety Engineering</span>
+    <div class="ftr__legal">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgv">CGV</a>
+      <a href="/confidentialite">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>

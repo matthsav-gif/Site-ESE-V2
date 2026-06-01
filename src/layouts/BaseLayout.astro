@@ -1,0 +1,142 @@
+---
+import "../styles/styles.css";
+import "../styles/components.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+  title = "ESE — Event & Safety Engineering",
+  description = "Société d'ingénierie pour la production technique événementielle.",
+  ogImage = "/images/jo-para.jpg",
+  schema = [], // tableau de JSON-LD additionnels (Service, Person, FAQPage…)
+  type = "website",
+} = Astro.props;
+
+const site = "https://ese-techsolutions.com";
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImageAbs = new URL(ogImage, site).href;
+
+// --- Données structurées (SEO + lisibilité par les IA) ---
+const orgLd = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": `${site}/#organization`,
+  name: "Event & Safety Engineering",
+  alternateName: "ESE",
+  url: site,
+  logo: `${site}/logo-ese.png`,
+  image: `${site}/images/jo-para.jpg`,
+  description:
+    "Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale et expertise sécurité ERP, sur les productions live, événementielles et institutionnelles.",
+  slogan: "Société d'ingénierie pour la production technique événementielle.",
+  foundingDate: "2023",
+  founder: { "@type": "Person", name: "Matthieu Savatier" },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "15 rue des Halles",
+    postalCode: "75001",
+    addressLocality: "Paris",
+    addressCountry: "FR",
+  },
+  telephone: "+33184808069",
+  email: "secretariat@ese-techsolutions.com",
+  areaServed: [{ "@type": "Country", name: "France" }, "International"],
+  knowsAbout: [
+    "Direction technique événementielle",
+    "Régie générale",
+    "Stage management",
+    "Expertise sécurité ERP",
+    "Notice de sécurité ERP",
+    "Commission de sécurité",
+    "Qualification AP2 ENSOSP",
+    "Rigging et calculs de structures",
+    "Vectorworks", "Braceworks", "ConnectCAD", "MVR",
+    "Scénographie", "Production live", "Tournées en stade",
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/event-safety-engineering/",
+    "https://www.linkedin.com/in/matthieu-savatier/",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+33184808069",
+    email: "secretariat@ese-techsolutions.com",
+    contactType: "sales",
+    areaServed: "FR",
+    availableLanguage: ["French", "English"],
+  },
+};
+
+const siteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site}/#website`,
+  url: site,
+  name: "ESE — Event & Safety Engineering",
+  publisher: { "@id": `${site}/#organization` },
+  inLanguage: "fr-FR",
+};
+
+const allSchema = [orgLd, siteLd, ...schema];
+---
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/logo-ese.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="author" content="Event & Safety Engineering" />
+    <meta name="generator" content="Astro" />
+
+    {/* Indique aux IA / agents une version texte du site */}
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt — résumé du site pour les IA" />
+
+    <link rel="preload" href="/fonts/LuloCleanOne-Bold.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="/fonts/DINNext-Light.ttf" as="font" type="font/ttf" crossorigin />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="ESE — Event & Safety Engineering" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:alt" content="ESE — Event & Safety Engineering" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
+
+    {allSchema.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <Header />
+    <main id="main" class="app-main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Active les animations seulement si JS est dispo (sinon contenu visible)
+      document.documentElement.classList.add("js");
+      const reveals = () => Array.from(document.querySelectorAll(".reveal:not(.in)"));
+      if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+          });
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+        reveals().forEach((el) => io.observe(el));
+      } else {
+        reveals().forEach((el) => el.classList.add("in"));
+      }
+    </script>
+  </body>
+</html>

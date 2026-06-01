@@ -1,0 +1,17 @@
+---
+/* Affiche une vraie photo si `src` est fourni, sinon un placeholder stylé charte ESE. */
+const { src, alt = "", label = "", file = "", variant = "", ratio, class: className = "", loading = "lazy" } = Astro.props;
+const styleAttr = ratio ? `aspect-ratio:${ratio}` : undefined;
+---
+{src ? (
+  <div class:list={["ph-img", className]} style={styleAttr}>
+    <img src={src} alt={alt} loading={loading} decoding="async" />
+  </div>
+) : (
+  <div class:list={["ph", variant && `ph--${variant}`, className]} style={styleAttr}>
+    <div class="ph__tag">
+      <b>{label}</b>
+      <span>{file ? `fichier · ${file}` : "visuel à fournir"}</span>
+    </div>
+  </div>
+)}

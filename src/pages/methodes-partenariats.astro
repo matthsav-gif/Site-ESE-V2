@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactBanner from "../components/ContactBanner.astro";
+import Photo from "../components/Photo.astro";
+import { SEO, CONTACT } from "../data/site.js";
+---
+<BaseLayout title={SEO.methodes.title} description={SEO.methodes.description}>
+  <section class="phero">
+    <div class="phero__deco"></div>
+    <div class="phero__grid">
+      <div>
+        <span class="eyebrow">Méthodes &amp; partenariats</span>
+        <h1 style="margin-top:22px">Méthodes &amp;<br/>partenariats.</h1>
+        <p class="phero__sub">Deux engagements structurants au-delà des trois métiers ESE.</p>
+      </div>
+      <div class="phero__media">
+        <Photo src={null} label="Visuel charte / abstrait ESE" file="visuel à définir" variant="taupe" />
+      </div>
+    </div>
+  </section>
+
+  {/* SOCLE */}
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Éditeur</span>
+        <h2>ESE est éditeur de SOCLE®</h2>
+        <p class="mono" style="color:var(--taupe-deep);font-size:12px;margin-top:16px">ÉCOSYSTÈME VECTORWORKS</p>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          SOCLE® — transformation opérationnelle des bureaux d'études et agences sur l'écosystème Vectorworks.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:22px">
+          Édité par ESE, SOCLE® s'adresse aux organisations événementielles utilisatrices de Vectorworks qui cherchent à passer d'un outil installé à un système de production cohérent et transmissible — bureaux d'études, agences, scénographes, lieux culturels, opérateurs de site.
+        </p>
+        <div class="reveal" data-d="2" style="margin-top:28px">
+          <a class="btn" href="/socle">Découvrir SOCLE® <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* COBEL */}
+  <section class="section" style="background:var(--pale)">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Partenariat</span>
+        <h2>COBEL® Développeur de culture</h2>
+        <p class="mono" style="color:var(--taupe-deep);font-size:12px;margin-top:16px">TRANSFORMATION ORGANISATIONNELLE</p>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          ESE accompagne la transformation organisationnelle des structures créatives en partenariat avec COBEL® Développeur de culture.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:22px">
+          Ce partenariat permet à ESE d'intervenir sur la gouvernance, les processus et la structuration des équipes techniques des organisations événementielles en croissance — agences, opérateurs culturels, festivals en professionnalisation, lieux et sites — en mobilisant à la fois l'expertise sectorielle d'ESE et la doctrine de transformation de Cobel.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ContactBanner />
+</BaseLayout>

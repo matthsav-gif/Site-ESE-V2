@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const { title, eyebrow, maj, description } = Astro.props;
+---
+<BaseLayout title={`${title} — ESE`} description={description || `${title} — ESE Event & Safety Engineering.`}>
+  <section class="phero">
+    <div class="phero__deco"></div>
+    <div class="phero__grid" style="grid-template-columns:1fr">
+      <div style="max-width:34ch">
+        <span class="eyebrow">{eyebrow}</span>
+        <h1 style="margin-top:22px">{title}</h1>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="legal">
+        {maj && <p class="legal__maj">Dernière mise à jour — {maj}</p>}
+        <slot />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
