@@ -3,6 +3,7 @@ import { readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactBanner from "../components/ContactBanner.astro";
+import VideoFacade from "../components/VideoFacade.astro";
 import { REFERENCES, SEO } from "../data/site.js";
 
 // Galerie : lit automatiquement toutes les images de public/images/galerie/
@@ -66,6 +67,11 @@ try {
           <div>
             <p style="margin:0;color:var(--navy);font-size:18px">{r.names}</p>
             <p style="margin-top:10px;color:var(--slate);font-weight:300">{r.desc}</p>
+            {r.videos && (
+              <div class="vgrid" style="margin-top:22px">
+                {r.videos.map((v) => <VideoFacade id={v.id} title={v.title} />)}
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -139,5 +145,19 @@ try {
     if (e.key === "Escape") close();
     if (e.key === "ArrowLeft") show(cur - 1);
     if (e.key === "ArrowRight") show(cur + 1);
+  });
+
+  // Vidéos YouTube — charge l'iframe au clic
+  document.querySelectorAll(".vfacade").forEach((f) => {
+    f.addEventListener("click", () => {
+      const id = f.dataset.youtube;
+      if (!id || f.querySelector("iframe")) return;
+      const ifr = document.createElement("iframe");
+      ifr.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      ifr.title = f.querySelector(".vfacade__title")?.textContent || "Vidéo";
+      ifr.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      ifr.allowFullscreen = true;
+      f.appendChild(ifr);
+    });
   });
 </script>

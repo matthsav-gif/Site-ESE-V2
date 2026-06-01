@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactBanner from "./ContactBanner.astro";
 import RefList from "./RefList.astro";
 import Photo from "./Photo.astro";
-import { METIER_DATA, SEO } from "../data/site.js";
+import { METIER_DATA, SEO, PROCESS } from "../data/site.js";
 
 const { route } = Astro.props;
 const d = METIER_DATA[route];
@@ -99,8 +99,27 @@ const serviceLd = {
     </div>
   </section>
 
-  {/* MODÈLE D'INTERVENTION */}
+  {/* PROCESS */}
   <section class="section">
+    <div class="wrap">
+      <div class="reveal" style="max-width:56ch;margin-bottom:34px">
+        <span class="eyebrow">Comment ça se passe</span>
+        <h2 class="display" style="font-size:clamp(24px,2.6vw,38px);margin-top:16px;line-height:1.1">Du cadrage à la restitution du lieu.</h2>
+      </div>
+      <div class="process">
+        {PROCESS.map((p, i) => (
+          <div class="pstep reveal" data-d={i + 1}>
+            <div class="pstep__n">{p.n}</div>
+            <div class="pstep__t">{p.t}</div>
+            <div class="pstep__d">{p.d}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* MODÈLE D'INTERVENTION */}
+  <section class="section section--tight" style="background:var(--paper-2)">
     <div class="wrap split">
       <div class="reveal col-head">
         <span class="eyebrow">Modèle d'intervention</span>

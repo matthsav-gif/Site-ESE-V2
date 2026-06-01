@@ -2,9 +2,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactBanner from "../components/ContactBanner.astro";
 import RefList from "../components/RefList.astro";
-import { HERO_SLIDES, METIERS, SEO, CONTACT } from "../data/site.js";
+import { HERO_SLIDES, METIERS, SEO, CONTACT, CHIFFRES, FAQ } from "../data/site.js";
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
-<BaseLayout title={SEO.home.title} description={SEO.home.description}>
+<BaseLayout title={SEO.home.title} description={SEO.home.description} schema={[faqLd]}>
   {/* HERO */}
   <section class="hero">
     <div class="hero__bg" id="hero-bg">
@@ -114,6 +124,20 @@ import { HERO_SLIDES, METIERS, SEO, CONTACT } from "../data/site.js";
     </div>
   </section>
 
+  {/* CHIFFRES-CLÉS */}
+  <section style="background:var(--navy-deep)">
+    <div class="wrap" style="padding-top:0;padding-bottom:0">
+      <div class="stats reveal">
+        {CHIFFRES.map((c) => (
+          <div class="stat">
+            <div class="stat__n">{c.n}</div>
+            <div class="stat__l">{c.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   {/* PRODUCTIONS RÉALISÉES */}
   <section class="section">
     <div class="wrap">
@@ -153,8 +177,41 @@ import { HERO_SLIDES, METIERS, SEO, CONTACT } from "../data/site.js";
     </div>
   </section>
 
+  {/* FAQ */}
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Questions fréquentes</span>
+        <h2>Ce qu'on nous demande souvent.</h2>
+      </div>
+      <div class="reveal faq" data-d="1" id="faq">
+        {FAQ.map((f) => (
+          <div class="faq__item">
+            <button class="faq__q" type="button">
+              <span>{f.q}</span>
+              <span class="faq__sign">+</span>
+            </button>
+            <div class="faq__a"><p>{f.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <ContactBanner />
 </BaseLayout>
+
+<script>
+  // FAQ accordéon
+  document.querySelectorAll("#faq .faq__item").forEach((item) => {
+    const q = item.querySelector(".faq__q");
+    const a = item.querySelector(".faq__a");
+    q?.addEventListener("click", () => {
+      const open = item.classList.toggle("open");
+      a.style.maxHeight = open ? a.scrollHeight + "px" : null;
+    });
+  });
+</script>
 
 <script>
   // Carrousel hero — auto-play + dots

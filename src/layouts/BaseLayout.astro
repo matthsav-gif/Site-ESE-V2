@@ -116,12 +116,35 @@ const allSchema = [orgLd, siteLd, ...schema];
     ))}
   </head>
   <body>
+    <div class="intro" id="intro" aria-hidden="true">
+      <img class="intro__mark" src="/logo-ese.png" alt="" />
+      <span class="intro__word">Event &amp; Safety Engineering</span>
+      <div class="intro__bar"></div>
+    </div>
     <a class="skip-link" href="#main">Aller au contenu</a>
     <Header />
     <main id="main" class="app-main">
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Intro : une seule fois par session, sans bloquer la navigation
+      (function () {
+        const intro = document.getElementById("intro");
+        if (!intro) return;
+        const seen = (() => { try { return sessionStorage.getItem("ese_intro"); } catch (e) { return null; } })();
+        const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (seen || reduce) { intro.remove(); return; }
+        try { sessionStorage.setItem("ese_intro", "1"); } catch (e) {}
+        document.body.style.overflow = "hidden";
+        setTimeout(() => {
+          intro.classList.add("is-done");
+          document.body.style.overflow = "";
+          setTimeout(() => intro.remove(), 700);
+        }, 1500);
+      })();
+    </script>
 
     <script>
       // Active les animations seulement si JS est dispo (sinon contenu visible)

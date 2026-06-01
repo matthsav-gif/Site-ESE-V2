@@ -50,6 +50,10 @@ export const REFERENCES = [
     names: "Cérémonies d'ouverture des Jeux Olympiques et Paralympiques.",
     desc: "Direction technique et expertise multi-métiers sur le programme olympique.",
     src: "/images/jo-para.jpg", variant: "navy", span: "span-7 tall",
+    videos: [
+      { id: "onP5-DKSbI4", title: "Cérémonie d'ouverture des Jeux Olympiques de Paris 2024" },
+      { id: "7OuJXFhg5PA", title: "Cérémonie d'ouverture des Jeux Paralympiques de Paris 2024" },
+    ],
   },
   {
     k: "Tournées en stade", t: "Stadium tours",
@@ -62,6 +66,11 @@ export const REFERENCES = [
     names: "Louis Vuitton — collection femme oct. 2023 · Garnier Shortcut · Vichy Shortcut.",
     desc: "Direction technique et scénographie événementielle sur les formats luxe et beauté.",
     src: "/images/luxe-louis-vuitton.jpg", variant: "taupe", span: "span-4",
+    videos: [
+      { id: "4xA2rV1cXpM", title: "Louis Vuitton Men's Fall-Winter 2023 — performance live de Rosalía" },
+      { id: "Xn5qX2qbPdk", title: "Louis Vuitton Spring-Summer 2023 Fashion Show" },
+      { id: "6SX50BOmArI", title: "Louis Vuitton Men's Spring-Summer 2023 Show" },
+    ],
   },
   {
     k: "Sommets institutionnels", t: "UNOC Nice",
@@ -180,6 +189,45 @@ export const METIER_DATA = {
     projet: "Expertise sécurité",
   },
 };
+
+/* Chiffres-clés (bande accueil) */
+export const CHIFFRES = [
+  { n: "12 ans", l: "de production technique événementielle" },
+  { n: "2023", l: "année de fondation d'ESE" },
+  { n: "102 000", l: "personnes — JUL, Stade de France 2026" },
+  { n: "AP2", l: "ENSOSP — qualification sécurité ERP" },
+];
+
+/* Process en 3 étapes (pages métier) */
+export const PROCESS = [
+  { n: "01", t: "Cadrage", d: "On part de votre besoin et des contraintes du lieu : cahier des charges, budget technique, niveau de risque. Rien n'avance tant que le périmètre n'est pas clair." },
+  { n: "02", t: "Conception", d: "Plans, calculs et arbitrages — Vectorworks, ConnectCAD, Braceworks. Tout est documenté pour être validé par les équipes, les prestataires et, s'il le faut, les autorités." },
+  { n: "03", t: "Sur site", d: "Montage, run, démontage. ESE pilote le déroulé, coordonne les prestataires et reste l'interlocuteur unique jusqu'à la restitution du lieu." },
+];
+
+/* FAQ (accueil + schema FAQPage) */
+export const FAQ = [
+  {
+    q: "ESE travaille-t-elle uniquement sur de gros événements ?",
+    a: "Non. ESE intervient aussi bien sur une cérémonie olympique ou une tournée en stade que sur un événement de moyenne envergure, un lancement produit ou une opération confidentielle. C'est le besoin qui définit le périmètre, pas la taille.",
+  },
+  {
+    q: "Peut-on faire appel à ESE pour un seul des trois métiers ?",
+    a: "Oui. Direction technique, régie générale et expertise sécurité fonctionnent ensemble ou séparément. ESE peut porter une production de bout en bout, ou intervenir en renfort d'une équipe déjà en place.",
+  },
+  {
+    q: "ESE peut-elle produire et signer une notice de sécurité ERP ?",
+    a: "Oui. L'expertise sécurité d'ESE est portée par une qualification AP2 ENSOSP, rare dans la production événementielle. ESE produit les notices de sécurité ERP (types CTS, PA, L, T) et accompagne les opérateurs en commission de sécurité, face à la préfecture, la mairie et le SDIS.",
+  },
+  {
+    q: "Intervenez-vous en province et à l'international ?",
+    a: "Oui. ESE est basée à Paris mais intervient partout en France et à l'international, selon les projets — tournées, festivals, sommets institutionnels.",
+  },
+  {
+    q: "Qu'est-ce que SOCLE® ?",
+    a: "SOCLE® est la méthode propriétaire d'ESE (marque déposée à l'INPI) pour structurer la production technique des bureaux d'études et agences sur l'écosystème Vectorworks. Elle s'adresse aux organisations qui veulent passer d'un outil installé à un véritable système de production.",
+  },
+];
 
 /* Meta SEO par page */
 export const SEO = {
