@@ -39,7 +39,7 @@ export const HERO_SLIDES = [
   { src: "/images/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde au coucher du soleil" },
   { src: "/images/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival au soleil couchant" },
   { src: "/images/stade-montage.jpg", alt: "Montage de la scène au Stade de France, grues et structures en cours de levage" },
-  { src: "/images/show-usa-outdoor.jpg", alt: "Show outdoor USA de nuit, scène LED verte et foule" },
+  { src: "/images/club-lasers.jpg", alt: "Club, lasers et écrans LED suspendus, foule dense" },
   { src: "/images/festival-panorama.jpg", alt: "Panorama d'un festival en montagne au crépuscule" },
 ];
 
@@ -103,8 +103,8 @@ export const METIER_DATA = {
     sub: "De la rédaction du cahier des charges au pilotage sur site, ESE conçoit et opère la chaîne technique de vos productions : événementiel, live, scénographie.",
     media: { label: "Direction technique stade, vue fly", src: "/images/dt-stade-fly.jpg", alt: "Vue depuis les ponts d'accroche d'un stade en production", variant: "navy" },
     heroSlides: [
-      { src: "/images/jul-velodrome-truss.jpg", alt: "JUL en lévitation sur son plateau volant, rig papillon Vélodrome" },
-      { src: "/images/show-outdoor-trusses.jpg", alt: "Show outdoor de nuit, trusses et tours de rigging, ambiance bleue" },
+      { src: "/images/stade-pyro-rig.jpg", alt: "Stade couvert, rig en éventail et pyrotechnie spectaculaire" },
+      { src: "/images/jul-velodrome-truss.jpg", alt: "JUL sur plateau volant, rig papillon Vélodrome" },
       { src: "/images/festival-coucher-soleil.jpg", alt: "Festival outdoor en montagne au coucher du soleil" },
       { src: "/images/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival" },
     ],
@@ -140,7 +140,7 @@ export const METIER_DATA = {
     media: { label: "Régie sur site, scène en montage", src: "/images/regie-stade.jpg", alt: "Scène en cours de montage avec écrans, fin de mise en place", variant: "navy" },
     heroSlides: [
       { src: "/images/show-dj-stage.jpg", alt: "DJ outdoor face à une foule massive, run de show" },
-      { src: "/images/show-outdoor-dj.jpg", alt: "Show outdoor DJ, grande roue et foule en liesse" },
+      { src: "/images/show-festival-aerial.jpg", alt: "Vue drone festival outdoor, foule immense vue du ciel" },
       { src: "/images/show-festival-rouge.jpg", alt: "Festival outdoor de nuit, scène en rouge, foule immense" },
       { src: "/images/jul-velodrome-live.jpg", alt: "JUL en concert au Vélodrome, foule avec téléphones levés" },
     ],
