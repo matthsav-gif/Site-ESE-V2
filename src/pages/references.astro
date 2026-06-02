@@ -23,7 +23,7 @@ try {
       <div style="max-width:26ch">
         <span class="eyebrow">Références</span>
         <h1 style="margin-top:22px">Références.</h1>
-        <p class="phero__sub" style="max-width:52ch">Une sélection de productions menées par ESE — Event &amp; Safety Engineering.</p>
+        <p class="phero__sub" style="max-width:52ch">Une sélection de productions menées par ESE, Event &amp; Safety Engineering.</p>
       </div>
     </div>
   </section>
@@ -61,7 +61,7 @@ try {
         <div class="split reveal" data-d={(k % 2) + 1}
           style="grid-template-columns:320px 1fr;padding:30px 0;border-top:1px solid rgba(44,62,80,.14);align-items:baseline">
           <div>
-            <div class="mono" style="color:var(--taupe-deep);font-size:12px">{String(k + 1).padStart(2, "0")} — {r.k}</div>
+            <div class="mono" style="color:var(--taupe-deep);font-size:12px">{String(k + 1).padStart(2, "0")}, {r.k}</div>
             <h3 class="display" style="font-size:22px;margin-top:12px;line-height:1.12">{r.t}</h3>
           </div>
           <div>
@@ -87,7 +87,7 @@ try {
       </div>
       <div>
         <p class="reveal lead" style="margin-top:0">
-          Au-delà de ces productions phares, ESE intervient au quotidien auprès de marques, agences, lieux culturels et entreprises sur leurs dossiers de production — événementiel corporate, scène, captation, scénographie, expo, lancements produits, conventions. Sur des formats de moyenne envergure comme sur des opérations confidentielles.
+          Au-delà de ces productions phares, ESE intervient au quotidien auprès de marques, agences, lieux culturels et entreprises sur leurs dossiers de production, événementiel corporate, scène, captation, scénographie, expo, lancements produits, conventions. Sur des formats de moyenne envergure comme sur des opérations confidentielles.
         </p>
         <p class="reveal" data-d="1" style="margin-top:22px">
           ESE accompagne agences événementielles, producteurs et organisateurs de spectacles, bureaux d'études techniques, scénographes et donneurs d'ordre institutionnels.
@@ -103,12 +103,12 @@ try {
         <div class="reveal" style="margin-bottom:36px;max-width:60ch">
           <span class="eyebrow">Galerie</span>
           <h2 class="display" style="font-size:clamp(24px,2.6vw,38px);margin-top:16px;line-height:1.1">En images.</h2>
-          <p class="lead" style="margin-top:16px">Productions, montages, structures et scénographies — un aperçu du quotidien d'ESE.</p>
+          <p class="lead" style="margin-top:16px">Productions, montages, structures et scénographies, un aperçu du quotidien d'ESE.</p>
         </div>
         <div class="gallery" id="gallery">
           {galerie.map((src, i) => (
             <button class="gallery__item" data-src={src} data-i={i} aria-label={`Agrandir l'image ${i + 1}`}>
-              <img src={src} alt={`Production ESE — visuel ${i + 1}`} loading="lazy" decoding="async" />
+              <img src={src} alt={`Production ESE, visuel ${i + 1}`} loading="lazy" decoding="async" />
             </button>
           ))}
         </div>
@@ -147,7 +147,7 @@ try {
     if (e.key === "ArrowRight") show(cur + 1);
   });
 
-  // Vidéos YouTube — charge l'iframe au clic
+  // Vidéos YouTube, charge l'iframe au clic
   document.querySelectorAll(".vfacade").forEach((f) => {
     f.addEventListener("click", () => {
       const id = f.dataset.youtube;

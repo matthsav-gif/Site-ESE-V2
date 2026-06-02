@@ -25,7 +25,7 @@ const faqLd = {
       ))}
     </div>
     <div class="hero__scrim"></div>
-    <div class="hero__index" id="hero-index">01 — {String(HERO_SLIDES.length).padStart(2, "0")}</div>
+    <div class="hero__index" id="hero-index">01 / {String(HERO_SLIDES.length).padStart(2, "0")}</div>
     <div class="hero__dots" id="hero-dots">
       {HERO_SLIDES.map((_, k) => (
         <button class={"hero__dot" + (k === 0 ? " on" : "")} data-i={k} aria-label={`Visuel ${k + 1}`}></button>
@@ -34,7 +34,7 @@ const faqLd = {
     <div class="hero__inner">
       <div class="reveal in">
         <h1>Société d'ingénierie pour la production technique événementielle.</h1>
-        <p class="hero__sub">Direction technique · Régie générale · Expertise sécurité — sur les productions live, événementielles et institutionnelles.</p>
+        <p class="hero__sub">Direction technique · Régie générale · Expertise sécurité, sur les productions live, événementielles et institutionnelles.</p>
         <div class="hero__cta">
           <a class="btn btn--light" href="/contact">Nous contacter <span class="arr">→</span></a>
           <a class="btn btn--ghost-light" href="/references">Voir nos références <span class="arr">→</span></a>
@@ -55,10 +55,13 @@ const faqLd = {
           Douze ans de production technique événementielle, des cérémonies des Jeux Olympiques de Paris 2024 aux tournées en stade et aux gros concerts internationaux, en passant par les grands défilés de mode et les événements institutionnels d'envergure internationale.
         </p>
         <p class="reveal" data-d="1" style="margin-top:24px">
-          J'ai fondé ESE — Event &amp; Safety Engineering — société d'ingénierie dédiée à la production technique événementielle. Trois métiers structurent son activité.
+          J'ai fondé Event &amp; Safety Engineering (ESE), société d'ingénierie dédiée à la production technique événementielle. Trois métiers en structurent l'activité.
+        </p>
+        <p class="reveal signature" data-d="1" style="margin-top:18px">
+          Matthieu Savatier<span>Fondateur d'ESE</span>
         </p>
         <div class="reveal" data-d="2" style="margin-top:28px">
-          <a class="tlink" href="/qui-sommes-nous">En savoir plus — Qui sommes-nous <span class="arr">→</span></a>
+          <a class="tlink" href="/qui-sommes-nous">En savoir plus sur ESE <span class="arr">→</span></a>
         </div>
       </div>
     </div>
@@ -73,7 +76,7 @@ const faqLd = {
           Tous les formats, toutes les configurations.
         </h2>
         <p style="margin-top:18px;color:var(--slate);font-weight:300">
-          ESE intervient sur l'ensemble des configurations de production technique événementielle — du plateau TV à l'hippodrome, de la salle de 300 places au stade de 100 000.
+          ESE intervient sur l'ensemble des configurations de production technique événementielle, du plateau TV à l'hippodrome, de la salle de 300 places au stade de 100 000.
         </p>
       </div>
       <div class="reveal terrains" data-d="1">
@@ -103,23 +106,23 @@ const faqLd = {
         </a>
         <a class="mcard reveal" data-d="2" href="/metiers/regie-generale">
           <div class="mcard__n">02</div>
-          <div class="mcard__stat">Montage · run · démontage — équipe à façon</div>
+          <div class="mcard__stat">Montage · run · démontage, équipe à façon</div>
           <div class="mcard__t">Régie générale &amp; stage management</div>
           <div class="mcard__d">Coordination opérationnelle sur site, planning de montage et démontage, pilotage des équipes et des prestataires, interface avec l'organisateur.</div>
           <span class="tlink">En savoir plus <span class="arr">→</span></span>
         </a>
         <a class="mcard reveal" data-d="3" href="/metiers/expertise-securite">
           <div class="mcard__n">03</div>
-          <div class="mcard__stat">AP2 ENSOSP — qualification rare dans le métier</div>
+          <div class="mcard__stat">AP2 ENSOSP, qualification rare dans le métier</div>
           <div class="mcard__t">Expertise sécurité</div>
-          <div class="mcard__d">Notices de sécurité ERP et accompagnement face aux autorités — préfecture, mairie, commission de sécurité, SDIS. Qualification AP2 ENSOSP, rare dans la production technique événementielle.</div>
+          <div class="mcard__d">Notices de sécurité ERP et accompagnement face aux autorités, préfecture, mairie, commission de sécurité, SDIS. Qualification AP2 ENSOSP, rare dans la production technique événementielle.</div>
           <span class="tlink">En savoir plus <span class="arr">→</span></span>
         </a>
       </div>
 
       <div class="callout reveal" data-d="2" style="margin-top:1px">
         <div class="callout__big">Les trois ensemble, ou chacun à part</div>
-        <p style="max-width:70ch">Direction technique, régie générale et expertise sécurité fonctionnent ensemble pour porter une production de A à Z — ou séparément, en renfort d'une équipe déjà constituée. C'est vous qui fixez le périmètre, ESE s'y adapte.</p>
+        <p style="max-width:70ch">Direction technique, régie générale et expertise sécurité fonctionnent ensemble pour porter une production de A à Z, ou séparément, en renfort d'une équipe déjà constituée. C'est vous qui fixez le périmètre, ESE s'y adapte.</p>
       </div>
     </div>
   </section>
@@ -165,7 +168,7 @@ const faqLd = {
         <div class="callout reveal" style="background:var(--white);border-left-color:var(--navy)">
           <div class="mono" style="color:var(--taupe-deep);font-size:12px">ÉDITEUR</div>
           <div class="callout__big" style="margin-top:12px">ESE est éditeur de SOCLE®</div>
-          <p>SOCLE® — transformation opérationnelle des bureaux d'études et agences sur l'écosystème Vectorworks.</p>
+          <p>SOCLE®, transformation opérationnelle des bureaux d'études et agences sur l'écosystème Vectorworks.</p>
           <a class="tlink" href="/socle" style="margin-top:10px">Découvrir SOCLE® <span class="arr">→</span></a>
         </div>
         <div class="callout reveal" data-d="1" style="background:var(--white);border-left-color:var(--taupe)">
@@ -214,7 +217,7 @@ const faqLd = {
 </script>
 
 <script>
-  // Carrousel hero — auto-play + dots
+  // Carrousel hero, auto-play + dots
   const slides = Array.from(document.querySelectorAll("#hero-bg .hero__slide"));
   const dots = Array.from(document.querySelectorAll("#hero-dots .hero__dot"));
   const index = document.getElementById("hero-index");
@@ -224,7 +227,7 @@ const faqLd = {
     cur = (n + total) % total;
     slides.forEach((s, k) => s.classList.toggle("on", k === cur));
     dots.forEach((d, k) => d.classList.toggle("on", k === cur));
-    if (index) index.textContent = String(cur + 1).padStart(2, "0") + " — " + String(total).padStart(2, "0");
+    if (index) index.textContent = String(cur + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
   }
   function start() { timer = setInterval(() => show(cur + 1), 6500); }
   dots.forEach((d) =>

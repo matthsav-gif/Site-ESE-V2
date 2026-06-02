@@ -5,7 +5,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const {
-  title = "ESE — Event & Safety Engineering",
+  title = "ESE Â· Event & Safety Engineering",
   description = "Société d'ingénierie pour la production technique événementielle.",
   ogImage = "/images/jo-para.jpg",
   schema = [], // tableau de JSON-LD additionnels (Service, Person, FAQPage…)
@@ -71,7 +71,7 @@ const siteLd = {
   "@type": "WebSite",
   "@id": `${site}/#website`,
   url: site,
-  name: "ESE — Event & Safety Engineering",
+  name: "ESE Â· Event & Safety Engineering",
   publisher: { "@id": `${site}/#organization` },
   inLanguage: "fr-FR",
 };
@@ -92,19 +92,19 @@ const allSchema = [orgLd, siteLd, ...schema];
     <meta name="generator" content="Astro" />
 
     {/* Indique aux IA / agents une version texte du site */}
-    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt — résumé du site pour les IA" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt , résumé du site pour les IA" />
 
     <link rel="preload" href="/fonts/LuloCleanOne-Bold.otf" as="font" type="font/otf" crossorigin />
     <link rel="preload" href="/fonts/DINNext-Light.ttf" as="font" type="font/ttf" crossorigin />
 
     <meta property="og:type" content={type} />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="ESE — Event & Safety Engineering" />
+    <meta property="og:site_name" content="ESE Â· Event & Safety Engineering" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
-    <meta property="og:image:alt" content="ESE — Event & Safety Engineering" />
+    <meta property="og:image:alt" content="ESE Â· Event & Safety Engineering" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

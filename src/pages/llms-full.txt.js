@@ -19,7 +19,7 @@ function metier(route) {
 }
 
 export async function GET() {
-  const body = `# ESE — Event & Safety Engineering — Contenu complet
+  const body = `# ESE, Event & Safety Engineering, Contenu complet
 
 > Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris.
 
@@ -27,25 +27,25 @@ Document texte intégral du site ${site}, destiné aux moteurs et aux IA. Socié
 
 # Accueil
 
-Société d'ingénierie pour la production technique événementielle. Direction technique · Régie générale · Expertise sécurité — sur les productions live, événementielles et institutionnelles.
+Société d'ingénierie pour la production technique événementielle. Direction technique · Régie générale · Expertise sécurité, sur les productions live, événementielles et institutionnelles.
 
-Douze ans de production technique événementielle, des cérémonies des Jeux Olympiques de Paris 2024 aux tournées en stade et aux gros concerts internationaux, en passant par les grands défilés de mode et les événements institutionnels d'envergure internationale. Matthieu Savatier a fondé ESE — Event & Safety Engineering — société d'ingénierie dédiée à la production technique événementielle. Trois métiers structurent son activité.
+Douze ans de production technique événementielle, des cérémonies des Jeux Olympiques de Paris 2024 aux tournées en stade et aux gros concerts internationaux, en passant par les grands défilés de mode et les événements institutionnels d'envergure internationale. Matthieu Savatier a fondé ESE, Event & Safety Engineering, société d'ingénierie dédiée à la production technique événementielle. Trois métiers structurent son activité.
 
 Terrains d'intervention : concerts & tournées en stade, festivals outdoor, spectacle vivant & théâtre, défilés de mode, scénographie & muséographie, événements institutionnels, plateaux TV & captations, congrès & conventions, lancements produits, sites & lieux culturels en transformation.
 
 # Métiers
 
-${metier("direction-technique")}${metier("regie-generale")}${metier("expertise-securite")}# Références — productions
+${metier("direction-technique")}${metier("regie-generale")}${metier("expertise-securite")}# Références, productions
 
-${REFERENCES.map((r) => `## ${r.k} — ${r.t}\n\n${r.names}\n\n${r.desc}`).join("\n\n")}
+${REFERENCES.map((r) => `## ${r.k}, ${r.t}\n\n${r.names}\n\n${r.desc}`).join("\n\n")}
 
-Au-delà de ces productions phares, ESE intervient au quotidien auprès de marques, agences, lieux culturels et entreprises sur leurs dossiers de production — événementiel corporate, scène, captation, scénographie, expo, lancements produits, conventions.
+Au-delà de ces productions phares, ESE intervient au quotidien auprès de marques, agences, lieux culturels et entreprises sur leurs dossiers de production, événementiel corporate, scène, captation, scénographie, expo, lancements produits, conventions.
 
 # SOCLE®
 
 SOCLE® est la méthode propriétaire d'ESE (marque déposée à l'INPI) de transformation opérationnelle des bureaux d'études événementiels et des agences créatives autour de l'environnement Vectorworks. Ce n'est pas un logiciel, mais un corps doctrinal, méthodologique et opérationnel : organisation des fichiers, gabarits, conventions de nommage, workflows ConnectCAD, Braceworks et MVR, processus de transmission et d'onboarding.
 
-SOCLE® est ancré dans une expertise Vectorworks de haut niveau : Matthieu Savatier a été formateur certifié et beta-testeur de la Team France Vectorworks chez Oliverdy — à la croisée de la pratique terrain et de la formation professionnelle.
+SOCLE® est ancré dans une expertise Vectorworks de haut niveau : Matthieu Savatier a été formateur certifié et beta-testeur de la Team France Vectorworks chez Oliverdy, à la croisée de la pratique terrain et de la formation professionnelle.
 
 # Méthodes & partenariats
 
@@ -57,7 +57,7 @@ ESE est portée par son fondateur, Matthieu Savatier. Avant ESE, il a exercé la
 
 Qualifications : Attestation de Compétence AP2 ENSOSP (prévention incendie et de panique pour les ERP et IGH) ; expertise Vectorworks ; compétences structures et rigging (Braceworks, MVR) ; formateur certifié et beta-testeur Team France Vectorworks.
 
-ESE s'appuie sur une équipe de spécialistes mobilisée selon les projets — régisseurs, directeurs techniques, ingénieurs structure et préventionnistes — assemblée à façon pour chaque mission. ESE accompagne agences événementielles, producteurs et organisateurs de spectacles, bureaux d'études techniques, scénographes et donneurs d'ordre institutionnels.
+ESE s'appuie sur une équipe de spécialistes mobilisée selon les projets, régisseurs, directeurs techniques, ingénieurs structure et préventionnistes, assemblée à façon pour chaque mission. ESE accompagne agences événementielles, producteurs et organisateurs de spectacles, bureaux d'études techniques, scénographes et donneurs d'ordre institutionnels.
 
 # Contact
 

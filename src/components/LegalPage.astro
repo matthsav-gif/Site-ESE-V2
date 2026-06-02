@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 const { title, eyebrow, maj, description } = Astro.props;
 ---
-<BaseLayout title={`${title} — ESE`} description={description || `${title} — ESE Event & Safety Engineering.`}>
+<BaseLayout title={`${title}, ESE`} description={description || `${title}, ESE Event & Safety Engineering.`}>
   <section class="phero">
     <div class="phero__deco"></div>
     <div class="phero__grid" style="grid-template-columns:1fr">
@@ -15,7 +15,7 @@ const { title, eyebrow, maj, description } = Astro.props;
   <section class="section">
     <div class="wrap">
       <div class="legal">
-        {maj && <p class="legal__maj">Dernière mise à jour — {maj}</p>}
+        {maj && <p class="legal__maj">Dernière mise à jour, {maj}</p>}
         <slot />
       </div>
     </div>

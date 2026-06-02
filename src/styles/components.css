@@ -1,5 +1,5 @@
 /* ============================================================
-   ESE — header, mega-menu, hero, cards, footer, forms
+   ESE , header, mega-menu, hero, cards, footer, forms
    ============================================================ */
 
 /* ---------- Header ---------- */
@@ -534,6 +534,17 @@
 .faq__item.open .faq__sign { transform: rotate(45deg); }
 .faq__a { max-height: 0; overflow: hidden; transition: max-height .5s var(--ease); }
 .faq__a p { margin: 0 0 26px; max-width: 78ch; color: var(--slate); font-weight: 300; font-size: 16px; line-height: 1.6; }
+
+/* ---------- Signature fondateur ---------- */
+.signature {
+  font-family: var(--font-display); text-transform: uppercase;
+  letter-spacing: .08em; font-size: 14px; color: var(--navy); line-height: 1.4;
+}
+.signature span {
+  display: block; font-family: var(--font-mono); text-transform: none;
+  letter-spacing: .02em; font-size: 12px; color: var(--taupe-deep);
+  font-weight: 400; margin-top: 3px;
+}
 
 /* ---------- Terrains d'intervention ---------- */
 .terrains {
