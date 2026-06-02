@@ -102,6 +102,12 @@ export const METIER_DATA = {
     h1: "Direction technique.",
     sub: "De la rédaction du cahier des charges au pilotage sur site, ESE conçoit et opère la chaîne technique de vos productions : événementiel, live, scénographie.",
     media: { label: "Direction technique stade, vue fly", src: "/images/dt-stade-fly.jpg", alt: "Vue depuis les ponts d'accroche d'un stade en production", variant: "navy" },
+    heroSlides: [
+      { src: "/images/dt-stade-fly.jpg", alt: "Vue depuis les ponts d'accroche d'un stade en cours de production" },
+      { src: "/images/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival au soleil couchant" },
+      { src: "/images/truss-etoile.jpg", alt: "Structure de rigging en étoile vue d'en dessous, accroche et lumière" },
+      { src: "/images/stade-montage.jpg", alt: "Montage de la scène au Stade de France, grues et structures en levage" },
+    ],
     perimTitle: "Périmètre de la direction technique",
     perimLead: "La direction technique ESE couvre l'ensemble de la chaîne, de la pré-production à la livraison sur site.",
     perim: [
@@ -132,6 +138,12 @@ export const METIER_DATA = {
     h1: "Régie générale & stage management.",
     sub: "Coordination opérationnelle sur site (montage, run, démontage), sur l'événementiel, la scène et le live.",
     media: { label: "Régie sur site, scène en montage", src: "/images/regie-stade.jpg", alt: "Scène en cours de montage avec écrans, fin de mise en place", variant: "navy" },
+    heroSlides: [
+      { src: "/images/regie-stade.jpg", alt: "Scène en cours de montage avec écrans, régie sur site" },
+      { src: "/images/live-stade.jpg", alt: "Performance live en stade, run de spectacle" },
+      { src: "/images/stade-concert.jpg", alt: "Concert en stade, gestion de la production sur site" },
+      { src: "/images/festival-nuit.jpg", alt: "Festival de nuit, grande scène et foule" },
+    ],
     perimTitle: "Périmètre de la régie générale",
     perimLead: "ESE assure la coordination opérationnelle de la production sur site, depuis l'arrivée sur le lieu jusqu'à la restitution finale.",
     perim: [
@@ -162,6 +174,12 @@ export const METIER_DATA = {
     h1: "Expertise sécurité, ERP & autorités.",
     sub: "Notices de sécurité et accompagnement face aux autorités, par un expert événementiel, pas un bureau de contrôle.",
     media: { label: "Public en stade, enjeu ERP", src: "/images/stade-foule.jpg", alt: "Tribunes et parterre combles au Stade de France lors d'un concert, enjeu de sécurité du public", variant: "navy" },
+    heroSlides: [
+      { src: "/images/stade-foule.jpg", alt: "Tribunes et parterre combles au Stade de France, sécurité du public ERP" },
+      { src: "/images/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde" },
+      { src: "/images/unoc-nice.jpg", alt: "United Nations Ocean Conference, sommet institutionnel international" },
+      { src: "/images/arena.jpg", alt: "Arena en configuration événementielle, ERP de type L" },
+    ],
     qualif: {
       big: "Une qualification AP2 ENSOSP, rare dans le métier.",
       body: [

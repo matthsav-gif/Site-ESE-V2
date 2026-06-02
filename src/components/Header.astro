@@ -2,7 +2,7 @@
 import { METIERS, CONTACT } from "../data/site.js";
 const path = Astro.url.pathname;
 const isMetier = path.startsWith("/metiers/");
-const tallHero = path === "/"; // la home a un hero plein écran
+const tallHero = path === "/" || path.startsWith("/metiers/"); // home + pages métier ont un hero plein écran
 ---
 <header class="hdr is-over" id="site-header" data-tall-hero={tallHero ? "1" : "0"}>
   <div class="hdr__inner">

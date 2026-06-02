@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactBanner from "./ContactBanner.astro";
 import RefList from "./RefList.astro";
-import Photo from "./Photo.astro";
 import { METIER_DATA, SEO, PROCESS } from "../data/site.js";
 
 const { route } = Astro.props;
@@ -31,21 +30,31 @@ const serviceLd = {
 };
 ---
 <BaseLayout title={seo.title} description={seo.description} ogImage={d.media.src || "/images/jo-para.jpg"} schema={[serviceLd]}>
-  {/* HERO */}
-  <section class="phero">
-    <div class="phero__deco"></div>
-    <div class="phero__grid">
-      <div>
-        <span class="eyebrow">{d.eyebrow}</span>
-        <h1 style="margin-top:22px">{d.h1}</h1>
-        <p class="phero__sub">{d.sub}</p>
-        <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
+  {/* HERO — carrousel plein écran */}
+  <section class="hero">
+    <div class="hero__bg" id="hero-bg">
+      {d.heroSlides.map((s, k) => (
+        <div class={"hero__slide" + (k === 0 ? " on" : "")}>
+          <div class="hero__media" style={`background-image:url('${s.src}')`} role="img" aria-label={s.alt}></div>
+        </div>
+      ))}
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="hero__index" id="hero-index">01 / {String(d.heroSlides.length).padStart(2, "0")}</div>
+    <div class="hero__dots" id="hero-dots">
+      {d.heroSlides.map((_, k) => (
+        <button class={"hero__dot" + (k === 0 ? " on" : "")} data-i={k} aria-label={`Visuel ${k + 1}`}></button>
+      ))}
+    </div>
+    <div class="hero__inner">
+      <div class="reveal in">
+        <span class="eyebrow" style="color:rgba(246,244,239,.66)">{d.eyebrow}</span>
+        <h1 style="margin-top:16px">{d.h1}</h1>
+        <p class="hero__sub">{d.sub}</p>
+        <div class="hero__cta">
           <a class="btn btn--light" href={`/contact?type=${route}`}>Nous contacter <span class="arr">→</span></a>
           <a class="btn btn--ghost-light" href="/references">Références <span class="arr">→</span></a>
         </div>
-      </div>
-      <div class="phero__media">
-        <Photo src={d.media.src} alt={d.media.alt} label={d.media.label} file={d.media.file} variant={d.media.variant} loading="eager" />
       </div>
     </div>
   </section>
@@ -149,3 +158,23 @@ const serviceLd = {
 
   <ContactBanner />
 </BaseLayout>
+
+<script>
+  // Carrousel hero métier
+  const slides = Array.from(document.querySelectorAll("#hero-bg .hero__slide"));
+  const dots = Array.from(document.querySelectorAll("#hero-dots .hero__dot"));
+  const index = document.getElementById("hero-index");
+  let cur = 0, timer;
+  const total = slides.length;
+  function show(n) {
+    cur = (n + total) % total;
+    slides.forEach((s, k) => s.classList.toggle("on", k === cur));
+    dots.forEach((d, k) => d.classList.toggle("on", k === cur));
+    if (index) index.textContent = String(cur + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
+  }
+  function start() { timer = setInterval(() => show(cur + 1), 6500); }
+  dots.forEach((d) =>
+    d.addEventListener("click", () => { clearInterval(timer); show(Number(d.dataset.i)); start(); })
+  );
+  if (total > 1) start();
+</script>
