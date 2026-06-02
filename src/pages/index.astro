@@ -175,6 +175,9 @@ const faqLd = {
           <div class="mono" style="color:var(--taupe-deep);font-size:12px">PARTENARIAT</div>
           <div class="callout__big" style="margin-top:12px">COBEL® Développeur de culture</div>
           <p>ESE accompagne la transformation organisationnelle des structures créatives en partenariat avec COBEL® Développeur de culture.</p>
+          {CONTACT.cobel && (
+            <a class="tlink" href={CONTACT.cobel} target="_blank" rel="noopener noreferrer" style="margin-top:10px">Découvrir COBEL® <span class="arr">↗</span></a>
+          )}
         </div>
       </div>
     </div>
