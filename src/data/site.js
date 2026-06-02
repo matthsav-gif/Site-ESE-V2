@@ -36,11 +36,11 @@ export const METIERS = [
 export const HERO_SLIDES = [
   { src: "/images/festival-coucher-soleil.jpg", alt: "Festival outdoor en montagne au coucher du soleil, scène et public" },
   { src: "/images/chicago-navy-pier.jpg", alt: "Chicago Navy Pier au coucher du soleil, production événementielle internationale" },
-  { src: "/images/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde au coucher du soleil" },
-  { src: "/images/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival au soleil couchant" },
-  { src: "/images/stade-montage.jpg", alt: "Montage de la scène au Stade de France, grues et structures en cours de levage" },
+  { src: "/images/show-coachella-screen.jpg", alt: "Festival outdoor, écran géant et foule au coucher du soleil" },
+  { src: "/images/stade-pyro-flames.jpg", alt: "Stade en feu, pyrotechnie massive et foule lors d'un grand concert" },
+  { src: "/images/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde" },
   { src: "/images/club-lasers.jpg", alt: "Club, lasers et écrans LED suspendus, foule dense" },
-  { src: "/images/festival-panorama.jpg", alt: "Panorama d'un festival en montagne au crépuscule" },
+  { src: "/images/paris-sacre-coeur-fireworks.jpg", alt: "Sacré-Cœur de Paris avec feux d'artifice, vue aérienne nocturne" },
 ];
 
 /* Mosaïque de la page Références (5 grappes) */
@@ -105,7 +105,7 @@ export const METIER_DATA = {
     heroSlides: [
       { src: "/images/stade-pyro-rig.jpg", alt: "Stade couvert, rig en éventail et pyrotechnie spectaculaire" },
       { src: "/images/jul-velodrome-truss.jpg", alt: "JUL sur plateau volant, rig papillon Vélodrome" },
-      { src: "/images/festival-coucher-soleil.jpg", alt: "Festival outdoor en montagne au coucher du soleil" },
+      { src: "/images/stade-concert-pyro.jpg", alt: "Stade en concert, pyrotechnie or et foule immense" },
       { src: "/images/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival" },
     ],
     perimTitle: "Périmètre de la direction technique",
@@ -139,8 +139,8 @@ export const METIER_DATA = {
     sub: "Coordination opérationnelle sur site (montage, run, démontage), sur l'événementiel, la scène et le live.",
     media: { label: "Régie sur site, scène en montage", src: "/images/regie-stade.jpg", alt: "Scène en cours de montage avec écrans, fin de mise en place", variant: "navy" },
     heroSlides: [
-      { src: "/images/show-dj-stage.jpg", alt: "DJ outdoor face à une foule massive, run de show" },
-      { src: "/images/show-festival-aerial.jpg", alt: "Vue drone festival outdoor, foule immense vue du ciel" },
+      { src: "/images/show-sao-paulo-dj.jpg", alt: "DJ outdoor São Paulo, vue fisheye face à la foule et la ville" },
+      { src: "/images/club-grand-palais-dj.jpg", alt: "DJ set dans une venue Beaux-Arts, lasers et line arrays" },
       { src: "/images/show-festival-rouge.jpg", alt: "Festival outdoor de nuit, scène en rouge, foule immense" },
       { src: "/images/jul-velodrome-live.jpg", alt: "JUL en concert au Vélodrome, foule avec téléphones levés" },
     ],
