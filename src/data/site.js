@@ -35,11 +35,11 @@ export const METIERS = [
 
 export const HERO_SLIDES = [
   { src: "/images/festival-coucher-soleil.jpg", alt: "Festival outdoor en montagne au coucher du soleil, scène et public" },
-  { src: "/images/festival-nuit.jpg", alt: "Festival de nuit, grande scène et foule sous les lumières" },
+  { src: "/images/chicago-navy-pier.jpg", alt: "Chicago Navy Pier au coucher du soleil, production événementielle internationale" },
   { src: "/images/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde au coucher du soleil" },
   { src: "/images/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival au soleil couchant" },
   { src: "/images/stade-montage.jpg", alt: "Montage de la scène au Stade de France, grues et structures en cours de levage" },
-  { src: "/images/truss-etoile.jpg", alt: "Structure de rigging en étoile vue d'en dessous, accroche et lumière sur un grand plateau" },
+  { src: "/images/show-usa-outdoor.jpg", alt: "Show outdoor USA de nuit, scène LED verte et foule" },
   { src: "/images/festival-panorama.jpg", alt: "Panorama d'un festival en montagne au crépuscule" },
 ];
 
@@ -103,9 +103,9 @@ export const METIER_DATA = {
     sub: "De la rédaction du cahier des charges au pilotage sur site, ESE conçoit et opère la chaîne technique de vos productions : événementiel, live, scénographie.",
     media: { label: "Direction technique stade, vue fly", src: "/images/dt-stade-fly.jpg", alt: "Vue depuis les ponts d'accroche d'un stade en production", variant: "navy" },
     heroSlides: [
-      { src: "/images/festival-coucher-soleil.jpg", alt: "Festival outdoor en montagne au coucher du soleil, scène et public" },
-      { src: "/images/dj-mochakk.jpg", alt: "DJ set international en club, direction technique événementielle" },
-      { src: "/images/festival-panorama.jpg", alt: "Panorama d'un festival en montagne au crépuscule" },
+      { src: "/images/jul-velodrome-truss.jpg", alt: "JUL en lévitation sur son plateau volant, rig papillon Vélodrome" },
+      { src: "/images/show-outdoor-trusses.jpg", alt: "Show outdoor de nuit, trusses et tours de rigging, ambiance bleue" },
+      { src: "/images/festival-coucher-soleil.jpg", alt: "Festival outdoor en montagne au coucher du soleil" },
       { src: "/images/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival" },
     ],
     perimTitle: "Périmètre de la direction technique",
@@ -139,10 +139,10 @@ export const METIER_DATA = {
     sub: "Coordination opérationnelle sur site (montage, run, démontage), sur l'événementiel, la scène et le live.",
     media: { label: "Régie sur site, scène en montage", src: "/images/regie-stade.jpg", alt: "Scène en cours de montage avec écrans, fin de mise en place", variant: "navy" },
     heroSlides: [
-      { src: "/images/regie-stade.jpg", alt: "Scène en cours de montage avec écrans, régie sur site" },
-      { src: "/images/stade-concert.jpg", alt: "Concert en stade, run de production" },
-      { src: "/images/luxe-louis-vuitton.jpg", alt: "Régie sur un défilé de mode Louis Vuitton" },
-      { src: "/images/live-stade.jpg", alt: "Performance live en stade, pilotage sur site" },
+      { src: "/images/show-dj-stage.jpg", alt: "DJ outdoor face à une foule massive, run de show" },
+      { src: "/images/show-outdoor-dj.jpg", alt: "Show outdoor DJ, grande roue et foule en liesse" },
+      { src: "/images/show-festival-rouge.jpg", alt: "Festival outdoor de nuit, scène en rouge, foule immense" },
+      { src: "/images/jul-velodrome-live.jpg", alt: "JUL en concert au Vélodrome, foule avec téléphones levés" },
     ],
     perimTitle: "Périmètre de la régie générale",
     perimLead: "ESE assure la coordination opérationnelle de la production sur site, depuis l'arrivée sur le lieu jusqu'à la restitution finale.",
