@@ -56,6 +56,11 @@ import { SEO, CONTACT } from "../data/site.js";
         <p class="reveal" data-d="1" style="margin-top:22px">
           Ce partenariat permet à ESE d'intervenir sur la gouvernance, les processus et la structuration des équipes techniques des organisations événementielles en croissance, agences, opérateurs culturels, festivals en professionnalisation, lieux et sites, en mobilisant à la fois l'expertise sectorielle d'ESE et la doctrine de transformation de Cobel.
         </p>
+        {CONTACT.cobel && (
+          <div class="reveal" data-d="2" style="margin-top:28px">
+            <a class="btn btn--ghost" href={CONTACT.cobel} target="_blank" rel="noopener noreferrer">Découvrir COBEL® <span class="arr">↗</span></a>
+          </div>
+        )}
       </div>
     </div>
   </section>

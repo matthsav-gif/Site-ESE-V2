@@ -16,11 +16,13 @@
   width: 100%;
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  padding: 0 clamp(20px, 3vw, 56px);
   display: flex; align-items: center; justify-content: space-between;
-  gap: clamp(24px, 3vw, 48px);
+  gap: clamp(20px, 2.4vw, 40px);
 }
 .logo, .hdr__right { flex-shrink: 0; }
+/* Le numéro n'est pas affiché dans le header (présent footer + page Contact) : il ne tient pas avec toute la nav. */
+.hdr__tel { display: none; }
 /* default (over-hero, transparent, light text) */
 .hdr.is-over { background: transparent; }
 .hdr.is-over .nav__link, .hdr.is-over .hdr__tel { color: var(--paper); }
@@ -92,7 +94,7 @@
 .hdr__tel:hover { color: var(--taupe-deep); }
 
 /* Largeurs intermédiaires (laptops) : compacter la nav pour éviter le débordement */
-@media (max-width: 1320px) and (min-width: 921px) {
+@media (max-width: 1320px) and (min-width: 1081px) {
   .hdr__inner { padding: 0 clamp(20px, 3.2vw, 48px); gap: clamp(18px, 2.4vw, 36px); }
   .nav { gap: clamp(12px, 1.7vw, 28px); }
   .nav__link { font-size: 11.5px; letter-spacing: .08em; }
@@ -174,7 +176,12 @@
 .hero__scrim {
   position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(to top, rgba(20,28,38,.86) 0%, rgba(20,28,38,.36) 42%, rgba(20,28,38,.18) 70%, rgba(20,28,38,.42) 100%);
+    /* bas : zone du titre, fortement assombrie pour lisibilité sur toute image */
+    linear-gradient(to top, rgba(20,28,38,.94) 0%, rgba(20,28,38,.66) 26%, rgba(20,28,38,.32) 52%, rgba(20,28,38,.22) 72%, rgba(20,28,38,.30) 100%),
+    /* gauche : appui sous le texte */
+    linear-gradient(to right, rgba(20,28,38,.55) 0%, rgba(20,28,38,.12) 50%, rgba(20,28,38,0) 75%),
+    /* haut : lisibilité du header sur images claires */
+    linear-gradient(to bottom, rgba(20,28,38,.5) 0%, rgba(20,28,38,0) 16%);
 }
 .hero__inner {
   position: relative; z-index: 2;
@@ -188,8 +195,11 @@
   font-size: clamp(26px, 4.6vw, 70px);
   max-width: 19ch;
   color: var(--paper);
+  background: none;
   word-break: normal; hyphens: none;
+  text-shadow: 0 2px 28px rgba(20,28,38,.5);
 }
+.hero__sub { text-shadow: 0 1px 16px rgba(20,28,38,.5); }
 .hero__sub {
   margin-top: 26px; max-width: 56ch;
   font-size: clamp(17px, 1.5vw, 21px);
@@ -272,8 +282,9 @@
 .split--narrow { grid-template-columns: 320px 1fr; }
 .col-head h2 {
   font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
-  letter-spacing: .02em; line-height: 1.1; color: var(--navy);
-  font-size: clamp(26px, 2.8vw, 40px); margin-top: 18px; text-wrap: balance;
+  letter-spacing: .02em; line-height: 1.12; color: var(--navy);
+  font-size: clamp(21px, 2vw, 30px); margin-top: 18px; text-wrap: balance;
+  overflow-wrap: break-word;
 }
 .col-head p { margin-top: 18px; color: var(--slate); font-weight: 300; }
 
@@ -502,13 +513,17 @@
   display: grid; grid-template-columns: repeat(4, 1fr);
   border: 1px solid rgba(246,244,239,.16);
 }
-.stat { padding: clamp(28px,3vw,44px); border-left: 1px solid rgba(246,244,239,.16); }
+.stat { padding: clamp(28px,3vw,44px); border-left: 1px solid rgba(246,244,239,.16); display: flex; flex-direction: column; }
 .stat:first-child { border-left: none; }
 .stat__n {
   font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
-  font-size: clamp(28px,3.4vw,48px); color: var(--paper); line-height: 1; letter-spacing: .01em;
+  font-size: clamp(26px,3vw,40px); color: var(--paper); line-height: 1.04; letter-spacing: .01em;
+  min-height: 2.08em; display: flex; align-items: flex-end; /* aligne tous les libellés sur une même ligne */
 }
-.stat__l { margin-top: 12px; font-size: 13.5px; font-weight: 300; color: rgba(246,244,239,.72); line-height: 1.45; }
+.stat__l {
+  margin-top: 14px; font-family: var(--font-mono); font-size: 11px; font-weight: 400;
+  color: rgba(246,244,239,.66); line-height: 1.5; text-transform: uppercase; letter-spacing: .06em;
+}
 @media (max-width: 760px) { .stats { grid-template-columns: 1fr 1fr; }
   .stat:nth-child(3) { border-left: none; } }
 
@@ -635,10 +650,10 @@
   .phero__media { aspect-ratio: 16/9; }
   .formgrid { grid-template-columns: 1fr; }
 }
-@media (max-width: 920px) {
+@media (max-width: 1080px) {
   :root { --header-h: 72px; }
   .nav, .hdr__tel { display: none; }
-  .logo-word { display: none; } /* mobile : on garde le seul monogramme */
+  .logo-word { display: none; } /* tablette/mobile : on garde le seul monogramme */
   .hdr .btn { padding: 11px 16px; font-size: 10.5px; letter-spacing: .08em; }
   .nav__burger {
     display: inline-flex; flex-direction: column; gap: 5px; cursor: pointer;

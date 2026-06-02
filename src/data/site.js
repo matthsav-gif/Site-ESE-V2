@@ -9,6 +9,7 @@ export const CONTACT = {
   linkedinEntreprise: "https://www.linkedin.com/company/event-safety-engineering/",
   linkedinMatthieu: "https://www.linkedin.com/in/matthieu-savatier/",
   socle: "https://socle.example", // ⚠ URL site SOCLE® dédié à confirmer
+  cobel: "", // ⚠ URL du site COBEL® à renseigner (le bouton s'affiche dès qu'elle est remplie)
   // Endpoint d'envoi du formulaire (Formspree / Resend / backend).
   // Laisser vide = mode démo (validation + message de confirmation sans envoi réel).
   formEndpoint: "",
@@ -34,7 +35,6 @@ export const METIERS = [
 
 export const HERO_SLIDES = [
   { src: "/images/festival-coucher-soleil.jpg", alt: "Festival outdoor en montagne au coucher du soleil, scène et public" },
-  { src: "/images/stade-pyro.jpg", alt: "Concert au Stade de France, pyrotechnie et public en configuration stade" },
   { src: "/images/festival-nuit.jpg", alt: "Festival de nuit, grande scène et foule sous les lumières" },
   { src: "/images/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde au coucher du soleil" },
   { src: "/images/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival au soleil couchant" },
@@ -194,7 +194,7 @@ export const METIER_DATA = {
 export const CHIFFRES = [
   { n: "12 ans", l: "de production technique événementielle" },
   { n: "3 métiers", l: "direction technique · régie · expertise sécurité" },
-  { n: "AP2", l: "ENSOSP, qualification sécurité ERP" },
+  { n: "Certifié", l: "Vectorworks · Braceworks · SSIAP3 · AP2 ENSOSP" },
   { n: "Stade", l: "jusqu'aux plus grandes configurations" },
 ];
 
