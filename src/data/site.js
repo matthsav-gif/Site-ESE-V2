@@ -34,13 +34,10 @@ export const METIERS = [
 ];
 
 export const HERO_SLIDES = [
-  { src: "/images/festival-coucher-soleil.jpg", alt: "Festival outdoor en montagne au coucher du soleil, scène et public" },
-  { src: "/images/chicago-navy-pier.jpg", alt: "Chicago Navy Pier au coucher du soleil, production événementielle internationale" },
-  { src: "/images/show-coachella-screen.jpg", alt: "Festival outdoor, écran géant et foule au coucher du soleil" },
-  { src: "/images/stade-pyro-flames.jpg", alt: "Stade en feu, pyrotechnie massive et foule lors d'un grand concert" },
-  { src: "/images/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde" },
-  { src: "/images/club-lasers.jpg", alt: "Club, lasers et écrans LED suspendus, foule dense" },
-  { src: "/images/paris-sacre-coeur-fireworks.jpg", alt: "Sacré-Cœur de Paris avec feux d'artifice, vue aérienne nocturne" },
+  { src: "/images/home/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde" },
+  { src: "/images/home/show-coachella-screen.jpg", alt: "Festival outdoor, écran géant et foule au coucher du soleil" },
+  { src: "/images/home/chicago-navy-pier.jpg", alt: "Chicago Navy Pier au coucher du soleil, production événementielle internationale" },
+  { src: "/images/home/paris-sacre-coeur-fireworks.jpg", alt: "Sacré-Cœur de Paris avec feux d'artifice, vue aérienne nocturne" },
 ];
 
 /* Mosaïque de la page Références (5 grappes) */
