@@ -101,7 +101,7 @@ const serviceLd = {
       {isSecu ? (
         <div class="reveal chips" data-d="1">{d.ops.map((o) => <span class="chip">{o}</span>)}</div>
       ) : (
-        <ul class="reveal clist clist--num" data-d="1" style="columns:2;column-gap:clamp(24px,4vw,72px)">
+        <ul class="reveal clist clist--num clist--cols" data-d="1">
           {d.ops.map((o) => <li style="break-inside:avoid">{o}</li>)}
         </ul>
       )}
