@@ -642,7 +642,7 @@
 .kgrid { display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1px; background: rgba(44,62,80,.14); border:1px solid rgba(44,62,80,.14);}
 .kcell{ background: var(--paper); padding: 28px; }
 .kcell .mono{ color: var(--taupe-deep); font-size: 12px; letter-spacing:.08em;}
-.kcell h4{ font-family:var(--font-display); text-transform:uppercase; letter-spacing:.04em; font-weight:700; color:var(--navy); font-size:17px; margin:12px 0 8px;}
+.kcell h4{ font-family:var(--font-display); text-transform:uppercase; letter-spacing:.04em; font-weight:700; color:var(--navy); font-size:17px; margin:12px 0 8px; overflow-wrap:break-word; word-break:break-word; hyphens:auto; }
 .kcell p{ font-size:14.5px; color:var(--slate); font-weight:300; line-height:1.5;}
 
 /* ---------- Responsive ---------- */

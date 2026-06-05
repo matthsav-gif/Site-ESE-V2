@@ -9,7 +9,7 @@ export const CONTACT = {
   linkedinEntreprise: "https://www.linkedin.com/company/event-safety-engineering/",
   linkedinMatthieu: "https://www.linkedin.com/in/matthieu-savatier/",
   socle: "https://socle.example", // ⚠ URL site SOCLE® dédié à confirmer
-  cobel: "", // ⚠ URL du site COBEL® à renseigner (le bouton s'affiche dès qu'elle est remplie)
+  cobel: "https://www.cobel.fr/",
   // Endpoint d'envoi du formulaire (Formspree / Resend / backend).
   // Laisser vide = mode démo (validation + message de confirmation sans envoi réel).
   formEndpoint: "",
@@ -135,7 +135,7 @@ export const METIER_DATA = {
   "regie-generale": {
     n: "02", eyebrow: "Métier · Régie générale & stage management",
     h1: "Régie générale & stage management.",
-    sub: "Coordination opérationnelle sur site (montage, run, démontage), sur l'événementiel, la scène et le live.",
+    sub: "Coordination opérationnelle sur site (montage, exploitation, démontage), sur l'événementiel, la scène et le live.",
     media: { label: "Régie sur site, scène en montage", src: "/images/regie-stade.jpg", alt: "Scène en cours de montage avec écrans, fin de mise en place", variant: "navy" },
     heroSlides: [
       { src: "/images/regie-generale/show-usa-outdoor.jpg", alt: "Show outdoor USA, régie de grande production live" },
@@ -219,7 +219,7 @@ export const CHIFFRES = [
 export const PROCESS = [
   { n: "01", t: "Cadrage", d: "On part de votre besoin et des contraintes du lieu : cahier des charges, budget technique, niveau de risque. Rien n'avance tant que le périmètre n'est pas clair." },
   { n: "02", t: "Conception", d: "Plans, calculs et arbitrages : Vectorworks, ConnectCAD, Braceworks. Tout est documenté pour être validé par les équipes, les prestataires et, s'il le faut, les autorités." },
-  { n: "03", t: "Sur site", d: "Montage, run, démontage. ESE pilote le déroulé, coordonne les prestataires et reste l'interlocuteur unique jusqu'à la restitution du lieu." },
+  { n: "03", t: "Sur site", d: "Montage, exploitation, démontage. ESE pilote le déroulé, coordonne les prestataires et reste l'interlocuteur unique jusqu'à la restitution du lieu." },
 ];
 
 /* FAQ (accueil + schema FAQPage) */
@@ -258,7 +258,7 @@ export const SEO = {
   },
   "regie-generale": {
     title: "Régie générale & stage management · ESE",
-    description: "Régie générale et stage management : coordination opérationnelle sur site, montage, run, démontage. Pour événementiel, scène et live.",
+    description: "Régie générale et stage management : coordination opérationnelle sur site, montage, exploitation, démontage. Pour événementiel, scène et live.",
   },
   "expertise-securite": {
     title: "Expertise sécurité ERP & autorités · ESE",
