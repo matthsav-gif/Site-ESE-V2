@@ -12,7 +12,7 @@ export const CONTACT = {
   cobel: "https://www.cobel.fr/",
   // Endpoint d'envoi du formulaire (Formspree / Resend / backend).
   // Laisser vide = mode démo (validation + message de confirmation sans envoi réel).
-  formEndpoint: "",
+  formEndpoint: "https://formspree.io/f/mvznglva",
 };
 
 export const METIERS = [
