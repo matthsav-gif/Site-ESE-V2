@@ -62,7 +62,7 @@ export const REFERENCES = [
     k: "Défilés & luxe", t: "Mode & beauté",
     names: "Louis Vuitton, collection femme oct. 2023 · Garnier Shortcut · Vichy Shortcut.",
     desc: "Direction technique et scénographie événementielle sur les formats luxe et beauté.",
-    src: "/images/luxe-louis-vuitton.jpg", variant: "taupe", span: "span-4",
+    src: "/images/direction-technique/luxe-louis-vuitton.jpg", variant: "taupe", span: "span-4",
     videos: [
       { id: "4xA2rV1cXpM", title: "Louis Vuitton Men's Fall-Winter 2023, performance live de Rosalía" },
       { id: "Xn5qX2qbPdk", title: "Louis Vuitton Spring-Summer 2023 Fashion Show" },
@@ -73,13 +73,13 @@ export const REFERENCES = [
     k: "Sommets institutionnels", t: "UNOC Nice",
     names: "United Nations Ocean Conference.",
     desc: "Direction technique multi-métiers sur sommet institutionnel international.",
-    src: "/images/unoc-nice.jpg", variant: "navy", span: "span-4",
+    src: "/images/expertise-securite/unoc-nice.jpg", variant: "navy", span: "span-4",
   },
   {
     k: "DJ sets internationaux", t: "Clubbing & live",
     names: "Mochakk · Adriatique · Blondish.",
     desc: "Direction technique et régie live sur les formats DJ sets internationaux.",
-    src: "/images/dj-mochakk.jpg", variant: "taupe", span: "span-4",
+    src: "/images/direction-technique/dj-mochakk.jpg", variant: "taupe", span: "span-4",
   },
 ];
 
@@ -105,7 +105,6 @@ export const METIER_DATA = {
       { src: "/images/direction-technique/luxe-louis-vuitton.jpg", alt: "Événement institutionnel de prestige, scénographie luxe" },
       { src: "/images/direction-technique/IMG_6167.JPG", alt: "Production technique événementielle, grande configuration" },
       { src: "/images/direction-technique/img-6811.jpg", alt: "Production live, rig et structure scène" },
-      { src: "/images/direction-technique/img-6812.jpg", alt: "Grand format événementiel, direction technique" },
     ],
     perimTitle: "Périmètre de la direction technique",
     perimLead: "La direction technique ESE couvre l'ensemble de la chaîne, de la pré-production à la livraison sur site.",
@@ -249,7 +248,7 @@ export const FAQ = [
 /* Meta SEO par page */
 export const SEO = {
   home: {
-    title: "ESE · Société d'ingénierie pour la production technique événementielle",
+    title: "ESE · Production technique événementielle · Paris",
     description: "Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris.",
   },
   "direction-technique": {
@@ -265,7 +264,7 @@ export const SEO = {
     description: "Notices de sécurité ERP et accompagnement face aux autorités. Qualification AP2 ENSOSP. Préfecture, mairie, commission de sécurité.",
   },
   references: {
-    title: "Références · Productions ESE",
+    title: "Références ESE · JO Paris 2024, Tournées stade, Défilés luxe",
     description: "Productions ESE : cérémonies JO/JOP Paris 2024, tournées en stade, défilés de luxe, sommets institutionnels, DJ sets internationaux.",
   },
   methodes: {
@@ -277,7 +276,7 @@ export const SEO = {
     description: "ESE est portée par son fondateur Matthieu Savatier : 12 ans de production technique événementielle, qualification AP2 ENSOSP.",
   },
   contact: {
-    title: "Contact · ESE",
-    description: "Parlons de votre projet. ESE, 15 rue des Halles, 75001 Paris. 01 84 80 80 69.",
+    title: "Contact ESE · Direction technique & régie événementielle · Paris",
+    description: "Parlons de votre projet. ESE, Event & Safety Engineering, 15 rue des Halles, 75001 Paris. 01 84 80 80 69. Direction technique, régie générale, expertise sécurité.",
   },
 };

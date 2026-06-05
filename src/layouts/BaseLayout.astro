@@ -5,7 +5,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const {
-  title = "ESE Â· Event & Safety Engineering",
+  title = "ESE · Event & Safety Engineering",
   description = "Société d'ingénierie pour la production technique événementielle.",
   ogImage = "/images/jo-para.jpg",
   schema = [], // tableau de JSON-LD additionnels (Service, Person, FAQPage…)
@@ -71,7 +71,7 @@ const siteLd = {
   "@type": "WebSite",
   "@id": `${site}/#website`,
   url: site,
-  name: "ESE Â· Event & Safety Engineering",
+  name: "ESE · Event & Safety Engineering",
   publisher: { "@id": `${site}/#organization` },
   inLanguage: "fr-FR",
 };
@@ -103,12 +103,12 @@ const allSchema = [orgLd, siteLd, ...schema];
 
     <meta property="og:type" content={type} />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="ESE Â· Event & Safety Engineering" />
+    <meta property="og:site_name" content="ESE · Event & Safety Engineering" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageAbs} />
-    <meta property="og:image:alt" content="ESE Â· Event & Safety Engineering" />
+    <meta property="og:image:alt" content="ESE · Event & Safety Engineering" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
