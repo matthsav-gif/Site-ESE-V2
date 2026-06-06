@@ -125,8 +125,23 @@ try {
   let cur = 0;
   const srcs = items.map((b) => b.dataset.src);
   function show(i) { cur = (i + srcs.length) % srcs.length; lbImg.src = srcs[cur]; }
-  function open(i) { show(i); lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); }
-  function close() { lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); lbImg.src = ""; }
+  let lastFocused;
+  function open(i) {
+    lastFocused = document.activeElement;
+    show(i); lb.classList.add("open"); lb.setAttribute("aria-hidden", "false");
+    document.getElementById("lb-close")?.focus();
+  }
+  function close() {
+    lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); lbImg.src = "";
+    lastFocused?.focus();
+  }
+  lb?.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab" || !lb.classList.contains("open")) return;
+    const focusable = Array.from(lb.querySelectorAll("button, [href], [tabindex]:not([tabindex='-1'])"));
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
   items.forEach((b) => b.addEventListener("click", () => open(Number(b.dataset.i))));
   document.getElementById("lb-close")?.addEventListener("click", close);
   document.getElementById("lb-prev")?.addEventListener("click", (e) => { e.stopPropagation(); show(cur - 1); });

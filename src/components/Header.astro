@@ -22,7 +22,8 @@ const altLang = isEn
 
     <nav class="nav" aria-label="Navigation principale">
       <div class="nav__item" id="mega-trigger">
-        <a class={"nav__link" + (isMetier ? " active" : "")} href={`${base}/metiers/direction-technique`}>
+        <a class={"nav__link" + (isMetier ? " active" : "")} href={`${base}/metiers/direction-technique`}
+          aria-haspopup="true" aria-expanded="false" id="mega-btn">
           {isEn ? "Services" : "Métiers"} <span class="nav__caret">▾</span>
         </a>
       </div>
@@ -91,20 +92,37 @@ const altLang = isEn
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // Méga-menu Métiers (hover sur desktop)
+  // Méga-menu Métiers (hover + clavier)
+  const megaBtn = document.getElementById("mega-btn");
   let megaOpen = false;
   const setMega = (v) => {
     megaOpen = v;
     mega?.classList.toggle("open", v);
     trigger?.classList.toggle("open", v);
+    megaBtn?.setAttribute("aria-expanded", v ? "true" : "false");
     header?.classList.toggle("is-solid", v || window.scrollY > (tall ? window.innerHeight * 0.62 : 90));
     if (v) header?.classList.remove("is-over");
     else onScroll();
   };
+  // Hover
   trigger?.addEventListener("mouseenter", () => setMega(true));
   trigger?.addEventListener("mouseleave", () => setMega(false));
   mega?.addEventListener("mouseenter", () => setMega(true));
   mega?.addEventListener("mouseleave", () => setMega(false));
+  // Clavier : focus ouvre, Escape ferme, Tab hors du méga ferme
+  megaBtn?.addEventListener("focus", () => setMega(true));
+  megaBtn?.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { setMega(false); megaBtn.focus(); }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && megaOpen) setMega(false);
+  });
+  // Ferme si le focus quitte le méga-menu
+  document.addEventListener("focusin", (e) => {
+    if (megaOpen && !trigger?.contains(e.target) && !mega?.contains(e.target)) {
+      setMega(false);
+    }
+  });
 
   // Menu mobile
   burger?.addEventListener("click", () => mobile?.classList.add("open"));

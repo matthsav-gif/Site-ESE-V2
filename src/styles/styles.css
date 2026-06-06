@@ -6,17 +6,20 @@
 /* ---- Brand fonts ---- */
 @font-face {
   font-family: "Lulo Clean One";
-  src: url("/fonts/LuloCleanOne-Bold.otf") format("opentype");
+  src: url("/fonts/LuloCleanOne-Bold.woff2") format("woff2"),
+       url("/fonts/LuloCleanOne-Bold.otf") format("opentype");
   font-weight: 700; font-display: swap;
 }
 @font-face {
   font-family: "Lulo Clean One";
-  src: url("/fonts/LuloCleanOne.otf") format("opentype");
+  src: url("/fonts/LuloCleanOne.woff2") format("woff2"),
+       url("/fonts/LuloCleanOne.otf") format("opentype");
   font-weight: 400; font-display: swap;
 }
 @font-face {
   font-family: "DIN Next";
-  src: url("/fonts/DINNext-Light.ttf") format("truetype");
+  src: url("/fonts/DINNext-Light.woff2") format("woff2"),
+       url("/fonts/DINNext-Light.ttf") format("truetype");
   font-weight: 300 400; font-display: swap;
 }
 
@@ -71,6 +74,18 @@ img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 
 ::selection { background: var(--navy); color: var(--paper); }
+
+/* Focus-visible global */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--taupe-deep);
+  outline-offset: 3px;
+}
+.btn:focus-visible, .nav__link:focus-visible, .tlink:focus-visible {
+  outline: 2px solid var(--taupe-deep);
+  outline-offset: 4px;
+}
+.hdr.is-over .nav__link:focus-visible { outline-color: var(--paper); }
 
 /* Skip link (accessibilité) */
 .skip-link {
