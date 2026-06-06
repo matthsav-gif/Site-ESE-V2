@@ -8,8 +8,9 @@ const {
   title = "ESE · Event & Safety Engineering",
   description = "Société d'ingénierie pour la production technique événementielle.",
   ogImage = "/images/jo-para.jpg",
-  schema = [], // tableau de JSON-LD additionnels (Service, Person, FAQPage…)
+  schema = [],
   type = "website",
+  lang = "fr",
 } = Astro.props;
 
 const site = "https://ese-techsolutions.com";
@@ -79,7 +80,7 @@ const siteLd = {
 const allSchema = [orgLd, siteLd, ...schema];
 ---
 <!DOCTYPE html>
-<html lang="fr">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

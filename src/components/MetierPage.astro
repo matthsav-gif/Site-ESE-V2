@@ -2,11 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactBanner from "./ContactBanner.astro";
 import RefList from "./RefList.astro";
-import { METIER_DATA, SEO, PROCESS } from "../data/site.js";
+import { METIER_DATA as MD_FR, SEO as SEO_FR, PROCESS as PROCESS_FR } from "../data/site.js";
+import { METIER_DATA as MD_EN, SEO as SEO_EN, PROCESS as PROCESS_EN } from "../data/site.en.js";
 
-const { route } = Astro.props;
-const d = METIER_DATA[route];
-const seo = SEO[route];
+const { route, lang = "fr" } = Astro.props;
+const isEn = lang === "en";
+const d = isEn ? MD_EN[route] : MD_FR[route];
+const seo = isEn ? SEO_EN[route] : SEO_FR[route];
+const PROCESS = isEn ? PROCESS_EN : PROCESS_FR;
 const isSecu = route === "expertise-securite";
 const site = "https://ese-techsolutions.com";
 
@@ -52,8 +55,8 @@ const serviceLd = {
         <h1 style="margin-top:16px">{d.h1}</h1>
         <p class="hero__sub">{d.sub}</p>
         <div class="hero__cta">
-          <a class="btn btn--light" href={`/contact?type=${route}`}>Nous contacter <span class="arr">→</span></a>
-          <a class="btn btn--ghost-light" href="/references">Références <span class="arr">→</span></a>
+          <a class="btn btn--light" href={`${isEn ? "/en" : ""}/contact?type=${route}`}>{isEn ? "Get in touch" : "Nous contacter"} <span class="arr">→</span></a>
+          <a class="btn btn--ghost-light" href={isEn ? "/en/references" : "/references"}>{isEn ? "References" : "Références"} <span class="arr">→</span></a>
         </div>
       </div>
     </div>
@@ -150,13 +153,13 @@ const serviceLd = {
           <span class="eyebrow">Références</span>
           <h2 class="display" style="font-size:clamp(24px,2.6vw,38px);margin-top:16px">Quelques productions d'ESE.</h2>
         </div>
-        <a class="btn btn--ghost" href="/references">Voir toutes les références <span class="arr">→</span></a>
+        <a class="btn btn--ghost" href={isEn ? "/en/references" : "/references"}>{isEn ? "All references" : "Voir toutes les références"} <span class="arr">→</span></a>
       </div>
-      <RefList />
+      <RefList lang={lang} />
     </div>
   </section>
 
-  <ContactBanner />
+  <ContactBanner lang={lang} />
 </BaseLayout>
 
 <script>

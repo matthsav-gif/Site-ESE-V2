@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactBanner from "../../components/ContactBanner.astro";
+import { CONTACT } from "../../data/site.en.js";
+---
+<BaseLayout
+  title="SOCLE®, Vectorworks Operational Transformation, ESE"
+  description="SOCLE® is ESE's proprietary method for the operational transformation of engineering offices and agencies on the Vectorworks ecosystem."
+  lang="en">
+
+  <section class="phero">
+    <div class="phero__deco"></div>
+    <div class="phero__grid" style="grid-template-columns:1fr">
+      <div style="max-width:36ch">
+        <span class="eyebrow">ESE proprietary method</span>
+        <h1 style="margin-top:22px">SOCLE®</h1>
+        <p class="phero__sub">Operational transformation of engineering offices and agencies on the Vectorworks ecosystem. Registered trademark (INPI France).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">The method</span>
+        <h2>Moving from an installed tool to a production system.</h2>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          SOCLE® is a method for the operational transformation of event engineering offices and creative agencies around the Vectorworks environment, designed by ESE from twelve years of hands-on practice across live, scenography and institutional productions.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:22px">
+          SOCLE® is not software. It is a doctrinal, methodological and operational framework: file organisation, template structure, naming conventions, ConnectCAD, Braceworks and MVR workflows, handover and onboarding processes.
+        </p>
+        <p class="reveal" data-d="2" style="margin-top:22px">
+          Published by ESE, SOCLE® is aimed at organisations that use Vectorworks but have not yet structured their practice into a system — engineering offices, event agencies, set designers, cultural venues and venue operators.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="background:var(--paper-2)">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">The expertise behind SOCLE®</span>
+        <h2>Certified trainer & beta-tester, Team France Vectorworks</h2>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          SOCLE® is grounded in a Vectorworks expertise built at the highest level — that of a certified trainer and member of Team France Vectorworks, the select group of experts associated with Nemetschek's product teams to test development versions and contribute to the software's evolution.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:22px">
+          Before ESE, Matthieu Savatier carried out this dual role at <strong style="font-weight:400;color:var(--navy)">Oliverdy</strong>, a leading engineering office and agency in the sector, at the intersection of field practice and professional training.
+        </p>
+        <p class="reveal" data-d="2" style="margin-top:22px">
+          This proximity to the Vectorworks teams — across Braceworks, ConnectCAD, Vision and MVR modules — is what enables SOCLE® to be a reliable, up-to-date and transferable method, not a set of frozen best practices.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Scope</span>
+        <h2>What SOCLE® structures.</h2>
+      </div>
+      <ul class="reveal clist" data-d="1">
+        <li>File organisation and project folder structure — shared, transferable conventions.</li>
+        <li>Master Vectorworks templates calibrated by production type (live, set design, exhibition, institutional).</li>
+        <li>ConnectCAD workflows — electrical, audio, video, network schematics.</li>
+        <li>Structural and rigging calculations with Braceworks and MVR.</li>
+        <li>Onboarding processes — integrating new team members into a structured environment.</li>
+        <li>Handover and documentation — making expertise independent of individuals.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="background:var(--pale)">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:32px;max-width:52ch">
+        <span class="eyebrow">For whom</span>
+        <h2 class="display" style="font-size:clamp(22px,2.4vw,34px);margin-top:16px;line-height:1.1">SOCLE® is for organisations that produce.</h2>
+      </div>
+      <div class="kgrid">
+        {[
+          { t: "Event engineering offices", d: "Structure technical production, align practices across project managers and ensure reliable deliverables." },
+          { t: "Event agencies", d: "Move from individual Vectorworks use to a collective, coherent and transferable production tool." },
+          { t: "Set designers & creative studios", d: "Document methods, structure templates and improve collaboration with partner engineering offices." },
+          { t: "Cultural venues & operators", d: "Build a venue-specific Vectorworks environment, usable by permanent technical teams and external contributors." },
+        ].map((item, k) => (
+          <div class="kcell reveal" data-d={(k % 3) + 1}>
+            <h4>{item.t}</h4>
+            <p>{item.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cband">
+    <div class="cband__deco"></div>
+    <div class="cband__inner">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--taupe)">SOCLE®</span>
+        <h2 style="margin-top:18px">Working with<br/>Vectorworks?</h2>
+        <p style="margin-top:16px;font-weight:300;color:rgba(246,244,239,.8);max-width:44ch">Let's talk about your organisation — one conversation is enough to assess whether SOCLE® addresses your challenge.</p>
+      </div>
+      <div class="reveal" data-d="1" style="text-align:left">
+        <a class="btn btn--light" href="/en/contact?type=multi">Get in touch <span class="arr">→</span></a>
+        <div class="cband__meta" style="margin-top:20px">
+          <a href={CONTACT.telHref}>{CONTACT.tel}</a><br/>
+          <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

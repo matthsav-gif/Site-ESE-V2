@@ -1,0 +1,234 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactBanner from "../../components/ContactBanner.astro";
+import RefList from "../../components/RefList.astro";
+import { HERO_SLIDES, SEO, CONTACT, CHIFFRES, FAQ } from "../../data/site.en.js";
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+<BaseLayout title={SEO.home.title} description={SEO.home.description} schema={[faqLd]} lang="en">
+  {/* HERO */}
+  <section class="hero">
+    <div class="hero__bg" id="hero-bg">
+      {HERO_SLIDES.map((s, k) => (
+        <div class={"hero__slide" + (k === 0 ? " on" : "")}>
+          <div class="hero__media" style={`background-image:url('${s.src}')`} role="img" aria-label={s.alt}></div>
+        </div>
+      ))}
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="hero__index" id="hero-index">01 / {String(HERO_SLIDES.length).padStart(2, "0")}</div>
+    <div class="hero__dots" id="hero-dots">
+      {HERO_SLIDES.map((_, k) => (
+        <button class={"hero__dot" + (k === 0 ? " on" : "")} data-i={k} aria-label={`Slide ${k + 1}`}></button>
+      ))}
+    </div>
+    <div class="hero__inner">
+      <div class="reveal in">
+        <h1>Engineering firm for event technical production.</h1>
+        <p class="hero__sub">Technical direction · Production management · Safety expertise, across live, event and institutional productions.</p>
+        <div class="hero__cta">
+          <a class="btn btn--light" href="/en/contact">Get in touch <span class="arr">→</span></a>
+          <a class="btn btn--ghost-light" href="/en/references">Our references <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* FOUNDER */}
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">The founder</span>
+        <h2>Twelve years in the field.</h2>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          Twelve years in event technical production — from the Paris 2024 Olympic opening ceremonies to stadium tours and major international concerts, luxury fashion shows and institutional events of international scope.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:24px">
+          I founded Event &amp; Safety Engineering (ESE), an engineering firm dedicated to event technical production. Three services structure its activity.
+        </p>
+        <p class="reveal signature" data-d="1" style="margin-top:18px">
+          Matthieu Savatier<span>Founder of ESE</span>
+        </p>
+        <div class="reveal" data-d="2" style="margin-top:28px">
+          <a class="tlink" href="/en/qui-sommes-nous">More about ESE <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* FIELDS */}
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="reveal" style="max-width:58ch">
+        <span class="eyebrow">Fields of operation</span>
+        <h2 class="display" style="font-size:clamp(22px,2.4vw,34px);margin-top:16px;line-height:1.1">
+          All formats, all configurations.
+        </h2>
+        <p style="margin-top:18px;color:var(--slate);font-weight:300">
+          ESE operates across all event technical production configurations — from a 300-seat venue to a 100,000-capacity stadium.
+        </p>
+      </div>
+      <div class="reveal terrains" data-d="1">
+        {["Concerts & stadium tours", "Outdoor festivals", "Performing arts & theatre", "Fashion shows", "Set design & museography", "Institutional events", "TV studios & broadcast", "Congresses & conventions", "Product launches", "Venues & cultural sites"].map((t) => (
+          <span class="terrain">{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* SERVICES */}
+  <section class="section section--tight" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:44px;max-width:62ch">
+        <span class="eyebrow">Our services</span>
+        <h2 class="display" style="font-size:clamp(22px,2.4vw,34px);margin-top:18px;line-height:1.12">
+          Three services, one standard of technical rigour.
+        </h2>
+      </div>
+      <div class="mcards">
+        <a class="mcard reveal" data-d="1" href="/en/metiers/direction-technique">
+          <div class="mcard__n">01</div>
+          <div class="mcard__stat">Vectorworks · Braceworks · ConnectCAD · MVR</div>
+          <div class="mcard__t">Technical direction</div>
+          <div class="mcard__d">Technical specifications, tool selection, production decisions, design and realisation management, structural and rigging calculations.</div>
+          <span class="tlink">Learn more <span class="arr">→</span></span>
+        </a>
+        <a class="mcard reveal" data-d="2" href="/en/metiers/regie-generale">
+          <div class="mcard__n">02</div>
+          <div class="mcard__stat">Load-in · show run · strike, bespoke crew</div>
+          <div class="mcard__t">Production management &amp; stage management</div>
+          <div class="mcard__d">Operational on-site coordination, load-in and strike scheduling, crew and supplier management, liaison with the organiser.</div>
+          <span class="tlink">Learn more <span class="arr">→</span></span>
+        </a>
+        <a class="mcard reveal" data-d="3" href="/en/metiers/expertise-securite">
+          <div class="mcard__n">03</div>
+          <div class="mcard__stat">AP2 ENSOSP, rare qualification in the industry</div>
+          <div class="mcard__t">Safety expertise</div>
+          <div class="mcard__d">ERP fire safety reports and support before authorities — prefecture, city hall, safety commission, SDIS. AP2 ENSOSP qualification, rare in event technical production.</div>
+          <span class="tlink">Learn more <span class="arr">→</span></span>
+        </a>
+      </div>
+      <div class="callout reveal" data-d="2" style="margin-top:1px">
+        <div class="callout__big">All three together, or each independently</div>
+        <p style="max-width:70ch">Technical direction, production management and safety expertise work together to carry a production end to end — or independently, as a reinforcement to an existing team. You define the scope, ESE adapts.</p>
+      </div>
+    </div>
+  </section>
+
+  {/* KEY FIGURES */}
+  <section style="background:var(--navy-deep)">
+    <div class="wrap" style="padding-top:0;padding-bottom:0">
+      <div class="stats reveal">
+        {CHIFFRES.map((c) => (
+          <div class="stat">
+            <div class="stat__n">{c.n}</div>
+            <div class="stat__l">{c.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* REFERENCES */}
+  <section class="section">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px">
+        <div style="max-width:52ch">
+          <span class="eyebrow">Productions</span>
+          <h2 class="display" style="font-size:clamp(22px,2.4vw,34px);margin-top:18px;line-height:1.12">Productions ESE has worked on.</h2>
+        </div>
+        <a class="btn btn--ghost" href="/en/references">All references <span class="arr">→</span></a>
+      </div>
+      <RefList lang="en" />
+      <p class="reveal lead" data-d="1" style="margin-top:36px;font-style:italic;max-width:74ch;color:var(--slate)">
+        Beyond these flagship productions, ESE works daily with brands, agencies, cultural venues and companies on their production briefs.
+      </p>
+    </div>
+  </section>
+
+  {/* METHODS & PARTNERSHIPS */}
+  <section class="section section--tight" style="background:var(--pale)">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:40px">
+        <span class="eyebrow">Methods &amp; partnerships</span>
+      </div>
+      <div class="split" style="grid-template-columns:1fr 1fr;align-items:stretch;gap:clamp(20px,2vw,28px)">
+        <div class="callout reveal" style="background:var(--white);border-left-color:var(--navy)">
+          <div class="mono" style="color:var(--taupe-deep);font-size:12px">PUBLISHER</div>
+          <div class="callout__big" style="margin-top:12px">ESE publishes SOCLE®</div>
+          <p>SOCLE®, operational transformation of engineering offices and agencies on the Vectorworks ecosystem.</p>
+          <a class="tlink" href="/en/socle" style="margin-top:10px">Discover SOCLE® <span class="arr">→</span></a>
+        </div>
+        <div class="callout reveal" data-d="1" style="background:var(--white);border-left-color:var(--taupe)">
+          <div class="mono" style="color:var(--taupe-deep);font-size:12px">PARTNERSHIP</div>
+          <div class="callout__big" style="margin-top:12px">COBEL® Culture developer</div>
+          <p>ESE supports the organisational transformation of creative structures in partnership with COBEL® Développeur de culture.</p>
+          {CONTACT.cobel && (
+            <a class="tlink" href={CONTACT.cobel} target="_blank" rel="noopener noreferrer" style="margin-top:10px">Discover COBEL® <span class="arr">↗</span></a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* FAQ */}
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Frequently asked</span>
+        <h2>What people ask us.</h2>
+      </div>
+      <div class="reveal faq" data-d="1" id="faq">
+        {FAQ.map((f) => (
+          <div class="faq__item">
+            <button class="faq__q" type="button">
+              <span>{f.q}</span>
+              <span class="faq__sign">+</span>
+            </button>
+            <div class="faq__a"><p>{f.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactBanner lang="en" />
+</BaseLayout>
+
+<script>
+  document.querySelectorAll("#faq .faq__item").forEach((item) => {
+    const q = item.querySelector(".faq__q");
+    const a = item.querySelector(".faq__a");
+    q?.addEventListener("click", () => {
+      const open = item.classList.toggle("open");
+      a.style.maxHeight = open ? a.scrollHeight + "px" : null;
+    });
+  });
+</script>
+<script>
+  const slides = Array.from(document.querySelectorAll("#hero-bg .hero__slide"));
+  const dots = Array.from(document.querySelectorAll("#hero-dots .hero__dot"));
+  const index = document.getElementById("hero-index");
+  let cur = 0, timer;
+  const total = slides.length;
+  function show(n) {
+    cur = (n + total) % total;
+    slides.forEach((s, k) => s.classList.toggle("on", k === cur));
+    dots.forEach((d, k) => d.classList.toggle("on", k === cur));
+    if (index) index.textContent = String(cur + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
+  }
+  function start() { timer = setInterval(() => show(cur + 1), 6500); }
+  dots.forEach((d) => d.addEventListener("click", () => { clearInterval(timer); show(Number(d.dataset.i)); start(); }));
+  if (total > 1) start();
+</script>

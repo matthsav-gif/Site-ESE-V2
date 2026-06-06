@@ -1,5 +1,8 @@
 ---
-import { REF_LIST } from "../data/site.js";
+import { REF_LIST as REF_LIST_FR } from "../data/site.js";
+import { REF_LIST as REF_LIST_EN } from "../data/site.en.js";
+const { lang = "fr" } = Astro.props;
+const REF_LIST = lang === "en" ? REF_LIST_EN : REF_LIST_FR;
 ---
 <div class="kgrid">
   {REF_LIST.map((it, k) => (

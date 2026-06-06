@@ -1,0 +1,150 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SEO, CONTACT } from "../../data/site.en.js";
+
+const PROJETS = ["Technical direction", "Production management", "Safety expertise", "Other / Multi-service"];
+const ECHEANCES = ["Less than 3 months", "3 to 6 months", "More than 6 months", "Ongoing / long-term support"];
+---
+<BaseLayout title={SEO.contact.title} description={SEO.contact.description} lang="en">
+  <section class="phero">
+    <div class="phero__deco"></div>
+    <div class="phero__grid" style="grid-template-columns:1fr">
+      <div style="max-width:24ch">
+        <span class="eyebrow">Contact</span>
+        <h1 style="margin-top:22px">Contact.</h1>
+        <p class="phero__sub">Let's talk about your project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="sent-note is-hidden" id="sent-note">
+        <span class="sent-note__tag">✓ REQUEST SENT</span>
+        <span class="sent-note__txt" id="sent-txt">Thank you, ESE will get back to you shortly.</span>
+      </div>
+
+      <div class="formgrid" id="form-wrap">
+        <form id="contact-form" novalidate data-endpoint={CONTACT.formEndpoint}>
+          <div class="field">
+            <label class="field__label">Type of project <span class="field__req is-hidden" id="err-projet">· required</span></label>
+            <div class="optset" id="opt-projet" role="group" aria-label="Type of project">
+              {PROJETS.map((p) => <button type="button" class="opt" data-val={p}>{p}</button>)}
+            </div>
+            <input type="hidden" name="type_projet" id="in-projet" />
+          </div>
+
+          <div class="field">
+            <label class="field__label">Timeline</label>
+            <div class="optset" id="opt-echeance" role="group" aria-label="Timeline">
+              {ECHEANCES.map((p) => <button type="button" class="opt" data-val={p}>{p}</button>)}
+            </div>
+            <input type="hidden" name="echeance" id="in-echeance" />
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-prenom">Contact details</label>
+            <div class="inrow">
+              <input class="input" id="f-prenom" name="prenom" placeholder="First name *" aria-label="First name" />
+              <input class="input" id="f-nom" name="nom" placeholder="Last name *" aria-label="Last name" />
+            </div>
+            <input class="input" name="societe" placeholder="Company" aria-label="Company" />
+            <div class="inrow">
+              <input class="input" id="f-email" name="email" type="email" placeholder="Email *" aria-label="Email" />
+              <input class="input" name="telephone" type="tel" placeholder="Phone" aria-label="Phone" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-msg">Message <span style="color:var(--slate);letter-spacing:0">· optional</span></label>
+            <textarea class="textarea" id="f-msg" name="message" maxlength="500" placeholder="Describe your project in a few lines…"></textarea>
+            <div class="charcount"><span id="charnum">0</span> / 500</div>
+          </div>
+
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="btn" type="submit">Send <span class="arr">→</span></button>
+          <p class="rgpd">Information collected via this form is used solely to respond to your enquiry.</p>
+        </form>
+
+        <aside class="contact-aside">
+          <div class="blk">
+            <h4>Address</h4>
+            <p>{CONTACT.adresse1},<br/>{CONTACT.adresse2}.</p>
+          </div>
+          <div class="blk">
+            <h4>Phone</h4>
+            <a class="mono" href={CONTACT.telHref}>{CONTACT.tel}</a>
+          </div>
+          <div class="blk">
+            <h4>Email</h4>
+            <a class="mono" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+          </div>
+          <div class="blk">
+            <h4>LinkedIn</h4>
+            <p><a href={CONTACT.linkedinEntreprise} target="_blank" rel="noopener noreferrer">Event &amp; Safety Engineering</a></p>
+            <p style="margin-top:6px"><a href={CONTACT.linkedinMatthieu} target="_blank" rel="noopener noreferrer">Matthieu Savatier</a></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const inProjet = document.getElementById("in-projet");
+  const inEcheance = document.getElementById("in-echeance");
+  const errProjet = document.getElementById("err-projet");
+
+  function bindGroup(groupId, hidden, { onPick } = {}) {
+    const group = document.getElementById(groupId);
+    group?.querySelectorAll(".opt").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const already = btn.classList.contains("sel");
+        group.querySelectorAll(".opt").forEach((b) => b.classList.remove("sel"));
+        if (already) { hidden.value = ""; }
+        else { btn.classList.add("sel"); hidden.value = btn.dataset.val; onPick && onPick(); }
+      });
+    });
+  }
+  bindGroup("opt-projet", inProjet, { onPick: () => errProjet?.classList.add("is-hidden") });
+  bindGroup("opt-echeance", inEcheance);
+
+  const msg = document.getElementById("f-msg");
+  const charnum = document.getElementById("charnum");
+  msg?.addEventListener("input", () => { charnum.textContent = String(msg.value.length); });
+
+  const sentNote = document.getElementById("sent-note");
+  const sentTxt = document.getElementById("sent-txt");
+  const formWrap = document.getElementById("form-wrap");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const prenom = document.getElementById("f-prenom");
+    const nom = document.getElementById("f-nom");
+    const email = document.getElementById("f-email");
+    let ok = true;
+    const flag = (el, bad) => { el.classList.toggle("err", bad); if (bad) ok = false; };
+    flag(prenom, !prenom.value.trim());
+    flag(nom, !nom.value.trim());
+    flag(email, !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value));
+    if (!inProjet.value) { errProjet?.classList.remove("is-hidden"); ok = false; }
+    if (!ok) return;
+
+    const endpoint = form.dataset.endpoint;
+    const showSuccess = () => {
+      sentTxt.textContent = `Thank you ${prenom.value.trim()}. ESE will get back to you shortly${inProjet.value ? ` regarding your "${inProjet.value}" project` : ""}.`;
+      formWrap.classList.add("is-hidden");
+      sentNote.classList.remove("is-hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    if (endpoint) {
+      try {
+        const res = await fetch(endpoint, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
+        if (res.ok) showSuccess();
+        else alert("An error occurred. Please try again or email secretariat@ese-techsolutions.com.");
+      } catch { alert("A network error occurred. Please try again."); }
+    } else { showSuccess(); }
+  });
+</script>

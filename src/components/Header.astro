@@ -1,8 +1,17 @@
 ---
-import { METIERS, CONTACT } from "../data/site.js";
+import { METIERS as METIERS_FR } from "../data/site.js";
+import { METIERS as METIERS_EN } from "../data/site.en.js";
+import { CONTACT } from "../data/site.js";
 const path = Astro.url.pathname;
-const isMetier = path.startsWith("/metiers/");
-const tallHero = path === "/" || path.startsWith("/metiers/"); // home + pages métier ont un hero plein écran
+const isEn = path.startsWith("/en");
+const METIERS = isEn ? METIERS_EN : METIERS_FR;
+const base = isEn ? "/en" : "";
+const isMetier = path.startsWith("/metiers/") || path.startsWith("/en/metiers/");
+const tallHero = path === "/" || path === "/en" || path === "/en/" || isMetier;
+// Language switcher: strip or add /en prefix
+const altLang = isEn
+  ? (path.replace(/^\/en/, "") || "/")
+  : "/en" + path;
 ---
 <header class="hdr is-over" id="site-header" data-tall-hero={tallHero ? "1" : "0"}>
   <div class="hdr__inner">
@@ -13,18 +22,19 @@ const tallHero = path === "/" || path.startsWith("/metiers/"); // home + pages m
 
     <nav class="nav" aria-label="Navigation principale">
       <div class="nav__item" id="mega-trigger">
-        <a class={"nav__link" + (isMetier ? " active" : "")} href="/metiers/direction-technique">
-          Métiers <span class="nav__caret">▾</span>
+        <a class={"nav__link" + (isMetier ? " active" : "")} href={`${base}/metiers/direction-technique`}>
+          {isEn ? "Services" : "Métiers"} <span class="nav__caret">▾</span>
         </a>
       </div>
-      <a class={"nav__link" + (path === "/references" ? " active" : "")} href="/references">Références</a>
-      <a class={"nav__link" + (path === "/methodes-partenariats" ? " active" : "")} href="/methodes-partenariats">Méthodes &amp; partenariats</a>
-      <a class={"nav__link" + (path === "/qui-sommes-nous" ? " active" : "")} href="/qui-sommes-nous">Qui sommes-nous</a>
+      <a class={"nav__link" + (path === `${base}/references` ? " active" : "")} href={`${base}/references`}>{isEn ? "References" : "Références"}</a>
+      <a class={"nav__link" + (path === `${base}/methodes-partenariats` ? " active" : "")} href={`${base}/methodes-partenariats`}>{isEn ? "Methods" : "Méthodes"}</a>
+      <a class={"nav__link" + (path === `${base}/qui-sommes-nous` ? " active" : "")} href={`${base}/qui-sommes-nous`}>{isEn ? "About" : "Qui sommes-nous"}</a>
     </nav>
 
     <div class="hdr__right">
       <a class="hdr__tel" href={CONTACT.telHref}>{CONTACT.tel}</a>
-      <a class="btn" href="/contact">Nous contacter</a>
+      <a class="lang-switch" href={altLang} aria-label={isEn ? "Version française" : "English version"}>{isEn ? "FR" : "EN"}</a>
+      <a class="btn" href={`${base}/contact`}>{isEn ? "Contact us" : "Nous contacter"}</a>
       <button class="nav__burger" aria-label="Ouvrir le menu" id="burger">
         <span></span><span></span><span></span>
       </button>
@@ -35,7 +45,7 @@ const tallHero = path === "/" || path.startsWith("/metiers/"); // home + pages m
 <div class="mega" id="mega">
   <div class="mega__inner">
     {METIERS.map((m) => (
-      <a class="mega__col" href={m.href}>
+      <a class="mega__col" href={`${base}${m.href}`}>
         <div class="mega__n">{m.n}</div>
         <div class="mega__t">{m.t}</div>
         <div class="mega__d">{m.d}</div>
@@ -53,11 +63,12 @@ const tallHero = path === "/" || path.startsWith("/metiers/"); // home + pages m
     </a>
     <button class="mobile-menu__close" aria-label="Fermer le menu" id="mobile-close">✕</button>
   </div>
-  {METIERS.map((m) => <a href={m.href}>{m.short}</a>)}
-  <a href="/references">Références</a>
-  <a href="/methodes-partenariats">Méthodes &amp; partenariats</a>
-  <a href="/qui-sommes-nous">Qui sommes-nous</a>
-  <a href="/contact">Contact</a>
+  {METIERS.map((m) => <a href={`${base}${m.href}`}>{m.short}</a>)}
+  <a href={`${base}/references`}>{isEn ? "References" : "Références"}</a>
+  <a href={`${base}/methodes-partenariats`}>{isEn ? "Methods & partnerships" : "Méthodes & partenariats"}</a>
+  <a href={`${base}/qui-sommes-nous`}>{isEn ? "About" : "Qui sommes-nous"}</a>
+  <a href={`${base}/contact`}>{isEn ? "Contact" : "Contact"}</a>
+  <a href={altLang} style="margin-top:16px;opacity:.7">{isEn ? "🇫🇷 Version française" : "🇬🇧 English version"}</a>
 </div>
 
 <script>

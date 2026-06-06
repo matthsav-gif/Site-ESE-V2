@@ -1,0 +1,93 @@
+---
+import { existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactBanner from "../../components/ContactBanner.astro";
+import Photo from "../../components/Photo.astro";
+import { SEO } from "../../data/site.en.js";
+
+const portraitFile = "portrait-matthieu.jpg";
+const portraitPath = fileURLToPath(new URL("../../../public/images/" + portraitFile, import.meta.url));
+const portraitSrc = existsSync(portraitPath) ? `/images/${portraitFile}` : null;
+
+const qualifs = [
+  { t: "AP2 ENSOSP", d: "Competency qualification in fire and panic prevention for ERP buildings — rare in event production." },
+  { t: "Vectorworks", d: "Expert practitioner across the Vectorworks technical design ecosystem." },
+  { t: "Structures & rigging", d: "Rigging and suspended load design with Braceworks and MVR." },
+];
+---
+<BaseLayout title={SEO.qui.title} description={SEO.qui.description} type="profile" lang="en">
+  <section class="phero">
+    <div class="phero__deco"></div>
+    <div class="phero__grid">
+      <div>
+        <span class="eyebrow">About us</span>
+        <h1 style="margin-top:22px">About us.</h1>
+        <p class="phero__sub">ESE is led by its founder, Matthieu Savatier.</p>
+      </div>
+      <div class="phero__media" style="aspect-ratio:4/5;max-width:380px;justify-self:end">
+        <Photo src={portraitSrc} alt="Matthieu Savatier, founder of ESE, Event & Safety Engineering" label="Portrait Matthieu Savatier" file="portrait to integrate" variant="" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">The founder</span>
+        <h2>Matthieu Savatier.</h2>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          Twelve years in event technical production — from the Paris 2024 Olympic opening ceremonies to stadium tours and major international concerts, luxury fashion shows and institutional events of international scope.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:22px">
+          Before founding ESE, twelve years in the field in technical direction and production management, across live, event and heritage productions, in France and internationally.
+        </p>
+        <p class="reveal" data-d="2" style="margin-top:22px">
+          I founded ESE, Event &amp; Safety Engineering, to carry an engineering activity dedicated to event technical production, structured around three services: technical direction, production management and safety expertise.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:32px"><span class="eyebrow">Qualifications</span></div>
+      <div class="kgrid">
+        {qualifs.map((q, k) => (
+          <div class="kcell reveal" data-d={k + 1}>
+            <div class="mono">QUALIF · {String(k + 1).padStart(2, "0")}</div>
+            <h4>{q.t}</h4>
+            <p>{q.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">The firm</span>
+        <h2>ESE, Event &amp; Safety Engineering.</h2>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          ESE is an engineering firm dedicated to event technical production.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:22px">
+          ESE operates in technical direction, production management and safety expertise — carrying productions end to end or stepping in as a complement to existing teams.
+        </p>
+        <p class="reveal" data-d="2" style="margin-top:22px">
+          <strong style="font-weight:400;color:var(--navy)">The network.</strong> ESE draws on a pool of specialists mobilised project by project (production managers, technical directors, structural engineers and safety specialists), assembled to fit each mission.
+        </p>
+        <p class="reveal" data-d="3" style="margin-top:22px">
+          <strong style="font-weight:400;color:var(--navy)">Clients.</strong> ESE works with event agencies, live producers and show organisers, technical engineering offices, set designers and institutional clients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ContactBanner lang="en" />
+</BaseLayout>

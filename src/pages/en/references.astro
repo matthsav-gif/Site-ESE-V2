@@ -1,0 +1,141 @@
+---
+import { readdirSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactBanner from "../../components/ContactBanner.astro";
+import VideoFacade from "../../components/VideoFacade.astro";
+import { REFERENCES, SEO } from "../../data/site.en.js";
+
+const galerieDir = fileURLToPath(new URL("../../../public/images/galerie", import.meta.url));
+let galerie = [];
+try {
+  galerie = readdirSync(galerieDir).filter((f) => /\.(jpe?g|png|webp)$/i.test(f)).sort().map((f) => `/images/galerie/${f}`);
+} catch (e) {}
+---
+<BaseLayout title={SEO.references.title} description={SEO.references.description} lang="en">
+  <section class="phero">
+    <div class="phero__deco"></div>
+    <div class="phero__grid" style="grid-template-columns:1fr;max-width:1320px">
+      <div style="max-width:26ch">
+        <span class="eyebrow">References</span>
+        <h1 style="margin-top:22px">References.</h1>
+        <p class="phero__sub" style="max-width:52ch">A selection of productions on which ESE, Event &amp; Safety Engineering, has worked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="refgrid">
+        {REFERENCES.map((r, k) => (
+          <div class={"refcard reveal " + r.span} data-d={(k % 2) + 1}>
+            {r.src ? (
+              <div class="refcard__img"><img src={r.src} alt={r.names} loading="lazy" decoding="async" /></div>
+            ) : (
+              <div class={"ph ph--" + r.variant}><div class="ph__media"></div></div>
+            )}
+            <div class="refcard__scrim"></div>
+            <div class="refcard__body">
+              <div class="refcard__k">{r.placeholderNote || (r.src ? r.k : "visual to provide")}</div>
+              <div class="refcard__t">{r.k}</div>
+              <div class="refcard__d">{r.names}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="reveal" style="margin-bottom:12px">
+        <span class="eyebrow">Five production clusters</span>
+      </div>
+      {REFERENCES.map((r, k) => (
+        <div class="split reveal" data-d={(k % 2) + 1}
+          style="grid-template-columns:320px 1fr;padding:30px 0;border-top:1px solid rgba(44,62,80,.14);align-items:baseline">
+          <div>
+            <div class="mono" style="color:var(--taupe-deep);font-size:12px">{String(k + 1).padStart(2, "0")}, {r.k}</div>
+            <h3 class="display" style="font-size:22px;margin-top:12px;line-height:1.12">{r.t}</h3>
+          </div>
+          <div>
+            <p style="margin:0;color:var(--navy);font-size:18px">{r.names}</p>
+            <p style="margin-top:10px;color:var(--slate);font-weight:300">{r.desc}</p>
+            {r.videos && (
+              <div class="vgrid" style="margin-top:22px">
+                {r.videos.map((v) => <VideoFacade id={v.id} title={v.title} />)}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal col-head">
+        <span class="eyebrow">Day to day</span>
+        <h2>Beyond the flagship productions.</h2>
+      </div>
+      <div>
+        <p class="reveal lead" style="margin-top:0">
+          Beyond these flagship productions, ESE works daily with brands, agencies, cultural venues and companies on their production briefs — corporate events, live, broadcast, set design, exhibitions, product launches, conventions. On mid-scale formats as well as confidential operations.
+        </p>
+        <p class="reveal" data-d="1" style="margin-top:22px">
+          ESE supports event agencies, live producers and show organisers, technical engineering offices, set designers and institutional clients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {galerie.length > 0 && (
+    <section class="section section--tight" style="background:var(--paper-2)">
+      <div class="wrap">
+        <div class="reveal" style="margin-bottom:36px;max-width:60ch">
+          <span class="eyebrow">Gallery</span>
+          <h2 class="display" style="font-size:clamp(24px,2.6vw,38px);margin-top:16px;line-height:1.1">In images.</h2>
+          <p class="lead" style="margin-top:16px">Productions, setups, structures and set designs — a glimpse of ESE's day-to-day work.</p>
+        </div>
+        <div class="gallery" id="gallery">
+          {galerie.map((src, i) => (
+            <button class="gallery__item" data-src={src} data-i={i} aria-label={`Enlarge image ${i + 1}`}>
+              <img src={src} alt={`ESE production, image ${i + 1}`} loading="lazy" decoding="async" />
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lb-close" aria-label="Close">✕</button>
+    <button class="lightbox__nav lightbox__prev" id="lb-prev" aria-label="Previous">‹</button>
+    <img id="lb-img" alt="" />
+    <button class="lightbox__nav lightbox__next" id="lb-next" aria-label="Next">›</button>
+  </div>
+
+  <ContactBanner lang="en" />
+</BaseLayout>
+
+<script>
+  const items = Array.from(document.querySelectorAll("#gallery .gallery__item"));
+  const lb = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lb-img");
+  let cur = 0;
+  const srcs = items.map((b) => b.dataset.src);
+  function show(i) { cur = (i + srcs.length) % srcs.length; lbImg.src = srcs[cur]; }
+  function open(i) { show(i); lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); }
+  function close() { lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); lbImg.src = ""; }
+  items.forEach((b) => b.addEventListener("click", () => open(Number(b.dataset.i))));
+  document.getElementById("lb-close")?.addEventListener("click", close);
+  document.getElementById("lb-prev")?.addEventListener("click", (e) => { e.stopPropagation(); show(cur - 1); });
+  document.getElementById("lb-next")?.addEventListener("click", (e) => { e.stopPropagation(); show(cur + 1); });
+  lb?.addEventListener("click", (e) => { if (e.target === lb) close(); });
+  document.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(cur - 1);
+    if (e.key === "ArrowRight") show(cur + 1);
+  });
+</script>
