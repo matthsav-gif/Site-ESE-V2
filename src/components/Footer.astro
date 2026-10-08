@@ -41,7 +41,7 @@ import { METIERS, CONTACT } from "../data/site.js";
     <span>© 2026 ESE · Event &amp; Safety Engineering</span>
     <div class="ftr__legal">
       <a href="/mentions-legales">Mentions légales</a>
-      <a href="/cgv">CGV</a>
+      <a href={Astro.url.pathname.startsWith("/en") ? "/en/cgv" : "/cgv"}>{Astro.url.pathname.startsWith("/en") ? "Terms of sale" : "CGV"}</a>
       <a href="/confidentialite">Politique de confidentialité</a>
     </div>
   </div>
