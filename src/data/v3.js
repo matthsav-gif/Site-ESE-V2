@@ -187,6 +187,7 @@ export const METIER_V3 = {
 export const REFS3 = {
   fr: [
     { slug: "jo-paris-2024", ms: ["direction-technique"], yr: "2024", t: "JO / JOP Paris 2024", cat: "Cérémonie", f: "ceremonie", lieu: "Paris", mis: "Direction technique · expertise multi-métiers", img: "/images/jo-para.jpg" },
+    { slug: "venue-du-pape-stade-de-france", ms: ["direction-technique", "regie-generale", "stage-management"], yr: "2026", t: "Venue du Pape", cat: "Cérémonie", f: "ceremonie", lieu: "Stade de France · Saint-Denis", mis: "Direction technique · régie générale · stage management · logistique des équipes", img: "/images/refs/pape-tribunes.jpg" },
     { ms: ["direction-technique", "bureau-etudes"], yr: "—", t: "Tournées en stade", cat: "Concert · tournée", f: "concert", lieu: "Mylène Farmer · JUL · Ninho · AC/DC", mis: "Direction technique live · rigging · structures", img: "/images/stade-concert.jpg" },
     { ms: ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], yr: "2026", t: "A$AP Rocky", cat: "Défilé AWGE + concert", f: "concert", lieu: "Accor Arena (Bercy) · Paris", mis: "Direction technique · régie générale · stage management · design lumière", img: "/images/refs/asap-concert.jpg" },
     { ms: ["direction-technique"], yr: "2023", t: "Louis Vuitton", cat: "Défilé · luxe", f: "mode", lieu: "Paris · aussi Garnier, Vichy", mis: "Direction technique · scénographie", img: "/images/direction-technique/luxe-louis-vuitton.jpg" },
@@ -195,6 +196,7 @@ export const REFS3 = {
   ],
   en: [
     { slug: "jo-paris-2024", ms: ["direction-technique"], yr: "2024", t: "Paris 2024 Games", cat: "Ceremony", f: "ceremonie", lieu: "Paris", mis: "Technical direction · multi-discipline expertise", img: "/images/jo-para.jpg" },
+    { slug: "venue-du-pape-stade-de-france", ms: ["direction-technique", "regie-generale", "stage-management"], yr: "2026", t: "Papal visit", cat: "Ceremony", f: "ceremonie", lieu: "Stade de France · Saint-Denis", mis: "Technical direction · production management · stage management · crew logistics", img: "/images/refs/pape-tribunes.jpg" },
     { ms: ["direction-technique", "bureau-etudes"], yr: "—", t: "Stadium tours", cat: "Concert · tour", f: "concert", lieu: "Mylène Farmer · JUL · Ninho · AC/DC", mis: "Live technical direction · rigging · structures", img: "/images/stade-concert.jpg" },
     { ms: ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], yr: "2026", t: "A$AP Rocky", cat: "AWGE fashion show + concert", f: "concert", lieu: "Accor Arena (Bercy) · Paris", mis: "Technical direction · production management · stage management · lighting design", img: "/images/refs/asap-concert.jpg" },
     { ms: ["direction-technique"], yr: "2023", t: "Louis Vuitton", cat: "Fashion · luxury", f: "mode", lieu: "Paris · also Garnier, Vichy", mis: "Technical direction · scenography", img: "/images/direction-technique/luxe-louis-vuitton.jpg" },
@@ -246,6 +248,7 @@ export const SEO3 = {
     "bureau-etudes": { title: "Bureau d'études & notes de calcul événementielles · ESE", description: "Notes de calcul de structures et charges suspendues, plans d'implantation, synoptiques et études techniques pour l'événementiel. Braceworks, MVR, Vectorworks, ConnectCAD." },
     "design-lumiere": { title: "Design lumière événementiel · ESE", description: "Design lumière pour concerts, défilés, cérémonies et conventions : intention, plans feux, pré-visualisation, encodage et réglages sur site." },
     "stage-management": { title: "Stage management événementiel · ESE", description: "Stage management : préparation des conduites, coordination du plateau, flux et séquences. Festivals, cérémonies, concerts, événements multi-séquences." },
+    pape: { title: "Venue du Pape au Stade de France · Références ESE", description: "Venue du Pape au Stade de France, septembre 2026 : direction technique, régie générale, stage management et logistique des équipes par ESE." },
     fiche: { title: "JO / JOP Paris 2024 · Références ESE", description: "Cérémonies d'ouverture des Jeux Olympiques et Paralympiques de Paris 2024 : direction technique et expertise multi-métiers d'ESE." },
   },
   en: {
@@ -254,6 +257,7 @@ export const SEO3 = {
     "bureau-etudes": { title: "Event engineering office & calculation notes · ESE", description: "Calculation notes for structures and suspended loads, layouts, schematics and technical studies for events. Braceworks, MVR, Vectorworks, ConnectCAD." },
     "design-lumiere": { title: "Event lighting design · ESE", description: "Lighting design for concerts, fashion shows, ceremonies and conventions: intent, lighting plots, pre-visualisation, programming and focus on site." },
     "stage-management": { title: "Event stage management · ESE", description: "Stage management: cue sheets, stage coordination, flows and sequences. Festivals, ceremonies, concerts, multi-sequence events." },
+    pape: { title: "Papal visit at the Stade de France · ESE References", description: "Papal visit at the Stade de France, September 2026: technical direction, production management, stage management and crew logistics by ESE." },
     fiche: { title: "Paris 2024 Olympic & Paralympic ceremonies · ESE References", description: "Opening ceremonies of the Paris 2024 Olympic and Paralympic Games: ESE's technical direction and multi-discipline expertise." },
   },
 };
@@ -293,5 +297,41 @@ export const OFFRE = {
     secL: "On most projects, technical and safety are handled by different people who first meet at the safety commission. At ESE, both are designed together from the very first drawing.",
     secKeys: [["One team", "Drawings, structures, lighting and safety aligned"], ["AP2 ENSOSP", "ERP fire safety reports produced and signed by ESE"], ["Before the authorities", "Prefecture, city hall, commission, fire service"]],
     secLink: "Safety expertise",
+  },
+};
+
+/* Fiches projet */
+export const FICHES = {
+  "jo-paris-2024": {
+    img: "/images/jo-para.jpg", seo: "fiche",
+    videos: [["onP5-DKSbI4", 0], ["7OuJXFhg5PA", 1]],
+    fr: { alt: "Site de la cérémonie paralympique de Paris 2024, place de la Concorde au crépuscule", k: "Référence · R-01", h1: "JO / JOP<br>Paris 2024",
+      facts: [["Événement", "Cérémonies d'ouverture"], ["Lieu", "Paris"], ["Année", "2024"], ["Mission ESE", "Direction technique · expertise multi-métiers"]],
+      chaps: [["01", "Le contexte", "Les cérémonies d'ouverture des Jeux Olympiques et Paralympiques, en plein cœur de Paris, sur des sites qui ne sont pas conçus pour accueillir un spectacle : contraintes de temps, d'espace, de coactivité et de sécurité hors norme."],
+              ["02", "Notre mission", "Direction technique et expertise multi-métiers sur le programme des cérémonies, au sein d'une organisation réunissant de nombreux acteurs."],
+              ["03", "Sur le terrain", "Montage, coordination et exploitation : plans, réunions de coordination et présence sur site, à l'échelle d'une production regardée dans le monde entier."]],
+      v: ["Cérémonie d'ouverture des Jeux Olympiques de Paris 2024", "Cérémonie d'ouverture des Jeux Paralympiques de Paris 2024"], cta: "Un projet<br>similaire&nbsp;?" },
+    en: { alt: "Paris 2024 Paralympic ceremony site at dusk, place de la Concorde", k: "Reference · R-01", h1: "Paris 2024<br>Games",
+      facts: [["Event", "Opening ceremonies"], ["Location", "Paris"], ["Year", "2024"], ["ESE mission", "Technical direction · multi-discipline expertise"]],
+      chaps: [["01", "Context", "The opening ceremonies of the Olympic and Paralympic Games, in the heart of Paris, on sites never designed to host a show: exceptional constraints of time, space, co-activity and safety."],
+              ["02", "Our mission", "Technical direction and multi-discipline expertise across the ceremonies programme, within an organisation bringing together many stakeholders."],
+              ["03", "On site", "Load-in, coordination and show: drawings, coordination meetings and on-site presence at the scale of a production watched worldwide."]],
+      v: ["Paris 2024 Olympic Games opening ceremony", "Paris 2024 Paralympic Games opening ceremony"], cta: "A similar<br>project?" },
+  },
+  "venue-du-pape-stade-de-france": {
+    img: "/images/refs/pape-tribunes.jpg", seo: "pape",
+    gallery: ["pape-grues", "pape-vue-large", "pape-regie", "pape-equipe-scene", "pape-equipe-toit"],
+    fr: { alt: "Stade de France en cours de montage vu depuis les tribunes", k: "Référence · R-02", h1: "Venue du Pape<br>Stade de France",
+      facts: [["Événement", "Venue du Pape"], ["Lieu", "Stade de France · Saint-Denis"], ["Date", "Septembre 2026"], ["Mission ESE", "Direction technique · régie générale · stage management · logistique des équipes"]],
+      chaps: [["01", "Le contexte", "Un événement d'exception dans un stade de 80 000 places, préparé depuis juin 2026, avec une installation sur site du 22 au 27 septembre et un jour J devant un stade plein."],
+              ["02", "Notre mission", "Direction technique, régie générale, stage management et logistique des équipes, de la préparation en amont jusqu'au démontage."],
+              ["03", "Sur le terrain", "Montage de la scène et de sa rosace, coordination des équipes et des prestataires dans un stade en configuration exceptionnelle, puis conduite du jour J."]],
+      cta: "Un événement<br>d'exception&nbsp;?" },
+    en: { alt: "Stade de France during load-in seen from the stands", k: "Reference · R-02", h1: "Papal visit<br>Stade de France",
+      facts: [["Event", "Papal visit"], ["Location", "Stade de France · Saint-Denis"], ["Date", "September 2026"], ["ESE mission", "Technical direction · production management · stage management · crew logistics"]],
+      chaps: [["01", "Context", "An exceptional event in an 80,000-seat stadium, prepared since June 2026, with on-site installation from 22 to 27 September and a show day in front of a full stadium."],
+              ["02", "Our mission", "Technical direction, production management, stage management and crew logistics, from upstream preparation through to strike."],
+              ["03", "On site", "Building the stage and its rose window, coordinating crews and suppliers in a stadium in an exceptional configuration, then running the show day."]],
+      cta: "An exceptional<br>event?" },
   },
 };
