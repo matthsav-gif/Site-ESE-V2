@@ -2,11 +2,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Poster from "./Poster.astro";
 import RefRows from "./RefRows.astro";
-import { T, REFS3, dt } from "../../data/v3.js";
+import { T, REFS3, IMPACT, dt } from "../../data/v3.js";
 import { SEO } from "../../data/site.js";
 import { SEO as SEO_EN } from "../../data/site.en.js";
 const { lang = "fr" } = Astro.props;
 const en = lang === "en"; const L = T[lang]; const b = L.base; const S = (en ? SEO_EN : SEO).references;
+const I = IMPACT[lang];
 const tx = en ? {
   h1: "Our services,<br>in action", side: ["Ceremonies", "Concerts & tours", "Fashion & luxury", "Institutional"],
   small: "Each case states our mission and what we were entrusted with, without confusing contribution with overall production.",
@@ -32,6 +33,13 @@ const tx = en ? {
       {tx.filters.map(([f, l], i) => <button aria-pressed={i === 0 ? "true" : "false"} data-filter={f}>{l}</button>)}
     </div>
     <div class="reflist" id="reflist"><RefRows refs={REFS3[lang]} base={b} lang={lang} /></div>
+  </div></section>
+  <section class="poster impact"><div class="wrap" style="display:block">
+    <div data-g="s1" class="rv" style="margin-bottom:40px">
+      <div><p class="kick">{I.k}</p><h2 class="hl md" style="margin-top:30px" set:html={dt(I.t)} /></div>
+      <p class="lede">{I.l}</p>
+    </div>
+    <ul class="impact-list rv">{I.items.map((x) => <li>{x}</li>)}</ul>
   </div></section>
   <Poster kick={tx.k} title={tx.t} sub={tx.s} img="/images/v3/bw_livrer.jpg" v="b" alt="" flip={true}>
     <p class="lede">{tx.l}</p>
