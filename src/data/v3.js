@@ -94,7 +94,7 @@ export const METIER_V3 = {
       lead: "Notes de calcul, plans et études techniques : nous produisons les documents qui permettent de valider un dispositif avant qu'il ne soit monté.",
       body: ["Structures scéniques, charges suspendues, ponts, tours, écrans, gradins : chaque élément monté sur un site doit être justifié. Nous modélisons les configurations, calculons les efforts et produisons des notes lisibles par les bureaux de contrôle, les exploitants et les prestataires.",
              "Le bureau d'études intervient en amont d'une production ou en appui ponctuel : une note de calcul pour une accroche, un plan d'implantation pour une commission, un synoptique pour un prestataire."],
-      perim: ["Notes de calcul de structures et de charges suspendues (Braceworks, MVR).", "Descentes de charges, lestage, ancrages et prise au vent.", "Plans d'implantation et plans techniques Vectorworks.", "Synoptiques électriques, audio, vidéo et réseau (ConnectCAD).", "Études de faisabilité et dossiers techniques pour bureaux de contrôle et commissions.", "Interface avec les ingénieurs structure et les bureaux de contrôle.", "Notes rédigées pour être soumises au bureau de contrôle ou à l'ingénieur structure chargé de la validation."],
+      perim: ["Notes de calcul de structures et de charges suspendues (Braceworks, MVR).", "Descentes de charges, lestage, ancrages et prise au vent.", "Plans d'implantation et plans techniques Vectorworks.", "Synoptiques électriques, audio, vidéo et réseau (ConnectCAD).", "Études de faisabilité et dossiers techniques pour bureaux de contrôle et commissions.", "Interface avec les ingénieurs structure et les bureaux de contrôle.", "Notes de calcul signées par un ingénieur structure."],
       opsT: "Livrables", ops: ["Notes de calcul", "Plans d'implantation", "Plans de rigging", "Synoptiques", "Dossiers techniques", "Études de faisabilité", "Modélisation 3D", "Fichiers MVR"],
       cta: "Demander une note de calcul ou une étude" },
     "design-lumiere": {
@@ -145,7 +145,7 @@ export const METIER_V3 = {
       lead: "Calculation notes, drawings and technical studies: we produce the documents that validate a set-up before it is built.",
       body: ["Stage structures, suspended loads, trusses, towers, screens, grandstands: every element built on site must be justified. We model the configurations, calculate the forces and produce notes that inspection bodies, venue operators and suppliers can read.",
              "The engineering office works upstream of a production or as one-off support: a calculation note for a rigging point, a layout for a safety commission, a schematic for a supplier."],
-      perim: ["Calculation notes for structures and suspended loads (Braceworks, MVR).", "Load paths, ballast, anchoring and wind loading.", "Vectorworks layouts and technical drawings.", "Power, audio, video and network schematics (ConnectCAD).", "Feasibility studies and technical files for inspection bodies and commissions.", "Interface with structural engineers and inspection bodies.", "Notes written to be submitted to the inspection body or structural engineer in charge of validation."],
+      perim: ["Calculation notes for structures and suspended loads (Braceworks, MVR).", "Load paths, ballast, anchoring and wind loading.", "Vectorworks layouts and technical drawings.", "Power, audio, video and network schematics (ConnectCAD).", "Feasibility studies and technical files for inspection bodies and commissions.", "Interface with structural engineers and inspection bodies.", "Calculation notes signed by a structural engineer."],
       opsT: "Deliverables", ops: ["Calculation notes", "Layouts", "Rigging plots", "Schematics", "Technical files", "Feasibility studies", "3D modelling", "MVR files"],
       cta: "Request a calculation note or a study" },
     "design-lumiere": {
@@ -186,18 +186,20 @@ export const METIER_V3 = {
 
 export const REFS3 = {
   fr: [
-    { slug: "jo-paris-2024", yr: "2024", t: "JO / JOP Paris 2024", cat: "Cérémonie", f: "ceremonie", lieu: "Paris", mis: "Direction technique · expertise multi-métiers", img: "/images/jo-para.jpg" },
-    { yr: "—", t: "Tournées en stade", cat: "Concert · tournée", f: "concert", lieu: "Mylène Farmer · JUL · Ninho · AC/DC", mis: "Direction technique live · rigging · structures", img: "/images/stade-concert.jpg" },
-    { yr: "2023", t: "Louis Vuitton", cat: "Défilé · luxe", f: "mode", lieu: "Paris · aussi Garnier, Vichy", mis: "Direction technique · scénographie", img: "/images/direction-technique/luxe-louis-vuitton.jpg" },
-    { yr: "2025", t: "UNOC Nice", cat: "Sommet institutionnel", f: "institutionnel", lieu: "United Nations Ocean Conference", mis: "Direction technique multi-métiers", img: "/images/expertise-securite/unoc-nice.jpg" },
-    { yr: "—", t: "DJ sets internationaux", cat: "Clubbing & live", f: "live", lieu: "Mochakk · Adriatique · Blondish", mis: "Direction technique · régie live", img: "/images/direction-technique/dj-mochakk.jpg" },
+    { slug: "jo-paris-2024", ms: ["direction-technique"], yr: "2024", t: "JO / JOP Paris 2024", cat: "Cérémonie", f: "ceremonie", lieu: "Paris", mis: "Direction technique · expertise multi-métiers", img: "/images/jo-para.jpg" },
+    { ms: ["direction-technique", "bureau-etudes"], yr: "—", t: "Tournées en stade", cat: "Concert · tournée", f: "concert", lieu: "Mylène Farmer · JUL · Ninho · AC/DC", mis: "Direction technique live · rigging · structures", img: "/images/stade-concert.jpg" },
+    { ms: ["design-lumiere"], yr: "—", t: "A$AP Rocky", cat: "Concert", f: "concert", lieu: "Accor Arena (Bercy) · Paris", mis: "Design lumière", img: IMG + "bw_lumiere.jpg" },
+    { ms: ["direction-technique"], yr: "2023", t: "Louis Vuitton", cat: "Défilé · luxe", f: "mode", lieu: "Paris · aussi Garnier, Vichy", mis: "Direction technique · scénographie", img: "/images/direction-technique/luxe-louis-vuitton.jpg" },
+    { ms: ["direction-technique"], yr: "2025", t: "UNOC Nice", cat: "Sommet institutionnel", f: "institutionnel", lieu: "United Nations Ocean Conference", mis: "Direction technique multi-métiers", img: "/images/expertise-securite/unoc-nice.jpg" },
+    { ms: ["direction-technique", "regie-generale"], yr: "—", t: "DJ sets internationaux", cat: "Clubbing & live", f: "live", lieu: "Mochakk · Adriatique · Blondish", mis: "Direction technique · régie live", img: "/images/direction-technique/dj-mochakk.jpg" },
   ],
   en: [
-    { slug: "jo-paris-2024", yr: "2024", t: "Paris 2024 Games", cat: "Ceremony", f: "ceremonie", lieu: "Paris", mis: "Technical direction · multi-discipline expertise", img: "/images/jo-para.jpg" },
-    { yr: "—", t: "Stadium tours", cat: "Concert · tour", f: "concert", lieu: "Mylène Farmer · JUL · Ninho · AC/DC", mis: "Live technical direction · rigging · structures", img: "/images/stade-concert.jpg" },
-    { yr: "2023", t: "Louis Vuitton", cat: "Fashion · luxury", f: "mode", lieu: "Paris · also Garnier, Vichy", mis: "Technical direction · scenography", img: "/images/direction-technique/luxe-louis-vuitton.jpg" },
-    { yr: "2025", t: "UNOC Nice", cat: "Institutional summit", f: "institutionnel", lieu: "United Nations Ocean Conference", mis: "Multi-discipline technical direction", img: "/images/expertise-securite/unoc-nice.jpg" },
-    { yr: "—", t: "International DJ sets", cat: "Clubbing & live", f: "live", lieu: "Mochakk · Adriatique · Blondish", mis: "Technical direction · live production", img: "/images/direction-technique/dj-mochakk.jpg" },
+    { slug: "jo-paris-2024", ms: ["direction-technique"], yr: "2024", t: "Paris 2024 Games", cat: "Ceremony", f: "ceremonie", lieu: "Paris", mis: "Technical direction · multi-discipline expertise", img: "/images/jo-para.jpg" },
+    { ms: ["direction-technique", "bureau-etudes"], yr: "—", t: "Stadium tours", cat: "Concert · tour", f: "concert", lieu: "Mylène Farmer · JUL · Ninho · AC/DC", mis: "Live technical direction · rigging · structures", img: "/images/stade-concert.jpg" },
+    { ms: ["design-lumiere"], yr: "—", t: "A$AP Rocky", cat: "Concert", f: "concert", lieu: "Accor Arena (Bercy) · Paris", mis: "Lighting design", img: IMG + "bw_lumiere.jpg" },
+    { ms: ["direction-technique"], yr: "2023", t: "Louis Vuitton", cat: "Fashion · luxury", f: "mode", lieu: "Paris · also Garnier, Vichy", mis: "Technical direction · scenography", img: "/images/direction-technique/luxe-louis-vuitton.jpg" },
+    { ms: ["direction-technique"], yr: "2025", t: "UNOC Nice", cat: "Institutional summit", f: "institutionnel", lieu: "United Nations Ocean Conference", mis: "Multi-discipline technical direction", img: "/images/expertise-securite/unoc-nice.jpg" },
+    { ms: ["direction-technique", "regie-generale"], yr: "—", t: "International DJ sets", cat: "Clubbing & live", f: "live", lieu: "Mochakk · Adriatique · Blondish", mis: "Technical direction · live production", img: "/images/direction-technique/dj-mochakk.jpg" },
   ],
 };
 

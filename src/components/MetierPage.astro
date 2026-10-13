@@ -16,6 +16,8 @@ const L = T[lang]; const b = L.base;
 const M = METIERS3[lang]; const i = M.findIndex((x) => x.slug === route);
 const m = M[i]; const d = METIER_V3[lang][route];
 const N = M.length; const nxt = M[(i + 1) % N]; const prv = M[(i + N - 1) % N];
+const own = REFS3[lang].filter((r) => (r.ms || []).includes(route));
+const refs = own.length ? own : REFS3[lang].slice(0, 3);
 const seo = (en ? SEO_EN : SEO)[route] || SEO3[lang][route];
 const tx = en
   ? { whenK: "When to call us", whenT: "Typical situations", top: "Our services", perimK: "Scope", perimT: "What we take on", where: "Where we work", refK: "In action", refT: "References", all: "All references" }
@@ -54,7 +56,7 @@ const svc = { "@context": "https://schema.org", "@type": "Service", name: m.t, d
   <section class="poster" style="padding-bottom:40px"><div class="wrap" style="display:block">
     <div class="rv" style="display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap"><div><p class="kick">{tx.refK}</p><h2 class="hl md" style="margin-top:28px" set:html={dt(tx.refT)} /></div><a href={`${b}/references`} class="arrow">{tx.all} <i>→</i></a></div>
   </div></section>
-  <section class="dark band" style="padding-top:20px"><div class="wrap"><div class="reflist" style="margin-top:0"><RefRows refs={REFS3[lang].slice(0, 3)} base={b} lang={lang} /></div></div></section>
+  <section class="dark band" style="padding-top:20px"><div class="wrap"><div class="reflist" style="margin-top:0"><RefRows refs={refs} base={b} lang={lang} /></div></div></section>
 
   <div class="wrap">
     <nav class="next" aria-label={en ? "Other services" : "Autres métiers"}>
