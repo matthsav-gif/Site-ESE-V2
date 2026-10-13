@@ -10,16 +10,16 @@ const { lang = "fr" } = Astro.props;
 const en = lang === "en"; const L = T[lang]; const b = L.base; const S = SEO3[lang].metiers;
 const tx = en ? {
   k: "Production / Services / Field", t: "Every production<br>has its constraints.", s: "We know the trades behind them.",
-  l: "Whether it means preparing an entire event or stepping in at a specific stage, we bring the right skills to the project: technical design, operational coordination, stage management and safety expertise.",
+  l: "Whether it means preparing an entire event or stepping in at a specific stage, we bring the right skills to the project: technical direction, engineering and calculations, lighting design, operational coordination, stage management and safety expertise.",
   keys: [["A defined scope", "What we take on, no more, no less"], ["Named contacts", "One person per topic"], ["A method", "Adapted to field reality"]],
   top: ["02 — Our services", "From plan to field"],
-  doors: [["A one-off mission", "One service, one phase, a few days. We support your team.", "Describe a mission", "ponctuel"], ["Full support", "All four services together, from design to venue hand-back.", "Discuss a project", "global"]],
+  doors: [["A one-off mission", "One service, one phase, a few days. We support your team.", "Describe a mission", "ponctuel"], ["Full support", "All our services together, from design to venue hand-back.", "Discuss a project", "global"]],
 } : {
   k: "Production / Métiers / Terrain", t: "Chaque production<br>a ses contraintes.", s: "Nous en connaissons les métiers.",
-  l: "Qu'il s'agisse de préparer l'ensemble d'un événement ou d'intervenir sur une étape précise, nous mobilisons les compétences adaptées au projet : conception technique, coordination opérationnelle, conduite de plateau et expertise sécurité.",
+  l: "Qu'il s'agisse de préparer l'ensemble d'un événement ou d'intervenir sur une étape précise, nous mobilisons les compétences adaptées au projet : direction technique, bureau d'études et notes de calcul, design lumière, coordination opérationnelle, conduite de plateau et expertise sécurité.",
   keys: [["Un périmètre défini", "Ce que nous prenons, ni plus ni moins"], ["Des interlocuteurs identifiés", "Une personne par sujet"], ["Une méthode", "Adaptée à la réalité du terrain"]],
   top: ["02 — Nos métiers", "Du plan au terrain"],
-  doors: [["Une mission ponctuelle", "Un métier, une phase, quelques jours. Nous intervenons en renfort de votre équipe.", "Décrire une mission", "ponctuel"], ["Un accompagnement global", "Les quatre métiers réunis, de la conception à la restitution du lieu.", "Échanger sur un projet", "global"]],
+  doors: [["Une mission ponctuelle", "Un métier, une phase, quelques jours. Nous intervenons en renfort de votre équipe.", "Décrire une mission", "ponctuel"], ["Un accompagnement global", "Tous nos métiers réunis, de la conception à la restitution du lieu.", "Échanger sur un projet", "global"]],
 };
 ---
 <BaseLayout title={S.title} description={S.description} lang={lang}>

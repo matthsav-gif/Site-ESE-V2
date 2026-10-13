@@ -9,7 +9,7 @@ const tx = en ? {
   top: ["Contact", "Reply within 2 working days"], k: "Production / Services / Field", h1: "Let's talk about<br>what you need",
   s: "A one-day mission, a file to prepare, a production in development or a crew need?", l: "Describe your situation simply. We will point you to the right scope of work.",
   coords: ["Phone", "Email", "Address"],
-  types: ["Technical direction", "Production management", "Stage management", "Safety expertise", "Other / several services", "Not sure yet"],
+  types: ["Technical direction", "Engineering & calculations", "Lighting design", "Production management", "Stage management", "Safety expertise", "Other / several services", "Not sure yet"],
   ech: ["Less than 3 months", "3 to 6 months", "More than 6 months", "Recurring / long-term"],
   f: { type: "Request type", ech: "Timeframe", prenom: "First name", nom: "Last name", soc: "Company", email: "Email", tel: "Phone", msg: "Message", opt: "Optional", ph: "Your project, your dates, where you stand", req: "required", send: "Send my request", note: "No budget required. A few lines are enough.", rgpd: "The information collected through this form is used only to reply to your request." },
   ok: (p, t) => `Thank you ${p}. ESE will get back to you shortly${t ? ` about your “${t}” project` : ""}.`,
@@ -18,7 +18,7 @@ const tx = en ? {
   top: ["Contact", "Réponse sous 48 h ouvrées"], k: "Production / Métiers / Terrain", h1: "Parlons de ce<br>qu'il vous faut",
   s: "Une mission d'un jour, un dossier à préparer, une production en développement ou un besoin d'équipe ?", l: "Décrivez simplement votre situation. Nous vous orienterons vers un périmètre de travail adapté.",
   coords: ["Téléphone", "Email", "Adresse"],
-  types: ["Direction technique", "Régie générale", "Stage management", "Expertise sécurité", "Autre / Multi-métiers", "Je ne sais pas encore"],
+  types: ["Direction technique", "Bureau d'études & notes de calcul", "Design lumière", "Régie générale", "Stage management", "Expertise sécurité", "Autre / Multi-métiers", "Je ne sais pas encore"],
   ech: ["Moins de 3 mois", "3 à 6 mois", "Plus de 6 mois", "Récurrence / accompagnement long"],
   f: { type: "Type de demande", ech: "Échéance", prenom: "Prénom", nom: "Nom", soc: "Structure", email: "Email", tel: "Téléphone", msg: "Message", opt: "Facultatif", ph: "Votre projet, vos dates, où vous en êtes", req: "requis", send: "Envoyer ma demande", note: "Pas de budget demandé. Quelques lignes suffisent.", rgpd: "Les informations recueillies via ce formulaire sont utilisées uniquement pour répondre à votre demande." },
   ok: null, err: "Une erreur est survenue. Merci de réessayer ou d'écrire à secretariat@ese-techsolutions.com.", fk: "Questions fréquentes", ft: "Avant<br>d'écrire",
@@ -72,8 +72,8 @@ const faq = FAQ3[lang];
 <script define:vars={{ lang, okFr: null, errMsg: tx.err }}>
   const form = document.getElementById("contact-form");
   const TYPE_MAP = lang === "en"
-    ? { "direction-technique": 0, "regie-generale": 1, "stage-management": 2, "expertise-securite": 3, "multi": 4 }
-    : { "direction-technique": 0, "regie-generale": 1, "stage-management": 2, "expertise-securite": 3, "multi": 4 };
+    ? { "direction-technique": 0, "bureau-etudes": 1, "design-lumiere": 2, "regie-generale": 3, "stage-management": 4, "expertise-securite": 5, "multi": 6 }
+    : { "direction-technique": 0, "bureau-etudes": 1, "design-lumiere": 2, "regie-generale": 3, "stage-management": 4, "expertise-securite": 5, "multi": 6 };
   const q = new URLSearchParams(location.search).get("type");
   if (q && TYPE_MAP[q] !== undefined) { const r = document.getElementById("ty" + TYPE_MAP[q]); if (r) r.checked = true; }
   if (q === "ponctuel" || q === "global") {

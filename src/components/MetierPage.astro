@@ -15,7 +15,7 @@ const en = lang === "en";
 const L = T[lang]; const b = L.base;
 const M = METIERS3[lang]; const i = M.findIndex((x) => x.slug === route);
 const m = M[i]; const d = METIER_V3[lang][route];
-const nxt = M[(i + 1) % 4]; const prv = M[(i + 3) % 4];
+const N = M.length; const nxt = M[(i + 1) % N]; const prv = M[(i + N - 1) % N];
 const seo = (en ? SEO_EN : SEO)[route] || SEO3[lang][route];
 const tx = en
   ? { top: "Our services", perimK: "Scope", perimT: "What we take on", where: "Where we work", refK: "In action", refT: "References", all: "All references" }
@@ -23,7 +23,7 @@ const tx = en
 const svc = { "@context": "https://schema.org", "@type": "Service", name: m.t, description: d.lead, provider: { "@id": "https://ese-techsolutions.com/#organization" }, areaServed: ["France", "International"] };
 ---
 <BaseLayout title={seo.title} description={seo.description} lang={lang} ogImage={m.img} schema={[svc]}>
-  <Poster kick={m.kick} title={m.tl} sub={m.tag} img={m.img} v={m.v} alt="" top={[`${m.n} — ${tx.top}`, `${m.n} / 04`]} h1={true} cls="hl xl" tag={en ? "Anticipate<br>Coordinate<br>Deliver" : "Anticiper<br>Coordonner<br>Faire réussir"}>
+  <Poster kick={m.kick} title={m.tl} sub={m.tag} img={m.img} v={m.v} alt="" top={[`${m.n} — ${tx.top}`, `${m.n} / ${m.of}`]} h1={true} cls="hl xl" tag={en ? "Anticipate<br>Coordinate<br>Deliver" : "Anticiper<br>Coordonner<br>Faire réussir"}>
     <Keys items={m.keys} title={L.keysTitle} />
   </Poster>
 
@@ -54,10 +54,10 @@ const svc = { "@context": "https://schema.org", "@type": "Service", name: m.t, d
 
   <div class="wrap">
     <nav class="next" aria-label={en ? "Other services" : "Autres métiers"}>
-      <a href={`${b}/metiers/${prv.slug}`}><small>← {prv.n} / 04</small><strong>{prv.t}</strong></a>
-      <a href={`${b}/metiers/${nxt.slug}`}><small>{nxt.n} / 04 →</small><strong>{nxt.t}</strong></a>
+      <a href={`${b}/metiers/${prv.slug}`}><small>← {prv.n} / {prv.of}</small><strong>{prv.t}</strong></a>
+      <a href={`${b}/metiers/${nxt.slug}`}><small>{nxt.n} / {nxt.of} →</small><strong>{nxt.t}</strong></a>
     </nav>
-    <Strip left={`ESE — ${m.t}`} count={`${m.n} / 04`} next={`${b}/metiers/${nxt.slug}`} />
+    <Strip left={`ESE — ${m.t}`} count={`${m.n} / ${m.of}`} next={`${b}/metiers/${nxt.slug}`} />
     <div style="height:80px"></div>
   </div>
   <ContactBanner lang={lang} />

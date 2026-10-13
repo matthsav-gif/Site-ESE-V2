@@ -408,3 +408,16 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .form .f.bad{background:rgba(28,69,242,.06)}
 .form .f.bad label{color:var(--blue)}
 .err-tag{color:var(--blue)}
+
+/* Corrections lisibilité */
+.ref{grid-template-columns:150px 1fr 1fr 150px}
+.collage .tag{background:rgba(11,11,12,.55);padding:10px 12px;line-height:1.7}
+.hero .side small{text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.hero .bg::after{background:linear-gradient(0deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.1) 60%),linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,0) 55%),linear-gradient(270deg,rgba(0,0,0,.5),rgba(0,0,0,0) 45%)}
+@media (max-width:1180px){.ref{grid-template-columns:120px 1fr 140px}}
+@media (max-width:820px){
+  .ref{grid-template-columns:96px 1fr}
+  .ref .yr{font-size:34px}
+  .ftr .big{white-space:normal;font-size:17vw;line-height:.86}
+  .collage .tag{display:none}
+}

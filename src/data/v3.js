@@ -2,6 +2,7 @@
    Langage graphique aligné sur la communication (posts réseaux). */
 
 const IMG = "/images/v3/";
+const pad = (n) => String(n).padStart(2, "0");
 
 export const T = {
   fr: {
@@ -16,7 +17,7 @@ export const T = {
     },
     footer: {
       big: "Du plan au terrain",
-      about: "Production technique événementielle. Direction technique, régie générale, stage management et expertise sécurité, en mission globale ou en renfort ciblé.",
+      about: "Production technique événementielle. Direction technique, bureau d'études, design lumière, régie générale, stage management et expertise sécurité, en mission globale ou en renfort ciblé.",
       metiers: "Métiers", ese: "ESE", contact: "Contact",
       links: [["/references", "Références"], ["/methodes-partenariats", "Approche & méthodes"], ["/socle", "SOCLE®"], ["/qui-sommes-nous", "À propos"], ["/contact", "Contact"]],
       fse: "FSE · Ingénierie incendie",
@@ -36,7 +37,7 @@ export const T = {
     },
     footer: {
       big: "From plan to field",
-      about: "Event technical production. Technical direction, production management, stage management and safety expertise, as a full mission or targeted support.",
+      about: "Event technical production. Technical direction, engineering, lighting design, production management, stage management and safety expertise, as a full mission or targeted support.",
       metiers: "Services", ese: "ESE", contact: "Contact",
       links: [["/en/references", "References"], ["/en/methodes-partenariats", "Approach & methods"], ["/en/socle", "SOCLE®"], ["/en/qui-sommes-nous", "About"], ["/en/contact", "Contact"]],
       fse: "FSE · Fire engineering",
@@ -50,21 +51,29 @@ export const METIERS3 = {
   fr: [
     { slug: "direction-technique", n: "01", t: "Direction technique", tl: "Direction<br>technique", tag: "Définir avant de déployer.", kick: "Production technique", img: IMG + "bw_dt.jpg", v: "a",
       keys: [["Le besoin", "Objectifs et contraintes"], ["La faisabilité", "Études et implantations"], ["Les arbitrages", "Options et décisions"]] },
-    { slug: "regie-generale", n: "02", t: "Régie générale", tl: "La régie<br>générale", tag: "Un planning ne pilote pas une production.", kick: "Production / Métiers / Terrain", img: IMG + "bw_rg.jpg", v: "b",
+    { slug: "bureau-etudes", n: "02", t: "Bureau d'études & notes de calcul", tl: "Bureau<br>d'études", tag: "Calculer avant de suspendre.", kick: "Ingénierie / Études / Calcul", img: IMG + "bw_be.jpg", v: "d",
+      keys: [["Les structures", "Charges, lestage, ancrages"], ["Les plans", "Implantations et synoptiques"], ["Les notes", "Calculs et justificatifs"]] },
+    { slug: "design-lumiere", n: "03", t: "Design lumière", tl: "Design<br>lumière", tag: "Écrire la lumière avant d'allumer.", kick: "Création / Lumière / Terrain", img: IMG + "bw_lumiere.jpg", v: "a",
+      keys: [["L'intention", "Ambiances et parti pris"], ["Le plan feux", "Implantation et choix des sources"], ["La mise en œuvre", "Pré-visualisation, encodage, réglages"]] },
+    { slug: "regie-generale", n: "04", t: "Régie générale", tl: "La régie<br>générale", tag: "Un planning ne pilote pas une production.", kick: "Production / Métiers / Terrain", img: IMG + "bw_rg.jpg", v: "b",
       keys: [["Préparer", "Les moyens et les interfaces"], ["Coordonner", "Les équipes et les prestataires"], ["Adapter", "Les décisions aux réalités du terrain"]] },
-    { slug: "stage-management", n: "03", t: "Stage management", tl: "Stage<br>management", tag: "Faire tenir le plateau.", kick: "Production / Métiers / Terrain", img: IMG + "bw_sm.jpg", v: "c",
+    { slug: "stage-management", n: "05", t: "Stage management", tl: "Stage<br>management", tag: "Faire tenir le plateau.", kick: "Production / Métiers / Terrain", img: IMG + "bw_sm.jpg", v: "c",
       keys: [["Le plateau", "Flux et circulation"], ["Le timing", "Entrées, séquences et changements"], ["Les interfaces", "Artistes, équipes et production"]] },
-    { slug: "expertise-securite", n: "04", t: "Expertise sécurité", tl: "Expertise<br>sécurité", tag: "Sécuriser sans freiner le projet.", kick: "Production / Exploitation / Sécurité", img: IMG + "bw_secu.jpg", v: "d",
+    { slug: "expertise-securite", n: "06", t: "Expertise sécurité", tl: "Expertise<br>sécurité", tag: "Sécuriser sans freiner le projet.", kick: "Production / Exploitation / Sécurité", img: IMG + "bw_secu.jpg", v: "d",
       keys: [["Anticiper", "Identifier les risques"], ["Cadrer", "Réglementation et dispositifs"], ["Accompagner", "Sécuriser l'exploitation"]] },
   ],
   en: [
     { slug: "direction-technique", n: "01", t: "Technical direction", tl: "Technical<br>direction", tag: "Define before you deploy.", kick: "Technical production", img: IMG + "bw_dt.jpg", v: "a",
       keys: [["The brief", "Goals and constraints"], ["Feasibility", "Studies and layouts"], ["Trade-offs", "Options and decisions"]] },
-    { slug: "regie-generale", n: "02", t: "Production management", tl: "Production<br>management", tag: "A schedule doesn't run a production.", kick: "Production / Services / Field", img: IMG + "bw_rg.jpg", v: "b",
+    { slug: "bureau-etudes", n: "02", t: "Engineering & calculations", tl: "Engineering<br>office", tag: "Calculate before you hang.", kick: "Engineering / Studies / Calculations", img: IMG + "bw_be.jpg", v: "d",
+      keys: [["Structures", "Loads, ballast, anchoring"], ["Drawings", "Layouts and schematics"], ["Calculations", "Notes and justifications"]] },
+    { slug: "design-lumiere", n: "03", t: "Lighting design", tl: "Lighting<br>design", tag: "Write the light before switching it on.", kick: "Creation / Lighting / Field", img: IMG + "bw_lumiere.jpg", v: "a",
+      keys: [["The intent", "Moods and creative stance"], ["The lighting plot", "Rigging positions and fixtures"], ["Delivery", "Pre-visualisation, programming, focus"]] },
+    { slug: "regie-generale", n: "04", t: "Production management", tl: "Production<br>management", tag: "A schedule doesn't run a production.", kick: "Production / Services / Field", img: IMG + "bw_rg.jpg", v: "b",
       keys: [["Prepare", "Resources and interfaces"], ["Coordinate", "Teams and suppliers"], ["Adapt", "Decisions to field reality"]] },
-    { slug: "stage-management", n: "03", t: "Stage management", tl: "Stage<br>management", tag: "Keep the stage running.", kick: "Production / Services / Field", img: IMG + "bw_sm.jpg", v: "c",
+    { slug: "stage-management", n: "05", t: "Stage management", tl: "Stage<br>management", tag: "Keep the stage running.", kick: "Production / Services / Field", img: IMG + "bw_sm.jpg", v: "c",
       keys: [["The stage", "Flows and circulation"], ["Timing", "Cues, sequences and changeovers"], ["Interfaces", "Artists, crews and production"]] },
-    { slug: "expertise-securite", n: "04", t: "Safety expertise", tl: "Safety<br>expertise", tag: "Secure without slowing the project.", kick: "Production / Operations / Safety", img: IMG + "bw_secu.jpg", v: "d",
+    { slug: "expertise-securite", n: "06", t: "Safety expertise", tl: "Safety<br>expertise", tag: "Secure without slowing the project.", kick: "Production / Operations / Safety", img: IMG + "bw_secu.jpg", v: "d",
       keys: [["Anticipate", "Identify risks"], ["Frame", "Regulations and set-ups"], ["Support", "Secure operations"]] },
   ],
 };
@@ -79,6 +88,20 @@ export const METIER_V3 = {
       perim: ["Rédaction des cahiers des charges techniques.", "Arbitrages de production : choix des outils, des prestataires et des budgets techniques.", "Pilotage des phases de conception : plans Vectorworks, ConnectCAD, Braceworks, MVR.", "Calculs de structures et de rigging.", "Coordination des prestataires techniques en phase de réalisation.", "Direction technique récurrente pour sites, lieux culturels et organisations événementielles."],
       opsT: "Types d'opérations", ops: ["Événementiel corporate", "Culturel & lancements", "Congrès", "Concerts & festivals", "Tournées en stade", "Captations", "Scénographie & expo", "Structures & rigging", "Énergie temporaire"],
       cta: "Parler de votre besoin en direction technique" },
+    "bureau-etudes": {
+      lead: "Notes de calcul, plans et études techniques : nous produisons les documents qui permettent de valider un dispositif avant qu'il ne soit monté.",
+      body: ["Structures scéniques, charges suspendues, ponts, tours, écrans, gradins : chaque élément monté sur un site doit être justifié. Nous modélisons les configurations, calculons les efforts et produisons des notes lisibles par les bureaux de contrôle, les exploitants et les prestataires.",
+             "Le bureau d'études intervient en amont d'une production ou en appui ponctuel : une note de calcul pour une accroche, un plan d'implantation pour une commission, un synoptique pour un prestataire."],
+      perim: ["Notes de calcul de structures et de charges suspendues (Braceworks, MVR).", "Descentes de charges, lestage, ancrages et prise au vent.", "Plans d'implantation et plans techniques Vectorworks.", "Synoptiques électriques, audio, vidéo et réseau (ConnectCAD).", "Études de faisabilité et dossiers techniques pour bureaux de contrôle et commissions.", "Interface avec les ingénieurs structure et les bureaux de contrôle."],
+      opsT: "Livrables", ops: ["Notes de calcul", "Plans d'implantation", "Plans de rigging", "Synoptiques", "Dossiers techniques", "Études de faisabilité", "Modélisation 3D", "Fichiers MVR"],
+      cta: "Demander une note de calcul ou une étude" },
+    "design-lumiere": {
+      lead: "De l'intention artistique au plan feux, nous concevons la lumière de vos événements et la rendons réalisable sur le terrain.",
+      body: ["Concert, défilé, cérémonie, convention ou lieu patrimonial : la lumière porte l'image de l'événement. Nous traduisons une intention en plan feux concret, avec des choix de sources, des positions d'accroche et une puissance compatibles avec le lieu et le budget.",
+             "Parce que nous pratiquons aussi la direction technique et la régie, le design lumière reste réalisable : il tient compte des structures, de l'énergie disponible, des délais de montage et des contraintes de sécurité."],
+      perim: ["Note d'intention et parti pris lumière.", "Plans feux et implantation des sources (Vectorworks Spotlight).", "Pré-visualisation 3D des ambiances.", "Choix du matériel et cahier des charges pour le prestataire lumière.", "Coordination de l'encodage et des réglages sur site.", "Adaptation du design aux contraintes de structure, d'énergie et de sécurité."],
+      opsT: "Contextes", ops: ["Concerts", "Défilés & luxe", "Cérémonies", "Conventions", "Lieux patrimoniaux", "Scénographie & expo", "Festivals"],
+      cta: "Parler de votre projet lumière" },
     "regie-generale": {
       lead: "Plannings, accès, coactivité, équipes, prestataires, montage, exploitation et démontage : la régie générale fait tenir ensemble des réalités multiples.",
       body: ["Sur une opération ponctuelle, nous assemblons et pilotons la régie du premier camion au dernier. Sur la durée, nous prenons en charge la régie d'un site, d'un lieu culturel ou d'une tournée entière.",
@@ -110,6 +133,20 @@ export const METIER_V3 = {
       perim: ["Writing technical specifications.", "Production trade-offs: tools, suppliers and technical budgets.", "Managing design phases: Vectorworks, ConnectCAD, Braceworks, MVR drawings.", "Structural and rigging calculations.", "Coordinating technical suppliers during delivery.", "Recurring technical direction for venues, cultural sites and event organisations."],
       opsT: "Types of operations", ops: ["Corporate events", "Cultural & launches", "Conferences", "Concerts & festivals", "Stadium tours", "Broadcasts", "Scenography & exhibitions", "Structures & rigging", "Temporary power"],
       cta: "Discuss your technical direction needs" },
+    "bureau-etudes": {
+      lead: "Calculation notes, drawings and technical studies: we produce the documents that validate a set-up before it is built.",
+      body: ["Stage structures, suspended loads, trusses, towers, screens, grandstands: every element built on site must be justified. We model the configurations, calculate the forces and produce notes that inspection bodies, venue operators and suppliers can read.",
+             "The engineering office works upstream of a production or as one-off support: a calculation note for a rigging point, a layout for a safety commission, a schematic for a supplier."],
+      perim: ["Calculation notes for structures and suspended loads (Braceworks, MVR).", "Load paths, ballast, anchoring and wind loading.", "Vectorworks layouts and technical drawings.", "Power, audio, video and network schematics (ConnectCAD).", "Feasibility studies and technical files for inspection bodies and commissions.", "Interface with structural engineers and inspection bodies."],
+      opsT: "Deliverables", ops: ["Calculation notes", "Layouts", "Rigging plots", "Schematics", "Technical files", "Feasibility studies", "3D modelling", "MVR files"],
+      cta: "Request a calculation note or a study" },
+    "design-lumiere": {
+      lead: "From artistic intent to lighting plot, we design the lighting of your events and make it deliverable on site.",
+      body: ["Concert, fashion show, ceremony, convention or heritage venue: lighting carries the image of the event. We turn an intent into a concrete lighting plot, with fixtures, rigging positions and power that fit the venue and the budget.",
+             "Because we also practise technical direction and production management, the lighting design stays deliverable: it takes structures, available power, load-in time and safety constraints into account."],
+      perim: ["Lighting intent and creative stance.", "Lighting plots and fixture positions (Vectorworks Spotlight).", "3D pre-visualisation of moods.", "Equipment choice and specifications for the lighting supplier.", "Coordinating programming and focus on site.", "Adapting the design to structural, power and safety constraints."],
+      opsT: "Contexts", ops: ["Concerts", "Fashion & luxury", "Ceremonies", "Conventions", "Heritage venues", "Scenography & exhibitions", "Festivals"],
+      cta: "Talk about your lighting project" },
     "regie-generale": {
       lead: "Schedules, access, co-activity, crews, suppliers, load-in, show and strike: production management holds many realities together.",
       body: ["On a one-off operation, we assemble and run production management from the first truck to the last. Over time, we take charge of a venue, a cultural site or an entire tour.",
@@ -191,13 +228,17 @@ export const FAQ3 = {
 export const SEO3 = {
   fr: {
     home: { title: "ESE · Direction technique, régie générale & production événementielle", description: "ESE accompagne la production technique de vos événements : direction technique, régie générale, stage management et expertise sécurité, en mission globale ou ponctuelle." },
-    metiers: { title: "Expertises · ESE", description: "Direction technique, régie générale, stage management et expertise sécurité : les quatre métiers d'ESE, en mission globale ou en renfort ciblé." },
+    metiers: { title: "Expertises · ESE", description: "Direction technique, bureau d'études et notes de calcul, design lumière, régie générale, stage management et expertise sécurité : les six métiers d'ESE." },
+    "bureau-etudes": { title: "Bureau d'études & notes de calcul événementielles · ESE", description: "Notes de calcul de structures et charges suspendues, plans d'implantation, synoptiques et études techniques pour l'événementiel. Braceworks, MVR, Vectorworks, ConnectCAD." },
+    "design-lumiere": { title: "Design lumière événementiel · ESE", description: "Design lumière pour concerts, défilés, cérémonies et conventions : intention, plans feux, pré-visualisation, encodage et réglages sur site." },
     "stage-management": { title: "Stage management événementiel · ESE", description: "Stage management : préparation des conduites, coordination du plateau, flux et séquences. Festivals, cérémonies, concerts, événements multi-séquences." },
     fiche: { title: "JO / JOP Paris 2024 · Références ESE", description: "Cérémonies d'ouverture des Jeux Olympiques et Paralympiques de Paris 2024 : direction technique et expertise multi-métiers d'ESE." },
   },
   en: {
     home: { title: "ESE · Technical direction, production management & event production", description: "ESE supports the technical production of your events: technical direction, production management, stage management and safety expertise, as a full mission or targeted support." },
-    metiers: { title: "Services · ESE", description: "Technical direction, production management, stage management and safety expertise: ESE's four services, as a full mission or targeted support." },
+    metiers: { title: "Services · ESE", description: "Technical direction, engineering and calculations, lighting design, production management, stage management and safety expertise: ESE's six services." },
+    "bureau-etudes": { title: "Event engineering office & calculation notes · ESE", description: "Calculation notes for structures and suspended loads, layouts, schematics and technical studies for events. Braceworks, MVR, Vectorworks, ConnectCAD." },
+    "design-lumiere": { title: "Event lighting design · ESE", description: "Lighting design for concerts, fashion shows, ceremonies and conventions: intent, lighting plots, pre-visualisation, programming and focus on site." },
     "stage-management": { title: "Event stage management · ESE", description: "Stage management: cue sheets, stage coordination, flows and sequences. Festivals, ceremonies, concerts, multi-sequence events." },
     fiche: { title: "Paris 2024 Olympic & Paralympic ceremonies · ESE References", description: "Opening ceremonies of the Paris 2024 Olympic and Paralympic Games: ESE's technical direction and multi-discipline expertise." },
   },
@@ -206,3 +247,6 @@ export const SEO3 = {
 /* Titre + point bleu : le point remplace le point final et reste collé au dernier mot */
 export const dt = (s) =>
   String(s).replace(/\.\s*$/, "").replace(/([^\s>]+)\s*$/, '<span class="nw">$1<span class="dot" aria-hidden="true"></span></span>');
+
+/* Nombre total de métiers, affiché « 02 / 06 » */
+for (const l of ["fr", "en"]) METIERS3[l].forEach((m) => { m.of = pad(METIERS3[l].length); });
