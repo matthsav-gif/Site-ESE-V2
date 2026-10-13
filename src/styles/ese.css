@@ -472,3 +472,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 @media (max-width:820px){.ftr .big{font-size:15vw}}
 .ft-grid a.lockup{display:flex;justify-self:start;margin-bottom:0}
 .ft-grid a.lockup img{width:48px}
+
+/* Vraies photos d'événements en couleur (le noir et blanc reste pour les visuels d'ambiance) */
+.ref .thumb img{filter:saturate(1.05) contrast(1.04)}
+.ref .thumb::after{display:none}
+.fhero .bg img{filter:contrast(1.04) brightness(.78)}
+.gallery img{filter:none}
+.hero.real .bg img{filter:contrast(1.04) brightness(.72)}
