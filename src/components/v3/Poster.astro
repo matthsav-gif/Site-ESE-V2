@@ -1,0 +1,21 @@
+---
+// Gabarit « visuel de com » : kicker, titre + point bleu, phrase, contenu, collage
+import Collage from "./Collage.astro";
+import { dt } from "../../data/v3.js";
+const { kick, title, sub = "", img, v = "a", alt = "", flip = false, top = null, h1 = false, cls = "hl", tag = "", id } = Astro.props;
+const Tag = h1 ? "h1" : "h2";
+---
+<section class={"poster" + (flip ? " flip" : "")} id={id}>
+  {top && <div class="wrap" style="display:block"><div class="topline"><span>{top[0]}</span><span>{top[1]}</span></div></div>}
+  <div class="wrap">
+    <div class="txt rv">
+      <p class="kick">{kick}</p>
+      <Tag class={cls} set:html={dt(title)} />
+      <span class="small-rule"></span>
+      {sub && <p class={"sub" + (sub.length > 70 ? " wide" : "")} set:html={sub} />}
+      <slot />
+    </div>
+    <Collage img={img} v={v} alt={alt} tag={tag} />
+  </div>
+  {Astro.slots.has("strip") && <div class="wrap" style="display:block"><slot name="strip" /></div>}
+</section>

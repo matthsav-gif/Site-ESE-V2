@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Poster from "./Poster.astro";
+import Keys from "./Keys.astro";
+import MetierCard from "./MetierCard.astro";
+import RefRows from "./RefRows.astro";
+import Strip from "./Strip.astro";
+import ContactBanner from "../ContactBanner.astro";
+import { T, METIERS3, REFS3, SEO3, dt } from "../../data/v3.js";
+import { FAQ } from "../../data/site.js";
+import { FAQ as FAQ_EN } from "../../data/site.en.js";
+
+const { lang = "fr" } = Astro.props;
+const en = lang === "en";
+const L = T[lang]; const b = L.base;
+const M = METIERS3[lang]; const R = REFS3[lang]; const S = SEO3[lang].home;
+const I = "/images/v3/";
+const tx = en ? {
+  heroSide: ["Technical direction", "Production management", "Stage management", "Safety expertise"],
+  heroSmall: "We design, coordinate and run the technical production of events. Full mission or targeted support.",
+  h1: "From plan<br>to field",
+  p1k: "What gets prepared", p1t: "One production.<br>Many decisions.", p1s: "What the audience sees starts long before doors open.",
+  p1l: "Drawings, technical choices, schedules, crew flows, operations: behind every event, you need clear decisions and an organisation that holds up on site. That is where we step in.",
+  p1keys: [["Anticipate", "Spot the friction points"], ["Decide", "Make the call at the right time"], ["Coordinate", "Keep the crews moving"]],
+  top: ["Production / Services / Field", "From plan to field"], tag: "Anticipate<br>Coordinate<br>Deliver",
+  mTop: ["02 — Our services", "A global vision, precise interventions"], mk: "What we do", mt: "Four services.<br>One standard", ml: "We work on an entire production or on a targeted need, within your teams. Engineering, drawings, temporary power, structures and technical coordination, depending on the scope.", mlink: "Explore our services",
+  nk: "Every size", nt: "Events<br>of every size", nl: "Festival, international tour, institutional event, fashion show or bespoke production: the same standard, from a few days of support to full technical direction.",
+  nums: [["250+", "Projects delivered"], ["50K+", "Spectators"], ["15+", "Years of experience"]],
+  dk: "How we work", dt: "Targeted support.<br>Or a production<br>to run", dl: "Need a production manager for a few days? A technical study? A stage manager, a fire safety report or full technical direction? We define the scope with you and match the resources to the mission.",
+  doors: [["I have a specific need", "A production manager, a drawing, a report, a few days of support. Describe the mission, we reply on the scope.", "Describe a mission", "ponctuel"], ["I'm preparing a production", "An operation to design, crews to coordinate, a site to run. Let's discuss full support.", "Discuss a project", "global"]],
+  rk: "References", rt: "Different projects.<br>Same standard", rl: "Concerts, tours, fashion shows, institutional events, conventions or more confidential operations. Each case states our exact role.", rall: "All references",
+  ak: "Our method", at: "One production,<br>five stages", as: "Design. Prepare. Coordinate. Operate. Deliver.", alink: "Our approach",
+  ek: "Production / Services / Field", et: "One project.<br>Many crews", es: "Put every contributor in the right place, at the right time, with the right information.",
+  ekeys: [["Production office", "Steering and priorities"], ["The stage", "Show calling and flows"], ["Crews", "Briefings and coordination"]], elink: "About ESE", etag: "Standards<br>serving<br>the team",
+} : {
+  heroSide: ["Direction technique", "Régie générale", "Stage management", "Expertise sécurité"],
+  heroSmall: "Nous concevons, coordonnons et pilotons la production technique des événements. Mission complète ou renfort ponctuel.",
+  h1: "Du plan<br>au terrain",
+  p1k: "Ce qui se prépare", p1t: "Une production.<br>Des décisions.", p1s: "Ce que le public voit commence bien avant l'ouverture.",
+  p1l: "Plans, choix techniques, planning, circulation des équipes, exploitation : derrière chaque événement, il faut des décisions claires et une organisation qui tient sur le terrain. C'est là que nous intervenons.",
+  p1keys: [["Anticiper", "Identifier les points de friction"], ["Décider", "Trancher au bon moment"], ["Coordonner", "Faire avancer les équipes"]],
+  top: ["Production / Métiers / Terrain", "Du plan au terrain"], tag: "Anticiper<br>Coordonner<br>Faire réussir",
+  mTop: ["02 — Nos métiers", "Une vision globale, des interventions précises"], mk: "Ce que nous faisons", mt: "Quatre métiers.<br>Une même exigence", ml: "Nous intervenons sur l'ensemble d'une production ou sur un besoin ciblé, au sein de vos équipes. Ingénierie, plans, énergie temporaire, structures et coordination technique, selon le périmètre de mission.", mlink: "Explorer nos métiers",
+  nk: "Toutes tailles", nt: "Des événements<br>de toutes tailles", nl: "Festival, tournée internationale, événement institutionnel, défilé ou production sur mesure : la même exigence, du renfort de quelques jours à la direction technique complète.",
+  nums: [["250+", "Projets réalisés"], ["50K+", "Spectateurs"], ["15+", "Années d'expérience"]],
+  dk: "Comment nous intervenons", dt: "Un renfort ciblé.<br>Ou une production<br>à piloter", dl: "Besoin d'un régisseur pour quelques jours ? D'une étude technique ? D'un stage manager, d'une notice de sécurité ou d'une direction technique complète ? Nous définissons le périmètre avec vous et adaptons les moyens à la mission.",
+  doors: [["J'ai un besoin précis", "Un régisseur, un plan, une notice, quelques jours de renfort. Décrivez la mission, nous vous répondons sur le périmètre.", "Décrire une mission", "ponctuel"], ["Je prépare une production", "Une opération à concevoir, des équipes à coordonner, un site à exploiter. Échangeons sur un accompagnement global.", "Échanger sur un projet", "global"]],
+  rk: "Références", rt: "Des projets différents.<br>La même exigence", rl: "Concerts, tournées, défilés, événements institutionnels, conventions ou opérations plus confidentielles. Chaque fiche précise notre mission exacte.", rall: "Toutes les références",
+  ak: "Notre méthode", at: "Une production,<br>cinq temps", as: "Concevoir. Préparer. Coordonner. Exploiter. Livrer.", alink: "Notre approche",
+  ek: "Production / Métiers / Terrain", et: "Un projet.<br>Des équipes", es: "Mettre chaque intervenant au bon endroit, au bon moment, avec les bonnes informations.",
+  ekeys: [["La régie", "Pilotage et priorités"], ["Le plateau", "Conduite et circulation"], ["Les équipes", "Briefings et coordination"]], elink: "Qui sommes-nous", etag: "L'exigence<br>au service<br>du collectif",
+};
+const faq = (en ? FAQ_EN : FAQ);
+const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
+---
+<BaseLayout title={S.title} description={S.description} lang={lang} ogImage="/images/v3/bw_hero.jpg" schema={[faqLd]}>
+  <section class="hero">
+    <div class="bg"><img src={I + "bw_hero.jpg"} alt={en ? "Empty arena during load-in, truss towers and hanging speakers" : "Arène vide en cours de montage, tours de structure et enceintes suspendues"} fetchpriority="high" /></div>
+    <div class="wrap in">
+      <h1 class="hl" set:html={dt(tx.h1)}></h1>
+      <div class="side">{tx.heroSide.map((s) => <>{s}<br /></>)}
+        <small>{tx.heroSmall}</small>
+        <a href={`${b}/contact`} class="btn btn-line">{L.nav.cta} →</a>
+      </div>
+    </div>
+    <nav class="wrap temps" aria-label={en ? "The five stages of a production" : "Les cinq temps d'une production"}>
+      {L.temps.map(([t, n]) => <a href={`${b}/methodes-partenariats#t${n}`}><b>{t}</b><span>{n}</span></a>)}
+    </nav>
+  </section>
+
+  <Poster kick={tx.p1k} title={tx.p1t} sub={tx.p1s} img={I + "bw_truss.jpg"} v="a" alt="" top={tx.top} tag={tx.tag}>
+    <p class="lede">{tx.p1l}</p>
+    <Keys items={tx.p1keys} title={L.keysTitle} />
+  </Poster>
+
+  <section class="poster" style="padding-top:40px">
+    <div class="wrap" style="display:block">
+      <div class="topline"><span>{tx.mTop[0]}</span><span>{tx.mTop[1]}</span></div>
+      <div data-g="s1" class="rv" style="margin-bottom:56px">
+        <div><p class="kick">{tx.mk}</p><h2 class="hl md" style="margin-top:30px" set:html={dt(tx.mt)}></h2></div>
+        <div><p class="lede">{tx.ml}</p><a href={`${b}/metiers`} class="arrow" style="margin-top:26px">{tx.mlink} <i>→</i></a></div>
+      </div>
+      <div class="cards4">{M.map((m) => <MetierCard m={m} base={b} />)}</div>
+    </div>
+  </section>
+
+  <section class="dark band">
+    <div class="wrap">
+      <div data-g="s1" class="rv">
+        <div><p class="kick">{tx.nk}</p><h2 class="hl md" style="margin-top:30px;color:#fff" set:html={dt(tx.nt)}></h2></div>
+        <p style="font-size:19px;color:rgba(243,242,238,.8);max-width:46ch">{tx.nl}</p>
+      </div>
+      <div class="nums rv">{tx.nums.map(([n, l]) => <div><b>{n}</b><span>{l}</span></div>)}</div>
+    </div>
+  </section>
+
+  <section class="poster">
+    <div class="wrap" style="display:block">
+      <div data-g="s1" class="rv">
+        <div><p class="kick">{tx.dk}</p><h2 class="hl md" style="margin-top:30px" set:html={dt(tx.dt)}></h2></div>
+        <p class="lede">{tx.dl}</p>
+      </div>
+      <div class="doors">
+        {tx.doors.map(([h, p, l, t], i) => <a class="door rv" href={`${b}/contact?type=${t}`}><b>{"0" + (i + 1)}</b><h3>{h}</h3><p>{p}</p><span class="arrow">{l} <i>→</i></span></a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="dark band">
+    <div class="wrap">
+      <div data-g="s1" class="rv">
+        <div><p class="kick">{tx.rk}</p><h2 class="hl md" style="margin-top:30px;color:#fff" set:html={dt(tx.rt)}></h2></div>
+        <p style="font-size:18px;color:rgba(243,242,238,.75);max-width:46ch">{tx.rl}</p>
+      </div>
+      <div class="reflist"><RefRows refs={R} base={b} lang={lang} /></div>
+      <div style="margin-top:40px"><a href={`${b}/references`} class="arrow">{tx.rall} <i>→</i></a></div>
+    </div>
+  </section>
+
+  <Poster kick={tx.ak} title={tx.at} sub={tx.as} img={I + "bw_crew.jpg"} v="b" alt="" flip={true}>
+    <div class="five rv">{L.temps.map(([t, n]) => <a href={`${b}/methodes-partenariats#t${n}`}><b>{n}</b><strong>{t}</strong></a>)}</div>
+    <div class="ctas"><a href={`${b}/methodes-partenariats`} class="arrow">{tx.alink} <i>→</i></a></div>
+  </Poster>
+
+  <Poster kick={tx.ek} title={tx.et} sub={tx.es} img={I + "bw_rg.jpg"} v="c" alt="" tag={tx.etag}>
+    <Keys items={tx.ekeys} title={L.keysTitle} />
+    <div class="ctas"><a href={`${b}/qui-sommes-nous`} class="arrow">{tx.elink} <i>→</i></a></div>
+    <Strip slot="strip" left={L.stripBrand} />
+  </Poster>
+
+  <ContactBanner lang={lang} />
+</BaseLayout>

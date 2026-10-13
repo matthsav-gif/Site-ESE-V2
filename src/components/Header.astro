@@ -1,133 +1,44 @@
 ---
-import { METIERS as METIERS_FR } from "../data/site.js";
-import { METIERS as METIERS_EN } from "../data/site.en.js";
+import { T } from "../data/v3.js";
 import { CONTACT } from "../data/site.js";
-const path = Astro.url.pathname;
-const isEn = path.startsWith("/en");
-const METIERS = isEn ? METIERS_EN : METIERS_FR;
-const base = isEn ? "/en" : "";
-const isMetier = path.startsWith("/metiers/") || path.startsWith("/en/metiers/");
-const tallHero = path === "/" || path === "/en" || path === "/en/" || isMetier;
-// Language switcher: strip or add /en prefix
-const altLang = isEn
-  ? (path.replace(/^\/en/, "") || "/")
-  : "/en" + path;
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isEn = path === "/en" || path.startsWith("/en/");
+const L = T[isEn ? "en" : "fr"]; const base = L.base;
+const isHome = path === "/" || path === "/en";
+const FR_ONLY = ["/mentions-legales", "/confidentialite"];
+const altLang = isEn ? (path.replace(/^\/en/, "") || "/") : (path === "/" || FR_ONLY.includes(path) ? "/en" : "/en" + path);
+const items = [
+  [`${base}/metiers`, L.nav.expertises, "/metiers"],
+  [`${base}/references`, L.nav.refs, "/references"],
+  [`${base}/methodes-partenariats`, L.nav.approche, "/methodes-partenariats"],
+  [`${base}/qui-sommes-nous`, L.nav.about, "/qui-sommes-nous"],
+];
+const rel = isEn ? path.replace(/^\/en/, "") : path;
+const cur = (k) => rel.startsWith(k);
 ---
-<header class="hdr is-over" id="site-header" data-tall-hero={tallHero ? "1" : "0"}>
-  <div class="hdr__inner">
-    <a class="logo" href="/" aria-label="ESE, accueil">
-      <img class="logo-mark" src="/logo-ese.png" alt="ESE" />
-      <span class="logo-word">Event &amp; Safety<br/>Engineering</span>
-    </a>
-
-    <nav class="nav" aria-label="Navigation principale">
-      <div class="nav__item" id="mega-trigger">
-        <a class={"nav__link" + (isMetier ? " active" : "")} href={`${base}/metiers/direction-technique`}
-          aria-haspopup="true" aria-expanded="false" id="mega-btn">
-          {isEn ? "Services" : "Métiers"} <span class="nav__caret">▾</span>
-        </a>
-      </div>
-      <a class={"nav__link" + (path === `${base}/references` ? " active" : "")} href={`${base}/references`}>{isEn ? "References" : "Références"}</a>
-      <a class={"nav__link" + (path === `${base}/methodes-partenariats` ? " active" : "")} href={`${base}/methodes-partenariats`}>{isEn ? "Methods" : "Méthodes"}</a>
-      <a class={"nav__link" + (path === `${base}/qui-sommes-nous` ? " active" : "")} href={`${base}/qui-sommes-nous`}>{isEn ? "About" : "Qui sommes-nous"}</a>
+<header class={"hdr" + (isHome ? " on-dark" : "")}>
+  <div class="wrap">
+    <nav aria-label={isEn ? "Main navigation" : "Navigation principale"}>
+      {items.map(([h, t, k]) => <a href={h} aria-current={cur(k) ? "page" : undefined}>{t}</a>)}
     </nav>
-
-    <div class="hdr__right">
-      <a class="hdr__tel" href={CONTACT.telHref}>{CONTACT.tel}</a>
-      <a class="lang-switch" href={altLang} aria-label={isEn ? "Version française" : "English version"}>{isEn ? "FR" : "EN"}</a>
-      <a class="btn" href={`${base}/contact`}>{isEn ? "Contact us" : "Nous contacter"}</a>
-      <button class="nav__burger" aria-label="Ouvrir le menu" id="burger">
-        <span></span><span></span><span></span>
-      </button>
+    <a href={isEn ? "/en" : "/"} class="lockup" aria-label={isEn ? "ESE, home" : "ESE, accueil"}>
+      <img src="/images/v3/logo.png" alt={isEn ? "ESE symbol" : "Symbole ESE"} width="54" height="53" /><span><b>ESE</b><small>Event &amp; Safety Engineering</small></span>
+    </a>
+    <div class="right">
+      <a class="lang" href={altLang} lang={isEn ? "fr" : "en"} aria-label={isEn ? "Version française" : "English version"}>{isEn ? "FR" : "EN"}</a>
+      <a href={`${base}/contact`} class={"btn " + (isHome ? "btn-line" : "btn-ink")}>{L.nav.cta}</a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="ov" data-open><i></i>{L.nav.menu}</button>
     </div>
   </div>
 </header>
-
-<div class="mega" id="mega">
-  <div class="mega__inner">
-    {METIERS.map((m) => (
-      <a class="mega__col" href={`${base}${m.href}`}>
-        <div class="mega__n">{m.n}</div>
-        <div class="mega__t">{m.t}</div>
-        <div class="mega__d">{m.d}</div>
-        <span class="tlink">En savoir plus <span class="arr">→</span></span>
-      </a>
-    ))}
+<div class="overlay" id="ov" role="dialog" aria-modal="true" aria-label={L.nav.menu}>
+  <div class="top">
+    <a href={isEn ? "/en" : "/"} class="lockup"><img src="/images/v3/logo.png" alt="" width="44" height="43" /><span><b>ESE</b><small>Event &amp; Safety Engineering</small></span></a>
+    <button class="menu-btn" style="display:inline-flex" data-close>{L.nav.close} ✕</button>
   </div>
+  <nav>
+    {items.map(([h, t], i) => <a href={h}>{t}<span>{"0" + (i + 1)}</span></a>)}
+    <a href={`${base}/contact`}>{L.nav.contact}<span>05</span></a>
+  </nav>
+  <div class="bottom"><a href={CONTACT.telHref}>{CONTACT.tel}</a><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a><a href={altLang}>{isEn ? "Version française" : "English version"}</a></div>
 </div>
-
-<div class="mobile-menu" id="mobile-menu">
-  <div class="mobile-menu__top">
-    <a class="logo" href="/" aria-label="ESE, accueil">
-      <img class="logo-mark" src="/logo-ese.png" alt="ESE" style="filter:brightness(0) invert(1)" />
-      <span class="logo-word" style="color:var(--paper)">Event &amp; Safety<br/>Engineering</span>
-    </a>
-    <button class="mobile-menu__close" aria-label="Fermer le menu" id="mobile-close">✕</button>
-  </div>
-  {METIERS.map((m) => <a href={`${base}${m.href}`}>{m.short}</a>)}
-  <a href={`${base}/references`}>{isEn ? "References" : "Références"}</a>
-  <a href={`${base}/methodes-partenariats`}>{isEn ? "Methods & partnerships" : "Méthodes & partenariats"}</a>
-  <a href={`${base}/qui-sommes-nous`}>{isEn ? "About" : "Qui sommes-nous"}</a>
-  <a href={`${base}/contact`}>{isEn ? "Contact" : "Contact"}</a>
-  <a href={altLang} style="margin-top:16px;opacity:.7">{isEn ? "🇫🇷 Version française" : "🇬🇧 English version"}</a>
-</div>
-
-<script>
-  const header = document.getElementById("site-header");
-  const mega = document.getElementById("mega");
-  const trigger = document.getElementById("mega-trigger");
-  const burger = document.getElementById("burger");
-  const mobile = document.getElementById("mobile-menu");
-  const mobileClose = document.getElementById("mobile-close");
-  const tall = header?.dataset.tallHero === "1";
-
-  // Header transparent au-dessus du hero, solide au scroll
-  function onScroll() {
-    const threshold = tall ? window.innerHeight * 0.62 : 90;
-    const solid = window.scrollY > threshold;
-    header?.classList.toggle("is-solid", solid);
-    header?.classList.toggle("is-over", !solid);
-    mega?.classList.toggle("solid-top", solid);
-  }
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-
-  // Méga-menu Métiers (hover + clavier)
-  const megaBtn = document.getElementById("mega-btn");
-  let megaOpen = false;
-  const setMega = (v) => {
-    megaOpen = v;
-    mega?.classList.toggle("open", v);
-    trigger?.classList.toggle("open", v);
-    megaBtn?.setAttribute("aria-expanded", v ? "true" : "false");
-    header?.classList.toggle("is-solid", v || window.scrollY > (tall ? window.innerHeight * 0.62 : 90));
-    if (v) header?.classList.remove("is-over");
-    else onScroll();
-  };
-  // Hover
-  trigger?.addEventListener("mouseenter", () => setMega(true));
-  trigger?.addEventListener("mouseleave", () => setMega(false));
-  mega?.addEventListener("mouseenter", () => setMega(true));
-  mega?.addEventListener("mouseleave", () => setMega(false));
-  // Clavier : focus ouvre, Escape ferme, Tab hors du méga ferme
-  megaBtn?.addEventListener("focus", () => setMega(true));
-  megaBtn?.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { setMega(false); megaBtn.focus(); }
-  });
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && megaOpen) setMega(false);
-  });
-  // Ferme si le focus quitte le méga-menu
-  document.addEventListener("focusin", (e) => {
-    if (megaOpen && !trigger?.contains(e.target) && !mega?.contains(e.target)) {
-      setMega(false);
-    }
-  });
-
-  // Menu mobile
-  burger?.addEventListener("click", () => mobile?.classList.add("open"));
-  mobileClose?.addEventListener("click", () => mobile?.classList.remove("open"));
-  mobile?.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => mobile?.classList.remove("open"))
-  );
-</script>

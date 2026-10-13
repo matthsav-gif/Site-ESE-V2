@@ -1,0 +1,14 @@
+---
+import { dt } from "../../data/v3.js";
+const { m, base = "" } = Astro.props;
+---
+<a class="mcard rv" href={`${base}/metiers/${m.slug}`}>
+  <div class="t">
+    <p class="kick">{m.kick}</p>
+    <h3 set:html={dt(m.tl)} />
+    <p class="s">{m.tag}</p>
+    <ul>{m.keys.map(([a], i) => <li><b>{String(i + 1).padStart(2, "0")}</b><strong>{a}</strong></li>)}</ul>
+  </div>
+  <div class="v"><div class="ph"><img src={m.img} alt="" loading="lazy" decoding="async" /></div><div class="blue" style="left:0;top:0;width:34%;height:36%"></div><div class="blue" style="right:0;bottom:0;width:18%;height:22%"></div><span class="no">{m.n} / 04</span></div>
+  <span class="go" aria-hidden="true">→</span>
+</a>

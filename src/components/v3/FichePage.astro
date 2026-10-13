@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Strip from "./Strip.astro";
+import ContactBanner from "../ContactBanner.astro";
+import { T, SEO3, dt } from "../../data/v3.js";
+const { lang = "fr" } = Astro.props;
+const en = lang === "en"; const L = T[lang]; const b = L.base; const S = SEO3[lang].fiche;
+const tx = en ? {
+  k: "Reference · R-01", h1: "Paris 2024<br>Games",
+  facts: [["Event", "Opening ceremonies"], ["Location", "Paris"], ["Year", "2024"], ["ESE mission", "Technical direction · multi-discipline expertise"]],
+  chaps: [["01", "Context", "The opening ceremonies of the Olympic and Paralympic Games, in the heart of Paris, on sites never designed to host a show: exceptional constraints of time, space, co-activity and safety."],
+          ["02", "Our mission", "Technical direction and multi-discipline expertise across the ceremonies programme, within an organisation bringing together many stakeholders."],
+          ["03", "On site", "Load-in, coordination and show: drawings, coordination meetings and on-site presence at the scale of a production watched worldwide."]],
+  v: ["Paris 2024 Olympic Games opening ceremony", "Paris 2024 Paralympic Games opening ceremony"], cta: "A similar<br>project?",
+} : {
+  k: "Référence · R-01", h1: "JO / JOP<br>Paris 2024",
+  facts: [["Événement", "Cérémonies d'ouverture"], ["Lieu", "Paris"], ["Année", "2024"], ["Mission ESE", "Direction technique · expertise multi-métiers"]],
+  chaps: [["01", "Le contexte", "Les cérémonies d'ouverture des Jeux Olympiques et Paralympiques, en plein cœur de Paris, sur des sites qui ne sont pas conçus pour accueillir un spectacle : contraintes de temps, d'espace, de coactivité et de sécurité hors norme."],
+          ["02", "Notre mission", "Direction technique et expertise multi-métiers sur le programme des cérémonies, au sein d'une organisation réunissant de nombreux acteurs."],
+          ["03", "Sur le terrain", "Montage, coordination et exploitation : plans, réunions de coordination et présence sur site, à l'échelle d'une production regardée dans le monde entier."]],
+  v: ["Cérémonie d'ouverture des Jeux Olympiques de Paris 2024", "Cérémonie d'ouverture des Jeux Paralympiques de Paris 2024"], cta: "Un projet<br>similaire&nbsp;?",
+};
+---
+<BaseLayout title={S.title} description={S.description} lang={lang} ogImage="/images/jo-para.jpg">
+  <section class="fhero">
+    <div class="bg"><img src="/images/jo-para.jpg" alt={en ? "Paris 2024 Paralympic ceremony site at dusk, place de la Concorde" : "Site de la cérémonie paralympique de Paris 2024, place de la Concorde au crépuscule"}  fetchpriority="high" /></div>
+    <div class="blue"></div>
+    <div class="wrap"><p class="kick" style="color:#fff">{tx.k}</p><h1 class="hl xl" style="color:#fff;margin-top:30px" set:html={dt(tx.h1)} /></div>
+  </section>
+  <div class="wrap">
+    <div class="facts rv">{tx.facts.map(([k, v]) => <div><small>{k}</small><strong>{v}</strong></div>)}</div>
+    {tx.chaps.map(([n, t, p], i) => (
+      <section class="chap rv"><h2><b>{n}</b>{t}</h2><div><p>{p}</p>
+        {i === 2 && <div class="videos">
+          <a class="video" href="https://www.youtube.com/watch?v=onP5-DKSbI4" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/onP5-DKSbI4/hqdefault.jpg" alt="" loading="lazy" /><span>{tx.v[0]}</span></a>
+          <a class="video" href="https://www.youtube.com/watch?v=7OuJXFhg5PA" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/7OuJXFhg5PA/hqdefault.jpg" alt="" loading="lazy" /><span>{tx.v[1]}</span></a>
+        </div>}
+      </div></section>
+    ))}
+    <Strip left={en ? "ESE — References" : "ESE — Références"} count="01 / 05" next={`${b}/references`} />
+    <div style="height:80px"></div>
+  </div>
+  <ContactBanner lang={lang} title={tx.cta} />
+</BaseLayout>

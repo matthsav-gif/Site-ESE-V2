@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Poster from "./Poster.astro";
+import Keys from "./Keys.astro";
+import Strip from "./Strip.astro";
+import ContactBanner from "../ContactBanner.astro";
+import { T, dt } from "../../data/v3.js";
+import { SEO, CONTACT } from "../../data/site.js";
+import { SEO as SEO_EN } from "../../data/site.en.js";
+const { lang = "fr" } = Astro.props;
+const en = lang === "en"; const L = T[lang]; const S = (en ? SEO_EN : SEO).qui;
+const site = "https://ese-techsolutions.com";
+const personLd = { "@context": "https://schema.org", "@type": "Person", name: "Matthieu Savatier", jobTitle: en ? "Founder, Event & Safety Engineering" : "Fondateur, Event & Safety Engineering", worksFor: { "@id": `${site}/#organization` }, image: `${site}/images/portrait-matthieu.jpg`, sameAs: [CONTACT.linkedinMatthieu], knowsAbout: ["Direction technique événementielle", "Régie générale", "Expertise sécurité ERP", "Qualification AP2 ENSOSP", "Vectorworks", "Braceworks"] };
+const tx = en ? {
+  k: "A field culture", t: "A company<br>built from<br>the field.", s: "Making technical choices readable, operations coordinated and projects deliverable.",
+  l: "ESE brings together a design culture and hands-on experience of event productions. We speak to production teams, suppliers, venue operators and authorities with one goal: clarify decisions and move forward together.",
+  top: ["About", "ESE — Event & Safety Engineering"], fk: "The founder",
+  p1: "Twelve years of event technical production, from the Paris 2024 Olympic ceremonies to stadium tours and international concerts, through major fashion shows and international institutional events.",
+  p2: "“I founded ESE to build an engineering practice dedicated to event technical production, around technical direction, production management and safety expertise.”",
+  q: ["AP2 ENSOSP", "Vectorworks", "Braceworks · MVR", "Team France Vectorworks"],
+  nk: "The network", nt: "A tailor-made<br>team.", ns: "Specialists brought together for each project.",
+  keys: [["Production managers", "On site, from load-in to strike"], ["Technical directors", "Design and trade-offs"], ["Engineers & safety specialists", "Structures, rigging, safety"]],
+  nl: "We work with event agencies, producers and promoters, technical design offices, scenographers and institutional clients.",
+} : {
+  k: "Une culture du terrain", t: "Une entreprise<br>pensée depuis<br>le terrain.", s: "Rendre les choix techniques lisibles, les opérations coordonnées et les projets exécutables.",
+  l: "ESE réunit une culture de conception et une pratique directe des productions événementielles. Nous parlons aux équipes de production, aux prestataires, aux exploitants de lieux et aux autorités, avec le même objectif : clarifier les décisions et avancer ensemble.",
+  top: ["À propos", "ESE — Event & Safety Engineering"], fk: "Le fondateur",
+  p1: "Douze ans de production technique événementielle, des cérémonies des Jeux Olympiques de Paris 2024 aux tournées en stade et aux concerts internationaux, en passant par les grands défilés de mode et les événements institutionnels d'envergure internationale.",
+  p2: "« J'ai fondé ESE pour porter une activité d'ingénierie dédiée à la production technique événementielle, articulée autour de la direction technique, de la régie générale et de l'expertise sécurité. »",
+  q: ["AP2 ENSOSP", "Vectorworks", "Braceworks · MVR", "Team France Vectorworks"],
+  nk: "Le réseau", nt: "Une équipe<br>à façon.", ns: "Des spécialistes mobilisés selon les projets.",
+  keys: [["Régisseurs", "Sur site, du montage au démontage"], ["Directeurs techniques", "Conception et arbitrages"], ["Ingénieurs & préventionnistes", "Structures, rigging, sécurité"]],
+  nl: "Nous accompagnons agences événementielles, producteurs et organisateurs de spectacles, bureaux d'études techniques, scénographes et donneurs d'ordre institutionnels.",
+};
+---
+<BaseLayout title={S.title} description={S.description} lang={lang} type="profile" schema={[personLd]}>
+  <Poster kick={tx.k} title={tx.t} sub={tx.s} img="/images/v3/bw_crew.jpg" v="d" alt="" top={tx.top} h1={true}>
+    <p class="lede">{tx.l}</p>
+  </Poster>
+  <div class="wrap">
+    <section class="intro2 rv" data-g="s4">
+      <div style="position:relative"><img src="/images/portrait-matthieu.jpg" alt={en ? "Matthieu Savatier, founder of ESE" : "Matthieu Savatier, fondateur d'ESE"} style="width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.08)" loading="lazy" /><div style="position:absolute;left:0;bottom:0;width:30%;height:26%;background:var(--blue);mix-blend-mode:multiply"></div></div>
+      <div><p class="kick">{tx.fk}</p><h2 class="hl md" style="margin:28px 0 26px" set:html={dt("Matthieu<br>Savatier")} />
+        <div class="txt"><p>{tx.p1}</p><p>{tx.p2}</p></div>
+        <div class="ops">{tx.q.map((q) => <span>{q}</span>)}</div>
+        <a href={CONTACT.linkedinMatthieu} target="_blank" rel="noopener noreferrer" class="arrow" style="margin-top:30px">LinkedIn <i>↗</i></a></div>
+    </section>
+  </div>
+  <Poster kick={tx.nk} title={tx.nt} sub={tx.ns} img="/images/v3/bw_rg.jpg" v="b" alt="" flip={true}>
+    <Keys items={tx.keys} title={L.keysTitle} />
+    <p class="lede" style="margin-top:30px">{tx.nl}</p>
+    <Strip slot="strip" left={en ? "ESE — About" : "ESE — À propos"} />
+  </Poster>
+  <ContactBanner lang={lang} />
+</BaseLayout>

@@ -1,21 +1,15 @@
 ---
+import { T, dt } from "../data/v3.js";
 import { CONTACT } from "../data/site.js";
-const { lang = "fr" } = Astro.props;
-const isEn = lang === "en";
+const { lang = "fr", title } = Astro.props;
+const L = T[lang === "en" ? "en" : "fr"]; const C = L.contactBand;
 ---
-<section class="cband">
-  <div class="cband__deco"></div>
-  <div class="cband__inner">
-    <div class="reveal">
-      <span class="eyebrow" style="color:var(--taupe)">Contact</span>
-      <h2 style="margin-top:18px">{isEn ? <>Let's talk about<br/>your project.</> : <>Parlons de<br/>votre projet.</>}</h2>
-    </div>
-    <div class="reveal" data-d="1" style="text-align:left">
-      <a class="btn btn--light" href={isEn ? "/en/contact" : "/contact"}>{isEn ? "Get in touch" : "Nous contacter"} <span class="arr">→</span></a>
-      <div class="cband__meta">
-        <a href={CONTACT.telHref}>{CONTACT.tel}</a><br/>
-        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-      </div>
+<section class="dark band">
+  <div class="wrap" data-g="s1">
+    <div class="rv"><p class="kick">{C.kick}</p><h2 class="hl md" style="margin-top:30px;color:#fff" set:html={dt(title || C.title)} /></div>
+    <div class="rv">
+      <p style="font-size:20px;color:rgba(243,242,238,.85);max-width:40ch">{C.text}</p>
+      <div style="display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:32px"><a href={`${L.base}/contact`} class="btn btn-blue">{C.cta} →</a><a href={CONTACT.telHref} class="arrow">{CONTACT.tel} <i>→</i></a></div>
     </div>
   </div>
 </section>

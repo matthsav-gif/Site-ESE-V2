@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Poster from "./Poster.astro";
+import RefRows from "./RefRows.astro";
+import { T, REFS3, dt } from "../../data/v3.js";
+import { SEO } from "../../data/site.js";
+import { SEO as SEO_EN } from "../../data/site.en.js";
+const { lang = "fr" } = Astro.props;
+const en = lang === "en"; const L = T[lang]; const b = L.base; const S = (en ? SEO_EN : SEO).references;
+const tx = en ? {
+  h1: "Our services,<br>in action", side: ["Ceremonies", "Concerts & tours", "Fashion & luxury", "Institutional"],
+  small: "Each case states our mission and what we were entrusted with, without confusing contribution with overall production.",
+  filters: [["all", "All"], ["ceremonie", "Ceremony"], ["concert", "Concert · tour"], ["mode", "Fashion · luxury"], ["institutionnel", "Institutional"], ["live", "Live"]],
+  k: "Every size", t: "Not only<br>the big ones.", s: "A one-day mission matters as much as a ceremony.",
+  l: "We also work on mid-scale events, launches, confidential operations and one-off support. Not all of them are listed here, but they make up our daily work.",
+} : {
+  h1: "Nos métiers,<br>en situation", side: ["Cérémonies", "Concerts & tournées", "Mode & luxe", "Institutionnel"],
+  small: "Chaque fiche précise notre mission et ce qui nous a été confié, sans confondre contribution et production globale.",
+  filters: [["all", "Tous"], ["ceremonie", "Cérémonie"], ["concert", "Concert · tournée"], ["mode", "Mode · luxe"], ["institutionnel", "Institutionnel"], ["live", "Live"]],
+  k: "Toutes tailles", t: "Pas seulement<br>les grands.", s: "Une mission d'un jour compte autant qu'une cérémonie.",
+  l: "Nous intervenons aussi sur des événements de moyenne envergure, des lancements, des opérations confidentielles et des renforts ponctuels. Ces missions ne figurent pas toutes ici, mais elles font notre quotidien.",
+};
+---
+<BaseLayout title={S.title} description={S.description} lang={lang} ogImage="/images/jo-para.jpg">
+  <section class="hero" style="min-height:72vh">
+    <div class="bg"><img src="/images/v3/bw_crew.jpg" alt="" fetchpriority="high" /></div>
+    <div class="wrap in"><h1 class="hl" set:html={dt(tx.h1)} />
+      <div class="side">{tx.side.map((s) => <>{s}<br /></>)}<small>{tx.small}</small></div></div>
+  </section>
+  <section class="dark band" style="padding-top:60px"><div class="wrap">
+    <div class="filters" role="group" aria-label={en ? "Filter references" : "Filtrer les références"}>
+      {tx.filters.map(([f, l], i) => <button aria-pressed={i === 0 ? "true" : "false"} data-filter={f}>{l}</button>)}
+    </div>
+    <div class="reflist" id="reflist"><RefRows refs={REFS3[lang]} base={b} lang={lang} /></div>
+  </div></section>
+  <Poster kick={tx.k} title={tx.t} sub={tx.s} img="/images/v3/bw_livrer.jpg" v="b" alt="" flip={true}>
+    <p class="lede">{tx.l}</p>
+    <div class="ctas"><a href={`${b}/contact`} class="btn btn-ink">{L.nav.cta} →</a></div>
+  </Poster>
+</BaseLayout>

@@ -1,0 +1,7 @@
+---
+const { left = "ESE — Du plan au terrain", count = "", next = "" } = Astro.props;
+---
+<div class="strip">
+  <span class="l">{left}</span><span>ese-techsolutions.com</span>
+  {count && <span class="count">{next && <a href={next} aria-label="Suivant">→</a>}{count}</span>}
+</div>

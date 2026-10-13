@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Poster from "./Poster.astro";
+import Keys from "./Keys.astro";
+import ContactBanner from "../ContactBanner.astro";
+import { T, APPROCHE, dt } from "../../data/v3.js";
+import { SEO, CONTACT } from "../../data/site.js";
+import { SEO as SEO_EN } from "../../data/site.en.js";
+const { lang = "fr" } = Astro.props;
+const en = lang === "en"; const L = T[lang]; const b = L.base; const S = (en ? SEO_EN : SEO).methodes;
+const A = APPROCHE[lang];
+const tx = en ? {
+  k: "Our method", t: "The plan matters.<br>The field decides.", s: "Every project has a budget, deadlines, a venue, crews and constraints of its own.",
+  l: "Our method turns these parameters into usable decisions, and keeps adjusting them on site.", top: ["Our method", "01 — 05"],
+  mk: "Methods & partners", socle: "Published by ESE, SOCLE® structures the technical production of design offices and agencies on the Vectorworks ecosystem: moving from an installed tool to a coherent, transferable production system.", socleL: "Discover SOCLE®",
+  cobel: "We support the organisational transformation of creative structures in partnership with COBEL® Développeur de culture.", cobelL: "Discover COBEL®", pk: "Partner", band: "The right scope<br>is yours.",
+} : {
+  k: "Notre méthode", t: "Le plan compte.<br>Le terrain décide.", s: "Chaque projet a un budget, des délais, un lieu, des équipes et des contraintes qui lui appartiennent.",
+  l: "Notre méthode consiste à transformer ces paramètres en décisions utilisables, et à continuer de les ajuster sur site.", top: ["Notre méthode", "01 — 05"],
+  mk: "Méthodes & partenaires", socle: "Édité par ESE, SOCLE® structure la production technique des bureaux d'études et agences sur l'écosystème Vectorworks : passer d'un outil installé à un système de production cohérent et transmissible.", socleL: "Découvrir SOCLE®",
+  cobel: "Nous accompagnons la transformation organisationnelle des structures créatives en partenariat avec COBEL® Développeur de culture.", cobelL: "Découvrir COBEL®", pk: "Partenaire", band: "Le bon périmètre,<br>c'est le vôtre.",
+};
+---
+<BaseLayout title={S.title} description={S.description} lang={lang}>
+  <Poster kick={tx.k} title={tx.t} sub={tx.s} img="/images/v3/bw_hero.jpg" v="c" alt="" top={tx.top} h1={true}>
+    <p class="lede">{tx.l}</p>
+    <div class="five rv">{A.map((a) => <a href={`#t${a.n}`}><b>{a.n}</b><strong>{a.t}</strong></a>)}</div>
+  </Poster>
+  {A.map((a, k) => (
+    <Poster id={`t${a.n}`} kick={`${a.n} — ${a.t}`} title={a.title} sub={a.sub} img={a.img} v={a.v} alt="" flip={k % 2 === 1} top={[`Production / ${a.t}`, `${a.n} / 05`]}>
+      <Keys items={a.keys} title={L.keysTitle} />
+    </Poster>
+  ))}
+  <section class="dark band"><div class="wrap" data-g="s2">
+    <div class="rv"><p class="kick">{tx.mk}</p><h2 class="hl md" style="margin-top:28px;color:#fff" set:html={dt("SOCLE®")} /><p style="margin-top:22px;color:rgba(243,242,238,.82);font-size:18px;max-width:46ch">{tx.socle}</p><a href={`${b}/socle`} class="arrow" style="margin-top:26px">{tx.socleL} <i>→</i></a></div>
+    <div class="rv"><p class="kick">{tx.pk}</p><h2 class="hl md" style="margin-top:28px;color:#fff" set:html={dt("COBEL®")} /><p style="margin-top:22px;color:rgba(243,242,238,.82);font-size:18px;max-width:46ch">{tx.cobel}</p><a href={CONTACT.cobel} target="_blank" rel="noopener noreferrer" class="arrow" style="margin-top:26px">{tx.cobelL} <i>↗</i></a></div>
+  </div></section>
+  <ContactBanner lang={lang} title={tx.band} />
+</BaseLayout>
