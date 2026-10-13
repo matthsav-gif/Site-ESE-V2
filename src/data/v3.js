@@ -263,16 +263,16 @@ export const FAQ3 = {
 
 export const SEO3 = {
   fr: {
-    home: { title: "ESE · Direction technique, régie générale & production événementielle", description: "ESE accompagne la production technique de vos événements : direction technique, régie générale, stage management et expertise sécurité, en mission globale ou ponctuelle." },
+    home: { title: "ESE · Production technique événementielle · Paris", description: "Direction technique, bureau d'études, design lumière, régie générale, stage management et expertise sécurité. Mission complète ou renfort ponctuel." },
     metiers: { title: "Expertises · ESE", description: "Direction technique, bureau d'études et notes de calcul, design lumière, régie générale, stage management et expertise sécurité : les six métiers d'ESE." },
-    "bureau-etudes": { title: "Bureau d'études & notes de calcul événementielles · ESE", description: "Notes de calcul de structures et charges suspendues, plans d'implantation, synoptiques et études techniques pour l'événementiel. Braceworks, MVR, Vectorworks, ConnectCAD." },
+    "bureau-etudes": { title: "Bureau d'études & notes de calcul événementielles · ESE", description: "Notes de calcul de structures et charges suspendues, plans d'implantation, synoptiques et études techniques. Braceworks, MVR, Vectorworks, ConnectCAD." },
     "design-lumiere": { title: "Design lumière événementiel · ESE", description: "Design lumière pour concerts, défilés, cérémonies et conventions : intention, plans feux, pré-visualisation, encodage et réglages sur site." },
     "stage-management": { title: "Stage management événementiel · ESE", description: "Stage management : préparation des conduites, coordination du plateau, flux et séquences. Festivals, cérémonies, concerts, événements multi-séquences." },
     pape: { title: "Venue du Pape au Stade de France · Références ESE", description: "Venue du Pape au Stade de France, septembre 2026 : direction technique, régie générale, stage management et logistique des équipes par ESE." },
     fiche: { title: "JO / JOP Paris 2024 · Références ESE", description: "Cérémonies d'ouverture des Jeux Olympiques et Paralympiques de Paris 2024 : direction technique et expertise multi-métiers d'ESE." },
   },
   en: {
-    home: { title: "ESE · Technical direction, production management & event production", description: "ESE supports the technical production of your events: technical direction, production management, stage management and safety expertise, as a full mission or targeted support." },
+    home: { title: "ESE · Event technical production · Paris", description: "Technical direction, engineering, lighting design, production management, stage management and safety expertise. Full mission or targeted support." },
     metiers: { title: "Services · ESE", description: "Technical direction, engineering and calculations, lighting design, production management, stage management and safety expertise: ESE's six services." },
     "bureau-etudes": { title: "Event engineering office & calculation notes · ESE", description: "Calculation notes for structures and suspended loads, layouts, schematics and technical studies for events. Braceworks, MVR, Vectorworks, ConnectCAD." },
     "design-lumiere": { title: "Event lighting design · ESE", description: "Lighting design for concerts, fashion shows, ceremonies and conventions: intent, lighting plots, pre-visualisation, programming and focus on site." },

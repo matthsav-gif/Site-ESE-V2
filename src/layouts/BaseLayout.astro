@@ -15,6 +15,12 @@ const {
 
 const site = "https://ese-techsolutions.com";
 const canonical = new URL(Astro.url.pathname, site).href;
+// Versions FR / EN de la même page (pas d'équivalent anglais pour les pages légales FR)
+const FR_ONLY = ["/mentions-legales", "/confidentialite"];
+const pth = Astro.url.pathname.replace(/\/$/, "") || "/";
+const frPath = pth === "/en" ? "/" : pth.replace(/^\/en(?=\/)/, "");
+const hasEn = !FR_ONLY.includes(frPath);
+const enPath = frPath === "/" ? "/en" : "/en" + frPath;
 const ogImageAbs = new URL(ogImage, site).href;
 
 // --- Données structurées (SEO + lisibilité par les IA) ---
@@ -95,6 +101,9 @@ const allSchema = [orgLd, siteLd, ...schema];
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {hasEn && <link rel="alternate" hreflang="fr" href={new URL(frPath, site).href} />}
+    {hasEn && <link rel="alternate" hreflang="en" href={new URL(enPath, site).href} />}
+    {hasEn && <link rel="alternate" hreflang="x-default" href={new URL(frPath, site).href} />}
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="author" content="Event & Safety Engineering" />
     <meta name="generator" content="Astro" />

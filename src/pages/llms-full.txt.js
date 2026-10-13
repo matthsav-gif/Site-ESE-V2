@@ -1,63 +1,69 @@
-import { METIER_DATA, REFERENCES, REF_LIST, CONTACT } from "../data/site.js";
+import { CONTACT } from "../data/site.js";
+import { METIERS3, METIER_V3, REFS3, OFFRE, APPROCHE, FAQ3, IMPACT, FICHES } from "../data/v3.js";
 
 const site = "https://ese-techsolutions.com";
+const strip = (s) => String(s).replace(/<br>/g, " ").replace(/&nbsp;/g, " ");
 
-function metier(route) {
-  const d = METIER_DATA[route];
-  let s = `## ${d.h1}\n\n${d.sub}\n\n`;
-  if (d.qualif) {
-    s += `### ${d.qualif.big}\n\n${d.qualif.body.join("\n\n")}\n\n`;
-  }
-  s += `### ${d.perimTitle}\n\n`;
-  if (d.perimLead) s += `${d.perimLead}\n\n`;
-  s += d.perim.map((p) => `- ${p}`).join("\n") + "\n\n";
-  s += `### ${d.opsTitle}\n\n`;
-  if (d.opsLead) s += `${d.opsLead}\n\n`;
-  s += d.ops.map((o) => `- ${o}`).join("\n") + "\n\n";
-  s += `### Modèle d'intervention\n\n${d.model.join("\n\n")}\n\n`;
+function metier(m) {
+  const d = METIER_V3.fr[m.slug];
+  let s = `## ${m.t}\n\n${strip(m.tag)} ${m.what}\n\n${d.lead}\n\n${d.body.join("\n\n")}\n\n`;
+  if (d.qualif) s += `### ${d.qualif.title}\n\n${d.qualif.text}\n\n`;
+  s += `### Quand faire appel à ESE\n\n${d.when.map((w) => `- ${w}`).join("\n")}\n\n`;
+  s += `### Périmètre\n\n${d.perim.map((p) => `- ${p}`).join("\n")}\n\n`;
+  s += `### ${d.opsT}\n\n${d.ops.join(", ")}.\n\n`;
   return s;
 }
 
 export async function GET() {
+  const O = OFFRE.fr, I = IMPACT.fr;
+  const fiche = (k) => { const f = FICHES[k].fr; return `## ${strip(f.h1)}\n\n${f.facts.map(([a, b]) => `- ${a} : ${b}`).join("\n")}\n\n${f.chaps.map(([, t, p]) => `### ${t}\n\n${p}`).join("\n\n")}\n\n`; };
   const body = `# ESE, Event & Safety Engineering, Contenu complet
 
-> Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris.
+> Production technique événementielle, du plan au terrain. Direction technique, bureau d'études et notes de calcul, design lumière, régie générale, stage management, expertise sécurité. Paris.
 
-Document texte intégral du site ${site}, destiné aux moteurs et aux IA. Société : Event & Safety Engineering (ESE), SAS au capital de 1 000 €, RCS Paris 951 249 937, TVA FR26 951 249 937, NAF 90.02Z, 15 rue des Halles, 75001 Paris, membre du Groupe MS. Fondateur : Matthieu Savatier.
+Document texte intégral du site ${site}, destiné aux moteurs et aux IA. Société : Event & Safety Engineering (ESE), SAS au capital de 1 000 €, RCS Paris 951 249 937, TVA FR26 951 249 937, NAF 90.02Z, ${CONTACT.adresse1}, ${CONTACT.adresse2}, membre du Groupe MS. Fondateur : Matthieu Savatier.
 
 # Accueil
 
-Société d'ingénierie pour la production technique événementielle. Direction technique · Régie générale · Expertise sécurité, sur les productions live, événementielles et institutionnelles.
+Ce que le public voit commence bien avant l'ouverture. Plans, choix techniques, planning, circulation des équipes, exploitation : derrière chaque événement, il faut des décisions claires et une organisation qui tient sur le terrain. ESE intervient sur l'ensemble d'une production ou sur un besoin ciblé, au sein des équipes du client.
 
-Douze ans de production technique événementielle, des cérémonies des Jeux Olympiques de Paris 2024 aux tournées en stade et aux gros concerts internationaux, en passant par les grands défilés de mode et les événements institutionnels d'envergure internationale. Matthieu Savatier a fondé ESE, Event & Safety Engineering, société d'ingénierie dédiée à la production technique événementielle. Trois métiers structurent son activité.
+Chiffres : plus de 250 projets réalisés, jusqu'à 102 000 spectateurs sur un concert de JUL, plus de 15 ans d'expérience.
 
-Terrains d'intervention : concerts & tournées en stade, festivals outdoor, spectacle vivant & théâtre, défilés de mode, scénographie & muséographie, événements institutionnels, plateaux TV & captations, congrès & conventions, lancements produits, sites & lieux culturels en transformation.
+${strip(O.secT)} ${O.secL}
+
+# Pour qui, comment
+
+Clients : ${O.who.join(", ")}.
+
+${O.how.map(([h, p]) => `- ${h} : ${p}`).join("\n")}
 
 # Métiers
 
-${metier("direction-technique")}${metier("regie-generale")}${metier("expertise-securite")}# Références, productions
+${METIERS3.fr.map(metier).join("")}# Approche : une production en cinq temps
 
-${REFERENCES.map((r) => `## ${r.k}, ${r.t}\n\n${r.names}\n\n${r.desc}`).join("\n\n")}
+${APPROCHE.fr.map((a) => `## ${a.n}. ${a.t} : ${strip(a.title)}\n\n${a.sub}\n\n${a.keys.map(([k, v]) => `- ${k} : ${v}`).join("\n")}`).join("\n\n")}
 
-Au-delà de ces productions phares, ESE intervient au quotidien auprès de marques, agences, lieux culturels et entreprises sur leurs dossiers de production, événementiel corporate, scène, captation, scénographie, expo, lancements produits, conventions.
+# Références
 
-# SOCLE®
+${REFS3.fr.map((r) => `- ${r.t} (${r.yr}), ${r.cat}, ${r.lieu} : ${r.mis}.`).join("\n")}
 
-SOCLE® est la méthode propriétaire d'ESE (marque déposée à l'INPI) de transformation opérationnelle des bureaux d'études événementiels et des agences créatives autour de l'environnement Vectorworks. Ce n'est pas un logiciel, mais un corps doctrinal, méthodologique et opérationnel : organisation des fichiers, gabarits, conventions de nommage, workflows ConnectCAD, Braceworks et MVR, processus de transmission et d'onboarding.
+${fiche("venue-du-pape-stade-de-france")}${fiche("jo-paris-2024")}## ${strip(I.t)}
 
-SOCLE® est ancré dans une expertise Vectorworks de haut niveau : Matthieu Savatier a été formateur certifié et beta-testeur de la Team France Vectorworks chez Oliverdy, à la croisée de la pratique terrain et de la formation professionnelle.
+${I.l}
 
-# Méthodes & partenariats
+${I.items.map((x) => `- ${x}`).join("\n")}
 
-ESE est éditeur de SOCLE®. ESE accompagne par ailleurs la transformation organisationnelle des structures créatives en partenariat avec COBEL® Développeur de culture.
+# SOCLE® et partenariats
 
-# Qui sommes-nous
+SOCLE® est la méthode propriétaire d'ESE (marque déposée à l'INPI) de transformation opérationnelle des bureaux d'études événementiels et des agences créatives autour de l'environnement Vectorworks : organisation des fichiers, gabarits, conventions de nommage, workflows ConnectCAD, Braceworks et MVR, transmission et onboarding. ESE accompagne aussi la transformation organisationnelle des structures créatives en partenariat avec COBEL® Développeur de culture.
 
-ESE est portée par son fondateur, Matthieu Savatier. Avant ESE, il a exercé la direction technique et la régie générale chez Oliverdy, Paname 24, Impact Événement, REDITEC, DTE et au Puy du Fou International. Il a fondé ESE.
+# À propos
 
-Qualifications : Attestation de Compétence AP2 ENSOSP (prévention incendie et de panique pour les ERP et IGH) ; expertise Vectorworks ; compétences structures et rigging (Braceworks, MVR) ; formateur certifié et beta-testeur Team France Vectorworks.
+ESE est portée par son fondateur, Matthieu Savatier : douze ans de production technique événementielle, des cérémonies des Jeux Olympiques et Paralympiques de Paris 2024 aux tournées en stade et aux concerts internationaux. Qualifications : AP2 ENSOSP (prévention incendie et de panique pour les ERP et IGH), Vectorworks, Braceworks et MVR, Team France Vectorworks. ESE s'appuie sur une équipe de spécialistes mobilisée selon les projets : régisseurs, directeurs techniques, ingénieurs structure et préventionnistes. Les notes de calcul sont signées par un ingénieur structure.
 
-ESE s'appuie sur une équipe de spécialistes mobilisée selon les projets, régisseurs, directeurs techniques, ingénieurs structure et préventionnistes, assemblée à façon pour chaque mission. ESE accompagne agences événementielles, producteurs et organisateurs de spectacles, bureaux d'études techniques, scénographes et donneurs d'ordre institutionnels.
+# Questions fréquentes
+
+${FAQ3.fr.map(([q, a]) => `## ${q}\n\n${a}`).join("\n\n")}
 
 # Contact
 
@@ -65,8 +71,5 @@ Adresse : ${CONTACT.adresse1}, ${CONTACT.adresse2}. Téléphone : ${CONTACT.tel}
 LinkedIn entreprise : ${CONTACT.linkedinEntreprise}
 LinkedIn Matthieu Savatier : ${CONTACT.linkedinMatthieu}
 `;
-
-  return new Response(body, {
-    headers: { "Content-Type": "text/plain; charset=utf-8" },
-  });
+  return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }

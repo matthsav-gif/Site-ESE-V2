@@ -256,8 +256,8 @@ export const SEO = {
     description: "Technical direction for event, live and scenography productions. Technical specs, Vectorworks design, rigging calculations, on-site management.",
   },
   "regie-generale": {
-    title: "Production Management & Stage Management · ESE",
-    description: "Production management and stage management: on-site operational coordination, load-in, show run, strike. For events, stage and live productions.",
+    title: "Event production management · ESE",
+    description: "Production management: on-site operational coordination, load-in and strike scheduling, crew and supplier management. Events, live, festivals, tours.",
   },
   "expertise-securite": {
     title: "ERP Safety Expertise & Authorities · ESE",
@@ -268,8 +268,8 @@ export const SEO = {
     description: "ESE productions: Paris 2024 Olympic & Paralympic ceremonies, stadium tours, luxury fashion shows, institutional summits, international DJ sets.",
   },
   methodes: {
-    title: "Methods & Partnerships SOCLE® · COBEL® · ESE",
-    description: "ESE publishes SOCLE® (Vectorworks operational transformation) and partners with COBEL® Développeur de culture.",
+    title: "Approach & methods · SOCLE® · COBEL® · ESE",
+    description: "Our five-stage approach: design, prepare, coordinate, operate, deliver. ESE publishes SOCLE® and partners with COBEL® Développeur de culture.",
   },
   qui: {
     title: "Matthieu Savatier, founder of ESE · Event & Safety Engineering",

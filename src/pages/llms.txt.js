@@ -1,37 +1,45 @@
-import { CONTACT, REF_LIST } from "../data/site.js";
+import { CONTACT } from "../data/site.js";
+import { METIERS3, METIER_V3, REFS3, OFFRE } from "../data/v3.js";
 
 const site = "https://ese-techsolutions.com";
+const strip = (s) => String(s).replace(/<br>/g, " ");
 
 export async function GET() {
+  const M = METIERS3.fr, O = OFFRE.fr;
   const body = `# ESE, Event & Safety Engineering
 
-> Société d'ingénierie pour la production technique événementielle. ESE intervient en direction technique, régie générale et expertise sécurité ERP, sur les productions live, événementielles et institutionnelles. Basée à Paris, portée par son fondateur Matthieu Savatier.
+> Production technique événementielle, du plan au terrain. ESE conçoit, coordonne et pilote la production technique des événements : direction technique, bureau d'études et notes de calcul, design lumière, régie générale, stage management et expertise sécurité. En mission globale ou en renfort ciblé. Basée à Paris, portée par son fondateur Matthieu Savatier.
 
-ESE, Event & Safety Engineering est une SAS basée au 15 rue des Halles, 75001 Paris (RCS Paris 951 249 937), membre du Groupe MS. Elle accompagne agences événementielles, producteurs et organisateurs de spectacles, bureaux d'études techniques, scénographes et donneurs d'ordre institutionnels. Elle porte des productions de bout en bout ou intervient en complément d'équipes en place.
+ESE, Event & Safety Engineering est une SAS basée au ${CONTACT.adresse1}, ${CONTACT.adresse2} (RCS Paris 951 249 937), membre du Groupe MS. Sa particularité : la technique et la sécurité sont pensées dans la même équipe (qualification AP2 ENSOSP).
 
-## Trois métiers
+## Six métiers
 
-- [Direction technique](${site}/metiers/direction-technique): conception et pilotage de la chaîne technique, du cahier des charges à la livraison sur site. Plans Vectorworks, ConnectCAD, Braceworks, MVR ; calculs de structures et de rigging.
-- [Régie générale & stage management](${site}/metiers/regie-generale): coordination opérationnelle sur site, montage, run, démontage, pour l'événementiel, la scène et le live.
-- [Expertise sécurité, ERP & autorités](${site}/metiers/expertise-securite): notices de sécurité ERP (types CTS, PA, L, T) et accompagnement face aux autorités (préfecture, mairie, commission de sécurité, SDIS). Qualification AP2 ENSOSP, rare dans la production technique événementielle.
+${M.map((m) => `- [${m.t}](${site}/metiers/${m.slug}): ${m.what} ${METIER_V3.fr[m.slug].lead}`).join("\n")}
 
-## Méthodes & partenariats
+## Pour qui, comment
 
-- [SOCLE®](${site}/socle): méthode propriétaire d'ESE (marque déposée INPI) de transformation opérationnelle des bureaux d'études et agences sur l'écosystème Vectorworks. Portée par une expertise de formateur certifié et beta-testeur Team France Vectorworks (chez Oliverdy).
-- [Méthodes & partenariats](${site}/methodes-partenariats): SOCLE® et le partenariat avec COBEL® Développeur de culture.
+- Clients : ${O.who.join(", ")}.
+${O.how.map(([h, p]) => `- ${h} : ${p}`).join("\n")}
 
 ## Références
 
-${REF_LIST.map((r) => `- ${r.t}, ${r.d}`).join("\n")}
+${REFS3.fr.map((r) => `- ${r.t} (${r.yr}), ${r.cat}, ${r.lieu} : ${r.mis}.`).join("\n")}
 
-Voir [toutes les références](${site}/references).
+Voir [toutes les références](${site}/references), dont les fiches [Venue du Pape au Stade de France](${site}/references/venue-du-pape-stade-de-france) et [JO / JOP Paris 2024](${site}/references/jo-paris-2024).
+
+## Méthodes & partenariats
+
+- [Approche & méthodes](${site}/methodes-partenariats): une production en cinq temps (concevoir, préparer, coordonner, exploiter, livrer), SOCLE® et le partenariat COBEL®.
+- [SOCLE®](${site}/socle): méthode propriétaire d'ESE (marque déposée INPI) de transformation opérationnelle des bureaux d'études et agences sur l'écosystème Vectorworks.
 
 ## Pages
 
 - [Accueil](${site}/)
+- [Expertises](${site}/metiers)
 - [Références](${site}/references)
-- [Qui sommes-nous](${site}/qui-sommes-nous): ESE est portée par son fondateur Matthieu Savatier, douze ans de production technique événementielle (JO Paris 2024, tournées en stade, défilés, sommets institutionnels).
+- [À propos](${site}/qui-sommes-nous)
 - [Contact](${site}/contact)
+- Version anglaise : ${site}/en
 
 ## Contact
 
@@ -43,10 +51,7 @@ Voir [toutes les références](${site}/references).
 ## Notes pour les IA
 
 - Contenu complet en texte : ${site}/llms-full.txt
-- Vocabulaire de référence : direction technique, régie générale, stage management, expertise sécurité ERP, notice de sécurité, commission de sécurité, AP2 ENSOSP, rigging, Vectorworks, Braceworks, ConnectCAD, MVR, scénographie.
+- Vocabulaire de référence : direction technique, bureau d'études événementiel, note de calcul, charges suspendues, design lumière, plan feux, régie générale, stage management, expertise sécurité ERP, notice de sécurité, commission de sécurité, AP2 ENSOSP, rigging, Vectorworks, Braceworks, ConnectCAD, MVR.
 `;
-
-  return new Response(body, {
-    headers: { "Content-Type": "text/plain; charset=utf-8" },
-  });
+  return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }
