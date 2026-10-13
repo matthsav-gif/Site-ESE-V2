@@ -59,7 +59,7 @@ export const METIERS3 = {
       keys: [["Préparer", "Les moyens et les interfaces"], ["Coordonner", "Les équipes et les prestataires"], ["Adapter", "Les décisions aux réalités du terrain"]] },
     { slug: "stage-management", what: "Nous tenons le plateau : conduites, entrées, changements et timing pendant le show.", n: "05", t: "Stage management", tl: "Stage<br>management", tag: "Faire tenir le plateau.", kick: "Production / Métiers / Terrain", img: IMG + "bw_sm.jpg", v: "c",
       keys: [["Le plateau", "Flux et circulation"], ["Le timing", "Entrées, séquences et changements"], ["Les interfaces", "Artistes, équipes et production"]] },
-    { slug: "expertise-securite", what: "Nous préparons les dossiers de sécurité et vous accompagnons face aux autorités (qualification AP2 ENSOSP).", n: "06", t: "Expertise sécurité", tl: "Expertise<br>sécurité", tag: "Sécuriser sans freiner le projet.", kick: "Production / Exploitation / Sécurité", img: IMG + "bw_secu.jpg", v: "d",
+    { slug: "expertise-securite", what: "Nous préparons les dossiers de sécurité et vous accompagnons face aux autorités (qualification AP2 ENSOSP).", n: "06", t: "Expertise sécurité", tl: "Expertise<br>sécurité", tag: "Sécuriser sans freiner le projet.", kick: "Production / Exploitation / Sécurité", img: "/images/refs/briefing-securite.jpg", v: "d",
       keys: [["Anticiper", "Identifier les risques"], ["Cadrer", "Réglementation et dispositifs"], ["Accompagner", "Sécuriser l'exploitation"]] },
   ],
   en: [
@@ -73,7 +73,7 @@ export const METIERS3 = {
       keys: [["Prepare", "Resources and interfaces"], ["Coordinate", "Teams and suppliers"], ["Adapt", "Decisions to field reality"]] },
     { slug: "stage-management", what: "We run the stage: cue sheets, entrances, changeovers and timing during the show.", n: "05", t: "Stage management", tl: "Stage<br>management", tag: "Keep the stage running.", kick: "Production / Services / Field", img: IMG + "bw_sm.jpg", v: "c",
       keys: [["The stage", "Flows and circulation"], ["Timing", "Cues, sequences and changeovers"], ["Interfaces", "Artists, crews and production"]] },
-    { slug: "expertise-securite", what: "We prepare safety files and support you before the authorities (AP2 ENSOSP qualification).", n: "06", t: "Safety expertise", tl: "Safety<br>expertise", tag: "Secure without slowing the project.", kick: "Production / Operations / Safety", img: IMG + "bw_secu.jpg", v: "d",
+    { slug: "expertise-securite", what: "We prepare safety files and support you before the authorities (AP2 ENSOSP qualification).", n: "06", t: "Safety expertise", tl: "Safety<br>expertise", tag: "Secure without slowing the project.", kick: "Production / Operations / Safety", img: "/images/refs/briefing-securite.jpg", v: "d",
       keys: [["Anticipate", "Identify risks"], ["Frame", "Regulations and set-ups"], ["Support", "Secure operations"]] },
   ],
 };

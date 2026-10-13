@@ -6,7 +6,7 @@ import { OFFRE, T } from "../../data/v3.js";
 const { lang = "fr" } = Astro.props;
 const O = OFFRE[lang]; const L = T[lang];
 ---
-<Poster kick={O.secK} title={O.secT} sub="" img="/images/v3/bw_secu.jpg" v="b" alt="" flip={true} tag="AP2<br>ENSOSP">
+<Poster kick={O.secK} title={O.secT} sub="" img="/images/refs/briefing-securite.jpg" v="b" alt="" flip={true} tag="AP2<br>ENSOSP">
   <p class="lede">{O.secL}</p>
   <Keys items={O.secKeys} title={L.keysTitle} />
   <div class="ctas"><a href={`${L.base}/metiers/expertise-securite`} class="arrow">{O.secLink} <i>→</i></a></div>

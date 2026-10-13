@@ -467,3 +467,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .impact-list li::before{content:"";flex:none;width:9px;height:9px;background:var(--blue);margin-top:6px}
 @media (max-width:1180px){.impact-list{grid-template-columns:1fr 1fr}}
 @media (max-width:820px){.impact-list{grid-template-columns:1fr}}
+/* Slogan du pied de page : toujours dans la largeur */
+.ftr .big{white-space:normal;font-size:min(8.6vw,128px);line-height:.86}
+@media (max-width:820px){.ftr .big{font-size:15vw}}
+.ft-grid a.lockup{display:flex;justify-self:start;margin-bottom:0}
+.ft-grid a.lockup img{width:48px}
