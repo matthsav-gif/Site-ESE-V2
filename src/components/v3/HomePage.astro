@@ -110,7 +110,7 @@ const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity
         <div><p class="kick">{tx.rk}</p><h2 class="hl md" style="margin-top:30px;color:#fff" set:html={dt(tx.rt)}></h2></div>
         <p style="font-size:18px;color:rgba(243,242,238,.75);max-width:46ch">{tx.rl}</p>
       </div>
-      <div class="reflist"><RefRows refs={R} base={b} lang={lang} /></div>
+      <div class="reflist"><RefRows refs={R.slice(0, 6)} base={b} lang={lang} /></div>
       <div style="margin-top:40px"><a href={`${b}/references`} class="arrow">{tx.rall} <i>→</i></a></div>
     </div>
   </section>

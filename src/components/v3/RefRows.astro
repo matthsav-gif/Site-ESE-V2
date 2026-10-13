@@ -8,6 +8,6 @@ const lbl = lang === "en" ? { fiche: "Read the case", voir: "See" } : { fiche: "
     <h3>{r.t}</h3>
     <p class="meta"><b>{r.cat} · {r.lieu}</b>{r.mis}</p>
     <span class="see arrow">{r.slug ? lbl.fiche : lbl.voir} <i>→</i></span>
-    <span class="thumb"><img src={r.img} alt="" loading="lazy" decoding="async" /></span>
+    {r.img && <span class="thumb"><img src={r.img} alt="" loading="lazy" decoding="async" /></span>}
   </a>
 ))}
