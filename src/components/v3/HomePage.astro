@@ -6,6 +6,8 @@ import MetierCard from "./MetierCard.astro";
 import RefRows from "./RefRows.astro";
 import Strip from "./Strip.astro";
 import ContactBanner from "../ContactBanner.astro";
+import Offre from "./Offre.astro";
+import SecuDiff from "./SecuDiff.astro";
 import { T, METIERS3, REFS3, SEO3, dt } from "../../data/v3.js";
 import { FAQ } from "../../data/site.js";
 import { FAQ as FAQ_EN } from "../../data/site.en.js";
@@ -57,8 +59,10 @@ const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity
   <section class="hero">
     <div class="bg"><img src={I + "bw_hero.jpg"} alt={en ? "Empty arena during load-in, truss towers and hanging speakers" : "Arène vide en cours de montage, tours de structure et enceintes suspendues"} fetchpriority="high" /></div>
     <div class="wrap in">
+      <div class="h1wrap"><p class="kick hero-kick">{en ? "Event technical production" : "Production technique événementielle"}</p>
       <h1 class="hl" set:html={dt(tx.h1)}></h1>
-      <div class="side">{tx.heroSide.map((s) => <>{s}<br /></>)}
+      </div>
+      <div class="side"><ul class="side-links">{M.map((m) => <li><a href={`${b}/metiers/${m.slug}`}>{m.tl.replace("<br>", " ").replace(/^La /, "")}</a></li>)}</ul>
         <small>{tx.heroSmall}</small>
         <a href={`${b}/contact`} class="btn btn-line">{L.nav.cta} →</a>
       </div>
@@ -84,6 +88,8 @@ const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity
     </div>
   </section>
 
+  <SecuDiff lang={lang} />
+
   <section class="dark band">
     <div class="wrap">
       <div data-g="s1" class="rv">
@@ -94,17 +100,9 @@ const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity
     </div>
   </section>
 
-  <section class="poster">
-    <div class="wrap" style="display:block">
-      <div data-g="s1" class="rv">
-        <div><p class="kick">{tx.dk}</p><h2 class="hl md" style="margin-top:30px" set:html={dt(tx.dt)}></h2></div>
-        <p class="lede">{tx.dl}</p>
-      </div>
-      <div class="doors">
-        {tx.doors.map(([h, p, l, t], i) => <a class="door rv" href={`${b}/contact?type=${t}`}><b>{"0" + (i + 1)}</b><h3>{h}</h3><p>{p}</p><span class="arrow">{l} <i>→</i></span></a>)}
-      </div>
-    </div>
-  </section>
+  <Offre lang={lang} />
+
+
 
   <section class="dark band">
     <div class="wrap">

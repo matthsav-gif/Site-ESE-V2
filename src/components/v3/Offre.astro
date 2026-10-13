@@ -1,0 +1,21 @@
+---
+// Pour qui / Comment nous travaillons
+import { OFFRE, T, dt } from "../../data/v3.js";
+const { lang = "fr" } = Astro.props;
+const O = OFFRE[lang]; const b = T[lang].base;
+---
+<section class="poster offre">
+  <div class="wrap" style="display:block">
+    <div data-g="s1" class="rv" style="margin-bottom:48px">
+      <div><p class="kick">{O.k}</p><h2 class="hl md" style="margin-top:30px" set:html={dt(O.t)} /></div>
+      <div><p class="label" style="margin-bottom:16px">{O.whoT}</p><ul class="who">{O.who.map((w) => <li>{w}</li>)}</ul></div>
+    </div>
+    <p class="label rv" style="margin-bottom:18px">{O.howT}</p>
+    <ol class="how">
+      {O.how.map(([h, p], i) => (
+        <li class="rv"><b>{String(i + 1).padStart(2, "0")}</b><strong>{h}</strong><span>{p}</span></li>
+      ))}
+    </ol>
+    <div style="margin-top:34px"><a href={`${b}/contact`} class="btn btn-ink">{O.cta} →</a></div>
+  </div>
+</section>

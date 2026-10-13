@@ -421,3 +421,35 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   .ftr .big{white-space:normal;font-size:17vw;line-height:.86}
   .collage .tag{display:none}
 }
+
+/* ---------- Clarté de l'offre ---------- */
+.h1wrap{display:flex;flex-direction:column;gap:26px}
+.hero-kick{color:#fff}
+.hero-kick::after{margin-top:14px}
+.side-links{list-style:none}
+.side-links a{display:inline-block;padding:2px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.side-links a:hover{color:#9db0ff;border-color:#9db0ff}
+.mcard .w{font-size:15px;line-height:1.45;color:var(--ink-2);margin-top:12px;max-width:34ch}
+.who{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.who li{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);padding:12px 14px;background:var(--paper)}
+.how{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);background:#151515;color:var(--paper)}
+.how li{padding:30px 26px 32px;border-right:1px solid rgba(243,242,238,.2);display:flex;flex-direction:column;gap:12px}
+.how li:last-child{border-right:0}
+.how b{font:600 44px/1 var(--mono);color:#4f6dff;letter-spacing:-.04em}
+.how b::after{content:"";display:block;width:34px;height:2px;background:var(--blue);margin-top:14px}
+.how strong{font-variation-settings:"wdth" 72;font-weight:850;text-transform:uppercase;font-size:24px;line-height:1}
+.how span{font-size:15.5px;color:rgba(243,242,238,.8)}
+.whenS{padding:0 0 80px}
+.when{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.when li{padding:26px 26px 6px 0;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+.when li+li{padding-left:26px}
+.when li:last-child{border-right:0}
+.when b{font:600 30px/1 var(--mono);color:var(--blue)}
+.when span{font-size:clamp(18px,1.5vw,22px);font-weight:500;line-height:1.3;letter-spacing:-.01em}
+@media (max-width:1180px){.how{grid-template-columns:1fr 1fr}.how li:nth-child(2){border-right:0}.how li:nth-child(n+3){border-top:1px solid rgba(243,242,238,.2)}}
+@media (max-width:820px){
+  .h1wrap{gap:18px}
+  .how{grid-template-columns:1fr}.how li{border-right:0;border-top:1px solid rgba(243,242,238,.2)}.how li:first-child{border-top:0}
+  .when{grid-template-columns:1fr}.when li,.when li+li{padding:20px 0;border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:820px){.mcard .t{padding-bottom:86px}}

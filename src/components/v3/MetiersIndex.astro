@@ -5,6 +5,7 @@ import Keys from "./Keys.astro";
 import MetierCard from "./MetierCard.astro";
 import Strip from "./Strip.astro";
 import ContactBanner from "../ContactBanner.astro";
+import Offre from "./Offre.astro";
 import { T, METIERS3, SEO3 } from "../../data/v3.js";
 const { lang = "fr" } = Astro.props;
 const en = lang === "en"; const L = T[lang]; const b = L.base; const S = SEO3[lang].metiers;
@@ -29,8 +30,8 @@ const tx = en ? {
   </Poster>
   <section class="poster" style="padding-top:20px"><div class="wrap" style="display:block">
     <div class="cards4">{METIERS3[lang].map((m) => <MetierCard m={m} base={b} />)}</div>
-    <div class="doors" style="margin-top:28px">{tx.doors.map(([h, p, l, t], i) => <a class="door rv" href={`${b}/contact?type=${t}`}><b>{"0" + (i + 1)}</b><h3>{h}</h3><p>{p}</p><span class="arrow">{l} <i>→</i></span></a>)}</div>
     <Strip left={en ? "ESE — Our services" : "ESE — Nos métiers"} />
   </div></section>
+  <Offre lang={lang} />
   <ContactBanner lang={lang} />
 </BaseLayout>
