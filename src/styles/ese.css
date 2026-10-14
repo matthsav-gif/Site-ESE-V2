@@ -511,3 +511,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .overlay .bottom a,.ft-base a,.arrow{display:inline-flex;align-items:center;min-height:36px}
 .liv.one{grid-template-columns:1fr}
 .habS{padding-bottom:72px}
+/* Bouton d'envoi : jamais écrasé par la note */
+.form .send{gap:20px}
+.form .send small{flex:1;min-width:0}
+.form .send .btn{flex:none;white-space:nowrap}
+@media (max-width:600px){.form .send{flex-direction:column;align-items:stretch}.form .send .btn{justify-content:center}}
