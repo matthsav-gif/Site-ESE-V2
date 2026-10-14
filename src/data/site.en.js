@@ -179,10 +179,10 @@ export const METIER_DATA = {
       { src: "/images/expertise-securite/unoc-nice.jpg", alt: "United Nations Ocean Conference, international institutional summit" },
     ],
     qualif: {
-      big: "An AP2 ENSOSP qualification — rare in the industry.",
+      big: "A prevention culture.",
       body: [
-        "ESE's safety expertise is underpinned by an AP2 ENSOSP qualification — rare in event technical production. AP2 ENSOSP is a French national qualification (ENSOSP: National School of Civil and Security Officers) that certifies specialists to produce and sign ERP fire safety reports.",
-        "This qualification enables ESE to produce and sign ERP fire safety reports, support operators before authorities and attend safety commission hearings — from the standpoint of an event expert, not a generalist inspection office.",
+        "Matthieu Savatier, ESE's founder, holds the AP2 qualification from ENSOSP, the French national fire officers' academy.",
+        "ESE writes ERP fire safety reports, prepares authorisation files and supports the organiser at safety commission hearings, from the standpoint of an event specialist. Regulatory inspections remain with accredited bodies, which we coordinate.",
       ],
     },
     perimTitle: "Scope of safety expertise",
@@ -232,8 +232,8 @@ export const FAQ = [
     a: "Yes. Technical direction, production management and safety expertise work together or independently. ESE can carry an entire production end to end, or step in as a reinforcement to an existing team.",
   },
   {
-    q: "Can ESE produce and sign an ERP fire safety report?",
-    a: "Yes. ESE's safety expertise is underpinned by an AP2 ENSOSP qualification — rare in event production. ESE produces ERP fire safety reports (types CTS, PA, L, T) and supports operators at safety commission hearings, before the prefecture, city hall and fire & rescue service (SDIS).",
+    q: "Can ESE write an ERP fire safety report?",
+    a: "Yes. ESE writes ERP fire safety reports (types CTS, PA, L, T) and supports the organiser at safety commission hearings, before the prefecture, city hall and fire & rescue service (SDIS). Its founder holds the AP2 qualification from ENSOSP. Regulatory inspections remain with accredited bodies.",
   },
   {
     q: "Do you work outside Paris and internationally?",

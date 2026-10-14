@@ -509,3 +509,5 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .form .chips label{display:inline-block;padding:11px 14px;border:1px solid var(--ink);line-height:1.15}
 .form .chips input:checked+label{border-color:var(--blue)}
 .overlay .bottom a,.ft-base a,.arrow{display:inline-flex;align-items:center;min-height:36px}
+.liv.one{grid-template-columns:1fr}
+.habS{padding-bottom:72px}

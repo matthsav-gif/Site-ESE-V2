@@ -60,6 +60,13 @@ const svc = { "@context": "https://schema.org", "@type": "Service", name: m.t, d
     </div></section>
   )}
 
+  {d.hab && (
+    <section class="poster habS"><div class="wrap" style="display:block"><div data-g="s1" class="rv">
+      <div><p class="kick">{d.hab.k}</p><h2 class="hl md" style="margin-top:28px" set:html={dt(d.hab.t)} /><p class="lede" style="margin-top:22px">{d.hab.l}</p></div>
+      <ul class="liv one">{d.hab.items.map((x) => <li>{x}</li>)}</ul>
+    </div></div></section>
+  )}
+
   <section class="dark band"><div class="wrap rv">
     <p class="kick">{d.opsT}</p><h2 class="hl md" style="margin-top:28px;color:#fff" set:html={dt(tx.where)} />
     <div class="ops">{d.ops.map((o) => <span>{o}</span>)}</div>

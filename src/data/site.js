@@ -179,10 +179,10 @@ export const METIER_DATA = {
       { src: "/images/expertise-securite/unoc-nice.jpg", alt: "United Nations Ocean Conference, sommet institutionnel international" },
     ],
     qualif: {
-      big: "Une qualification AP2 ENSOSP, rare dans le métier.",
+      big: "Une culture de la prévention.",
       body: [
-        "L'expertise sécurité d'ESE est portée par une qualification AP2 ENSOSP, rare dans la production technique événementielle.",
-        "Cette qualification permet à ESE de produire et signer des notices de sécurité ERP, d'accompagner les opérateurs auprès des autorités et d'intervenir en commission de sécurité, depuis la posture d'un expert événementiel, pas d'un bureau de contrôle généraliste.",
+        "Matthieu Savatier, fondateur d'ESE, est titulaire de la qualification AP2 de l'ENSOSP.",
+        "ESE rédige les notices de sécurité ERP, prépare les dossiers d'autorisation et accompagne l'organisateur en commission de sécurité, depuis la posture d'un expert événementiel. Les vérifications réglementaires restent confiées aux organismes agréés, que nous coordonnons.",
       ],
     },
     perimTitle: "Périmètre de l'expertise sécurité",
@@ -232,8 +232,8 @@ export const FAQ = [
     a: "Oui. Direction technique, régie générale et expertise sécurité fonctionnent ensemble ou séparément. ESE peut porter une production de bout en bout, ou intervenir en renfort d'une équipe déjà en place.",
   },
   {
-    q: "ESE peut-elle produire et signer une notice de sécurité ERP ?",
-    a: "Oui. L'expertise sécurité d'ESE est portée par une qualification AP2 ENSOSP, rare dans la production événementielle. ESE produit les notices de sécurité ERP (types CTS, PA, L, T) et accompagne les opérateurs en commission de sécurité, face à la préfecture, la mairie et le SDIS.",
+    q: "ESE peut-elle rédiger une notice de sécurité ERP ?",
+    a: "Oui. ESE rédige les notices de sécurité ERP (types CTS, PA, L, T) et accompagne l'organisateur en commission de sécurité, face à la préfecture, la mairie et le SDIS. Son fondateur est titulaire de la qualification AP2 de l'ENSOSP. Les vérifications réglementaires restent confiées aux organismes agréés.",
   },
   {
     q: "Intervenez-vous en province et à l'international ?",
