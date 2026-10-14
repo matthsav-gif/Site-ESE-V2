@@ -132,6 +132,9 @@ const allSchema = [orgLd, siteLd, ...schema];
     {allSchema.map((s) => (
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
+      <!-- Mesure d'audience Vercel Web Analytics : sans cookie, à activer dans le projet Vercel (onglet Analytics). -->
+    <script is:inline>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+    <script is:inline defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">{lang === "en" ? "Skip to content" : "Aller au contenu"}</a>

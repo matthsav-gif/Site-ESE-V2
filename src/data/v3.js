@@ -7,7 +7,7 @@ const pad = (n) => String(n).padStart(2, "0");
 export const T = {
   fr: {
     base: "",
-    nav: { expertises: "Expertises", refs: "Références", approche: "Approche", about: "À propos", contact: "Contact", cta: "Parlons de votre projet", menu: "Menu", close: "Fermer" },
+    nav: { expertises: "Expertises", refs: "Références", approche: "Approche", about: "À propos", contact: "Contact", cta: "Demander un devis", menu: "Menu", close: "Fermer" },
     keysTitle: "Les points clés",
     stripBrand: "ESE — Du plan au terrain",
     contactBand: {
@@ -27,7 +27,7 @@ export const T = {
   },
   en: {
     base: "/en",
-    nav: { expertises: "Services", refs: "References", approche: "Approach", about: "About", contact: "Contact", cta: "Let's talk about your project", menu: "Menu", close: "Close" },
+    nav: { expertises: "Services", refs: "References", approche: "Approach", about: "About", contact: "Contact", cta: "Request a quote", menu: "Menu", close: "Close" },
     keysTitle: "Key points",
     stripBrand: "ESE — From plan to field",
     contactBand: {
@@ -82,6 +82,7 @@ export const METIERS3 = {
 export const METIER_V3 = {
   fr: {
     "direction-technique": {
+      liv: ["Cahier des charges technique", "Plans et synoptiques de production", "Budget technique et suivi", "Consultation et choix des prestataires", "Planning de production", "Dossier technique de l'événement"],
       when: ["Vous lancez un événement et il faut cadrer la technique dès le départ.", "Vos prestataires sont nombreux et personne ne tient l'ensemble.", "Un lieu ou une organisation produit toute l'année et veut un interlocuteur technique unique."],
       lead: "De la rédaction du cahier des charges au pilotage sur site, nous concevons et pilotons la chaîne technique de vos productions : événementiel, live, scénographie.",
       body: ["Nous pouvons prendre un projet à la racine, dès le premier cahier des charges, et le mener jusqu'à la dernière journée de démontage. Ou nous greffer sur une phase précise, quand une équipe a simplement besoin d'un renfort d'ingénierie.",
@@ -90,6 +91,7 @@ export const METIER_V3 = {
       opsT: "Types d'opérations", ops: ["Événementiel corporate", "Culturel & lancements", "Congrès", "Concerts & festivals", "Tournées en stade", "Captations", "Scénographie & expo", "Structures & rigging", "Énergie temporaire"],
       cta: "Parler de votre besoin en direction technique" },
     "bureau-etudes": {
+      liv: ["Notes de calcul", "Plans d'implantation", "Plans de rigging", "Synoptiques", "Dossiers techniques", "Fichiers MVR et modélisation 3D"],
       when: ["Une structure, un pont ou un écran doit être accroché et il faut le justifier.", "Le bureau de contrôle ou la commission demande un plan ou une note.", "Un prestataire a besoin d'un synoptique ou d'un plan d'implantation propre."],
       lead: "Notes de calcul, plans et études techniques : nous produisons les documents qui permettent de valider un dispositif avant qu'il ne soit monté.",
       body: ["Structures scéniques, charges suspendues, ponts, tours, écrans, gradins : chaque élément monté sur un site doit être justifié. Nous modélisons les configurations, calculons les efforts et produisons des notes lisibles par les bureaux de contrôle, les exploitants et les prestataires.",
@@ -98,6 +100,7 @@ export const METIER_V3 = {
       opsT: "Livrables", ops: ["Notes de calcul", "Plans d'implantation", "Plans de rigging", "Synoptiques", "Dossiers techniques", "Études de faisabilité", "Modélisation 3D", "Fichiers MVR"],
       cta: "Demander une note de calcul ou une étude" },
     "design-lumiere": {
+      liv: ["Note d'intention lumière", "Plan feux et implantation des sources", "Pré-visualisation 3D", "Cahier des charges pour le prestataire lumière", "Suivi de l'encodage et des réglages sur site"],
       when: ["Vous voulez une identité lumière pour un concert, un défilé ou une cérémonie.", "Il faut un plan feux et un cahier des charges pour consulter les prestataires.", "Le design existe mais doit être adapté au lieu, à l'énergie ou au budget."],
       lead: "De l'intention artistique au plan feux, nous concevons la lumière de vos événements et la rendons réalisable sur le terrain.",
       body: ["Concert, défilé, cérémonie, convention ou lieu patrimonial : la lumière porte l'image de l'événement. Nous traduisons une intention en plan feux concret, avec des choix de sources, des positions d'accroche et une puissance compatibles avec le lieu et le budget.",
@@ -106,6 +109,7 @@ export const METIER_V3 = {
       opsT: "Contextes", ops: ["Concerts", "Défilés & luxe", "Cérémonies", "Conventions", "Lieux patrimoniaux", "Scénographie & expo", "Festivals"],
       cta: "Parler de votre projet lumière" },
     "regie-generale": {
+      liv: ["Planning de montage et de démontage", "Organisation des accès et de la coactivité", "Feuilles de route des équipes et prestataires", "Coordination sur site, du premier camion au dernier", "Équipe de régie calibrée pour le dossier"],
       when: ["Le montage implique beaucoup d'équipes sur un temps court.", "Il faut un régisseur général pour quelques jours ou pour toute une tournée.", "Un lieu culturel ou un site a besoin d'une régie à l'année."],
       lead: "Plannings, accès, coactivité, équipes, prestataires, montage, exploitation et démontage : la régie générale fait tenir ensemble des réalités multiples.",
       body: ["Sur une opération ponctuelle, nous assemblons et pilotons la régie du premier camion au dernier. Sur la durée, nous prenons en charge la régie d'un site, d'un lieu culturel ou d'une tournée entière.",
@@ -114,6 +118,7 @@ export const METIER_V3 = {
       opsT: "Types d'opérations", ops: ["Événementiel corporate", "Agences", "Spectacle vivant & live", "Festivals", "Salles", "Régie de site", "Lieux culturels", "Tournées", "Expo & muséo"],
       cta: "Trouver un appui en régie générale" },
     "stage-management": {
+      liv: ["Conduites et feuilles de route plateau", "Timing des entrées, changements et séquences", "Organisation des circulations coulisses", "Lien plateau entre artistes, technique et production"],
       when: ["Le plateau enchaîne artistes, intervenants et changements rapides.", "Vous avez besoin d'un stage manager en renfort de votre équipe.", "Une cérémonie ou une convention suit une conduite minutée."],
       lead: "De la préparation des conduites à la coordination du plateau, le stage management assure la continuité entre artistes, intervenants, équipes techniques et production.",
       body: ["Nous intervenons en renfort sur un plateau précis ou au sein d'un dispositif de régie plus large, sur les festivals, les cérémonies, les concerts et les événements à séquences multiples.",
@@ -122,6 +127,7 @@ export const METIER_V3 = {
       opsT: "Contextes", ops: ["Festivals", "Outdoor", "Cérémonies", "Concerts", "Plateaux multi-artistes", "Conventions", "Événements institutionnels"],
       cta: "Parler du plateau et de la conduite" },
     "expertise-securite": {
+      liv: ["Notice de sécurité ERP", "Dossier d'autorisation (préfecture, mairie)", "Accompagnement en commission de sécurité", "Notice de transformation de site ou de lieu", "Audit de gouvernance sécurité", "Volet accessibilité PMR"],
       when: ["Votre événement doit passer en commission de sécurité.", "Il faut une notice de sécurité ERP pour un lieu ou une configuration.", "Un site ou un festival veut structurer sa sécurité sur la durée."],
       lead: "Notices de sécurité et accompagnement face aux autorités, par un expert événementiel, pas un bureau de contrôle.",
       body: ["Cela peut être une notice et un passage en commission sur une seule opération. Ou un accompagnement long : la gouvernance sécurité d'un site, le suivi d'un festival sur plusieurs éditions, un lieu culturel qui se transforme.",
@@ -133,6 +139,7 @@ export const METIER_V3 = {
   },
   en: {
     "direction-technique": {
+      liv: ["Technical specification", "Production drawings and schematics", "Technical budget and follow-up", "Supplier tendering and selection", "Production schedule", "Event technical file"],
       when: ["You are launching an event and the technical side must be framed from day one.", "You have many suppliers and no one holds the whole picture.", "A venue or organisation produces all year and wants one technical contact."],
       lead: "From writing the technical specifications to on-site management, we design and run the technical chain of your productions: events, live, scenography.",
       body: ["We can take a project from the root, from the very first specification, through to the last day of strike. Or step into a specific phase, when a team simply needs engineering support.",
@@ -141,6 +148,7 @@ export const METIER_V3 = {
       opsT: "Types of operations", ops: ["Corporate events", "Cultural & launches", "Conferences", "Concerts & festivals", "Stadium tours", "Broadcasts", "Scenography & exhibitions", "Structures & rigging", "Temporary power"],
       cta: "Discuss your technical direction needs" },
     "bureau-etudes": {
+      liv: ["Calculation notes", "Site layouts", "Rigging plots", "Schematics", "Technical files", "MVR files and 3D models"],
       when: ["A structure, truss or screen must be rigged and needs to be justified.", "The inspection body or safety commission asks for a drawing or a note.", "A supplier needs a clean schematic or layout."],
       lead: "Calculation notes, drawings and technical studies: we produce the documents that validate a set-up before it is built.",
       body: ["Stage structures, suspended loads, trusses, towers, screens, grandstands: every element built on site must be justified. We model the configurations, calculate the forces and produce notes that inspection bodies, venue operators and suppliers can read.",
@@ -149,6 +157,7 @@ export const METIER_V3 = {
       opsT: "Deliverables", ops: ["Calculation notes", "Layouts", "Rigging plots", "Schematics", "Technical files", "Feasibility studies", "3D modelling", "MVR files"],
       cta: "Request a calculation note or a study" },
     "design-lumiere": {
+      liv: ["Lighting design statement", "Lighting plot and fixture positions", "3D pre-visualisation", "Specification for the lighting supplier", "Programming and focus follow-up on site"],
       when: ["You want a lighting identity for a concert, fashion show or ceremony.", "You need a lighting plot and specifications to brief suppliers.", "The design exists but must be adapted to the venue, power or budget."],
       lead: "From artistic intent to lighting plot, we design the lighting of your events and make it deliverable on site.",
       body: ["Concert, fashion show, ceremony, convention or heritage venue: lighting carries the image of the event. We turn an intent into a concrete lighting plot, with fixtures, rigging positions and power that fit the venue and the budget.",
@@ -157,6 +166,7 @@ export const METIER_V3 = {
       opsT: "Contexts", ops: ["Concerts", "Fashion & luxury", "Ceremonies", "Conventions", "Heritage venues", "Scenography & exhibitions", "Festivals"],
       cta: "Talk about your lighting project" },
     "regie-generale": {
+      liv: ["Load-in and strike schedule", "Access and co-activity planning", "Crew and supplier run sheets", "On-site coordination, first truck to last", "Production team sized for the job"],
       when: ["Load-in involves many crews in a short time.", "You need a production manager for a few days or a whole tour.", "A cultural venue or site needs year-round production management."],
       lead: "Schedules, access, co-activity, crews, suppliers, load-in, show and strike: production management holds many realities together.",
       body: ["On a one-off operation, we assemble and run production management from the first truck to the last. Over time, we take charge of a venue, a cultural site or an entire tour.",
@@ -165,6 +175,7 @@ export const METIER_V3 = {
       opsT: "Types of operations", ops: ["Corporate events", "Agencies", "Live & performing arts", "Festivals", "Venues", "Site management", "Cultural sites", "Tours", "Exhibitions"],
       cta: "Find production management support" },
     "stage-management": {
+      liv: ["Cue sheets and stage run sheets", "Timing of entrances, changeovers and sequences", "Backstage flow planning", "Stage link between artists, crew and production"],
       when: ["The stage chains artists, speakers and fast changeovers.", "You need a stage manager to support your team.", "A ceremony or convention follows a timed running order."],
       lead: "From preparing cue sheets to coordinating the stage, stage management ensures continuity between artists, speakers, technical crews and production.",
       body: ["We step in on a specific stage or within a wider production management set-up, on festivals, ceremonies, concerts and multi-sequence events.",
@@ -173,6 +184,7 @@ export const METIER_V3 = {
       opsT: "Contexts", ops: ["Festivals", "Outdoor", "Ceremonies", "Concerts", "Multi-artist stages", "Conventions", "Institutional events"],
       cta: "Talk about the stage and show calling" },
     "expertise-securite": {
+      liv: ["ERP fire safety report", "Authorisation file (prefecture, city hall)", "Support at the safety commission", "Site or venue conversion report", "Safety governance audit", "Accessibility (PMR) section"],
       when: ["Your event must go before a safety commission.", "You need an ERP fire safety report for a venue or configuration.", "A venue or festival wants to structure its safety over time."],
       lead: "Fire safety reports and support before the authorities, from an event specialist, not an inspection body.",
       body: ["It can be a single report and a safety commission hearing for one operation. Or long-term support: safety governance for a venue, a festival over several editions, a cultural site in transformation.",
@@ -203,7 +215,7 @@ export const REFS3 = {
     {"ms": ["direction-technique"], "yr": "2024", "t": "Convention des Volontaires", "cat": "Paris 2024", "f": "institutionnel", "lieu": "Paris 2024 · des milliers de volontaires", "mis": "Direction technique", "img": "/images/refs/convention-volontaires.jpg"},
     {"ms": ["direction-technique", "bureau-etudes"], "yr": "2023–24", "t": "Mylène Farmer · Nevermore", "cat": "Tournée des stades", "f": "concert", "lieu": "9 stades en France, Suisse, Belgique · 3 soirs au Stade de France", "mis": "Direction technique live · rigging · structures", "img": "/images/refs/mylene-regie-stade.jpg"},
     {"ms": ["direction-technique"], "yr": "2023", "t": "Louis Vuitton", "cat": "Défilé · luxe", "f": "mode", "lieu": "Paris · aussi Garnier, Vichy", "mis": "Direction technique · scénographie", "img": "/images/direction-technique/luxe-louis-vuitton.jpg"},
-    {"ms": ["direction-technique"], "yr": "—", "t": "VivaTech", "cat": "Salon international", "f": "institutionnel", "lieu": "Paris · stands et espaces de marques", "mis": "Direction technique", "img": ""},
+    {"ms": ["direction-technique"], "yr": "", "t": "VivaTech", "cat": "Salon international", "f": "institutionnel", "lieu": "Paris · stands et espaces de marques", "mis": "Direction technique", "img": ""},
   ],
   en: [
     {"slug": "venue-du-pape-stade-de-france", "ms": ["direction-technique", "regie-generale", "stage-management"], "yr": "2026", "t": "Papal visit", "cat": "Ceremony", "f": "ceremonie", "lieu": "Stade de France · Saint-Denis", "mis": "Technical direction · production management · stage management · crew logistics", "img": "/images/refs/pape-tribunes.jpg"},
@@ -223,7 +235,7 @@ export const REFS3 = {
     {"ms": ["direction-technique"], "yr": "2024", "t": "Volunteers' Convention", "cat": "Paris 2024", "f": "institutionnel", "lieu": "Paris 2024 · thousands of volunteers", "mis": "Technical direction", "img": "/images/refs/convention-volontaires.jpg"},
     {"ms": ["direction-technique", "bureau-etudes"], "yr": "2023–24", "t": "Mylène Farmer · Nevermore", "cat": "Stadium tour", "f": "concert", "lieu": "9 stadiums in France, Switzerland, Belgium · 3 nights at the Stade de France", "mis": "Live technical direction · rigging · structures", "img": "/images/refs/mylene-regie-stade.jpg"},
     {"ms": ["direction-technique"], "yr": "2023", "t": "Louis Vuitton", "cat": "Fashion · luxury", "f": "mode", "lieu": "Paris · also Garnier, Vichy", "mis": "Technical direction · scenography", "img": "/images/direction-technique/luxe-louis-vuitton.jpg"},
-    {"ms": ["direction-technique"], "yr": "—", "t": "VivaTech", "cat": "International trade show", "f": "institutionnel", "lieu": "Paris · brand stands and spaces", "mis": "Technical direction", "img": ""},
+    {"ms": ["direction-technique"], "yr": "", "t": "VivaTech", "cat": "International trade show", "f": "institutionnel", "lieu": "Paris · brand stands and spaces", "mis": "Technical direction", "img": ""},
   ],
 };
 
@@ -247,7 +259,7 @@ export const APPROCHE = {
 export const FAQ3 = {
   fr: [
     ["Intervenez-vous aussi sur de petites missions ?", "Oui. Nous intervenons aussi bien sur une cérémonie olympique ou une tournée en stade que sur un événement de moyenne envergure, un lancement produit ou une opération confidentielle. C'est le besoin qui définit le périmètre, pas la taille."],
-    ["Peut-on vous solliciter pour un seul métier ?", "Oui. Direction technique, régie générale, stage management et expertise sécurité fonctionnent ensemble ou séparément. Nous pouvons porter une production de bout en bout, ou intervenir en renfort d'une équipe déjà en place."],
+    ["Peut-on vous solliciter pour un seul métier ?", "Oui. Nos six métiers (direction technique, bureau d'études, design lumière, régie générale, stage management, expertise sécurité) fonctionnent ensemble ou séparément. Nous pouvons porter une production de bout en bout, ou intervenir en renfort d'une équipe déjà en place."],
     ["Pouvez-vous produire et signer une notice de sécurité ERP ?", "Oui. Notre expertise sécurité est portée par une qualification AP2 ENSOSP. Nous produisons les notices de sécurité ERP (types CTS, PA, L, T) et accompagnons les opérateurs en commission de sécurité, face à la préfecture, la mairie et le SDIS."],
     ["Fournissez-vous le matériel ?", "Notre rôle est la conception, la coordination et le pilotage. Nous choisissons et coordonnons les prestataires qui fournissent le matériel, selon ce qui est prévu au contrat."],
     ["Intervenez-vous en province et à l'international ?", "Oui. Nous sommes basés à Paris et intervenons partout en France et à l'international : tournées, festivals, sommets institutionnels."],
@@ -255,7 +267,7 @@ export const FAQ3 = {
   ],
   en: [
     ["Do you also take on small assignments?", "Yes. We work on Olympic ceremonies and stadium tours just as readily as on mid-scale events, product launches or confidential operations. The brief defines the scope, not the size."],
-    ["Can we bring you in for just one service?", "Yes. Technical direction, production management, stage management and safety expertise work together or independently. We can carry a production end to end, or support an existing team."],
+    ["Can we bring you in for just one service?", "Yes. Our six services (technical direction, engineering, lighting design, production management, stage management, safety expertise) work together or independently. We can carry a production end to end, or support an existing team."],
     ["Can you produce and sign an ERP fire safety report?", "Yes. Our safety expertise is underpinned by an AP2 ENSOSP qualification. We produce ERP fire safety reports (types CTS, PA, L, T) and support operators at safety commission hearings, before the prefecture, city hall and fire & rescue service."],
     ["Do you supply the equipment?", "Our role is design, coordination and management. We select and coordinate the suppliers who provide the equipment, as set out in the contract."],
     ["Do you work outside Paris and internationally?", "Yes. We are based in Paris and work anywhere in France and internationally: tours, festivals, institutional summits."],

@@ -9,18 +9,18 @@ const tx = en ? {
   top: ["Contact", "Reply within 2 working days"], k: "Production / Services / Field", h1: "Let's talk about<br>what you need",
   s: "A one-day mission, a file to prepare, a production in development or a crew need?", l: "Describe your situation simply. We will point you to the right scope of work.",
   coords: ["Phone", "Email", "Address"],
-  types: ["Technical direction", "Engineering & calculations", "Lighting design", "Production management", "Stage management", "Safety expertise", "Other / several services", "Not sure yet"],
-  ech: ["Less than 3 months", "3 to 6 months", "More than 6 months", "Recurring / long-term"],
-  f: { type: "Request type", ech: "Timeframe", prenom: "First name", nom: "Last name", soc: "Company", email: "Email", tel: "Phone", msg: "Message", opt: "Optional", ph: "Your project, your dates, where you stand", req: "required", send: "Send my request", note: "No budget required. A few lines are enough.", rgpd: "The information collected through this form is used only to reply to your request." },
+  types: ["Technical direction", "Engineering & calculations", "Lighting design", "Production management", "Stage management", "Safety expertise", "Not sure yet"],
+  formats: ["Day-rate support", "Targeted mission", "Full production", "Year-round support"],
+  f: { type: "Services needed (one or more)", fmt: "Format", date: "Event date or period", dateph: "e.g. 12 June 2027, spring 2027", ech: "Timeframe", prenom: "First name", nom: "Last name", soc: "Company", email: "Email", tel: "Phone", msg: "Your project", opt: "Optional", ph: "Type of event, venue, audience size, what you need from us, where you stand", req: "required", send: "Send my request", note: "No budget required. A few lines are enough.", rgpd: "The information collected through this form is used only to reply to your request." },
   ok: (p, t) => `Thank you ${p}. ESE will get back to you shortly${t ? ` about your “${t}” project` : ""}.`,
   err: "Something went wrong. Please try again or write to secretariat@ese-techsolutions.com.", fk: "FAQ", ft: "Before<br>you write",
 } : {
   top: ["Contact", "Réponse sous 48 h ouvrées"], k: "Production / Métiers / Terrain", h1: "Parlons de ce<br>qu'il vous faut",
   s: "Une mission d'un jour, un dossier à préparer, une production en développement ou un besoin d'équipe ?", l: "Décrivez simplement votre situation. Nous vous orienterons vers un périmètre de travail adapté.",
   coords: ["Téléphone", "Email", "Adresse"],
-  types: ["Direction technique", "Bureau d'études & notes de calcul", "Design lumière", "Régie générale", "Stage management", "Expertise sécurité", "Autre / Multi-métiers", "Je ne sais pas encore"],
-  ech: ["Moins de 3 mois", "3 à 6 mois", "Plus de 6 mois", "Récurrence / accompagnement long"],
-  f: { type: "Type de demande", ech: "Échéance", prenom: "Prénom", nom: "Nom", soc: "Structure", email: "Email", tel: "Téléphone", msg: "Message", opt: "Facultatif", ph: "Votre projet, vos dates, où vous en êtes", req: "requis", send: "Envoyer ma demande", note: "Pas de budget demandé. Quelques lignes suffisent.", rgpd: "Les informations recueillies via ce formulaire sont utilisées uniquement pour répondre à votre demande." },
+  types: ["Direction technique", "Bureau d'études & notes de calcul", "Design lumière", "Régie générale", "Stage management", "Expertise sécurité", "Je ne sais pas encore"],
+  formats: ["Renfort à la journée", "Mission ciblée", "Production complète", "Accompagnement à l'année"],
+  f: { type: "Prestations souhaitées (une ou plusieurs)", fmt: "Format", date: "Date ou période de l'événement", dateph: "ex. 12 juin 2027, printemps 2027", ech: "Échéance", prenom: "Prénom", nom: "Nom", soc: "Structure", email: "Email", tel: "Téléphone", msg: "Votre projet", opt: "Facultatif", ph: "Type d'événement, lieu, jauge, ce que vous attendez de nous, où vous en êtes", req: "requis", send: "Envoyer ma demande", note: "Pas de budget demandé. Quelques lignes suffisent.", rgpd: "Les informations recueillies via ce formulaire sont utilisées uniquement pour répondre à votre demande." },
   ok: null, err: "Une erreur est survenue. Merci de réessayer ou d'écrire à secretariat@ese-techsolutions.com.", fk: "Questions fréquentes", ft: "Avant<br>d'écrire",
 };
 const faq = FAQ3[lang];
@@ -46,15 +46,17 @@ const faq = FAQ3[lang];
         <div class="keys is-hidden" id="sent-note" role="status" style="margin-top:0"><p class="kt">✓</p><p id="sent-txt" style="font-size:20px;margin-top:16px"></p></div>
         <form class="form" id="contact-form" novalidate data-endpoint={CONTACT.formEndpoint}>
           <div class="f" style="grid-template-columns:1fr"><label style="border-right:0;padding-bottom:0">{tx.f.type} <span class="err-tag is-hidden" id="err-projet">· {tx.f.req}</span></label>
-            <div class="chips" role="radiogroup" aria-label={tx.f.type}>{tx.types.map((t, i) => <><input type="radio" name="type_projet" id={`ty${i}`} value={t} /><label for={`ty${i}`}>{t}</label></>)}</div></div>
-          <div class="f" style="grid-template-columns:1fr"><label style="border-right:0;padding-bottom:0">{tx.f.ech} · {tx.f.opt}</label>
-            <div class="chips" role="radiogroup" aria-label={tx.f.ech}>{tx.ech.map((t, i) => <><input type="radio" name="echeance" id={`ec${i}`} value={t} /><label for={`ec${i}`}>{t}</label></>)}</div></div>
+            <div class="chips" role="group" aria-label={tx.f.type}>{tx.types.map((t, i) => <><input type="checkbox" name="prestations" id={`ty${i}`} value={t} /><label for={`ty${i}`}>{t}</label></>)}</div></div>
+          <div class="f" style="grid-template-columns:1fr"><label style="border-right:0;padding-bottom:0">{tx.f.fmt} · {tx.f.opt}</label>
+            <div class="chips" role="radiogroup" aria-label={tx.f.fmt}>{tx.formats.map((t, i) => <><input type="radio" name="format" id={`fo${i}`} value={t} /><label for={`fo${i}`}>{t}</label></>)}</div></div>
+          <div class="f"><label for="f-date">{tx.f.date}</label><input id="f-date" name="date_evenement" placeholder={tx.f.dateph} maxlength="120" /></div>
           <div class="f"><label for="f-prenom">{tx.f.prenom} *</label><input id="f-prenom" name="prenom" autocomplete="given-name" required /></div>
           <div class="f"><label for="f-nom">{tx.f.nom} *</label><input id="f-nom" name="nom" autocomplete="family-name" required /></div>
           <div class="f"><label for="f-soc">{tx.f.soc}</label><input id="f-soc" name="societe" placeholder={tx.f.opt} autocomplete="organization" /></div>
           <div class="f"><label for="f-email">{tx.f.email} *</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
           <div class="f"><label for="f-tel">{tx.f.tel}</label><input id="f-tel" name="telephone" type="tel" placeholder={tx.f.opt} autocomplete="tel" /></div>
-          <div class="f"><label for="f-msg">{tx.f.msg}</label><textarea id="f-msg" name="message" maxlength="1000" placeholder={tx.f.ph}></textarea></div>
+          <div class="f"><label for="f-msg">{tx.f.msg}</label><textarea id="f-msg" name="message" maxlength="3000" placeholder={tx.f.ph}></textarea></div>
+          <input type="hidden" name="_subject" value={en ? "Quote request (website, EN)" : "Demande de devis (site ESE)"} />
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="send"><small id="fmsg">{tx.f.note}</small><button class="btn btn-blue" type="submit">{tx.f.send} →</button></div>
         </form>
@@ -72,18 +74,19 @@ const faq = FAQ3[lang];
 <script define:vars={{ lang, okFr: null, errMsg: tx.err }}>
   const form = document.getElementById("contact-form");
   const TYPE_MAP = lang === "en"
-    ? { "direction-technique": 0, "bureau-etudes": 1, "design-lumiere": 2, "regie-generale": 3, "stage-management": 4, "expertise-securite": 5, "multi": 6 }
-    : { "direction-technique": 0, "bureau-etudes": 1, "design-lumiere": 2, "regie-generale": 3, "stage-management": 4, "expertise-securite": 5, "multi": 6 };
-  const q = new URLSearchParams(location.search).get("type");
-  if (q && TYPE_MAP[q] !== undefined) { const r = document.getElementById("ty" + TYPE_MAP[q]); if (r) r.checked = true; }
-  if (q === "ponctuel" || q === "global") {
-    const m = document.getElementById("f-msg");
-    m.value = lang === "en" ? (q === "ponctuel" ? "One-off mission: " : "Production to support: ") : (q === "ponctuel" ? "Mission ponctuelle : " : "Production à accompagner : ");
-  }
+    ? { "direction-technique": 0, "bureau-etudes": 1, "design-lumiere": 2, "regie-generale": 3, "stage-management": 4, "expertise-securite": 5 }
+    : { "direction-technique": 0, "bureau-etudes": 1, "design-lumiere": 2, "regie-generale": 3, "stage-management": 4, "expertise-securite": 5 };
+  // ?type=slug[,slug] coche les prestations ; ?format=renfort|mission|production|annee choisit le format.
+  const params = new URLSearchParams(location.search);
+  const FORMAT_MAP = { renfort: 0, mission: 1, ponctuel: 1, production: 2, global: 2, annee: 3 };
+  for (const t of (params.get("type") || "").split(",")) { if (TYPE_MAP[t] !== undefined) { const r = document.getElementById("ty" + TYPE_MAP[t]); if (r) r.checked = true; } }
+  const fq = params.get("format") || params.get("type");
+  if (fq && FORMAT_MAP[fq] !== undefined) { const r = document.getElementById("fo" + FORMAT_MAP[fq]); if (r) r.checked = true; }
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const prenom = document.getElementById("f-prenom"), nom = document.getElementById("f-nom"), email = document.getElementById("f-email");
-    const type = form.querySelector('input[name="type_projet"]:checked');
+    const checked = [...form.querySelectorAll('input[name="prestations"]:checked')].map((c) => c.value);
+    const type = checked.length ? { value: checked.join(", ") } : null;
     let ok = true;
     [prenom, nom].forEach((el) => { const bad = !el.value.trim(); el.closest(".f").classList.toggle("bad", bad); if (bad) ok = false; });
     const badMail = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value); email.closest(".f").classList.toggle("bad", badMail); if (badMail) ok = false;
@@ -92,8 +95,8 @@ const faq = FAQ3[lang];
     const showSuccess = () => {
       const t = type ? type.value : "";
       document.getElementById("sent-txt").textContent = lang === "en"
-        ? `Thank you ${prenom.value.trim()}. ESE will get back to you shortly${t ? ` about your “${t}” project` : ""}.`
-        : `Merci ${prenom.value.trim()}. ESE revient vers vous rapidement${t ? ` au sujet de votre projet « ${t} »` : ""}.`;
+        ? `Thank you ${prenom.value.trim()}. Your request has been sent. ESE will reply within 2 working days.`
+        : `Merci ${prenom.value.trim()}. Votre demande est bien partie. ESE vous répond sous 48 h ouvrées.`;
       form.classList.add("is-hidden");
       document.getElementById("sent-note").classList.remove("is-hidden");
     };
@@ -101,7 +104,7 @@ const faq = FAQ3[lang];
     if (!endpoint) { showSuccess(); return; }
     try {
       const res = await fetch(endpoint, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
-      if (res.ok) showSuccess(); else document.getElementById("fmsg").textContent = errMsg;
+      if (res.ok) { showSuccess(); window.va?.("event", { name: "Demande de devis envoyée", data: { prestations: type ? type.value.slice(0, 200) : "" } }); } else document.getElementById("fmsg").textContent = errMsg;
     } catch (err) { document.getElementById("fmsg").textContent = errMsg; }
   });
 </script>

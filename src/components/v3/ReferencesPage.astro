@@ -32,7 +32,7 @@ const tx = en ? {
     <div class="filters" role="group" aria-label={en ? "Filter references" : "Filtrer les références"}>
       {tx.filters.map(([f, l], i) => <button aria-pressed={i === 0 ? "true" : "false"} data-filter={f}>{l}</button>)}
     </div>
-    <div class="reflist" id="reflist"><RefRows refs={REFS3[lang]} base={b} lang={lang} /></div>
+    <div class="reflist" id="reflist"><RefRows refs={REFS3[lang]} base={b} lang={lang} hl={2} /></div>
   </div></section>
   <section class="poster impact"><div class="wrap" style="display:block">
     <div data-g="s1" class="rv" style="margin-bottom:40px">

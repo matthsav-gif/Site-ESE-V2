@@ -1,11 +1,12 @@
 ---
-const { refs = [], base = "", lang = "fr" } = Astro.props;
+const { refs = [], base = "", lang = "fr", hl = 3 } = Astro.props;
+const H = hl === 2 ? "h2" : "h3";
 const lbl = lang === "en" ? { fiche: "Read the case", voir: "See" } : { fiche: "Lire la fiche", voir: "Voir" };
 ---
 {refs.map((r) => (
   <a class="ref" href={r.slug ? `${base}/references/${r.slug}` : `${base}/references`} data-f={r.f}>
     <span class="yr">{r.yr}</span>
-    <h3>{r.t}</h3>
+    <H>{r.t}</H>
     <p class="meta"><b>{r.cat} · {r.lieu}</b>{r.mis}</p>
     <span class="see arrow">{r.slug ? lbl.fiche : lbl.voir} <i>→</i></span>
     {r.img && <span class="thumb"><img src={r.img} alt="" loading="lazy" decoding="async" /></span>}

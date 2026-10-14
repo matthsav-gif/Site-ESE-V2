@@ -6,7 +6,7 @@ import Keys from "./v3/Keys.astro";
 import RefRows from "./v3/RefRows.astro";
 import Strip from "./v3/Strip.astro";
 import ContactBanner from "./ContactBanner.astro";
-import { T, METIERS3, METIER_V3, REFS3, SEO3, dt } from "../data/v3.js";
+import { T, METIERS3, METIER_V3, REFS3, SEO3, OFFRE, dt } from "../data/v3.js";
 import { SEO } from "../data/site.js";
 import { SEO as SEO_EN } from "../data/site.en.js";
 
@@ -20,8 +20,9 @@ const own = REFS3[lang].filter((r) => (r.ms || []).includes(route));
 const refs = (own.length ? own : REFS3[lang]).slice(0, 6);
 const seo = (en ? SEO_EN : SEO)[route] || SEO3[lang][route];
 const tx = en
-  ? { whenK: "When to call us", whenT: "Typical situations", top: "Our services", perimK: "Scope", perimT: "What we take on", where: "Where we work", refK: "In action", refT: "References", all: "All references" }
-  : { whenK: "Quand nous appeler", whenT: "Les situations types", top: "Nos métiers", perimK: "Périmètre", perimT: "Ce que nous prenons", where: "Là où nous intervenons", refK: "En situation", refT: "Références", all: "Toutes les références" };
+  ? { livK: "Deliverables", livT: "What you receive", fmtK: "How we work", fmtT: "Four ways to bring us in", quote: "Request a quote", fmtNote: "No minimum budget. Reply within 2 working days.", whenK: "When to call us", whenT: "Typical situations", top: "Our services", perimK: "Scope", perimT: "What we take on", where: "Where we work", refK: "In action", refT: "References", all: "All references" }
+  : { livK: "Livrables", livT: "Ce que vous recevez", fmtK: "Comment nous intervenons", fmtT: "Quatre façons de nous solliciter", quote: "Demander un devis", fmtNote: "Pas de budget minimum. Réponse sous 48 h ouvrées.", whenK: "Quand nous appeler", whenT: "Les situations types", top: "Nos métiers", perimK: "Périmètre", perimT: "Ce que nous prenons", where: "Là où nous intervenons", refK: "En situation", refT: "Références", all: "Toutes les références" };
+const O = OFFRE[lang]; const FMT = ["renfort", "mission", "production", "annee"];
 const svc = { "@context": "https://schema.org", "@type": "Service", name: m.t, description: d.lead, provider: { "@id": "https://ese-techsolutions.com/#organization" }, areaServed: ["France", "International"] };
 ---
 <BaseLayout title={seo.title} description={seo.description} lang={lang} ogImage={m.img} schema={[svc]}>
@@ -38,6 +39,17 @@ const svc = { "@context": "https://schema.org", "@type": "Service", name: m.t, d
     <section class="perim rv">
       <div class="perim-h"><div><p class="kick">{tx.perimK}</p><h2 class="hl md" style="margin-top:28px" set:html={dt(tx.perimT)} /></div><a href={`${b}/contact?type=${route}`} class="btn btn-blue">{d.cta} →</a></div>
       <ol>{d.perim.map((p, k) => <li><b>{String(k + 1).padStart(2, "0")}</b>{p}</li>)}</ol>
+    </section>
+    {d.liv && (
+      <section class="livS rv">
+        <p class="kick">{tx.livK}</p><h2 class="hl md" style="margin:28px 0 30px" set:html={dt(tx.livT)} />
+        <ul class="liv">{d.liv.map((x) => <li>{x}</li>)}</ul>
+      </section>
+    )}
+    <section class="fmtS rv">
+      <div class="perim-h"><div><p class="kick">{tx.fmtK}</p><h2 class="hl md" style="margin-top:28px" set:html={dt(tx.fmtT)} /></div><a href={`${b}/contact?type=${route}`} class="btn btn-blue">{tx.quote} →</a></div>
+      <div class="fmts">{O.how.map(([t, x], k) => <a href={`${b}/contact?type=${route}&format=${FMT[k]}`}><b>{String(k + 1).padStart(2, "0")}</b><strong>{t}</strong><span>{x}</span></a>)}</div>
+      <p class="portes-note">{tx.fmtNote}</p>
     </section>
   </div>
 

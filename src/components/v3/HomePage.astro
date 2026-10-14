@@ -29,6 +29,11 @@ const tx = en ? {
   nk: "Every size", nt: "Events<br>of every size", nl: "Festival, international tour, institutional event, fashion show or bespoke production: the same standard, from a few days of support to full technical direction.",
   nums: [["250+", "Projects delivered"], ["102K", "Spectators at one JUL stadium show"], ["15+", "Years of experience"]],
   dk: "How we work", dt: "Targeted support.<br>Or a production<br>to run", dl: "Need a production manager for a few days? A technical study? A stage manager, a fire safety report or full technical direction? We define the scope with you and match the resources to the mission.",
+  pk: "What you are looking for", pt: "Three ways<br>to work with us", pn: "No minimum budget. Reply within 2 working days.",
+  portes: [["01", "A team for a large production", "Technical direction, production management and stage management for a concert, ceremony, festival or brand event. From design to strike.", "production", "direction-technique,regie-generale"],
+           ["02", "Support for a few days", "A production manager, stage manager or technical director for two days or a week, inside your team.", "renfort", ""],
+           ["03", "A drawing, a calculation, a safety file", "A site layout, a calculation note, a lighting plot or an ERP fire safety report for your safety commission.", "mission", ""]],
+  quote: "Request a quote",
   doors: [["I have a specific need", "A production manager, a drawing, a report, a few days of support. Describe the mission, we reply on the scope.", "Describe a mission", "ponctuel"], ["I'm preparing a production", "An operation to design, crews to coordinate, a site to run. Let's discuss full support.", "Discuss a project", "global"]],
   rk: "References", rt: "Different projects.<br>Same standard", rl: "Concerts, tours, fashion shows, institutional events, conventions or more confidential operations. Each case states our exact role.", rall: "All references",
   ak: "Our method", at: "One production,<br>five stages", as: "Design. Prepare. Coordinate. Operate. Deliver.", alink: "Our approach",
@@ -46,6 +51,11 @@ const tx = en ? {
   nk: "Toutes tailles", nt: "Des événements<br>de toutes tailles", nl: "Festival, tournée internationale, événement institutionnel, défilé ou production sur mesure : la même exigence, du renfort de quelques jours à la direction technique complète.",
   nums: [["250+", "Projets réalisés"], ["102K", "Spectateurs sur un concert de JUL"], ["15+", "Années d'expérience"]],
   dk: "Comment nous intervenons", dt: "Un renfort ciblé.<br>Ou une production<br>à piloter", dl: "Besoin d'un régisseur pour quelques jours ? D'une étude technique ? D'un stage manager, d'une notice de sécurité ou d'une direction technique complète ? Nous définissons le périmètre avec vous et adaptons les moyens à la mission.",
+  pk: "Ce que vous cherchez", pt: "Trois façons<br>de travailler avec nous", pn: "Pas de budget minimum. Réponse sous 48 h ouvrées.",
+  portes: [["01", "Une équipe pour une grosse production", "Direction technique, régie générale et stage management pour un concert, une cérémonie, un festival ou un événement de marque. De la conception au démontage.", "production", "direction-technique,regie-generale"],
+           ["02", "Un renfort de quelques jours", "Un régisseur, un stage manager ou un directeur technique pour deux jours ou une semaine, au sein de votre équipe.", "renfort", ""],
+           ["03", "Un plan, une note, un dossier de sécurité", "Un plan d'implantation, une note de calcul, un plan feux ou une notice de sécurité ERP pour votre commission.", "mission", ""]],
+  quote: "Demander un devis",
   doors: [["J'ai un besoin précis", "Un régisseur, un plan, une notice, quelques jours de renfort. Décrivez la mission, nous vous répondons sur le périmètre.", "Décrire une mission", "ponctuel"], ["Je prépare une production", "Une opération à concevoir, des équipes à coordonner, un site à exploiter. Échangeons sur un accompagnement global.", "Échanger sur un projet", "global"]],
   rk: "Références", rt: "Des projets différents.<br>La même exigence", rl: "Concerts, tournées, défilés, événements institutionnels, conventions ou opérations plus confidentielles. Chaque fiche précise notre mission exacte.", rall: "Toutes les références",
   ak: "Notre méthode", at: "Une production,<br>cinq temps", as: "Concevoir. Préparer. Coordonner. Exploiter. Livrer.", alink: "Notre approche",
@@ -70,6 +80,17 @@ const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity
     <nav class="wrap temps" aria-label={en ? "The five stages of a production" : "Les cinq temps d'une production"}>
       {L.temps.map(([t, n]) => <a href={`${b}/methodes-partenariats#t${n}`}><b>{t}</b><span>{n}</span></a>)}
     </nav>
+  </section>
+
+  <section class="poster portes-sec">
+    <div class="wrap" style="display:block">
+      <p class="kick">{tx.pk}</p>
+      <h2 class="hl md" style="margin-top:30px" set:html={dt(tx.pt)}></h2>
+      <div class="doors three">{tx.portes.map(([n, t, d, f, ty]) => (
+        <a class="door" href={`${b}/contact?format=${f}${ty ? `&type=${ty}` : ""}`}><b>{n}</b><h3>{t}</h3><p>{d}</p><span class="arrow">{tx.quote} <i>→</i></span></a>
+      ))}</div>
+      <p class="label portes-note">{tx.pn}</p>
+    </div>
   </section>
 
   <Poster kick={tx.p1k} title={tx.p1t} sub={tx.p1s} img={I + "bw_truss.jpg"} v="a" alt="" top={tx.top} tag={tx.tag}>

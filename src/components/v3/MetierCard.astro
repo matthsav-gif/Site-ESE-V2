@@ -1,11 +1,12 @@
 ---
 import { dt } from "../../data/v3.js";
-const { m, base = "" } = Astro.props;
+const { m, base = "", hl = 3 } = Astro.props;
+const H = hl === 2 ? "h2" : "h3";
 ---
 <a class="mcard rv" href={`${base}/metiers/${m.slug}`}>
   <div class="t">
     <p class="kick">{m.kick}</p>
-    <h3 set:html={dt(m.tl)} />
+    <H set:html={dt(m.tl)} />
     <p class="s">{m.tag}</p>
     <p class="w">{m.what}</p>
     <ul>{m.keys.map(([a], i) => <li><b>{String(i + 1).padStart(2, "0")}</b><strong>{a}</strong></li>)}</ul>

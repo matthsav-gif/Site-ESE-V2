@@ -29,7 +29,7 @@ const tx = en ? {
     <Keys items={tx.keys} title={L.keysTitle} />
   </Poster>
   <section class="poster" style="padding-top:20px"><div class="wrap" style="display:block">
-    <div class="cards4">{METIERS3[lang].map((m) => <MetierCard m={m} base={b} />)}</div>
+    <div class="cards4">{METIERS3[lang].map((m) => <MetierCard m={m} base={b} hl={2} />)}</div>
     <Strip left={en ? "ESE — Our services" : "ESE — Nos métiers"} />
   </div></section>
   <Offre lang={lang} />
