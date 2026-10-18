@@ -23,7 +23,7 @@ export const T = {
       fse: "FSE · Ingénierie incendie",
       legal: [["/mentions-legales", "Mentions légales"], ["/cgv", "CGV"], ["/confidentialite", "Confidentialité"]],
     },
-    temps: [["Concevoir", "01"], ["Préparer", "02"], ["Coordonner", "03"], ["Exploiter", "04"], ["Livrer", "05"]],
+    temps: [["Concevoir", "01"], ["Préparer", "02"], ["Coordonner", "03"], ["Exploiter", "04"], ["Restituer", "05"]],
   },
   en: {
     base: "/en",
@@ -43,7 +43,7 @@ export const T = {
       fse: "FSE · Fire engineering",
       legal: [["/mentions-legales", "Legal notice"], ["/en/cgv", "Terms of sale"], ["/confidentialite", "Privacy"]],
     },
-    temps: [["Design", "01"], ["Prepare", "02"], ["Coordinate", "03"], ["Operate", "04"], ["Deliver", "05"]],
+    temps: [["Design", "01"], ["Prepare", "02"], ["Coordinate", "03"], ["Operate", "04"], ["Hand back", "05"]],
   },
 };
 
@@ -247,14 +247,14 @@ export const APPROCHE = {
     { n: "02", t: "Préparer", title: "Tout ne tient pas<br>sur un plan.", sub: "Une production se prépare dans le détail : moyens, accès, équipes, interfaces et calendrier.", keys: [["Les moyens", "Personnel et ressources"], ["Le phasage", "Montage et exploitation"], ["Les interfaces", "Équipes et prestataires"]], img: IMG + "bw_truss.jpg", v: "b" },
     { n: "03", t: "Coordonner", title: "Un projet.<br>Des équipes.", sub: "Mettre chaque intervenant au bon endroit, au bon moment, avec les bonnes informations.", keys: [["La régie", "Pilotage et priorités"], ["Le plateau", "Conduite et circulation"], ["Les équipes", "Briefings et coordination"]], img: IMG + "bw_rg.jpg", v: "c" },
     { n: "04", t: "Exploiter", title: "Tenir le cap.<br>S'adapter.", sub: "Sur le terrain, il faut suivre le réel, prendre les décisions et sécuriser l'exécution.", keys: [["La conduite", "Exploitation du dispositif"], ["Les aléas", "Anticipation et arbitrages"], ["La sécurité", "Vigilance à chaque étape"]], img: IMG + "bw_secu.jpg", v: "d" },
-    { n: "05", t: "Livrer", title: "Ça ne s'arrête<br>pas au show.", sub: "Démontage, repli et retour d'expérience : la fin de l'événement fait aussi partie du métier.", keys: [["Le repli", "Démontage et logistique"], ["La restitution", "Remise en état des lieux"], ["Le retour", "Bilan et amélioration"]], img: IMG + "bw_livrer.jpg", v: "a" },
+    { n: "05", t: "Restituer", title: "Ça ne s'arrête<br>pas au show.", sub: "Démontage, repli et retour d'expérience : la fin de l'événement fait aussi partie du métier.", keys: [["Le repli", "Démontage et logistique"], ["La restitution", "Remise en état des lieux"], ["Le retour", "Bilan et amélioration"]], img: IMG + "bw_livrer.jpg", v: "a" },
   ],
   en: [
     { n: "01", t: "Design", title: "Define before<br>you deploy.", sub: "Understand the intent of the project and check its technical, human and regulatory translation.", keys: [["The brief", "Goals and constraints"], ["Feasibility", "Studies and layouts"], ["Trade-offs", "Options and decisions"]], img: IMG + "bw_dt.jpg", v: "a" },
     { n: "02", t: "Prepare", title: "Not everything<br>fits on a plan.", sub: "A production is prepared in detail: resources, access, crews, interfaces and schedule.", keys: [["Resources", "Staff and equipment"], ["Phasing", "Load-in and show"], ["Interfaces", "Crews and suppliers"]], img: IMG + "bw_truss.jpg", v: "b" },
     { n: "03", t: "Coordinate", title: "One project.<br>Many crews.", sub: "Put every contributor in the right place, at the right time, with the right information.", keys: [["Production office", "Steering and priorities"], ["The stage", "Show calling and flows"], ["Crews", "Briefings and coordination"]], img: IMG + "bw_rg.jpg", v: "c" },
     { n: "04", t: "Operate", title: "Hold the course.<br>Adapt.", sub: "On site, you follow reality, make the calls and secure the execution.", keys: [["Running", "Operating the set-up"], ["The unexpected", "Anticipation and decisions"], ["Safety", "Vigilance at every step"]], img: IMG + "bw_secu.jpg", v: "d" },
-    { n: "05", t: "Deliver", title: "It doesn't end<br>with the show.", sub: "Strike, load-out and debrief: the end of the event is part of the job too.", keys: [["Load-out", "Strike and logistics"], ["Hand-back", "Restoring the venue"], ["Debrief", "Review and improvement"]], img: IMG + "bw_livrer.jpg", v: "a" },
+    { n: "05", t: "Hand back", title: "It doesn't end<br>with the show.", sub: "Strike, load-out and debrief: the end of the event is part of the job too.", keys: [["Load-out", "Strike and logistics"], ["Hand-back", "Restoring the venue"], ["Debrief", "Review and improvement"]], img: IMG + "bw_livrer.jpg", v: "a" },
   ],
 };
 

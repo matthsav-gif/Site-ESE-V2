@@ -516,3 +516,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .form .send small{flex:1;min-width:0}
 .form .send .btn{flex:none;white-space:nowrap}
 @media (max-width:600px){.form .send{flex-direction:column;align-items:stretch}.form .send .btn{justify-content:center}}
+/* Références : bouton photo, ligne sans lien, vraies photos en couleur */
+button.ref{width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line-d);color:inherit;font:inherit;cursor:pointer}
+.ref.static{cursor:default}
+.ref.static:hover{padding-left:0}
+.ref .thumb img{filter:none}
+.ref .thumb::after{display:none}
+@media (max-width:820px){.ref .see{display:inline-flex;grid-column:2;justify-self:start;font-size:11px;margin-top:-8px}}
+/* Visionneuse photo */
+.zoom{border:0;padding:0;background:transparent;max-width:min(92vw,1400px);max-height:92vh}
+.zoom::backdrop{background:rgba(11,11,12,.92)}
+.zoom img{display:block;max-width:min(92vw,1400px);max-height:82vh;width:auto;height:auto;margin:0 auto}
+.zoom p{display:flex;justify-content:space-between;gap:20px;align-items:center;color:var(--paper);font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;margin-top:14px}
+.zoom button{background:none;border:1px solid rgba(243,242,238,.5);color:var(--paper);font:inherit;padding:10px 14px;cursor:pointer;min-height:44px}
+.zoom{margin:auto;position:fixed;inset:0;width:fit-content;height:fit-content;overflow:visible}

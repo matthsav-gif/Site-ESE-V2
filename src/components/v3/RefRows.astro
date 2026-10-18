@@ -1,14 +1,17 @@
 ---
+// Ligne de référence : fiche détaillée → lien ; photo seule → ouverture en grand ; sinon ligne simple, non cliquable.
 const { refs = [], base = "", lang = "fr", hl = 3 } = Astro.props;
 const H = hl === 2 ? "h2" : "h3";
-const lbl = lang === "en" ? { fiche: "Read the case", voir: "See" } : { fiche: "Lire la fiche", voir: "Voir" };
+const lbl = lang === "en" ? { fiche: "Read the case", photo: "View photo" } : { fiche: "Lire la fiche", photo: "Voir la photo" };
 ---
-{refs.map((r) => (
-  <a class="ref" href={r.slug ? `${base}/references/${r.slug}` : `${base}/references`} data-f={r.f}>
+{refs.map((r) => {
+  const body = <>
     <span class="yr">{r.yr}</span>
     <H>{r.t}</H>
     <p class="meta"><b>{r.cat} · {r.lieu}</b>{r.mis}</p>
-    <span class="see arrow">{r.slug ? lbl.fiche : lbl.voir} <i>→</i></span>
-    {r.img && <span class="thumb"><img src={r.img} alt="" loading="lazy" decoding="async" /></span>}
-  </a>
-))}
+  </>;
+  const thumb = r.img && <span class="thumb"><img src={r.img} alt="" loading="lazy" decoding="async" /></span>;
+  if (r.slug) return <a class="ref" href={`${base}/references/${r.slug}`} data-f={r.f}>{body}<span class="see arrow">{lbl.fiche} <i>→</i></span>{thumb}</a>;
+  if (r.img) return <button type="button" class="ref" data-zoom={r.img} data-cap={`${r.t} · ${r.lieu}`} data-f={r.f}>{body}<span class="see arrow">{lbl.photo} <i>↗</i></span>{thumb}</button>;
+  return <div class="ref static" data-f={r.f}>{body}</div>;
+})}

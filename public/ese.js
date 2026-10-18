@@ -23,4 +23,17 @@
     document.querySelectorAll('#reflist .ref').forEach(function(r){r.classList.toggle('hide',f!=='all'&&r.getAttribute('data-f')!==f)});
   });});
 
+  // Références sans fiche : la photo s'ouvre en grand
+  var zs=document.querySelectorAll('[data-zoom]');
+  if(zs.length && window.HTMLDialogElement){
+    var en=document.documentElement.lang==='en';
+    var d=document.createElement('dialog');d.className='zoom';
+    d.innerHTML='<img alt=""><p><span></span><button type="button">'+(en?'Close ✕':'Fermer ✕')+'</button></p>';
+    document.body.appendChild(d);
+    var im=d.querySelector('img'),cap=d.querySelector('span');
+    d.querySelector('button').addEventListener('click',function(){d.close();});
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    zs.forEach(function(b){b.addEventListener('click',function(){im.src=b.getAttribute('data-zoom');im.alt=b.getAttribute('data-cap')||'';cap.textContent=b.getAttribute('data-cap')||'';d.showModal();});});
+  }
+
 })();
