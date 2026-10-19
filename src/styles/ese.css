@@ -530,3 +530,13 @@ button.ref{width:100%;text-align:left;background:none;border:0;border-bottom:1px
 .zoom p{display:flex;justify-content:space-between;gap:20px;align-items:center;color:var(--paper);font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;margin-top:14px}
 .zoom button{background:none;border:1px solid rgba(243,242,238,.5);color:var(--paper);font:inherit;padding:10px 14px;cursor:pointer;min-height:44px}
 .zoom{margin:auto;position:fixed;inset:0;width:fit-content;height:fit-content;overflow:visible}
+/* Guides */
+.guide-head{padding-bottom:56px}
+.guide-answer{margin-top:40px;background:#151515;color:var(--paper);padding:26px 28px;max-width:860px}
+.guide-answer .label{color:#4f6dff;font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase}
+.guide-answer p:last-child{margin-top:12px;font-size:19px;line-height:1.5}
+.guide h2:first-child{margin-top:0}
+.guide ol,.guide ul{color:var(--ink-2)}
+.guide li{margin:6px 0;line-height:1.6}
+.guide-cta{margin-top:44px}
+.guide-rel{margin-top:22px;font-size:15px}

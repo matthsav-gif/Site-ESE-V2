@@ -1,0 +1,43 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+const faq = [
+  ["Qui signe une note de calcul de structure ?", "Un ingénieur structure. Chez ESE, les notes de calcul sont vérifiées et signées par un ingénieur structure partenaire ; ESE prépare la modélisation, les plans et les hypothèses."],
+  ["La note de calcul remplace-t-elle le contrôle ?", "Non. Elle justifie le dispositif. Le contrôle et les vérifications réglementaires sont réalisés par un bureau de contrôle ou un organisme agréé, selon les cas."],
+  ["Combien de temps faut-il pour l'obtenir ?", "Cela dépend de la complexité et des informations disponibles (plans du lieu, capacités des points d'accroche, matériel retenu). Le plus sûr est de la lancer dès que l'implantation et le matériel sont arrêtés, avant la commande définitive."],
+];
+---
+<GuidePage
+  title="Note de calcul pour une structure événementielle (ponts, rigging, scène) · ESE"
+  description="Quand une note de calcul est nécessaire pour un événement (charges suspendues, ponts, écrans, scènes, gradins), ce qu'elle contient et qui la signe."
+  kicker="Guide · Bureau d'études"
+  h1="Note de calcul pour<br>une structure événementielle"
+  maj="2026-10-19"
+  answer="Dès qu'on suspend une charge (enceintes, écrans, ponts lumière) ou qu'on monte une structure temporaire (scène, tour, gradin), il faut pouvoir justifier qu'elle tient : c'est le rôle de la note de calcul. Le lieu, le bureau de contrôle ou la commission de sécurité peuvent la demander. Elle est signée par un ingénieur structure ; chez ESE, par un ingénieur structure partenaire."
+  faq={faq}
+  cta="Demander une note de calcul"
+  ctaHref="/contact?type=bureau-etudes&format=mission"
+  related={[["Notice de sécurité pour un événement", "/guides/notice-securite-evenement"], ["Le rôle du directeur technique", "/guides/directeur-technique-evenementiel"], ["Notre bureau d'études", "/metiers/bureau-etudes"]]}
+>
+  <h2>Quand en a-t-on besoin ?</h2>
+  <ul>
+    <li>Un pont, un écran ou des enceintes doivent être accrochés à la charpente d'un lieu.</li>
+    <li>Une scène, une tour ou un gradin temporaire est monté sur site.</li>
+    <li>Le lieu, le bureau de contrôle ou la commission demande un justificatif.</li>
+    <li>La configuration change d'une date à l'autre sur une tournée.</li>
+  </ul>
+
+  <h2>Ce que contient une note de calcul</h2>
+  <ul>
+    <li>La description du dispositif et les hypothèses retenues.</li>
+    <li>Les charges : poids du matériel, charges suspendues, efforts dynamiques.</li>
+    <li>Les descentes de charges jusqu'aux points d'accroche ou au sol.</li>
+    <li>Le lestage, les ancrages et, en extérieur, la prise au vent.</li>
+    <li>Les plans de rigging et d'implantation associés.</li>
+  </ul>
+
+  <h2>Qui fait quoi</h2>
+  <p>Le bureau d'études modélise la configuration (Braceworks, Vectorworks, fichiers MVR) et produit les plans. L'<strong>ingénieur structure</strong> vérifie et signe la note. Le <strong>bureau de contrôle</strong> ou l'organisme agréé contrôle, selon les cas. Le lieu fournit les capacités de sa charpente ou de son sol.</p>
+
+  <h2>Ce que fait ESE</h2>
+  <p>Notre bureau d'études produit les plans d'implantation, les plans de rigging, les synoptiques et les études. Les notes de calcul de structure sont vérifiées et signées par un ingénieur structure partenaire. Nous faisons l'interface avec le lieu, le bureau de contrôle et les prestataires, sur un dossier isolé comme sur une tournée en stade.</p>
+</GuidePage>

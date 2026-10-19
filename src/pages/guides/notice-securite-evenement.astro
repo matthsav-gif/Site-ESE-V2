@@ -1,0 +1,55 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+const faq = [
+  ["Combien de temps avant l'événement faut-il déposer la demande ?", "Pour une utilisation exceptionnelle d'un établissement recevant du public, au moins deux mois avant la manifestation (article GN 6 du règlement de sécurité, en vigueur depuis le 4 novembre 2023). Prévoir plus large si une commission de sécurité doit se réunir."],
+  ["Qui signe et dépose la demande ?", "L'exploitant du lieu. Si l'organisateur n'est pas l'exploitant, la demande est présentée conjointement par l'exploitant et l'organisateur. La notice peut être rédigée par un spécialiste qui travaille pour eux."],
+  ["Un chapiteau est-il soumis aux mêmes règles ?", "Les chapiteaux, tentes et structures recevant du public relèvent d'un règlement particulier (type CTS, arrêté du 23 janvier 1985 modifié). Leurs vérifications réglementaires sont faites par des bureaux de vérification habilités par le ministère de l'Intérieur."],
+];
+---
+<GuidePage
+  title="Notice de sécurité pour un événement : délais, contenu, qui la rédige · ESE"
+  description="Utilisation exceptionnelle d'une salle, chapiteau, plein air : quand demander l'autorisation (deux mois avant, article GN 6), ce que doit contenir la demande et qui la présente."
+  kicker="Guide · Sécurité événementielle"
+  h1="Notice de sécurité<br>pour un événement"
+  maj="2026-10-19"
+  answer="Quand un événement utilise un lieu pour autre chose que ce pour quoi il est autorisé, l'exploitant (avec l'organisateur) doit demander une autorisation au moins deux mois avant, en décrivant les risques et les mesures de sécurité prévues (article GN 6 du règlement de sécurité ERP). Cette notice peut être rédigée par un spécialiste ; la demande reste présentée par l'exploitant et l'organisateur."
+  faq={faq}
+  sources={[["Article GN 6 : utilisations exceptionnelles des locaux (Légifrance)", "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000048310284"], ["Arrêté du 25 juin 1980, règlement de sécurité contre les risques d'incendie et de panique dans les ERP (Légifrance)", "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000290033/"]]}
+  cta="Faire rédiger votre notice de sécurité"
+  ctaHref="/contact?type=expertise-securite&format=mission"
+  related={[["Le rôle du directeur technique", "/guides/directeur-technique-evenementiel"], ["Note de calcul pour une structure", "/guides/note-de-calcul-structure-evenementielle"], ["Notre expertise sécurité", "/metiers/expertise-securite"]]}
+>
+  <h2>Quand faut-il une autorisation ?</h2>
+  <p>Le règlement de sécurité contre les risques d'incendie et de panique dans les établissements recevant du public (ERP) prévoit le cas des <strong>utilisations exceptionnelles des locaux</strong> (article GN 6). Une autorisation est nécessaire quand un établissement est utilisé, même partiellement ou une seule fois :</p>
+  <ul>
+    <li>pour une exploitation autre que celle pour laquelle il est autorisé ;</li>
+    <li>pour une démonstration ou une attraction qui peut présenter des risques pour le public et que le règlement ne prévoit pas.</li>
+  </ul>
+  <p>C'est typiquement le cas d'un concert dans un hall d'exposition, d'une soirée dans un musée ou d'un défilé dans un lieu qui n'accueille pas habituellement de spectacle.</p>
+
+  <h2>Quel délai prévoir ?</h2>
+  <p>La demande doit être présentée <strong>au moins deux mois avant</strong> la manifestation. C'est la rédaction de l'article GN 6 en vigueur depuis le 4 novembre 2023 : des guides plus anciens indiquent encore un délai plus court. Une même autorisation peut couvrir une série de manifestations sur une période fixée par les organisateurs.</p>
+
+  <h2>Qui présente la demande ?</h2>
+  <p>L'<strong>exploitant</strong> de l'établissement. Quand l'organisateur n'est pas l'exploitant, la demande est présentée <strong>conjointement</strong> par l'exploitant et l'utilisateur occasionnel des locaux. Rien n'empêche de confier la rédaction de la notice et des plans à un spécialiste.</p>
+
+  <h2>Que doit contenir la demande ?</h2>
+  <p>L'article GN 6 liste ce que la demande doit toujours préciser :</p>
+  <ol>
+    <li>la nature de la manifestation ;</li>
+    <li>les risques qu'elle présente ;</li>
+    <li>sa durée ;</li>
+    <li>sa localisation exacte ;</li>
+    <li>l'effectif prévu ;</li>
+    <li>les matériaux utilisés pour les décorations envisagées ;</li>
+    <li>le tracé des dégagements ;</li>
+    <li>les mesures complémentaires de prévention et de protection proposées.</li>
+  </ol>
+  <p>En pratique, ces informations sont rassemblées dans une notice de sécurité accompagnée de plans (implantation, aménagements, dégagements).</p>
+
+  <h2>Et sous un chapiteau ou une tente ?</h2>
+  <p>Les chapiteaux, tentes et structures recevant du public relèvent d'un règlement particulier, dit de type <strong>CTS</strong> (arrêté du 23 janvier 1985 modifié). Leurs vérifications réglementaires sont réalisées par des <strong>bureaux de vérification habilités</strong> par arrêté du ministre de l'Intérieur. Les documents propres au chapiteau sont fournis par son propriétaire ou son loueur ; l'implantation et l'exploitation sont à décrire dans le dossier de l'événement.</p>
+
+  <h2>Ce que fait ESE</h2>
+  <p>Nous rédigeons la notice de sécurité et les plans, préparons le dossier d'autorisation et accompagnons l'organisateur en commission de sécurité, face à la préfecture, à la mairie et au SDIS. Le fondateur d'ESE, Matthieu Savatier, est titulaire de la qualification AP2 de l'ENSOSP. Les vérifications réglementaires restent confiées aux organismes agréés, que nous coordonnons.</p>
+</GuidePage>

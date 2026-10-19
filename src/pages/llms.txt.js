@@ -41,6 +41,11 @@ Voir [toutes les références](${site}/references), dont les fiches [Venue du Pa
 - [Contact](${site}/contact)
 - Version anglaise : ${site}/en
 
+## Guides pratiques (sources officielles citées)
+- [Notice de sécurité pour un événement : délais (deux mois avant, article GN 6), contenu, qui la présente](${site}/guides/notice-securite-evenement)
+- [Le directeur technique événementiel : rôle, différence avec la régie générale, quand l'appeler](${site}/guides/directeur-technique-evenementiel)
+- [Note de calcul pour une structure événementielle : quand, contenu, qui signe](${site}/guides/note-de-calcul-structure-evenementielle)
+
 ## Contact
 
 - Adresse : ${CONTACT.adresse1}, ${CONTACT.adresse2}

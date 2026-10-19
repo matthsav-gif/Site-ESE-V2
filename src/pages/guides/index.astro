@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { dt } from "../../data/v3.js";
+const G = [
+  ["notice-securite-evenement", "Notice de sécurité pour un événement", "Délais (deux mois avant), contenu de la demande, qui la présente, cas des chapiteaux."],
+  ["directeur-technique-evenementiel", "Le directeur technique événementiel", "Son rôle, la différence avec la régie générale et le stage management, quand l'appeler."],
+  ["note-de-calcul-structure-evenementielle", "Note de calcul pour une structure", "Charges suspendues, ponts, scènes, gradins : quand elle est nécessaire et qui la signe."],
+];
+---
+<BaseLayout title="Guides pratiques de la production technique événementielle · ESE" description="Guides courts et sourcés : notice de sécurité d'un événement, rôle du directeur technique, note de calcul de structure événementielle." lang="fr">
+  <section class="poster"><div class="wrap" style="display:block">
+    <p class="kick">Guides ESE</p>
+    <h1 class="hl lg" style="margin-top:30px" set:html={dt("Les réponses<br>avant le devis")} />
+    <div class="doors three" style="margin-top:56px">{G.map(([s, t, d], i) => <a class="door" href={`/guides/${s}`}><b>{String(i + 1).padStart(2, "0")}</b><h2 style="font-variation-settings:'wdth' 72;font-weight:850;text-transform:uppercase;font-size:clamp(28px,2.4vw,40px);line-height:.92;margin:22px 0 12px">{t}</h2><p>{d}</p><span class="arrow">Lire le guide <i>→</i></span></a>)}</div>
+  </div></section>
+</BaseLayout>

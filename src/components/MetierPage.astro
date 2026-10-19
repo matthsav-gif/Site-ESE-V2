@@ -22,6 +22,8 @@ const seo = (en ? SEO_EN : SEO)[route] || SEO3[lang][route];
 const tx = en
   ? { livK: "Deliverables", livT: "What you receive", fmtK: "How we work", fmtT: "Four ways to bring us in", quote: "Request a quote", fmtNote: "No minimum budget. Reply within 2 working days.", whenK: "When to call us", whenT: "Typical situations", top: "Our services", perimK: "Scope", perimT: "What we take on", where: "Where we work", refK: "In action", refT: "References", all: "All references" }
   : { livK: "Livrables", livT: "Ce que vous recevez", fmtK: "Comment nous intervenons", fmtT: "Quatre façons de nous solliciter", quote: "Demander un devis", fmtNote: "Pas de budget minimum. Réponse sous 48 h ouvrées.", whenK: "Quand nous appeler", whenT: "Les situations types", top: "Nos métiers", perimK: "Périmètre", perimT: "Ce que nous prenons", where: "Là où nous intervenons", refK: "En situation", refT: "Références", all: "Toutes les références" };
+const GUIDE = en ? {} : { "expertise-securite": ["/guides/notice-securite-evenement", "Guide : notice de sécurité pour un événement"], "direction-technique": ["/guides/directeur-technique-evenementiel", "Guide : le rôle du directeur technique"], "bureau-etudes": ["/guides/note-de-calcul-structure-evenementielle", "Guide : la note de calcul de structure"] };
+const g = GUIDE[route];
 const O = OFFRE[lang]; const FMT = ["renfort", "mission", "production", "annee"];
 const svc = { "@context": "https://schema.org", "@type": "Service", name: m.t, description: d.lead, provider: { "@id": "https://ese-techsolutions.com/#organization" }, areaServed: ["France", "International"] };
 ---
@@ -39,6 +41,7 @@ const svc = { "@context": "https://schema.org", "@type": "Service", name: m.t, d
     <section class="perim rv">
       <div class="perim-h"><div><p class="kick">{tx.perimK}</p><h2 class="hl md" style="margin-top:28px" set:html={dt(tx.perimT)} /></div><a href={`${b}/contact?type=${route}`} class="btn btn-blue">{d.cta} →</a></div>
       <ol>{d.perim.map((p, k) => <li><b>{String(k + 1).padStart(2, "0")}</b>{p}</li>)}</ol>
+      {g && <p style="margin-top:26px"><a href={g[0]} class="arrow">{g[1]} <i>→</i></a></p>}
     </section>
     {d.liv && (
       <section class="livS rv">

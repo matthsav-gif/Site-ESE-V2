@@ -19,7 +19,7 @@ export const T = {
       big: "Du plan au terrain",
       about: "Production technique événementielle. Direction technique, bureau d'études, design lumière, régie générale, stage management et expertise sécurité, en mission globale ou en renfort ciblé.",
       metiers: "Métiers", ese: "ESE", contact: "Contact",
-      links: [["/references", "Références"], ["/methodes-partenariats", "Approche & méthodes"], ["/socle", "SOCLE®"], ["/qui-sommes-nous", "À propos"], ["/contact", "Contact"]],
+      links: [["/references", "Références"], ["/methodes-partenariats", "Approche & méthodes"], ["/socle", "SOCLE®"], ["/guides", "Guides pratiques"], ["/qui-sommes-nous", "À propos"], ["/contact", "Contact"]],
       fse: "FSE · Ingénierie incendie",
       legal: [["/mentions-legales", "Mentions légales"], ["/cgv", "CGV"], ["/confidentialite", "Confidentialité"]],
     },

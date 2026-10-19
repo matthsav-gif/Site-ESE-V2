@@ -1,0 +1,35 @@
+---
+// Guide pratique (FR) : réponse directe en tête, sections courtes, FAQ, sources officielles, appel à l'action.
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactBanner from "../ContactBanner.astro";
+import { dt } from "../../data/v3.js";
+const { title, h1, description, kicker, answer, faq = [], sources = [], cta, ctaHref, maj, related = [] } = Astro.props;
+const url = new URL(Astro.url.pathname, "https://ese-techsolutions.com").href;
+const article = { "@context": "https://schema.org", "@type": "Article", headline: h1.replace(/<br>/g, " "), description, inLanguage: "fr-FR", dateModified: maj, mainEntityOfPage: url,
+  author: { "@type": "Person", name: "Matthieu Savatier", jobTitle: "Fondateur, Event & Safety Engineering" }, publisher: { "@id": "https://ese-techsolutions.com/#organization" } };
+const faqLd = faq.length ? [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }] : [];
+---
+<BaseLayout title={title} description={description} lang="fr" schema={[article, ...faqLd]}>
+  <section class="poster guide-head">
+    <div class="wrap" style="display:block">
+      <div class="topline"><span>Guides ESE</span><span>Mis à jour le {new Date(maj).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span></div>
+      <p class="kick" style="margin-top:40px">{kicker}</p>
+      <h1 class="hl lg" style="margin-top:30px" set:html={dt(h1)} />
+      <div class="guide-answer"><p class="label">En bref</p><p>{answer}</p></div>
+    </div>
+  </section>
+  <section class="section"><div class="wrap"><article class="legal guide">
+    <slot />
+    {faq.length > 0 && (<>
+      <h2>Questions fréquentes</h2>
+      {faq.map(([q, a]) => <><h3>{q}</h3><p>{a}</p></>)}
+    </>)}
+    {sources.length > 0 && (<>
+      <h2>Sources officielles</h2>
+      <ul>{sources.map(([t, u]) => <li><a href={u} target="_blank" rel="noopener noreferrer">{t}</a></li>)}</ul>
+    </>)}
+    <p class="guide-cta"><a href={ctaHref} class="btn btn-blue">{cta} →</a></p>
+    {related.length > 0 && <p class="guide-rel">À lire aussi : {related.map(([t, u], i) => <>{i > 0 && " · "}<a href={u}>{t}</a></>)}</p>}
+  </article></div></section>
+  <ContactBanner lang="fr" />
+</BaseLayout>
