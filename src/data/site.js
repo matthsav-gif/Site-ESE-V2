@@ -252,15 +252,15 @@ export const SEO = {
     description: "Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris.",
   },
   "direction-technique": {
-    title: "Direction technique événementielle · ESE",
+    title: "Direction technique événementielle à Paris · ESE",
     description: "Direction technique de productions événementielles, live et scénographiques. Cahier des charges, conception Vectorworks, calculs rigging, pilotage chantier.",
   },
   "regie-generale": {
-    title: "Régie générale événementielle · ESE",
+    title: "Régie générale événementielle à Paris · ESE",
     description: "Régie générale : coordination opérationnelle sur site, planning de montage et démontage, pilotage des équipes et des prestataires. Événementiel, live, festivals, tournées.",
   },
   "expertise-securite": {
-    title: "Expertise sécurité ERP & autorités · ESE",
+    title: "Notice de sécurité ERP et commission de sécurité · ESE",
     description: "Notices de sécurité ERP et accompagnement face aux autorités. Qualification AP2 ENSOSP. Préfecture, mairie, commission de sécurité.",
   },
   references: {

@@ -1,0 +1,35 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+const faq = [
+  ["À quel moment le stage manager intervient-il ?", "Dès la préparation des conduites, puis pendant les répétitions et le show. Sur un événement court, il arrive souvent la veille ou le jour du montage plateau."],
+  ["Quelle différence avec le régisseur général ?", "Le régisseur général fait tenir l'ensemble du site. Le stage manager tient le plateau pendant le show : entrées, changements, timing et circulation en coulisses."],
+  ["Faut-il un stage manager pour une convention ?", "Dès que le déroulé enchaîne des intervenants, des vidéos et des changements de plateau minutés, oui : il garantit que chaque séquence part au bon moment."],
+];
+---
+<GuidePage
+  title="Stage manager événementiel : rôle sur un concert, une cérémonie, une convention · ESE"
+  description="Ce que fait un stage manager : préparation des conduites, coordination des entrées et des changements, timing du show, circulation en coulisses. Quand en prendre un."
+  kicker="Guide · Stage management"
+  h1="Le stage manager<br>événementiel"
+  maj="2026-10-19"
+  answer="Le stage manager tient le plateau pendant l'événement : il prépare les conduites, coordonne les entrées, les changements et les séquences, gère la circulation en coulisses et fait le lien permanent entre artistes, intervenants, équipes techniques et production. Il est indispensable dès que le déroulé est minuté."
+  faq={faq}
+  cta="Parler du plateau et de la conduite"
+  ctaHref="/contact?type=stage-management&format=renfort"
+  related={[["Le régisseur général", "/guides/regisseur-general-evenementiel"], ["Le rôle du directeur technique", "/guides/directeur-technique-evenementiel"], ["Notre stage management", "/metiers/stage-management"]]}
+>
+  <h2>Ce que fait un stage manager</h2>
+  <ul>
+    <li>Préparer les conduites et les feuilles de route plateau.</li>
+    <li>Coordonner les entrées, les changements et les séquences.</li>
+    <li>Gérer les flux plateau et la circulation en coulisses.</li>
+    <li>Tenir le timing pendant le show.</li>
+    <li>Faire le lien entre artistes, intervenants, technique et production.</li>
+  </ul>
+
+  <h2>Pour quels événements ?</h2>
+  <p>Festivals et événements en extérieur, cérémonies, concerts, plateaux multi-artistes, conventions et événements institutionnels : partout où le déroulé enchaîne des séquences qui doivent partir au bon moment, avec les bonnes personnes au bon endroit.</p>
+
+  <h2>Ce que fait ESE</h2>
+  <p>Nous intervenons en renfort sur un plateau précis ou au sein d'un dispositif de régie plus large. Références : venue du Pape au Stade de France, A$AP Rocky à l'Accor Arena.</p>
+</GuidePage>

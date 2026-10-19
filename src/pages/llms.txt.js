@@ -45,6 +45,9 @@ Voir [toutes les références](${site}/references), dont les fiches [Venue du Pa
 - [Notice de sécurité pour un événement : délais (deux mois avant, article GN 6), contenu, qui la présente](${site}/guides/notice-securite-evenement)
 - [Le directeur technique événementiel : rôle, différence avec la régie générale, quand l'appeler](${site}/guides/directeur-technique-evenementiel)
 - [Note de calcul pour une structure événementielle : quand, contenu, qui signe](${site}/guides/note-de-calcul-structure-evenementielle)
+- [Le régisseur général événementiel : rôle, renfort à la journée](${site}/guides/regisseur-general-evenementiel)
+- [Le design lumière événementiel : du brief au plan feux](${site}/guides/design-lumiere-evenementiel)
+- [Le stage manager événementiel : conduites, timing, coulisses](${site}/guides/stage-manager-evenementiel)
 
 ## Contact
 

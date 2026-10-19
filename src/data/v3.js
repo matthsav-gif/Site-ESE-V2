@@ -281,9 +281,9 @@ export const SEO3 = {
   fr: {
     home: { title: "ESE · Production technique événementielle · Paris", description: "Direction technique, bureau d'études, design lumière, régie générale, stage management et expertise sécurité. Mission complète ou renfort ponctuel." },
     metiers: { title: "Métiers : direction technique, régie, sécurité événementielle · ESE", description: "Direction technique, bureau d'études et notes de calcul, design lumière, régie générale, stage management et expertise sécurité : les six métiers d'ESE." },
-    "bureau-etudes": { title: "Bureau d'études & notes de calcul événementielles · ESE", description: "Notes de calcul de structures et charges suspendues, plans d'implantation, synoptiques et études techniques. Braceworks, MVR, Vectorworks, ConnectCAD." },
-    "design-lumiere": { title: "Design lumière événementiel, concerts et défilés · ESE", description: "Design lumière pour concerts, défilés, cérémonies et conventions : intention, plans feux, pré-visualisation, encodage et réglages sur site." },
-    "stage-management": { title: "Stage manager événementiel, concerts et cérémonies · ESE", description: "Stage management : préparation des conduites, coordination du plateau, flux et séquences. Festivals, cérémonies, concerts, événements multi-séquences." },
+    "bureau-etudes": { title: "Bureau d'études et note de calcul événementielle · ESE", description: "Notes de calcul de structures et charges suspendues, plans d'implantation, synoptiques et études techniques. Braceworks, MVR, Vectorworks, ConnectCAD." },
+    "design-lumiere": { title: "Design lumière événementiel à Paris · ESE", description: "Design lumière pour concerts, défilés, cérémonies et conventions : intention, plans feux, pré-visualisation, encodage et réglages sur site." },
+    "stage-management": { title: "Stage manager événementiel à Paris · ESE", description: "Stage management : préparation des conduites, coordination du plateau, flux et séquences. Festivals, cérémonies, concerts, événements multi-séquences." },
     pape: { title: "Venue du Pape au Stade de France · Références ESE", description: "Venue du Pape au Stade de France, septembre 2026 : direction technique, régie générale, stage management et logistique des équipes par ESE." },
     fiche: { title: "JO / JOP Paris 2024 · Références ESE", description: "Cérémonies d'ouverture des Jeux Olympiques et Paralympiques de Paris 2024 : direction technique et expertise multi-métiers d'ESE." },
   },

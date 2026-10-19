@@ -1,0 +1,43 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+const faq = [
+  ["Que faut-il fournir à un designer lumière pour commencer ?", "L'intention du projet (ambiance, image recherchée), les plans du lieu, le planning, le budget envisagé et, s'il existe, le cahier des charges des autres corps de métier (structures, vidéo, son)."],
+  ["Le design lumière inclut-il le matériel ?", "Non. Le design produit le plan feux et le cahier des charges ; le matériel est fourni par un prestataire lumière, consulté sur cette base."],
+  ["Pourquoi lier design lumière et direction technique ?", "Parce qu'un plan feux doit tenir compte des points d'accroche, des charges, de l'énergie disponible et des délais de montage. Concevoir la lumière avec ces contraintes évite les reprises sur site."],
+];
+---
+<GuidePage
+  title="Design lumière événementiel : du brief au plan feux · ESE"
+  description="Comment se déroule un design lumière pour un concert, un défilé, une cérémonie ou une convention : intention, plan feux, pré-visualisation, cahier des charges, encodage et réglages sur site."
+  kicker="Guide · Design lumière"
+  h1="Le design lumière<br>événementiel"
+  maj="2026-10-19"
+  answer="Le design lumière traduit l'intention d'un événement en dispositif concret : note d'intention, plan feux avec l'implantation des sources, pré-visualisation 3D, cahier des charges pour le prestataire, puis suivi de l'encodage et des réglages sur site. Il doit rester compatible avec les structures, l'énergie disponible, le budget et les délais de montage."
+  faq={faq}
+  cta="Parler de votre projet lumière"
+  ctaHref="/contact?type=design-lumiere"
+  related={[["Le rôle du directeur technique", "/guides/directeur-technique-evenementiel"], ["Note de calcul pour une structure", "/guides/note-de-calcul-structure-evenementielle"], ["Notre design lumière", "/metiers/design-lumiere"]]}
+>
+  <h2>Les étapes d'un design lumière</h2>
+  <ol>
+    <li><strong>L'intention</strong> : ambiances, parti pris, moments forts du déroulé.</li>
+    <li><strong>Le plan feux</strong> : implantation et choix des sources (Vectorworks Spotlight).</li>
+    <li><strong>La pré-visualisation</strong> : rendu 3D des ambiances pour valider avant de commander.</li>
+    <li><strong>Le cahier des charges</strong> : liste du matériel et attendus pour consulter le prestataire lumière.</li>
+    <li><strong>Sur site</strong> : suivi de l'encodage et des réglages jusqu'au show.</li>
+  </ol>
+
+  <h2>Pour quels événements ?</h2>
+  <p>Concerts, défilés et événements de luxe, cérémonies, conventions, lieux patrimoniaux, scénographies et festivals. Le design peut aussi partir d'un existant à adapter à un nouveau lieu, à l'énergie disponible ou à un budget.</p>
+
+  <h2>Les contraintes à intégrer dès le départ</h2>
+  <ul>
+    <li>Les points d'accroche et les charges admissibles du lieu.</li>
+    <li>L'énergie disponible et sa distribution.</li>
+    <li>Les délais de montage et de réglage.</li>
+    <li>Les contraintes de sécurité du lieu et du public.</li>
+  </ul>
+
+  <h2>Ce que fait ESE</h2>
+  <p>ESE conçoit la lumière des événements avec Beat Per Light, partenaire régulier en design lumière, et la rend réalisable grâce à sa pratique de la direction technique et de la régie. Références : A$AP Rocky à l'Accor Arena, BSK au Trianon et à l'Élysée Montmartre.</p>
+</GuidePage>

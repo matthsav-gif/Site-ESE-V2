@@ -1,0 +1,43 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+const faq = [
+  ["Peut-on prendre un régisseur général pour seulement quelques jours ?", "Oui. C'est même le cas le plus courant : un régisseur général en renfort pour le montage, le jour J et le démontage, au sein de l'équipe de production. ESE propose ce format à la journée."],
+  ["Quelle différence entre régisseur général et directeur technique ?", "Le directeur technique conçoit le dispositif et arbitre (choix techniques, prestataires, budget, plans). Le régisseur général fait tenir le site au quotidien : planning, accès, coactivité, équipes et prestataires, du premier camion au dernier."],
+  ["Le régisseur général gère-t-il la sécurité ?", "Il organise le site pour que la sécurité prévue soit tenue (accès, circulations, coactivité), en lien avec le chargé de sécurité et l'organisateur. Les dossiers de sécurité et les vérifications réglementaires relèvent d'autres intervenants."],
+];
+---
+<GuidePage
+  title="Régisseur général événementiel : rôle, missions, quand le prendre · ESE"
+  description="Ce que fait un régisseur général sur un événement (planning, accès, coactivité, équipes, prestataires), la différence avec le directeur technique, et comment le prendre en renfort quelques jours."
+  kicker="Guide · Régie générale"
+  h1="Le régisseur général<br>événementiel"
+  maj="2026-10-19"
+  answer="Le régisseur général fait tenir le site d'un événement : il construit le planning de montage et de démontage, organise les accès et la coactivité, coordonne les équipes et les prestataires, et sert d'interface avec l'organisateur, le lieu, les artistes et les autorités. On le prend pour quelques jours de renfort ou pour toute une tournée."
+  faq={faq}
+  cta="Trouver un régisseur général"
+  ctaHref="/contact?type=regie-generale&format=renfort"
+  related={[["Le rôle du directeur technique", "/guides/directeur-technique-evenementiel"], ["Le stage manager", "/guides/stage-manager-evenementiel"], ["Notre régie générale", "/metiers/regie-generale"]]}
+>
+  <h2>Ce que fait un régisseur général</h2>
+  <ul>
+    <li>Construire et tenir le planning de montage, d'exploitation et de démontage.</li>
+    <li>Organiser les accès, les livraisons et la coactivité sur le site.</li>
+    <li>Piloter les équipes et les prestataires techniques au quotidien.</li>
+    <li>Faire l'interface avec l'organisateur, le lieu, les artistes et les autorités.</li>
+    <li>Adapter les décisions aux réalités du terrain, en temps réel.</li>
+  </ul>
+
+  <h2>Quand en a-t-on besoin ?</h2>
+  <ul>
+    <li>Le montage implique beaucoup d'équipes sur un temps court.</li>
+    <li>Le lieu impose des contraintes fortes : horaires, accès, voisinage, autres exploitants.</li>
+    <li>L'équipe de production a besoin d'un renfort pour quelques jours.</li>
+    <li>Un lieu culturel, un site ou une tournée a besoin d'une régie à l'année.</li>
+  </ul>
+
+  <h2>Seul ou en équipe</h2>
+  <p>Sur un petit événement, un régisseur général suffit. Sur un festival ou un stade, il s'entoure d'une équipe de régie (régisseurs de zone, assistants) calibrée selon le format et le risque opérationnel. Il travaille en lien étroit avec le directeur technique et le stage manager.</p>
+
+  <h2>Ce que fait ESE</h2>
+  <p>Nous menons la régie générale seuls ou en complément d'une équipe déjà en place, du renfort à la journée à la régie d'un site ou d'une tournée. Références : venue du Pape au Stade de France, A$AP Rocky à l'Accor Arena.</p>
+</GuidePage>
