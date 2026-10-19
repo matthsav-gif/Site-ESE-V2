@@ -78,7 +78,7 @@ export const REFERENCES = [
   {
     k: "DJ sets internationaux", t: "Clubbing & live",
     names: "Mochakk · Adriatique · Blondish.",
-    desc: "Direction technique et régie live sur les formats DJ sets internationaux.",
+    desc: "Direction technique et régie live sur les formats shows internationaux, à Paris, en France et à l'international.",
     src: "/images/direction-technique/dj-mochakk.jpg", variant: "taupe", span: "span-4",
   },
 ];
@@ -249,31 +249,31 @@ export const FAQ = [
 export const SEO = {
   home: {
     title: "ESE · Production technique événementielle · Paris",
-    description: "Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale, expertise sécurité ERP. Paris.",
+    description: "Production technique événementielle à Paris, en France et à l'international : direction technique, régie générale, design lumière, stage management, bureau d'études, sécurité ERP.",
   },
   "direction-technique": {
-    title: "Direction technique événementielle à Paris · ESE",
-    description: "Direction technique de productions événementielles, live et scénographiques. Cahier des charges, conception Vectorworks, calculs rigging, pilotage chantier.",
+    title: "Direction technique événementielle à Paris et en France · ESE",
+    description: "Direction technique de vos événements à Paris, partout en France et à l'international : cahier des charges, prestataires, budget, plans, pilotage du montage au démontage. Renfort ou production complète.",
   },
   "regie-generale": {
-    title: "Régie générale événementielle à Paris · ESE",
-    description: "Régie générale : coordination opérationnelle sur site, planning de montage et démontage, pilotage des équipes et des prestataires. Événementiel, live, festivals, tournées.",
+    title: "Régie générale événementielle à Paris et en France · ESE",
+    description: "Régisseur général pour vos événements à Paris et partout en France : planning de montage et démontage, accès, coactivité, équipes et prestataires. Renfort à la journée ou régie complète.",
   },
   "expertise-securite": {
     title: "Notice de sécurité ERP et commission de sécurité · ESE",
-    description: "Notices de sécurité ERP et accompagnement face aux autorités. Qualification AP2 ENSOSP. Préfecture, mairie, commission de sécurité.",
+    description: "Notice de sécurité ERP pour votre événement (CTS, PA, L, T), dossier d'autorisation et accompagnement en commission de sécurité, à Paris et partout en France.",
   },
   references: {
     title: "Références ESE · JO Paris 2024, Tournées stade, Défilés luxe",
-    description: "Productions ESE : cérémonies JO/JOP Paris 2024, tournées en stade, défilés de luxe, sommets institutionnels, DJ sets internationaux.",
+    description: "Productions ESE : cérémonies JO/JOP Paris 2024, tournées en stade, défilés de luxe, sommets institutionnels, shows internationaux, à Paris, en France et à l'international.",
   },
   methodes: {
     title: "Approche & méthodes · SOCLE® · COBEL® · ESE",
-    description: "Notre approche en cinq temps : concevoir, préparer, coordonner, exploiter, livrer. ESE est éditeur de SOCLE® et partenaire de COBEL® Développeur de culture.",
+    description: "Notre approche en cinq temps : concevoir, préparer, coordonner, exploiter, restituer. ESE est éditeur de SOCLE® et partenaire de COBEL® Développeur de culture.",
   },
   qui: {
     title: "Matthieu Savatier, fondateur d'ESE · Event & Safety Engineering",
-    description: "ESE est portée par son fondateur Matthieu Savatier : 12 ans de production technique événementielle, qualification AP2 ENSOSP.",
+    description: "ESE est portée par son fondateur Matthieu Savatier : plus de quinze ans de production technique événementielle, qualification AP2 ENSOSP.",
   },
   contact: {
     title: "Contact ESE · Direction technique & régie événementielle · Paris",
