@@ -59,7 +59,7 @@ SOCLE® est la méthode propriétaire d'ESE (marque déposée à l'INPI) de tran
 
 # À propos
 
-ESE est portée par son fondateur, Matthieu Savatier : douze ans de production technique événementielle, des cérémonies des Jeux Olympiques et Paralympiques de Paris 2024 aux tournées en stade et aux concerts internationaux. Qualifications : AP2 ENSOSP (prévention incendie et de panique pour les ERP et IGH), Vectorworks, Braceworks et MVR, Team France Vectorworks. ESE s'appuie sur une équipe de spécialistes mobilisée selon les projets : régisseurs, directeurs techniques, ingénieurs structure et préventionnistes. Les notes de calcul sont signées par un ingénieur structure.
+ESE est portée par son fondateur, Matthieu Savatier : plus de quinze ans de production technique événementielle, des cérémonies des Jeux Olympiques et Paralympiques de Paris 2024 aux tournées en stade et aux concerts internationaux. Qualifications : AP2 ENSOSP (prévention incendie et de panique pour les ERP et IGH), Vectorworks, Braceworks et MVR, Team France Vectorworks. ESE s'appuie sur une équipe de spécialistes mobilisée selon les projets : régisseurs, directeurs techniques, ingénieurs structure et préventionnistes. Les notes de calcul sont signées par un ingénieur structure partenaire.
 
 # Questions fréquentes
 
