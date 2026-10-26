@@ -14,7 +14,7 @@ const M = METIERS3[isEn ? "en" : "fr"];
         <p style="margin-top:18px">{F.about}</p>
       </div>
       <div><h5>{F.metiers}</h5>{M.map((m) => <a href={`${L.base}/metiers/${m.slug}`}>{m.t}</a>)}</div>
-      <div><h5>{F.ese}</h5>{F.links.map(([h, t]) => <a href={h}>{t}</a>)}<a href="https://fse-incendie.fr" target="_blank" rel="noopener">{F.fse} ↗</a></div>
+      <div><h5>{F.ese}</h5>{F.links.map(([h, t]) => <a href={h}>{t}</a>)}<a href="https://fse-incendie.fr" target="_blank" rel="noopener">{F.fse} ↗</a><a href={isEn ? "https://notmydpt.com/en" : "https://notmydpt.com/fr"} target="_blank" rel="noopener">{F.nmd} ↗</a></div>
       <div><h5>{F.contact}</h5><a href={CONTACT.telHref}>{CONTACT.tel}</a><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a><p>{CONTACT.adresse1}, {CONTACT.adresse2}</p><a href={CONTACT.linkedinEntreprise} target="_blank" rel="noopener noreferrer">LinkedIn ESE ↗</a></div>
     </div>
     <div class="ft-base"><span>© 2026 ESE · Event &amp; Safety Engineering · SOCLE® · COBEL®</span><span>{F.legal.map(([h, t], i) => <>{i > 0 && " · "}<a href={h}>{t}</a></>)}</span></div>
