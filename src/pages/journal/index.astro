@@ -14,6 +14,6 @@ const A = [
   <section class="poster"><div class="wrap" style="display:block">
     <p class="kick">Journal de terrain</p>
     <h1 class="hl lg" style="margin-top:30px" set:html={dt("Ce que le terrain<br>nous apprend")} />
-    <div class="doors three" style="margin-top:56px">{A.map(([s, t, m, d], i) => <a class="door" href={`/journal/${s}`}><b>{m}</b><h2 style="font-variation-settings:'wdth' 72;font-weight:850;text-transform:uppercase;font-size:clamp(28px,2.4vw,40px);line-height:.92;margin:22px 0 12px">{t}</h2><p>{d}</p><span class="arrow">Lire <i>→</i></span></a>)}</div>
+    <div class="doors three" style="margin-top:56px">{A.map(([s, t, m, d], i) => <a class="door" href={`/journal/${s}`}><b>{String(i + 1).padStart(2, "0")}</b><h2 style="font-variation-settings:'wdth' 72;font-weight:850;text-transform:uppercase;font-size:clamp(28px,2.4vw,40px);line-height:.92;margin:22px 0 12px">{t}</h2><p><small style="display:block;margin-bottom:8px;opacity:.6;text-transform:uppercase;letter-spacing:.12em;font-size:12px">{m}</small>{d}</p><span class="arrow">Lire <i>→</i></span></a>)}</div>
   </div></section>
 </BaseLayout>
