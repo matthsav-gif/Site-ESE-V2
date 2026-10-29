@@ -1,0 +1,61 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+const faq = [
+  ["Qui décide d'arrêter un événement en plein air à cause du vent ?", "L'organisateur, sur la base des limites fixées avant l'événement : limites d'exploitation des structures (note de calcul, documentation du fabricant), consignes du lieu et des autorités. Ce qui compte est que la personne habilitée à décider soit désignée à l'avance, avec un suppléant, et que tout le monde le sache."],
+  ["Une application météo grand public suffit-elle ?", "Pour se faire une idée, oui. Pour décider, non : elle donne une prévision sur une zone, pas le vent mesuré au plus près du site, et elle ne garde aucune trace de ce qu'on savait au moment de la décision."],
+  ["Faut-il un anémomètre sur site ?", "Oui. La station Météo-France de référence donne une mesure fiable mais à distance ; l'anémomètre sur site dit ce qui se passe sur la structure. Les deux se complètent, à condition de noter l'heure, la hauteur de mesure et la personne qui relève."],
+];
+---
+<GuidePage
+  label="Journal de terrain"
+  title="Météo et événement en plein air : qui décide d'arrêter ? · ESE"
+  description="Retour d'exploitation d'un site en plein air sous tempête : seuils de vent, station Météo-France, logbook terrain, cellule de décision. Comment ESE prépare la décision météo avec ESE Ops."
+  kicker="Journal de terrain · Octobre 2026"
+  h1="Météo et plein air :<br>qui décide d'arrêter"
+  maj="2026-10-29"
+  answer="Sur un site en plein air, la question n'est pas de savoir s'il fait mauvais, mais à partir de quand on arrête, qui décide et sur quelle base. La réponse se prépare avant l'événement : des seuils écrits, une personne habilitée à décider, une mesure fiable du vent au plus près du site, et une trace de chaque décision. C'est ce que fait le module météo d'ESE Ops, utilisé en conditions réelles sur un site en plein air pris dans une tempête en octobre 2026."
+  faq={faq}
+  cta="Préparer l'exploitation de votre site en plein air"
+  ctaHref="/contact?type=direction-technique"
+  related={[["Note de calcul pour une structure", "/guides/note-de-calcul-structure-evenementielle"], ["Le régisseur général événementiel", "/guides/regisseur-general-evenementiel"], ["Notice de sécurité pour un événement", "/guides/notice-securite-evenement"]]}
+>
+  <h2>La semaine où la tempête est venue avec</h2>
+  <p>Fin octobre 2026, ESE exploitait un site en plein air. La tempête est arrivée pendant l'exploitation : vent fort, rafales, pluie. Ce genre de journée ne se joue pas sur le moment. Elle se joue dans ce qui a été décidé avant : les seuils, les rôles, les sources qu'on regarde et la manière dont on écrit ce qu'on fait.</p>
+
+  <h2>Le vrai problème : décider, puis pouvoir le justifier</h2>
+  <p>Pendant longtemps, la décision météo tenait dans une application grand public, un anémomètre et l'expérience du régisseur. Ça fonctionne, jusqu'au jour où il faut expliquer pourquoi on a arrêté, ou pourquoi on a continué. À ce moment-là, trois questions reviennent toujours :</p>
+  <ul>
+    <li>Quelle mesure avait-on sous les yeux, et à quelle heure ?</li>
+    <li>Quel seuil avait été fixé, et par qui ?</li>
+    <li>Qui a pris la décision, avec quel motif ?</li>
+  </ul>
+
+  <h2>Ce qui se fixe avant l'événement</h2>
+  <ul>
+    <li><strong>Les limites d'exploitation des structures</strong> : elles viennent de la note de calcul et de la documentation du fabricant (scène, ponts, écrans, tentes). Ce sont elles qui fixent les seuils, pas le ressenti.</li>
+    <li><strong>Des paliers écrits</strong> : vigilance, mesures conservatoires (bâches, écrans, éléments légers), arrêt de l'accueil du public, évacuation des zones exposées.</li>
+    <li><strong>La personne habilitée à décider</strong>, son suppléant, et la façon dont la décision est diffusée aux équipes et aux prestataires.</li>
+    <li><strong>La station de référence</strong> : la station Météo-France la plus pertinente pour le site, et l'emplacement de l'anémomètre sur place.</li>
+  </ul>
+
+  <h2>Ce que fait le module météo d'ESE Ops</h2>
+  <p>ESE Ops est l'outil d'exploitation d'ESE. Son module météo a été construit pour l'aide à la décision :</p>
+  <ul>
+    <li><strong>Le vent en direct</strong> de la station Météo-France de référence la plus proche du site, rafales comprises, actualisé toutes les quelques minutes.</li>
+    <li><strong>La prévision heure par heure sur 48 heures</strong>, site par site, à partir du modèle AROME de Météo-France, avec les vigilances en cours.</li>
+    <li><strong>Un logbook terrain</strong> : relevés à l'anémomètre, observations et photos saisis depuis un téléphone, avec l'heure et le nom de la personne qui relève.</li>
+    <li><strong>Une cellule de décision</strong> : chaque situation, chaque proposition et chaque décision est motivée, validée par une personne habilitée et inscrite dans un journal qu'on ne peut pas réécrire.</li>
+  </ul>
+
+  <h2>L'outil ne décide rien</h2>
+  <p>Il met tout le monde devant les mêmes chiffres, au même moment : la production, la direction technique, la régie et le lieu. La décision reste humaine. Mais le jour où quelqu'un demande pourquoi, tout est écrit : ce qu'on mesurait, ce qui était prévu, qui a décidé et pourquoi.</p>
+
+  <h2>À retenir pour votre prochain site en plein air</h2>
+  <ul>
+    <li>Écrire les seuils avant le montage, à partir des limites des structures.</li>
+    <li>Désigner qui décide, et qui le remplace.</li>
+    <li>Croiser la station de référence et la mesure sur site.</li>
+    <li>Tracer chaque relevé et chaque décision, au moment où ils sont pris.</li>
+  </ul>
+  <p>La météo ne se négocie pas. Ce qui se prépare, c'est la façon dont on y répond.</p>
+</GuidePage>

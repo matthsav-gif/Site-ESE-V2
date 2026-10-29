@@ -49,6 +49,9 @@ Voir [toutes les références](${site}/references), dont les fiches [Venue du Pa
 - [Le design lumière événementiel : du brief au plan feux](${site}/guides/design-lumiere-evenementiel)
 - [Le stage manager événementiel : conduites, timing, coulisses](${site}/guides/stage-manager-evenementiel)
 
+## Journal de terrain (retours d'exploitation)
+- [Météo et événement en plein air : qui décide d'arrêter, et sur quelle base](${site}/journal/meteo-evenement-plein-air)
+
 ## Contact
 
 - Adresse : ${CONTACT.adresse1}, ${CONTACT.adresse2}

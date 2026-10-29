@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { dt } from "../../data/v3.js";
+// Journal de terrain : retours d'exploitation tirés des posts publiés, regroupés par thème. Le plus récent en premier.
+const A = [
+  ["meteo-evenement-plein-air", "Météo et plein air : qui décide d'arrêter", "Octobre 2026", "Un site en plein air sous tempête, des seuils écrits, une cellule de décision : comment ESE prépare la décision météo."],
+];
+---
+<BaseLayout title="Journal de terrain · ESE" description="Retours d'exploitation d'ESE sur la production technique événementielle : météo, coordination, régie, sécurité. Ce qu'on a vu sur le terrain et ce qu'on en retient." lang="fr">
+  <section class="poster"><div class="wrap" style="display:block">
+    <p class="kick">Journal de terrain</p>
+    <h1 class="hl lg" style="margin-top:30px" set:html={dt("Ce que le terrain<br>nous apprend")} />
+    <div class="doors three" style="margin-top:56px">{A.map(([s, t, m, d], i) => <a class="door" href={`/journal/${s}`}><b>{m}</b><h2 style="font-variation-settings:'wdth' 72;font-weight:850;text-transform:uppercase;font-size:clamp(28px,2.4vw,40px);line-height:.92;margin:22px 0 12px">{t}</h2><p>{d}</p><span class="arrow">Lire <i>→</i></span></a>)}</div>
+  </div></section>
+</BaseLayout>
