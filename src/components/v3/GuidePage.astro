@@ -1,35 +1,40 @@
 ---
-// Guide pratique (FR) : réponse directe en tête, sections courtes, FAQ, sources officielles, appel à l'action.
+// Guide pratique (FR ou EN via lang) : réponse directe en tête, sections courtes, FAQ, sources officielles, appel à l'action.
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ContactBanner from "../ContactBanner.astro";
 import { dt } from "../../data/v3.js";
-const { title, h1, description, kicker, answer, faq = [], sources = [], cta, ctaHref, maj, related = [], label = "Guides ESE", type = "Article" } = Astro.props;
+const { title, h1, description, kicker, answer, faq = [], sources = [], cta, ctaHref, maj, related = [], lang = "fr", type = "Article" } = Astro.props;
+const en = lang === "en";
+const tx = en
+  ? { label: "ESE Guides", maj: "Updated", locale: "en-GB", inLang: "en-GB", brief: "In short", faq: "FAQ", sources: "Official sources", rel: "Read also:", job: "Founder, Event & Safety Engineering" }
+  : { label: "Guides ESE", maj: "Mis à jour le", locale: "fr-FR", inLang: "fr-FR", brief: "En bref", faq: "Questions fréquentes", sources: "Sources officielles", rel: "À lire aussi :", job: "Fondateur, Event & Safety Engineering" };
+const label = Astro.props.label || tx.label;
 const url = new URL(Astro.url.pathname, "https://ese-techsolutions.com").href;
-const article = { "@context": "https://schema.org", "@type": type, headline: h1.replace(/<br>/g, " "), description, inLanguage: "fr-FR", dateModified: maj, mainEntityOfPage: url,
-  author: { "@type": "Person", name: "Matthieu Savatier", jobTitle: "Fondateur, Event & Safety Engineering" }, publisher: { "@id": "https://ese-techsolutions.com/#organization" } };
+const article = { "@context": "https://schema.org", "@type": type, headline: h1.replace(/<br>/g, " "), description, inLanguage: tx.inLang, dateModified: maj, mainEntityOfPage: url,
+  author: { "@type": "Person", name: "Matthieu Savatier", jobTitle: tx.job }, publisher: { "@id": "https://ese-techsolutions.com/#organization" } };
 const faqLd = faq.length ? [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }] : [];
 ---
-<BaseLayout title={title} description={description} lang="fr" schema={[article, ...faqLd]}>
+<BaseLayout title={title} description={description} lang={en ? "en" : "fr"} schema={[article, ...faqLd]}>
   <section class="poster guide-head">
     <div class="wrap" style="display:block">
-      <div class="topline"><span>{label}</span><span>Mis à jour le {new Date(maj).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span></div>
+      <div class="topline"><span>{label}</span><span>{tx.maj} {new Date(maj).toLocaleDateString(tx.locale, { day: "numeric", month: "long", year: "numeric" })}</span></div>
       <p class="kick" style="margin-top:40px">{kicker}</p>
       <h1 class="hl lg" style="margin-top:30px" set:html={dt(h1)} />
-      <div class="guide-answer"><p class="label">En bref</p><p>{answer}</p></div>
+      <div class="guide-answer"><p class="label">{tx.brief}</p><p>{answer}</p></div>
     </div>
   </section>
   <section class="section"><div class="wrap"><article class="legal guide">
     <slot />
     {faq.length > 0 && (<>
-      <h2>Questions fréquentes</h2>
+      <h2>{tx.faq}</h2>
       {faq.map(([q, a]) => <><h3>{q}</h3><p>{a}</p></>)}
     </>)}
     {sources.length > 0 && (<>
-      <h2>Sources officielles</h2>
+      <h2>{tx.sources}</h2>
       <ul>{sources.map(([t, u]) => <li><a href={u} target="_blank" rel="noopener noreferrer">{t}</a></li>)}</ul>
     </>)}
     <p class="guide-cta"><a href={ctaHref} class="btn btn-blue">{cta} →</a></p>
-    {related.length > 0 && <p class="guide-rel">À lire aussi : {related.map(([t, u], i) => <>{i > 0 && " · "}<a href={u}>{t}</a></>)}</p>}
+    {related.length > 0 && <p class="guide-rel">{tx.rel} {related.map(([t, u], i) => <>{i > 0 && " · "}<a href={u}>{t}</a></>)}</p>}
   </article></div></section>
-  <ContactBanner lang="fr" />
+  <ContactBanner lang={en ? "en" : "fr"} />
 </BaseLayout>

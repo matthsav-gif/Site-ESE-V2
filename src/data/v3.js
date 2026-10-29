@@ -40,7 +40,7 @@ export const T = {
       big: "From plan to field",
       about: "Event technical production. Technical direction, engineering, lighting design, production management, stage management and safety expertise, as a full mission or targeted support.",
       metiers: "Services", ese: "ESE", contact: "Contact",
-      links: [["/en/references", "References"], ["/en/methodes-partenariats", "Approach & methods"], ["/en/socle", "SOCLE®"], ["/en/qui-sommes-nous", "About"], ["/en/contact", "Contact"]],
+      links: [["/en/references", "References"], ["/en/methodes-partenariats", "Approach & methods"], ["/en/socle", "SOCLE®"], ["/en/guides", "Practical guides"], ["/en/qui-sommes-nous", "About"], ["/en/contact", "Contact"]],
       fse: "FSE · Fire engineering",
       nmd: "NOT MY DPT · Stickers for stage crew",
       legal: [["/mentions-legales", "Legal notice"], ["/en/cgv", "Terms of sale"], ["/confidentialite", "Privacy"]],

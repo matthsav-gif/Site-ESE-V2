@@ -6,7 +6,7 @@ const isEn = path === "/en" || path.startsWith("/en/");
 const L = T[isEn ? "en" : "fr"]; const base = L.base;
 const isHome = path === "/" || path === "/en";
 const FR_ONLY = ["/mentions-legales", "/confidentialite"];
-const altLang = isEn ? (path.replace(/^\/en/, "") || "/") : (path === "/" || FR_ONLY.includes(path) || path.startsWith("/guides") ? "/en" : "/en" + path);
+const altLang = isEn ? (path.replace(/^\/en/, "") || "/") : (path === "/" || FR_ONLY.includes(path) || path.startsWith("/journal") ? "/en" : "/en" + path);
 const items = [
   [`${base}/metiers`, L.nav.expertises, "/metiers"],
   [`${base}/references`, L.nav.refs, "/references"],

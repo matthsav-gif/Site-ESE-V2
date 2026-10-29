@@ -19,7 +19,8 @@ const canonical = new URL(Astro.url.pathname, site).href;
 const FR_ONLY = ["/mentions-legales", "/confidentialite"];
 const pth = Astro.url.pathname.replace(/\/$/, "") || "/";
 const frPath = pth === "/en" ? "/" : pth.replace(/^\/en(?=\/)/, "");
-const hasEn = !FR_ONLY.includes(frPath) && !frPath.startsWith("/guides");
+// Le journal de terrain n'a pas (encore) de version anglaise
+const hasEn = !FR_ONLY.includes(frPath) && !frPath.startsWith("/journal");
 const enPath = frPath === "/" ? "/en" : "/en" + frPath;
 const ogImageAbs = new URL(ogImage, site).href;
 
