@@ -1,0 +1,40 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+import Fig from "../../components/v3/JournalFig.astro";
+const faq = [
+  ["Pourquoi faire la note de calcul en amont ?", "Parce qu'elle traduit une intention de scénographie en charges, en appuis, en lestage et en limites d'exploitation. Faite tôt, elle ne ralentit pas le projet : elle évite de découvrir sur site qu'un pont est trop chargé ou qu'une tour manque de lest."],
+  ["Pourquoi rapprocher le design lumière de la direction technique ?", "Parce qu'une lumière se conçoit avec des contraintes concrètes : accroches, charges, alimentations, temps de réglage, sécurité des circulations. Quand le concepteur lumière travaille avec ceux qui montent et exploitent, les arbitrages se font tôt et l'intention survit jusqu'au show."],
+  ["Qui signe la note de calcul chez ESE ?", "Un ingénieur structure partenaire. ESE prépare et coordonne les vérifications avec son bureau d'études et ingénierie."],
+];
+---
+<GuidePage
+  label="Journal de terrain"
+  title="Note de calcul et design lumière : la technique se décide en amont · ESE"
+  description="Pourquoi ESE réunit bureau d'études, design lumière et direction technique : charges, accroches, lestage et limites d'exploitation se décident avant le montage, pas sur site."
+  kicker="Journal de terrain · Octobre 2026"
+  h1="La technique<br>se décide en amont"
+  maj="2026-10-29"
+  answer="Une structure qui porte un kit lumière, des écrans ou du son doit être vérifiée avant d'être montée : ce qu'elle porte, comment elle est ancrée, ce qui se passe si le vent se lève. C'est le rôle de la note de calcul. Et une lumière se conçoit avec ces mêmes contraintes. ESE réunit bureau d'études, design lumière et direction technique pour que ces arbitrages se fassent tôt, et que le montage reste une exécution, pas une improvisation."
+  faq={faq}
+  cta="Parler de votre projet de structure ou de lumière"
+  ctaHref="/contact?type=bureau-etudes"
+  related={[["Note de calcul pour une structure", "/guides/note-de-calcul-structure-evenementielle"], ["Le design lumière événementiel", "/guides/design-lumiere-evenementiel"], ["Notre bureau d'études", "/metiers/bureau-etudes"], ["Notre design lumière", "/metiers/design-lumiere"]]}
+>
+  <h2>Une note de calcul n'est pas une formalité</h2>
+  <p>Avant qu'une structure soit montée, quelqu'un doit pouvoir dire ce qu'elle porte, comment elle est ancrée et ce qui se passe si le vent se lève. La note de calcul traduit une intention de scénographie en chiffres : charges, appuis, lestage, limites d'exploitation.</p>
+  <p>Bien faite, elle ne ralentit pas le projet. Elle évite de découvrir sur site qu'un pont est trop chargé ou qu'une tour manque de lest. Et ce sont ses limites d'exploitation qui fixent, le jour venu, les seuils de vent à partir desquels on agit.</p>
+  <Fig src="/images/journal/grue-stade-de-france.jpg" w={1280} h={1600} alt="Grue et structures en cours de levage dans le Stade de France" caption="Levage au Stade de France, septembre 2026." />
+
+  <h2>Le design lumière n'est pas un ajout décoratif</h2>
+  <p>En octobre 2026, le design lumière a rejoint les métiers d'ESE, aux côtés de la direction technique, de la régie générale et du bureau d'études. Pour une raison simple : une lumière se conçoit avec des contraintes très concrètes.</p>
+  <ul>
+    <li>les points d'accroche et les charges qu'ils acceptent ;</li>
+    <li>les alimentations disponibles ;</li>
+    <li>le temps de réglage dans le planning ;</li>
+    <li>la sécurité des circulations autour des équipements.</li>
+  </ul>
+  <p>Quand le concepteur lumière travaille avec ceux qui montent et exploitent, les arbitrages se font tôt et l'intention survit jusqu'au show.</p>
+
+  <h2>La même équipe autour de la table</h2>
+  <p>C'est la continuité que propose ESE : de l'idée au réglage, avec le bureau d'études, le design lumière et la direction technique autour de la même table. Les vérifications sont préparées en amont, la note de calcul est signée par un ingénieur structure partenaire, et le montage reste une exécution, pas une improvisation.</p>
+</GuidePage>

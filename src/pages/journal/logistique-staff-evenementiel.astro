@@ -1,0 +1,44 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+import Fig from "../../components/v3/JournalFig.astro";
+const faq = [
+  ["Qu'est-ce que la logistique staff sur un événement ?", "C'est l'organisation des équipes sur site : plannings de présence, accès et badges, briefings et relèves, repas, points de rassemblement, et la connaissance à tout moment de qui est sur site et pour quoi faire."],
+  ["Qui s'en occupe habituellement ?", "Trop souvent personne en particulier : un peu la production, un peu la régie, un peu chaque prestataire. C'est justement pour cela qu'elle mérite un poste à part entière dès que les équipes sont nombreuses."],
+  ["À partir de quand faut-il un poste dédié ?", "Dès que plusieurs prestataires et des renforts se succèdent sur plusieurs jours, ou que les accès au site sont contrôlés. Sur un stade ou une arène, c'est un poste à temps plein du montage au démontage."],
+];
+---
+<GuidePage
+  label="Journal de terrain"
+  title="Logistique staff événementielle : le métier qu'on ne voit pas sur les photos · ESE"
+  description="Plannings, accès, badges, briefings, relèves, repas : ce que recouvre la logistique staff sur un événement, ce qui se passe quand elle manque, et comment ESE la prend en charge."
+  kicker="Journal de terrain · Octobre 2026"
+  h1="La logistique staff,<br>le métier invisible"
+  maj="2026-10-29"
+  answer="La logistique staff, c'est l'organisation des personnes sur site : plannings, accès et badges, briefings, relèves, repas, points de rassemblement, et savoir à tout moment qui est où et pour quoi faire. Quand elle est bien faite, personne n'en parle. Quand elle manque, le planning glisse heure après heure. ESE la prend en charge aux côtés de la direction technique, de la régie générale et du stage management."
+  faq={faq}
+  cta="Organiser les équipes de votre prochain événement"
+  ctaHref="/contact?type=regie-generale"
+  related={[["Venue du Pape au Stade de France", "/references/venue-du-pape-stade-de-france"], ["Le régisseur général événementiel", "/guides/regisseur-general-evenementiel"], ["Notre régie générale", "/metiers/regie-generale"]]}
+>
+  <h2>Personne ne la photographie</h2>
+  <p>On photographie la scène, le public, les lumières. Jamais le bureau de production à 6 h du matin, avant l'arrivée des équipes. C'est pourtant là que commence une journée de montage.</p>
+  <Fig src="/images/journal/bureau-production.jpg" w={1600} h={1200} alt="Bureau de production d'un événement, postes de travail, plans affichés et gilets haute visibilité" caption="Le bureau de production, avant l'arrivée des équipes." />
+
+  <h2>Ce qu'elle recouvre</h2>
+  <ul>
+    <li>Préparer les plannings de présence avant l'arrivée des équipes.</li>
+    <li>Organiser les accès au site et les badges.</li>
+    <li>Caler les briefings et les relèves.</li>
+    <li>Prévoir les repas et les points de rassemblement.</li>
+    <li>Savoir à tout moment qui est sur site, et pour quoi faire.</li>
+  </ul>
+
+  <h2>Quand c'est fait, et quand ça ne l'est pas</h2>
+  <p>Quand c'est bien fait, personne n'en parle. Les équipes arrivent, savent où aller, et le montage avance.</p>
+  <p>Quand ce n'est pas fait, cela se voit tout de suite : des gens qui attendent à une grille, un poste pas tenu, une relève qui saute, et un planning qui glisse heure après heure.</p>
+
+  <h2>Un vrai poste</h2>
+  <p>Sur la venue du Pape au Stade de France en septembre 2026, ESE assurait la logistique des équipes en plus de la direction technique, de la régie générale et du stage management : une préparation lancée dès juin, une présence sur site du 22 au 27 septembre, et chaque jour des équipes techniques, des prestataires et des renforts à coordonner.</p>
+  <Fig src="/images/journal/equipe-logistique-stade.jpg" w={1280} h={1600} alt="Deux membres de l'équipe ESE en gilet haute visibilité sur le toit du Stade de France" caption="Équipe ESE au Stade de France, septembre 2026." />
+  <p>Un projet ne tient pas seulement sur un plan. Il tient sur les personnes qui l'exécutent.</p>
+</GuidePage>

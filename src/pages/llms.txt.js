@@ -51,6 +51,10 @@ Voir [toutes les références](${site}/references), dont les fiches [Venue du Pa
 
 ## Journal de terrain (retours d'exploitation)
 - [Météo et événement en plein air : qui décide d'arrêter, et sur quelle base](${site}/journal/meteo-evenement-plein-air)
+- [Note de calcul et design lumière : la technique se décide en amont](${site}/journal/note-de-calcul-design-lumiere-amont)
+- [Du plan au terrain : un planning ne pilote pas une production](${site}/journal/planning-pilotage-production)
+- [La logistique staff événementielle : plannings, accès, relèves](${site}/journal/logistique-staff-evenementiel)
+- [Fin de projet et retour d'expérience (A$AP Rocky, Accor Arena)](${site}/journal/retour-experience-fin-de-projet)
 
 ## Contact
 

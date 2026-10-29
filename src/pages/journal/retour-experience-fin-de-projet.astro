@@ -1,0 +1,50 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+import Fig from "../../components/v3/JournalFig.astro";
+const faq = [
+  ["Quand faire le retour d'expérience d'un événement ?", "À chaud, dans les jours qui suivent le démontage, tant que chacun se souvient des arbitrages, des horaires et des incidents. Trois semaines plus tard, il ne reste souvent qu'une impression générale."],
+  ["Qui doit y participer ?", "La direction technique et la régie, mais aussi deux ou trois personnes qui ont vécu l'événement depuis un autre poste : plateau, prestataires, accueil des équipes. Ce qu'on a vu depuis la régie n'est pas toujours ce qui s'est passé sur le terrain."],
+  ["Que doit contenir un retour d'expérience ?", "Les faits, ce qui a réellement fonctionné, ce qui n'a tenu que grâce aux équipes, et ce qu'on fera différemment la prochaine fois. Un document court suffit, à condition qu'il soit rangé et relu au projet suivant."],
+];
+---
+<GuidePage
+  label="Journal de terrain"
+  title="Fin de projet et retour d'expérience : ce qu'il faut garder après le show · ESE"
+  description="Après un défilé AWGE et un concert d'A$AP Rocky à l'Accor Arena, pourquoi ESE prend une heure pour le retour d'expérience, et comment le faire pour qu'il serve au projet suivant."
+  kicker="Journal de terrain · Octobre 2026"
+  h1="Après le show :<br>le retour d'expérience"
+  maj="2026-10-29"
+  answer="Un événement ne se termine pas quand le site est vide. Le retour d'expérience se fait à chaud, en une heure : poser les faits, distinguer ce qui a fonctionné de ce qui n'a tenu que grâce aux équipes, croiser deux ou trois points de vue et noter ce qu'on fera différemment. C'est ce document qui évite de repartir de zéro au projet suivant."
+  faq={faq}
+  cta="Parler de votre prochaine production"
+  ctaHref="/contact?type=direction-technique"
+  related={[["Notre méthode, de la préparation à la restitution", "/methodes-partenariats"], ["Le directeur technique événementiel", "/guides/directeur-technique-evenementiel"], ["Le régisseur général événementiel", "/guides/regisseur-general-evenementiel"]]}
+>
+  <h2>Un défilé et un concert sur la même scène</h2>
+  <p>A$AP Rocky enchaînait un défilé AWGE et un concert dans la même soirée, sur la même scène, devant une Accor Arena pleine. ESE y a accompagné la production, Live Nation France et OBO, en direction technique, régie générale et stage management.</p>
+  <p>Des jours de préparation, d'arbitrages et d'ajustements, pour que le défilé et le show s'enchaînent sans que le public ne voie rien de ce qui se passe derrière.</p>
+  <Fig src="/images/journal/asap-accor-arena.jpg" w={1280} h={1600} alt="A$AP Rocky sur scène devant une Accor Arena pleine, défilé AWGE et concert" caption="A$AP Rocky, défilé AWGE et concert, Accor Arena." />
+
+  <h2>Le site est vide, le travail n'est pas fini</h2>
+  <p>Le public est parti, les équipes rentrent, le site se vide. Tout le monde a envie de dormir trois jours. C'est précisément le moment où l'on se souvient encore de tout :</p>
+  <ul>
+    <li>l'arbitrage pris à 23 h en plein montage ;</li>
+    <li>le problème qu'on avait anticipé et qui n'est jamais arrivé ;</li>
+    <li>celui qu'on n'avait pas vu venir et qui a coûté deux heures ;</li>
+    <li>le prestataire qui a trouvé une solution quand il n'y avait plus aucune marge ;</li>
+    <li>la ligne de planning fausse dès le départ, que tout le monde a compensée sans rien dire.</li>
+  </ul>
+  <p>Trois semaines plus tard, il ne reste souvent qu'une impression : « ça s'est bien passé ». Et l'essentiel est déjà oublié.</p>
+
+  <h2>Une heure, quatre étapes</h2>
+  <ul>
+    <li><strong>Poser les faits</strong> : horaires, incidents, décisions, sans les commenter.</li>
+    <li><strong>Trier</strong> : ce qui a réellement fonctionné, et ce qui n'a tenu que grâce aux équipes.</li>
+    <li><strong>Croiser les points de vue</strong> : appeler deux ou trois personnes qui ont vécu l'événement depuis un autre poste.</li>
+    <li><strong>Décider</strong> : ce qu'on fera différemment la prochaine fois, et qui s'en charge.</li>
+  </ul>
+
+  <h2>Un document que personne ne verra</h2>
+  <p>Ce retour d'expérience, personne ne le lira probablement en dehors de l'équipe. Mais c'est lui qui permet, au projet suivant, de ne pas repartir de zéro, de ne pas reproduire les mêmes erreurs et de transformer des situations vécues en méthodes de travail. Chez ESE, c'est la dernière étape de la méthode : restituer.</p>
+  <p><strong>L'expérience ne sert à rien si on ne la range pas.</strong></p>
+</GuidePage>

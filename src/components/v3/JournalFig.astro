@@ -1,0 +1,9 @@
+---
+// Photo d'article du Journal de terrain. Une photo en portrait reste à mi-largeur pour ne pas écraser le texte.
+const { src, alt, caption, w, h } = Astro.props;
+const portrait = h > w;
+---
+<figure style={`margin:32px 0;${portrait ? "max-width:520px" : ""}`}>
+  <img src={src} width={w} height={h} loading="lazy" alt={alt} style="width:100%;height:auto;display:block" />
+  {caption && <figcaption style="font-size:14px;opacity:.7;margin-top:10px">{caption}</figcaption>}
+</figure>
