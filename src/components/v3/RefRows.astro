@@ -12,6 +12,6 @@ const lbl = lang === "en" ? { fiche: "Read the case", photo: "View photo" } : { 
   </>;
   const thumb = r.img && <span class="thumb"><img src={r.img} alt="" loading="lazy" decoding="async" /></span>;
   if (r.slug) return <a class="ref" href={`${base}/references/${r.slug}`} data-f={r.f}>{body}<span class="see arrow">{lbl.fiche} <i>→</i></span>{thumb}</a>;
-  if (r.img) return <button type="button" class="ref" data-zoom={r.img} data-cap={`${r.t} · ${r.lieu}`} data-f={r.f}>{body}<span class="see arrow">{lbl.photo} <i>↗</i></span>{thumb}</button>;
+  if (r.img) return <button type="button" class="ref" data-zoom={r.img} data-cap={`${r.t} · ${r.lieu}${r.credit ? ` · ${r.credit}` : ""}`} data-f={r.f}>{body}<span class="see arrow">{lbl.photo} <i>↗</i></span>{thumb}</button>;
   return <div class="ref static" data-f={r.f}>{body}</div>;
 })}

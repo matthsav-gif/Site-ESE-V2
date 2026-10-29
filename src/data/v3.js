@@ -202,7 +202,7 @@ export const METIER_V3 = {
 
 export const REFS3 = {
   fr: [
-    {"ms": ["direction-technique", "expertise-securite"], "yr": "2026", "t": "NFL Paris Game", "cat": "Match NFL et fan experience", "f": "live", "lieu": "Stade de France · Champ-de-Mars · Hail Mary au Petit Pont · octobre 2026", "mis": "Direction technique et dossier de sécurité pour GL events : accompagnement technique et 3D du Flag Experience, Fan Experience au Stade de France, dossier de sécurité du Hail Mary", "img": ""},
+    {"ms": ["direction-technique", "expertise-securite"], "yr": "2026", "t": "NFL Paris Game", "cat": "Match NFL et fan experience", "f": "live", "lieu": "Stade de France · Champ-de-Mars · Hail Mary au Petit Pont · octobre 2026", "mis": "Direction technique et dossier de sécurité pour GL events : accompagnement technique et 3D du Flag Experience, Fan Experience au Stade de France, dossier de sécurité du Hail Mary", "img": "/images/refs/nfl-stade-de-france.webp", "credit": "Photo : Staff Sgt. Jan Valle, U.S. Air Force (domaine public)"},
     {"slug": "venue-du-pape-stade-de-france", "ms": ["direction-technique", "regie-generale", "stage-management"], "yr": "2026", "t": "Venue du Pape", "cat": "Cérémonie", "f": "ceremonie", "lieu": "Stade de France · Saint-Denis", "mis": "Direction technique · régie générale · stage management · logistique des équipes", "img": "/images/refs/pape-tribunes.webp"},
     {"slug": "asap-rocky-accor-arena", "ms": ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], "yr": "2026", "t": "A$AP Rocky", "cat": "Défilé AWGE + concert", "f": "concert", "lieu": "Accor Arena (Bercy) · Paris", "mis": "Direction technique · régie générale · stage management · design lumière", "img": "/images/refs/asap-concert.webp"},
     {"ms": ["direction-technique", "design-lumiere"], "yr": "2025", "t": "BSK", "cat": "Concerts en salle", "f": "concert", "lieu": "Le Trianon · L'Élysée Montmartre · Paris", "mis": "Direction technique · design lumière", "img": ""},
@@ -223,7 +223,7 @@ export const REFS3 = {
     {"ms": ["direction-technique"], "yr": "", "t": "VivaTech", "cat": "Salon international", "f": "institutionnel", "lieu": "Paris · stands et espaces de marques", "mis": "Direction technique", "img": ""},
   ],
   en: [
-    {"ms": ["direction-technique", "expertise-securite"], "yr": "2026", "t": "NFL Paris Game", "cat": "NFL game and fan experience", "f": "live", "lieu": "Stade de France · Champ-de-Mars · Hail Mary at Petit Pont · October 2026", "mis": "Technical direction and safety file for GL events: technical support and 3D design for the Flag Experience, Fan Experience at the Stade de France, safety file for the Hail Mary", "img": ""},
+    {"ms": ["direction-technique", "expertise-securite"], "yr": "2026", "t": "NFL Paris Game", "cat": "NFL game and fan experience", "f": "live", "lieu": "Stade de France · Champ-de-Mars · Hail Mary at Petit Pont · October 2026", "mis": "Technical direction and safety file for GL events: technical support and 3D design for the Flag Experience, Fan Experience at the Stade de France, safety file for the Hail Mary", "img": "/images/refs/nfl-stade-de-france.webp", "credit": "Photo: Staff Sgt. Jan Valle, U.S. Air Force (public domain)"},
     {"slug": "venue-du-pape-stade-de-france", "ms": ["direction-technique", "regie-generale", "stage-management"], "yr": "2026", "t": "Papal visit", "cat": "Ceremony", "f": "ceremonie", "lieu": "Stade de France · Saint-Denis", "mis": "Technical direction · production management · stage management · crew logistics", "img": "/images/refs/pape-tribunes.webp"},
     {"slug": "asap-rocky-accor-arena", "ms": ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], "yr": "2026", "t": "A$AP Rocky", "cat": "AWGE fashion show + concert", "f": "concert", "lieu": "Accor Arena (Bercy) · Paris", "mis": "Technical direction · production management · stage management · lighting design", "img": "/images/refs/asap-concert.webp"},
     {"ms": ["direction-technique", "design-lumiere"], "yr": "2025", "t": "BSK", "cat": "Venue concerts", "f": "concert", "lieu": "Le Trianon · L'Élysée Montmartre · Paris", "mis": "Technical direction · lighting design", "img": ""},
@@ -368,7 +368,8 @@ export const FICHES = {
   },
   "unoc3-nice": {
     img: "/images/refs/unoc-parvis.jpg", seo: "unoc",
-    gallery: ["unoc-implantation"],
+    gallery: ["unoc-implantation", "unoc-baleine-ifremer"],
+    credits: { fr: "Photo de la conférence dans La Baleine : Olivier Dugornay, Ifremer, licence CC BY 4.0.", en: "Photo of the talk inside La Baleine: Olivier Dugornay, Ifremer, CC BY 4.0 licence." },
     fr: { alt: "Parvis du Palais des Expositions de Nice pendant la Conférence des Nations unies sur l'Océan", k: "Étude de cas · R-05", h1: "UNOC3<br>Nice",
       facts: [["Événement", "3e Conférence des Nations unies sur l'Océan, espace ouvert au public"], ["Lieu et date", "Palais des Expositions Nice Acropolis · 1er au 13 juin 2025"], ["Organisateur", "Ministère de l'Europe et des Affaires étrangères"], ["Mission ESE", "Régie générale · direction technique · direction d'exploitation · direction sûreté · risk management"]],
       chaps: [["01", "Le contexte", "Pendant treize jours, le Palais des Expositions de Nice accueille l'espace ouvert au public de la troisième Conférence des Nations unies sur l'Océan, coorganisée par la France et le Costa Rica. Jusqu'à 6 000 personnes en même temps, et une journée présidentielle fermée au public."],
