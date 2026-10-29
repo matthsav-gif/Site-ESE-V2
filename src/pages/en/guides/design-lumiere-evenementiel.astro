@@ -1,0 +1,44 @@
+---
+import GuidePage from "../../../components/v3/GuidePage.astro";
+const faq = [
+  ["What should you give a lighting designer to get started?", "The intent of the project (atmosphere, desired look), the venue drawings, the schedule, the expected budget and, if available, the specifications of the other trades (structures, video, sound)."],
+  ["Does lighting design include the equipment?", "No. The design produces the lighting plot and the specifications; the equipment is supplied by a lighting company, consulted on that basis."],
+  ["Why link lighting design and technical direction?", "Because a lighting plot must take into account the rigging points, the loads, the available power and the load-in time. Designing the lighting with these constraints in mind avoids rework on site."],
+];
+---
+<GuidePage
+  lang="en"
+  title="Event lighting design: from brief to lighting plot · ESE"
+  description="How lighting design works for a concert, a fashion show, a ceremony or a convention: design intent, lighting plot, previsualisation, specifications, programming and focusing on site."
+  kicker="Guide · Lighting design"
+  h1="Event<br>lighting design"
+  maj="2026-10-19"
+  answer="Lighting design turns the intent of an event into a concrete set-up: a design statement, a lighting plot with the positions of the fixtures, 3D previsualisation, specifications for the supplier, then follow-up of programming and focusing on site. It must remain compatible with the structures, the available power, the budget and the load-in time."
+  faq={faq}
+  cta="Discuss your lighting project"
+  ctaHref="/en/contact?type=design-lumiere"
+  related={[["The role of the technical director", "/en/guides/directeur-technique-evenementiel"], ["The calculation note for a structure", "/en/guides/note-de-calcul-structure-evenementielle"], ["Our lighting design", "/en/metiers/design-lumiere"]]}
+>
+  <h2>The stages of a lighting design</h2>
+  <ol>
+    <li><strong>The intent</strong>: atmospheres, creative approach, key moments of the running order.</li>
+    <li><strong>The lighting plot</strong>: positions and choice of fixtures (Vectorworks Spotlight).</li>
+    <li><strong>Previsualisation</strong>: 3D rendering of the looks to approve before ordering.</li>
+    <li><strong>The specifications</strong>: equipment list and requirements for consulting the lighting supplier.</li>
+    <li><strong>On site</strong>: follow-up of programming and focusing through to the show.</li>
+  </ol>
+
+  <h2>For which events?</h2>
+  <p>Concerts, fashion shows and luxury events, ceremonies, conventions, heritage venues, scenography and festivals. The design can also start from an existing one to be adapted to a new venue, to the available power or to a budget.</p>
+
+  <h2>Constraints to factor in from the start</h2>
+  <ul>
+    <li>The venue's rigging points and permissible loads.</li>
+    <li>The available power and its distribution.</li>
+    <li>The time for load-in and focusing.</li>
+    <li>The safety constraints of the venue and the audience.</li>
+  </ul>
+
+  <h2>What ESE does</h2>
+  <p>ESE designs event lighting with Beat Per Light, its regular lighting design partner, and makes it deliverable through its experience in technical direction and production management. References: A$AP Rocky at the Accor Arena, BSK at the Trianon and the Élysée Montmartre.</p>
+</GuidePage>

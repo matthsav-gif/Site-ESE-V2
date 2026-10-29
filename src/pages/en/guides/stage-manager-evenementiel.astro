@@ -1,0 +1,36 @@
+---
+import GuidePage from "../../../components/v3/GuidePage.astro";
+const faq = [
+  ["When does the stage manager come in?", "From the preparation of the running orders, then during rehearsals and the show. On a short event, they often arrive the day before or on the day of the stage load-in."],
+  ["How does it differ from a production manager?", "The production manager keeps the whole site running. The stage manager runs the stage during the show: entrances, changeovers, timing and backstage circulation."],
+  ["Do you need a stage manager for a convention?", "As soon as the running order links speakers, videos and timed stage changeovers, yes: they make sure each sequence goes at the right moment."],
+];
+---
+<GuidePage
+  lang="en"
+  title="Event stage manager: role at a concert, ceremony or convention · ESE"
+  description="What a stage manager does: preparing running orders, coordinating entrances and changeovers, show timing, backstage circulation. When to bring one in."
+  kicker="Guide · Stage management"
+  h1="The event<br>stage manager"
+  maj="2026-10-19"
+  answer="The stage manager runs the stage during the event: they prepare the running orders, coordinate entrances, changeovers and sequences, manage backstage circulation and provide the constant link between artists, speakers, technical crews and production. They are essential as soon as the running order is timed."
+  faq={faq}
+  cta="Discuss the stage and the running order"
+  ctaHref="/en/contact?type=stage-management&format=renfort"
+  related={[["The production manager", "/en/guides/regisseur-general-evenementiel"], ["The role of the technical director", "/en/guides/directeur-technique-evenementiel"], ["Our stage management", "/en/metiers/stage-management"]]}
+>
+  <h2>What a stage manager does</h2>
+  <ul>
+    <li>Prepare the running orders and stage cue sheets.</li>
+    <li>Coordinate entrances, changeovers and sequences.</li>
+    <li>Manage stage flows and backstage circulation.</li>
+    <li>Keep the timing during the show.</li>
+    <li>Provide the link between artists, speakers, technical crews and production.</li>
+  </ul>
+
+  <h2>For which events?</h2>
+  <p>Festivals and outdoor events, ceremonies, concerts, multi-artist bills, conventions and institutional events: wherever the running order links sequences that must go at the right moment, with the right people in the right place.</p>
+
+  <h2>What ESE does</h2>
+  <p>We provide support on a specific stage or within a wider production set-up. References: the Pope's visit to the Stade de France, A$AP Rocky at the Accor Arena.</p>
+</GuidePage>

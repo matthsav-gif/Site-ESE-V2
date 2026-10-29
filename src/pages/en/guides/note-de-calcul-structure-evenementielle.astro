@@ -1,0 +1,44 @@
+---
+import GuidePage from "../../../components/v3/GuidePage.astro";
+const faq = [
+  ["Who signs a structural calculation note?", "A structural engineer. At ESE, calculation notes are checked and signed by a partner structural engineer; ESE prepares the modelling, the drawings and the assumptions."],
+  ["Does the calculation note replace the inspection?", "No. It justifies the set-up. Inspection and regulatory checks are carried out by an inspection body or an approved organisation, depending on the case."],
+  ["How long does it take to get one?", "It depends on the complexity and on the information available (venue drawings, rigging point capacities, chosen equipment). The safest approach is to start it as soon as the layout and equipment are settled, before the final order."],
+];
+---
+<GuidePage
+  lang="en"
+  title="Calculation note for an event structure (trusses, rigging, stage) · ESE"
+  description="When a calculation note is needed for an event (suspended loads, trusses, screens, stages, grandstands), what it contains and who signs it."
+  kicker="Guide · Engineering office"
+  h1="The calculation note<br>for an event structure"
+  maj="2026-10-19"
+  answer="As soon as a load is suspended (speakers, screens, lighting trusses) or a temporary structure is built (stage, tower, grandstand), you must be able to show that it will hold: that is the role of the calculation note. The venue, the inspection body or the safety commission may ask for it. It is signed by a structural engineer; at ESE, by a partner structural engineer."
+  faq={faq}
+  cta="Request a calculation note"
+  ctaHref="/en/contact?type=bureau-etudes&format=mission"
+  related={[["The safety report for an event", "/en/guides/notice-securite-evenement"], ["The role of the technical director", "/en/guides/directeur-technique-evenementiel"], ["Our engineering office", "/en/metiers/bureau-etudes"]]}
+>
+  <h2>When is one needed?</h2>
+  <ul>
+    <li>A truss, a screen or speakers must be rigged from a venue's roof structure.</li>
+    <li>A temporary stage, tower or grandstand is built on site.</li>
+    <li>The venue, the inspection body or the commission asks for supporting evidence.</li>
+    <li>The configuration changes from one date to the next on a tour.</li>
+  </ul>
+
+  <h2>What a calculation note contains</h2>
+  <ul>
+    <li>A description of the set-up and the assumptions used.</li>
+    <li>The loads: equipment weight, suspended loads, dynamic forces.</li>
+    <li>The load paths down to the rigging points or the ground.</li>
+    <li>Ballast, anchoring and, outdoors, wind loading.</li>
+    <li>The associated rigging and layout drawings.</li>
+  </ul>
+
+  <h2>Who does what</h2>
+  <p>The engineering office models the configuration (Braceworks, Vectorworks, MVR files) and produces the drawings. The <strong>structural engineer</strong> checks and signs the note. The <strong>inspection body</strong> or approved organisation carries out the inspection, depending on the case. The venue provides the capacities of its roof structure or floor.</p>
+
+  <h2>What ESE does</h2>
+  <p>Our engineering office produces layout drawings, rigging plots, schematics and studies. Structural calculation notes are checked and signed by a partner structural engineer. We act as the interface with the venue, the inspection body and the suppliers, on a single project as well as on a stadium tour.</p>
+</GuidePage>

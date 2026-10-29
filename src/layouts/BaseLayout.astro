@@ -22,7 +22,7 @@ const FR_ONLY = ["/mentions-legales", "/confidentialite"];
 const FR_ONLY_PREFIX = ["/journal"];
 const pth = Astro.url.pathname.replace(/\/$/, "") || "/";
 const frPath = pth === "/en" ? "/" : pth.replace(/^\/en(?=\/)/, "");
-const hasEn = !FR_ONLY.includes(frPath) && !frPath.startsWith("/guides") && !FR_ONLY_PREFIX.some((x) => frPath.startsWith(x));
+const hasEn = !FR_ONLY.includes(frPath) && !FR_ONLY_PREFIX.some((x) => frPath.startsWith(x));
 const enPath = frPath === "/" ? "/en" : "/en" + frPath;
 // Réseaux sociaux : certains ne lisent pas le WebP, on sert l'original JPEG/PNG quand il existe.
 const ogBase = ogImage.replace(/\.webp$/, "");

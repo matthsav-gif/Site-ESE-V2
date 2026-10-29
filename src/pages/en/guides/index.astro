@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { dt } from "../../../data/v3.js";
+const G = [
+  ["notice-securite-evenement", "The safety report for an event", "Deadlines (two months ahead), what the application contains, who submits it, the case of marquees."],
+  ["directeur-technique-evenementiel", "The event technical director", "Their role, how it differs from production management and stage management, when to bring them in."],
+  ["note-de-calcul-structure-evenementielle", "The calculation note for a structure", "Suspended loads, trusses, stages, grandstands: when it is needed and who signs it."],
+  ["regisseur-general-evenementiel", "The event production manager", "Schedule, access, co-activity, crews: their role and how to bring one in as support."],
+  ["design-lumiere-evenementiel", "Event lighting design", "From brief to lighting plot: the stages, the constraints, what to provide."],
+  ["stage-manager-evenementiel", "The event stage manager", "Running orders, entrances, changeovers, timing: their role during the show."],
+];
+---
+<BaseLayout title="Practical guides to event technical production · ESE" description="Short, sourced guides on event technical production: technical director, production manager, stage manager, lighting design, structural calculation note, event safety report." lang="en">
+  <section class="poster"><div class="wrap" style="display:block">
+    <p class="kick">ESE Guides</p>
+    <h1 class="hl lg" style="margin-top:30px" set:html={dt("The answers<br>before the quote")} />
+    <div class="doors three" style="margin-top:56px">{G.map(([s, t, d], i) => <a class="door" href={`/en/guides/${s}`}><b>{String(i + 1).padStart(2, "0")}</b><h2 style="font-variation-settings:'wdth' 72;font-weight:850;text-transform:uppercase;font-size:clamp(28px,2.4vw,40px);line-height:.92;margin:22px 0 12px">{t}</h2><p>{d}</p><span class="arrow">Read the guide <i>→</i></span></a>)}</div>
+  </div></section>
+</BaseLayout>
