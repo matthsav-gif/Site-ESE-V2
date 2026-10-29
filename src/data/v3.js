@@ -203,7 +203,7 @@ export const METIER_V3 = {
 export const REFS3 = {
   fr: [
     {"slug": "venue-du-pape-stade-de-france", "ms": ["direction-technique", "regie-generale", "stage-management"], "yr": "2026", "t": "Venue du Pape", "cat": "Cérémonie", "f": "ceremonie", "lieu": "Stade de France · Saint-Denis", "mis": "Direction technique · régie générale · stage management · logistique des équipes", "img": "/images/refs/pape-tribunes.jpg"},
-    {"ms": ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], "yr": "2026", "t": "A$AP Rocky", "cat": "Défilé AWGE + concert", "f": "concert", "lieu": "Accor Arena (Bercy) · Paris", "mis": "Direction technique · régie générale · stage management · design lumière", "img": "/images/refs/asap-concert.jpg"},
+    {"slug": "asap-rocky-accor-arena", "ms": ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], "yr": "2026", "t": "A$AP Rocky", "cat": "Défilé AWGE + concert", "f": "concert", "lieu": "Accor Arena (Bercy) · Paris", "mis": "Direction technique · régie générale · stage management · design lumière", "img": "/images/refs/asap-concert.jpg"},
     {"ms": ["direction-technique", "design-lumiere"], "yr": "2025", "t": "BSK", "cat": "Concerts en salle", "f": "concert", "lieu": "Le Trianon · L'Élysée Montmartre · Paris", "mis": "Direction technique · design lumière", "img": ""},
     {"ms": ["direction-technique"], "yr": "2026", "t": "Golden Coast Festival", "cat": "Festival", "f": "concert", "lieu": "Édition 2026", "mis": "Direction technique", "img": ""},
     {"ms": ["direction-technique"], "yr": "2025–26", "t": "JUL", "cat": "Concert en stade", "f": "concert", "lieu": "Stade de France · Vélodrome de Marseille · jusqu'à 102 000 personnes par concert", "mis": "Direction technique", "img": "/images/expertise-securite/jul-velodrome-truss.jpg"},
@@ -223,7 +223,7 @@ export const REFS3 = {
   ],
   en: [
     {"slug": "venue-du-pape-stade-de-france", "ms": ["direction-technique", "regie-generale", "stage-management"], "yr": "2026", "t": "Papal visit", "cat": "Ceremony", "f": "ceremonie", "lieu": "Stade de France · Saint-Denis", "mis": "Technical direction · production management · stage management · crew logistics", "img": "/images/refs/pape-tribunes.jpg"},
-    {"ms": ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], "yr": "2026", "t": "A$AP Rocky", "cat": "AWGE fashion show + concert", "f": "concert", "lieu": "Accor Arena (Bercy) · Paris", "mis": "Technical direction · production management · stage management · lighting design", "img": "/images/refs/asap-concert.jpg"},
+    {"slug": "asap-rocky-accor-arena", "ms": ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], "yr": "2026", "t": "A$AP Rocky", "cat": "AWGE fashion show + concert", "f": "concert", "lieu": "Accor Arena (Bercy) · Paris", "mis": "Technical direction · production management · stage management · lighting design", "img": "/images/refs/asap-concert.jpg"},
     {"ms": ["direction-technique", "design-lumiere"], "yr": "2025", "t": "BSK", "cat": "Venue concerts", "f": "concert", "lieu": "Le Trianon · L'Élysée Montmartre · Paris", "mis": "Technical direction · lighting design", "img": ""},
     {"ms": ["direction-technique"], "yr": "2026", "t": "Golden Coast Festival", "cat": "Festival", "f": "concert", "lieu": "2026 edition", "mis": "Technical direction", "img": ""},
     {"ms": ["direction-technique"], "yr": "2025–26", "t": "JUL", "cat": "Stadium concert", "f": "concert", "lieu": "Stade de France · Vélodrome, Marseille · up to 102,000 people per show", "mis": "Technical direction", "img": "/images/expertise-securite/jul-velodrome-truss.jpg"},
@@ -287,6 +287,7 @@ export const SEO3 = {
     "design-lumiere": { title: "Design lumière événementiel à Paris et en France · ESE", description: "Design lumière pour concerts, défilés, cérémonies et conventions, à Paris et partout en France : intention, plan feux, pré-visualisation, encodage et réglages sur site." },
     "stage-management": { title: "Stage manager événementiel à Paris et en France · ESE", description: "Stage manager pour concerts, cérémonies, festivals et conventions, à Paris et partout en France : conduites, entrées, changements, timing du show." },
     pape: { title: "Venue du Pape au Stade de France · Références ESE", description: "Venue du Pape au Stade de France, septembre 2026 : direction technique, régie générale, stage management et logistique des équipes par ESE." },
+    asap: { title: "A$AP Rocky à l'Accor Arena : défilé AWGE et concert · Références ESE", description: "Étude de cas : intégrer un défilé de mode dans un live show. Défilé AWGE et concert d'A$AP Rocky à l'Accor Arena le 30 septembre 2026, direction technique, régie générale, stage management et design lumière par ESE." },
     fiche: { title: "JO / JOP Paris 2024 · Références ESE", description: "Cérémonies d'ouverture des Jeux Olympiques et Paralympiques de Paris 2024 : direction technique et expertise multi-métiers d'ESE." },
   },
   en: {
@@ -296,6 +297,7 @@ export const SEO3 = {
     "design-lumiere": { title: "Event lighting design for concerts and shows · ESE", description: "Lighting design for concerts, fashion shows, ceremonies and conventions: intent, lighting plots, pre-visualisation, programming and focus on site." },
     "stage-management": { title: "Event stage manager for concerts and ceremonies · ESE", description: "Stage management: cue sheets, stage coordination, flows and sequences. Festivals, ceremonies, concerts, multi-sequence events." },
     pape: { title: "Papal visit at the Stade de France · ESE References", description: "Papal visit at the Stade de France, September 2026: technical direction, production management, stage management and crew logistics by ESE." },
+    asap: { title: "A$AP Rocky at the Accor Arena: AWGE show and concert · ESE References", description: "Case study: integrating a fashion show into a live show. A$AP Rocky's AWGE show and concert at the Accor Arena on 30 September 2026, technical direction, production management, stage management and lighting design by ESE." },
     fiche: { title: "Paris 2024 Olympic & Paralympic ceremonies · ESE References", description: "Opening ceremonies of the Paris 2024 Olympic and Paralympic Games: ESE's technical direction and multi-discipline expertise." },
   },
 };
@@ -355,6 +357,22 @@ export const FICHES = {
               ["02", "Our mission", "Alongside Paname 24, technical direction focused on site and installation compliance, risk and crisis management, fire prevention and ICPE matters, supporting production teams in their dealings with the authorities."],
               ["03", "On site", "Load-in, coordination and show: drawings, coordination meetings and on-site presence at the scale of a production watched worldwide."]],
       v: ["Paris 2024 Olympic Games opening ceremony", "Paris 2024 Paralympic Games opening ceremony"], cta: "A similar<br>project?" },
+  },
+  "asap-rocky-accor-arena": {
+    img: "/images/refs/asap-concert.jpg", seo: "asap",
+    gallery: ["asap-defile", "asap-scene"],
+    fr: { alt: "A$AP Rocky sur scène devant une Accor Arena pleine", k: "Étude de cas · R-02", h1: "A$AP Rocky<br>Accor Arena",
+      facts: [["Événement", "Défilé AWGE printemps-été 2027 et concert, tournée Don't Be Dumb"], ["Lieu", "Accor Arena · Paris"], ["Date", "30 septembre 2026, pendant la Paris Fashion Week"], ["Production", "Live Nation France · OBO"], ["Mission ESE", "Direction technique · régie générale · stage management · design lumière avec Beat Per Light"]],
+      chaps: [["01", "Le contexte", "En pleine Paris Fashion Week, A$AP Rocky présente la collection printemps-été 2027 de sa marque AWGE, puis enchaîne le concert de sa tournée Don't Be Dumb. Même soirée, même scène, devant une Accor Arena pleine."],
+              ["02", "Le défi", "Intégrer un défilé de mode dans un live show. Deux formats qui n'obéissent pas aux mêmes règles : le podium, le passage des mannequins et une lumière de défilé d'un côté, un show de concert de l'autre. Une seule scène, une seule soirée, et une bascule que le public ne doit pas voir."],
+              ["03", "Sur le terrain", "Une journée de montage, puis l'exploitation et le démontage dans la foulée. ESE a tenu la direction technique, la régie générale et le stage management, avec le design lumière conçu avec notre partenaire Beat Per Light, pour Live Nation France et OBO."]],
+      cta: "Un show<br>hors format&nbsp;?" },
+    en: { alt: "A$AP Rocky on stage in front of a packed Accor Arena", k: "Case study · R-02", h1: "A$AP Rocky<br>Accor Arena",
+      facts: [["Event", "AWGE spring-summer 2027 show and concert, Don't Be Dumb Tour"], ["Location", "Accor Arena · Paris"], ["Date", "30 September 2026, during Paris Fashion Week"], ["Production", "Live Nation France · OBO"], ["ESE mission", "Technical direction · production management · stage management · lighting design with Beat Per Light"]],
+      chaps: [["01", "Context", "In the middle of Paris Fashion Week, A$AP Rocky presented the spring-summer 2027 collection of his label AWGE, then went straight into his Don't Be Dumb Tour concert. Same night, same stage, in front of a packed Accor Arena."],
+              ["02", "The challenge", "Integrating a fashion show into a live show. Two formats with different rules: the runway, the models' walk and show lighting on one side, a concert production on the other. One stage, one night, and a changeover the audience must not see."],
+              ["03", "On site", "One day of load-in, then the show and the strike straight after. ESE handled technical direction, production management and stage management, with lighting design created with our partner Beat Per Light, for Live Nation France and OBO."]],
+      cta: "A show<br>out of format?" },
   },
   "venue-du-pape-stade-de-france": {
     img: "/images/refs/pape-tribunes.jpg", seo: "pape",
