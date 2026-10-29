@@ -27,7 +27,7 @@ Document texte intégral du site ${site}, destiné aux moteurs et aux IA. Socié
 
 Ce que le public voit commence bien avant l'ouverture. Plans, choix techniques, planning, circulation des équipes, exploitation : derrière chaque événement, il faut des décisions claires et une organisation qui tient sur le terrain. ESE intervient sur l'ensemble d'une production ou sur un besoin ciblé, au sein des équipes du client.
 
-Chiffres : plus de 250 projets réalisés, jusqu'à 102 000 spectateurs sur un concert de JUL, plus de 15 ans d'expérience.
+Chiffres : plus de 250 projets menés par l'équipe, plus de 100 000 spectateurs par soir pour JUL au Stade de France, plus de 15 ans de terrain.
 
 ${strip(O.secT)} ${O.secL}
 
