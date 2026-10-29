@@ -25,7 +25,13 @@ ${O.how.map(([h, p]) => `- ${h} : ${p}`).join("\n")}
 
 ${REFS3.fr.map((r) => `- ${r.t} (${r.yr}), ${r.cat}, ${r.lieu} : ${r.mis}.`).join("\n")}
 
-Voir [toutes les références](${site}/references), dont les fiches [Venue du Pape au Stade de France](${site}/references/venue-du-pape-stade-de-france) et [JO / JOP Paris 2024](${site}/references/jo-paris-2024).
+Voir [toutes les références](${site}/references). Études de cas détaillées :
+- [Venue du Pape au Stade de France (2026) : direction technique, régie générale, stage management, logistique des équipes](${site}/references/venue-du-pape-stade-de-france)
+- [JUL au Stade de France (mai 2026) : scène centrale, plus de 100 000 spectateurs par soir, direction technique](${site}/references/jul-stade-de-france)
+- [A$AP Rocky à l'Accor Arena (septembre 2026) : défilé AWGE intégré au live show](${site}/references/asap-rocky-accor-arena)
+- [Mylène Farmer, Nevermore au Stade de France (2024) : direction technique live, rigging, structures](${site}/references/mylene-farmer-nevermore)
+- [UNOC3 Nice (juin 2025) : Conférence des Nations unies sur l'Océan, direction technique multi-métiers](${site}/references/unoc3-nice)
+- [JO / JOP Paris 2024 : cérémonies d'ouverture](${site}/references/jo-paris-2024)
 
 ## Méthodes & partenariats
 
