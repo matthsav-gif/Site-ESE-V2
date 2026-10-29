@@ -34,10 +34,10 @@ export const METIERS = [
 ];
 
 export const HERO_SLIDES = [
-  { src: "/images/home/jo-para.jpg", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde" },
-  { src: "/images/home/show-coachella-screen.jpg", alt: "Festival outdoor, écran géant et foule au coucher du soleil" },
-  { src: "/images/home/chicago-navy-pier.jpg", alt: "Chicago Navy Pier au coucher du soleil, production événementielle internationale" },
-  { src: "/images/home/paris-sacre-coeur-fireworks.jpg", alt: "Sacré-Cœur de Paris avec feux d'artifice, vue aérienne nocturne" },
+  { src: "/images/home/jo-para.webp", alt: "Cérémonie des Jeux Paralympiques de Paris 2024, place de la Concorde" },
+  { src: "/images/home/show-coachella-screen.webp", alt: "Festival outdoor, écran géant et foule au coucher du soleil" },
+  { src: "/images/home/chicago-navy-pier.webp", alt: "Chicago Navy Pier au coucher du soleil, production événementielle internationale" },
+  { src: "/images/home/paris-sacre-coeur-fireworks.webp", alt: "Sacré-Cœur de Paris avec feux d'artifice, vue aérienne nocturne" },
 ];
 
 /* Mosaïque de la page Références (5 grappes) */
@@ -46,7 +46,7 @@ export const REFERENCES = [
     k: "Cérémonies", t: "JO / JOP Paris 2024",
     names: "Cérémonies d'ouverture des Jeux Olympiques et Paralympiques.",
     desc: "Direction technique et expertise multi-métiers sur le programme olympique.",
-    src: "/images/jo-para.jpg", variant: "navy", span: "span-7 tall",
+    src: "/images/jo-para.webp", variant: "navy", span: "span-7 tall",
     videos: [
       { id: "onP5-DKSbI4", title: "Cérémonie d'ouverture des Jeux Olympiques de Paris 2024" },
       { id: "7OuJXFhg5PA", title: "Cérémonie d'ouverture des Jeux Paralympiques de Paris 2024" },
@@ -56,13 +56,13 @@ export const REFERENCES = [
     k: "Tournées en stade", t: "Stadium tours",
     names: "Mylène Farmer · JUL · Ninho · AC/DC à l'Hippodrome de Longchamp.",
     desc: "Direction technique live, rigging et structures sur les plus grosses configurations stade et hippodrome.",
-    src: "/images/stade-concert.jpg", variant: "navy", span: "span-5 tall",
+    src: "/images/stade-concert.webp", variant: "navy", span: "span-5 tall",
   },
   {
     k: "Défilés & luxe", t: "Mode & beauté",
     names: "Louis Vuitton, collection femme oct. 2023 · Garnier Shortcut · Vichy Shortcut.",
     desc: "Direction technique et scénographie événementielle sur les formats luxe et beauté.",
-    src: "/images/direction-technique/luxe-louis-vuitton.jpg", variant: "taupe", span: "span-4",
+    src: "/images/direction-technique/luxe-louis-vuitton.webp", variant: "taupe", span: "span-4",
     videos: [
       { id: "4xA2rV1cXpM", title: "Louis Vuitton Men's Fall-Winter 2023, performance live de Rosalía" },
       { id: "Xn5qX2qbPdk", title: "Louis Vuitton Spring-Summer 2023 Fashion Show" },
@@ -73,13 +73,13 @@ export const REFERENCES = [
     k: "Sommets institutionnels", t: "UNOC Nice",
     names: "United Nations Ocean Conference.",
     desc: "Direction technique multi-métiers sur sommet institutionnel international.",
-    src: "/images/expertise-securite/unoc-nice.jpg", variant: "navy", span: "span-4",
+    src: "/images/expertise-securite/unoc-nice.webp", variant: "navy", span: "span-4",
   },
   {
     k: "DJ sets internationaux", t: "Clubbing & live",
     names: "Mochakk · Adriatique · Blondish.",
     desc: "Direction technique et régie live sur les formats shows internationaux, à Paris, en France et à l'international.",
-    src: "/images/direction-technique/dj-mochakk.jpg", variant: "taupe", span: "span-4",
+    src: "/images/direction-technique/dj-mochakk.webp", variant: "taupe", span: "span-4",
   },
 ];
 
@@ -98,13 +98,13 @@ export const METIER_DATA = {
     n: "01", eyebrow: "Métier · Direction technique",
     h1: "Direction technique.",
     sub: "De la rédaction du cahier des charges au pilotage sur site, ESE conçoit et opère la chaîne technique de vos productions : événementiel, live, scénographie.",
-    media: { label: "Direction technique stade, vue fly", src: "/images/dt-stade-fly.jpg", alt: "Vue depuis les ponts d'accroche d'un stade en production", variant: "navy" },
+    media: { label: "Direction technique stade, vue fly", src: "/images/dt-stade-fly.webp", alt: "Vue depuis les ponts d'accroche d'un stade en production", variant: "navy" },
     heroSlides: [
-      { src: "/images/direction-technique/dj-mochakk.jpg", alt: "DJ set scène outdoor, production technique sur grand format" },
-      { src: "/images/direction-technique/festival-nuit.jpg", alt: "Festival outdoor de nuit, scène plein écran et foule" },
-      { src: "/images/direction-technique/luxe-louis-vuitton.jpg", alt: "Événement institutionnel de prestige, scénographie luxe" },
-      { src: "/images/direction-technique/IMG_6167.JPG", alt: "Production technique événementielle, grande configuration" },
-      { src: "/images/direction-technique/img-6811.jpg", alt: "Production live, rig et structure scène" },
+      { src: "/images/direction-technique/dj-mochakk.webp", alt: "DJ set scène outdoor, production technique sur grand format" },
+      { src: "/images/direction-technique/festival-nuit.webp", alt: "Festival outdoor de nuit, scène plein écran et foule" },
+      { src: "/images/direction-technique/luxe-louis-vuitton.webp", alt: "Événement institutionnel de prestige, scénographie luxe" },
+      { src: "/images/direction-technique/IMG_6167.webp", alt: "Production technique événementielle, grande configuration" },
+      { src: "/images/direction-technique/img-6811.webp", alt: "Production live, rig et structure scène" },
     ],
     perimTitle: "Périmètre de la direction technique",
     perimLead: "La direction technique ESE couvre l'ensemble de la chaîne, de la pré-production à la livraison sur site.",
@@ -135,12 +135,12 @@ export const METIER_DATA = {
     n: "02", eyebrow: "Métier · Régie générale & stage management",
     h1: "Régie générale & stage management.",
     sub: "Coordination opérationnelle sur site (montage, exploitation, démontage), sur l'événementiel, la scène et le live.",
-    media: { label: "Régie sur site, scène en montage", src: "/images/regie-stade.jpg", alt: "Scène en cours de montage avec écrans, fin de mise en place", variant: "navy" },
+    media: { label: "Régie sur site, scène en montage", src: "/images/regie-stade.webp", alt: "Scène en cours de montage avec écrans, fin de mise en place", variant: "navy" },
     heroSlides: [
-      { src: "/images/regie-generale/show-usa-outdoor.jpg", alt: "Show outdoor USA, régie de grande production live" },
-      { src: "/images/regie-generale/club-grand-palais-dj.jpg", alt: "DJ set dans une venue Beaux-Arts, lasers et line arrays" },
-      { src: "/images/regie-generale/club-lasers.jpg", alt: "Club, lasers et écrans LED suspendus, foule dense" },
-      { src: "/images/regie-generale/stade-concert-pyro.jpg", alt: "Stade en concert, pyrotechnie or et foule immense" },
+      { src: "/images/regie-generale/show-usa-outdoor.webp", alt: "Show outdoor USA, régie de grande production live" },
+      { src: "/images/regie-generale/club-grand-palais-dj.webp", alt: "DJ set dans une venue Beaux-Arts, lasers et line arrays" },
+      { src: "/images/regie-generale/club-lasers.webp", alt: "Club, lasers et écrans LED suspendus, foule dense" },
+      { src: "/images/regie-generale/stade-concert-pyro.webp", alt: "Stade en concert, pyrotechnie or et foule immense" },
     ],
     perimTitle: "Périmètre de la régie générale",
     perimLead: "ESE assure la coordination opérationnelle de la production sur site, depuis l'arrivée sur le lieu jusqu'à la restitution finale.",
@@ -171,12 +171,12 @@ export const METIER_DATA = {
     n: "03", eyebrow: "Métier · Expertise sécurité",
     h1: "Expertise sécurité, ERP & autorités.",
     sub: "Notices de sécurité et accompagnement face aux autorités, par un expert événementiel, pas un bureau de contrôle.",
-    media: { label: "Public en stade, enjeu ERP", src: "/images/stade-foule.jpg", alt: "Tribunes et parterre combles au Stade de France lors d'un concert, enjeu de sécurité du public", variant: "navy" },
+    media: { label: "Public en stade, enjeu ERP", src: "/images/stade-foule.webp", alt: "Tribunes et parterre combles au Stade de France lors d'un concert, enjeu de sécurité du public", variant: "navy" },
     heroSlides: [
-      { src: "/images/expertise-securite/arena.jpg", alt: "Arena en configuration événementielle, ERP de type L" },
-      { src: "/images/expertise-securite/festival-rigging.jpg", alt: "Rigging et line array sur une scène de festival, sécurité structure" },
-      { src: "/images/expertise-securite/jul-velodrome-truss.jpg", alt: "JUL Vélodrome, truss et structure scène, sécurité ERP" },
-      { src: "/images/expertise-securite/unoc-nice.jpg", alt: "United Nations Ocean Conference, sommet institutionnel international" },
+      { src: "/images/expertise-securite/arena.webp", alt: "Arena en configuration événementielle, ERP de type L" },
+      { src: "/images/expertise-securite/festival-rigging.webp", alt: "Rigging et line array sur une scène de festival, sécurité structure" },
+      { src: "/images/expertise-securite/jul-velodrome-truss.webp", alt: "JUL Vélodrome, truss et structure scène, sécurité ERP" },
+      { src: "/images/expertise-securite/unoc-nice.webp", alt: "United Nations Ocean Conference, sommet institutionnel international" },
     ],
     qualif: {
       big: "Une culture de la prévention.",
@@ -189,7 +189,7 @@ export const METIER_DATA = {
     perimLead: "",
     perim: [
       "Notice de sécurité ERP événementiel (types CTS, PA, L, T).",
-      "Dossier d'autorisation préfectorale, mairie, DOET.",
+      "Dossier d'autorisation préfectorale et mairie.",
       "Accompagnement en commission de sécurité.",
       "Notice ERP de transformation de site et de lieu culturel.",
       "Audit de gouvernance sécurité d'organisation.",
@@ -197,7 +197,7 @@ export const METIER_DATA = {
     ],
     opsTitle: "Interlocuteurs",
     opsLead: "ESE est l'interface technique des opérateurs auprès des autorités, sur l'ensemble des dossiers ERP événementiels et culturels :",
-    ops: ["Préfecture", "Mairie", "Commission de sécurité", "SDIS", "DOET"],
+    ops: ["Préfecture", "Mairie", "Commission de sécurité", "SDIS"],
     model: [
       "Cela peut être une notice et un passage en commission sur une seule opération. Ou un accompagnement long : la gouvernance sécurité d'un site, le suivi d'un festival sur plusieurs éditions, un lieu culturel qui se transforme.",
       "Dans tous les cas, ESE reste l'interlocuteur technique de l'opérateur face aux autorités : un appui d'expert qui connaît le terrain, pas un contrôle de plus.",

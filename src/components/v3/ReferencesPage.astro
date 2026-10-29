@@ -22,9 +22,9 @@ const tx = en ? {
   l: "Nous intervenons aussi sur des événements de moyenne envergure, des lancements, des opérations confidentielles et des renforts ponctuels. Ces missions ne figurent pas toutes ici, mais elles font notre quotidien.",
 };
 ---
-<BaseLayout title={S.title} description={S.description} lang={lang} ogImage="/images/jo-para.jpg">
+<BaseLayout title={S.title} description={S.description} lang={lang} ogImage="/images/jo-para.webp">
   <section class="hero real" style="min-height:72vh">
-    <div class="bg"><img src="/images/refs/stade-montage.jpg" alt="" fetchpriority="high" /></div>
+    <div class="bg"><img src="/images/refs/stade-montage.webp" alt="" fetchpriority="high" /></div>
     <div class="wrap in"><h1 class="hl" set:html={dt(tx.h1)} />
       <div class="side">{tx.side.map((s) => <>{s}<br /></>)}<small>{tx.small}</small></div></div>
   </section>
@@ -41,7 +41,7 @@ const tx = en ? {
     </div>
     <ul class="impact-list rv">{I.items.map((x) => <li>{x}</li>)}</ul>
   </div></section>
-  <Poster kick={tx.k} title={tx.t} sub={tx.s} img="/images/v3/bw_livrer.jpg" v="b" alt="" flip={true}>
+  <Poster kick={tx.k} title={tx.t} sub={tx.s} img="/images/v3/bw_livrer.webp" v="b" alt="" flip={true}>
     <p class="lede">{tx.l}</p>
     <div class="ctas"><a href={`${b}/contact`} class="btn btn-ink">{L.nav.cta} →</a></div>
   </Poster>

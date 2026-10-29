@@ -63,9 +63,9 @@ const tx = en ? {
 const faq = FAQ3[lang].map(([q, a]) => ({ q, a }));
 const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) };
 ---
-<BaseLayout title={S.title} description={S.description} lang={lang} ogImage="/images/v3/bw_hero.jpg" schema={[faqLd]}>
+<BaseLayout title={S.title} description={S.description} lang={lang} ogImage="/images/v3/bw_hero.webp" schema={[faqLd]}>
   <section class="hero">
-    <div class="bg"><img src={I + "bw_hero.jpg"} alt={en ? "Empty arena during load-in, truss towers and hanging speakers" : "Arène vide en cours de montage, tours de structure et enceintes suspendues"} fetchpriority="high" /></div>
+    <div class="bg"><img src={I + "bw_hero.webp"} alt={en ? "Empty arena during load-in, truss towers and hanging speakers" : "Arène vide en cours de montage, tours de structure et enceintes suspendues"} fetchpriority="high" /></div>
     <div class="wrap in">
       <div class="h1wrap"><p class="kick hero-kick">{en ? "Event technical production" : "Production technique événementielle"}</p>
       <h1 class="hl" set:html={dt(tx.h1)}></h1>
@@ -91,7 +91,7 @@ const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity
     </div>
   </section>
 
-  <Poster kick={tx.p1k} title={tx.p1t} sub={tx.p1s} img={I + "bw_truss.jpg"} v="a" alt="" top={tx.top} tag={tx.tag}>
+  <Poster kick={tx.p1k} title={tx.p1t} sub={tx.p1s} img={I + "bw_truss.webp"} v="a" alt="" top={tx.top} tag={tx.tag}>
     <p class="lede">{tx.p1l}</p>
     <Keys items={tx.p1keys} title={L.keysTitle} />
   </Poster>
@@ -134,12 +134,12 @@ const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity
     </div>
   </section>
 
-  <Poster kick={tx.ak} title={tx.at} sub={tx.as} img={I + "bw_crew.jpg"} v="b" alt="" flip={true}>
+  <Poster kick={tx.ak} title={tx.at} sub={tx.as} img={I + "bw_crew.webp"} v="b" alt="" flip={true}>
     <div class="five rv">{L.temps.map(([t, n]) => <a href={`${b}/methodes-partenariats#t${n}`}><b>{n}</b><strong>{t}</strong></a>)}</div>
     <div class="ctas"><a href={`${b}/methodes-partenariats`} class="arrow">{tx.alink} <i>→</i></a></div>
   </Poster>
 
-  <Poster kick={tx.ek} title={tx.et} sub={tx.es} img={I + "bw_rg.jpg"} v="c" alt="" tag={tx.etag}>
+  <Poster kick={tx.ek} title={tx.et} sub={tx.es} img={I + "bw_rg.webp"} v="c" alt="" tag={tx.etag}>
     <Keys items={tx.ekeys} title={L.keysTitle} />
     <div class="ctas"><a href={`${b}/qui-sommes-nous`} class="arrow">{tx.elink} <i>→</i></a></div>
     <Strip slot="strip" left={L.stripBrand} />

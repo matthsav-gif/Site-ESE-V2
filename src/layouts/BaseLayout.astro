@@ -1,4 +1,5 @@
 ---
+import fs from "node:fs";
 import "../styles/ese.css";
 import "../styles/legacy.css";
 import Header from "../components/Header.astro";
@@ -7,7 +8,7 @@ import Footer from "../components/Footer.astro";
 const {
   title = "ESE · Event & Safety Engineering",
   description = "Société d'ingénierie pour la production technique événementielle.",
-  ogImage = "/images/jo-para.jpg",
+  ogImage = "/images/jo-para.webp",
   schema = [],
   type = "website",
   lang = "fr",
@@ -17,11 +18,16 @@ const site = "https://ese-techsolutions.com";
 const canonical = new URL(Astro.url.pathname, site).href;
 // Versions FR / EN de la même page (pas d'équivalent anglais pour les pages légales FR)
 const FR_ONLY = ["/mentions-legales", "/confidentialite"];
+// Rubriques sans version anglaise : pas de hreflang ni de lien de langue vers une page inexistante
+const FR_ONLY_PREFIX = ["/journal"];
 const pth = Astro.url.pathname.replace(/\/$/, "") || "/";
 const frPath = pth === "/en" ? "/" : pth.replace(/^\/en(?=\/)/, "");
-const hasEn = !FR_ONLY.includes(frPath) && !frPath.startsWith("/guides");
+const hasEn = !FR_ONLY.includes(frPath) && !frPath.startsWith("/guides") && !FR_ONLY_PREFIX.some((x) => frPath.startsWith(x));
 const enPath = frPath === "/" ? "/en" : "/en" + frPath;
-const ogImageAbs = new URL(ogImage, site).href;
+// Réseaux sociaux : certains ne lisent pas le WebP, on sert l'original JPEG/PNG quand il existe.
+const ogBase = ogImage.replace(/\.webp$/, "");
+const ogFile = [".jpg", ".jpeg", ".png", ".JPG"].map((x) => ogBase + x).find((p) => fs.existsSync("public" + p)) || ogImage;
+const ogImageAbs = new URL(ogFile, site).href;
 
 // --- Données structurées (SEO + lisibilité par les IA) ---
 const orgLd = {
@@ -32,7 +38,7 @@ const orgLd = {
   alternateName: "ESE",
   url: site,
   logo: `${site}/logo-ese.png`,
-  image: `${site}/images/jo-para.jpg`,
+  image: `${site}/images/jo-para.webp`,
   description:
     "Société d'ingénierie pour la production technique événementielle. Direction technique, régie générale et expertise sécurité ERP, sur les productions live, événementielles et institutionnelles.",
   slogan: "Société d'ingénierie pour la production technique événementielle.",

@@ -21,7 +21,7 @@ const count = `${String(idx + 1).padStart(2, "0")} / ${String(REFS3[lang].length
     {x.chaps.map(([n, t, p], i) => (
       <section class="chap rv"><h2><b>{n}</b>{t}</h2><div><p>{p}</p>
         {i === 2 && F.videos && <div class="videos">{F.videos.map(([id, k]) => <a class="video" href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener"><img src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" /><span>{x.v[k]}</span></a>)}</div>}
-        {i === 2 && F.gallery && <div class="gallery">{F.gallery.map((g) => <img src={`/images/refs/${g}.jpg`} alt="" loading="lazy" decoding="async" />)}</div>}
+        {i === 2 && F.gallery && <div class="gallery">{F.gallery.map((g) => <img src={`/images/refs/${g}.webp`} alt="" loading="lazy" decoding="async" />)}</div>}
       </div></section>
     ))}
     <Strip left={en ? "ESE — References" : "ESE — Références"} count={count} next={nxt && nxt.slug !== slug ? `${b}/references/${nxt.slug}` : `${b}/references`} />
