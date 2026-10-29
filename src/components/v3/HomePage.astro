@@ -8,6 +8,7 @@ import Strip from "./Strip.astro";
 import ContactBanner from "../ContactBanner.astro";
 import Offre from "./Offre.astro";
 import SecuDiff from "./SecuDiff.astro";
+import AvisGoogle from "./AvisGoogle.astro";
 import { T, METIERS3, REFS3, SEO3, FAQ3, dt } from "../../data/v3.js";
 
 const { lang = "fr" } = Astro.props;
@@ -145,5 +146,6 @@ const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity
     <Strip slot="strip" left={L.stripBrand} />
   </Poster>
 
+  <AvisGoogle lang={lang} />
   <ContactBanner lang={lang} />
 </BaseLayout>

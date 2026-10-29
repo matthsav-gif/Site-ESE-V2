@@ -540,3 +540,14 @@ button.ref{width:100%;text-align:left;background:none;border:0;border-bottom:1px
 .guide li{margin:6px 0;line-height:1.6}
 .guide-cta{margin-top:44px}
 .guide-rel{margin-top:22px;font-size:15px}
+/* Avis Google */
+.avis-g{padding-bottom:72px}
+.avis-score{margin-top:22px;font:500 13px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.avis-score b{font-size:22px;color:var(--ink)}
+.avis-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+.avis{background:#fff;border:1px solid var(--line);padding:24px 22px;margin:0;display:flex;flex-direction:column;gap:12px}
+.avis .stars{color:var(--blue);letter-spacing:.12em;font-size:16px}
+.avis blockquote{margin:0;font-size:16px;line-height:1.55;color:var(--ink)}
+.avis figcaption{margin-top:auto;font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.avis-links{margin-top:26px;display:flex;gap:28px;flex-wrap:wrap}
+@media (max-width:980px){.avis-list{grid-template-columns:1fr}}

@@ -1,0 +1,34 @@
+---
+// Bloc « Avis Google » : masqué tant qu'aucun avis de 4 étoiles et plus n'existe ; se remplit tout seul (api/avis.js).
+const { lang = "fr" } = Astro.props;
+const en = lang === "en";
+const tx = en
+  ? { k: "Google reviews", t: "What our clients say", all: "See all reviews on Google", add: "Leave a review" }
+  : { k: "Avis Google", t: "Ce qu'en disent nos clients", all: "Voir tous les avis sur Google", add: "Laisser un avis" };
+---
+<section class="poster avis-g" id="avis-google" hidden data-lang={lang}>
+  <div class="wrap" style="display:block">
+    <p class="kick">{tx.k}</p>
+    <h2 class="hl md" style="margin-top:30px">{tx.t}<span class="nw"><span class="dot" aria-hidden="true"></span></span></h2>
+    <p class="avis-score"></p>
+    <div class="avis-list"></div>
+    <p class="avis-links"><a class="arrow avis-all" target="_blank" rel="noopener">{tx.all} <i>↗</i></a> <a class="arrow" href="https://g.page/r/CSgrdAaF2DWWEBI/review" target="_blank" rel="noopener">{tx.add} <i>↗</i></a></p>
+  </div>
+</section>
+<script is:inline>
+(function(){
+  var s=document.getElementById('avis-google'); if(!s) return;
+  var lang=s.getAttribute('data-lang');
+  fetch('/api/avis?lang='+lang).then(function(r){return r.ok?r.json():null}).then(function(d){
+    if(!d||!d.reviews||!d.reviews.length) return;
+    var esc=function(t){var e=document.createElement('div');e.textContent=t;return e.innerHTML;};
+    var star=function(n){return '★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n);};
+    if(d.rating) s.querySelector('.avis-score').innerHTML='<b>'+String(d.rating).replace('.',lang==='en'?'.':',')+'</b> / 5 · '+d.count+(lang==='en'?' Google reviews':' avis Google');
+    s.querySelector('.avis-list').innerHTML=d.reviews.slice(0,6).map(function(r){
+      return '<figure class="avis"><p class="stars" aria-label="'+r.rating+' / 5">'+star(r.rating)+'</p><blockquote>'+esc(r.text)+'</blockquote><figcaption>'+(r.authorUri?'<a href="'+r.authorUri+'" target="_blank" rel="noopener">'+esc(r.author)+'</a>':esc(r.author))+(r.when?' · '+esc(r.when):'')+'</figcaption></figure>';
+    }).join('');
+    var a=s.querySelector('.avis-all'); if(d.url) a.href=d.url; else a.remove();
+    s.hidden=false;
+  }).catch(function(){});
+})();
+</script>
