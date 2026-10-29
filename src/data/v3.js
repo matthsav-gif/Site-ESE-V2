@@ -368,7 +368,7 @@ export const FICHES = {
   },
   "unoc3-nice": {
     img: "/images/refs/unoc-parvis.jpg", seo: "unoc",
-    gallery: ["unoc-implantation", "unoc-baleine-ifremer"],
+    gallery: ["unoc-baleine-ifremer"],
     credits: { fr: "Photo de la conférence dans La Baleine : Olivier Dugornay, Ifremer, licence CC BY 4.0.", en: "Photo of the talk inside La Baleine: Olivier Dugornay, Ifremer, CC BY 4.0 licence." },
     fr: { alt: "Parvis du Palais des Expositions de Nice pendant la Conférence des Nations unies sur l'Océan", k: "Étude de cas · R-05", h1: "UNOC3<br>Nice",
       facts: [["Événement", "3e Conférence des Nations unies sur l'Océan, espace ouvert au public"], ["Lieu et date", "Palais des Expositions Nice Acropolis · 1er au 13 juin 2025"], ["Organisateur", "Ministère de l'Europe et des Affaires étrangères"], ["Mission ESE", "Régie générale · direction technique · direction d'exploitation · direction sûreté · risk management"]],
