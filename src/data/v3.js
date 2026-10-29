@@ -202,6 +202,7 @@ export const METIER_V3 = {
 
 export const REFS3 = {
   fr: [
+    {"ms": ["direction-technique", "expertise-securite"], "yr": "2026", "t": "NFL Paris Game", "cat": "Match NFL et fan experience", "f": "live", "lieu": "Stade de France · Champ-de-Mars · Hail Mary au Petit Pont · octobre 2026", "mis": "Direction technique · dossier de sécurité", "img": ""},
     {"slug": "venue-du-pape-stade-de-france", "ms": ["direction-technique", "regie-generale", "stage-management"], "yr": "2026", "t": "Venue du Pape", "cat": "Cérémonie", "f": "ceremonie", "lieu": "Stade de France · Saint-Denis", "mis": "Direction technique · régie générale · stage management · logistique des équipes", "img": "/images/refs/pape-tribunes.webp"},
     {"slug": "asap-rocky-accor-arena", "ms": ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], "yr": "2026", "t": "A$AP Rocky", "cat": "Défilé AWGE + concert", "f": "concert", "lieu": "Accor Arena (Bercy) · Paris", "mis": "Direction technique · régie générale · stage management · design lumière", "img": "/images/refs/asap-concert.webp"},
     {"ms": ["direction-technique", "design-lumiere"], "yr": "2025", "t": "BSK", "cat": "Concerts en salle", "f": "concert", "lieu": "Le Trianon · L'Élysée Montmartre · Paris", "mis": "Direction technique · design lumière", "img": ""},
@@ -222,6 +223,7 @@ export const REFS3 = {
     {"ms": ["direction-technique"], "yr": "", "t": "VivaTech", "cat": "Salon international", "f": "institutionnel", "lieu": "Paris · stands et espaces de marques", "mis": "Direction technique", "img": ""},
   ],
   en: [
+    {"ms": ["direction-technique", "expertise-securite"], "yr": "2026", "t": "NFL Paris Game", "cat": "NFL game and fan experience", "f": "live", "lieu": "Stade de France · Champ-de-Mars · Hail Mary at Petit Pont · October 2026", "mis": "Technical direction · safety file", "img": ""},
     {"slug": "venue-du-pape-stade-de-france", "ms": ["direction-technique", "regie-generale", "stage-management"], "yr": "2026", "t": "Papal visit", "cat": "Ceremony", "f": "ceremonie", "lieu": "Stade de France · Saint-Denis", "mis": "Technical direction · production management · stage management · crew logistics", "img": "/images/refs/pape-tribunes.webp"},
     {"slug": "asap-rocky-accor-arena", "ms": ["direction-technique", "regie-generale", "stage-management", "design-lumiere"], "yr": "2026", "t": "A$AP Rocky", "cat": "AWGE fashion show + concert", "f": "concert", "lieu": "Accor Arena (Bercy) · Paris", "mis": "Technical direction · production management · stage management · lighting design", "img": "/images/refs/asap-concert.webp"},
     {"ms": ["direction-technique", "design-lumiere"], "yr": "2025", "t": "BSK", "cat": "Venue concerts", "f": "concert", "lieu": "Le Trianon · L'Élysée Montmartre · Paris", "mis": "Technical direction · lighting design", "img": ""},
