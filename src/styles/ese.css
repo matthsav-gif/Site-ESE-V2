@@ -382,7 +382,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   .perim-h{flex-direction:column;align-items:flex-start}
   .qualif{grid-template-columns:1fr}
   .next{grid-template-columns:1fr}.next a+a{border-left:0;border-top:1px solid var(--ink);padding-left:0;text-align:left}
-  .facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(3){padding-left:0}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}.facts strong{overflow-wrap:break-word;hyphens:auto}.facts div:nth-child(2){border-right:0}.facts div:nth-child(3){padding-left:0}
   .facts div:nth-child(n+3){border-top:1px solid var(--line)}
   .chap{grid-template-columns:1fr;gap:20px;padding:48px 0}
   .videos{grid-template-columns:1fr}
@@ -551,3 +551,6 @@ button.ref{width:100%;text-align:left;background:none;border:0;border-bottom:1px
 .avis figcaption{margin-top:auto;font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 .avis-links{margin-top:26px;display:flex;gap:28px;flex-wrap:wrap}
 @media (max-width:980px){.avis-list{grid-template-columns:1fr}}
+
+/* Très petits écrans : les titres longs restent dans la page */
+@media (max-width:340px){.ref h3,.ref h2{font-size:30px}.phero h1{font-size:40px}}
