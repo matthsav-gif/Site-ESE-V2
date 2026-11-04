@@ -12,12 +12,13 @@ const {
   schema = [],
   type = "website",
   lang = "fr",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1",
 } = Astro.props;
 
 const site = "https://ese-techsolutions.com";
 const canonical = new URL(Astro.url.pathname, site).href;
 // Versions FR / EN de la même page (pas d'équivalent anglais pour les pages légales FR)
-const FR_ONLY = ["/mentions-legales", "/confidentialite"];
+const FR_ONLY = ["/mentions-legales", "/confidentialite", "/404"];
 // Rubriques sans version anglaise : pas de hreflang ni de lien de langue vers une page inexistante
 const FR_ONLY_PREFIX = ["/journal"];
 const pth = Astro.url.pathname.replace(/\/$/, "") || "/";
@@ -111,7 +112,7 @@ const allSchema = [orgLd, siteLd, ...schema];
     {hasEn && <link rel="alternate" hreflang="fr" href={hrefLang(frPath)} />}
     {hasEn && <link rel="alternate" hreflang="en" href={hrefLang(enPath)} />}
     {hasEn && <link rel="alternate" hreflang="x-default" href={hrefLang(frPath)} />}
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="robots" content={robots} />
     <meta name="author" content="Event & Safety Engineering" />
     <meta name="generator" content="Astro" />
     <meta name="google-site-verification" content="7Ttk_drz0BbWwr-MlAV7M9Qw7S00WJSDrVNGO26nFE4" />
