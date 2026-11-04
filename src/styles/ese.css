@@ -5,7 +5,7 @@
    ========================================================== */
 :root{
   color-scheme:light;
-  --paper:#F3F2EE; --paper-2:#E9E8E3; --ink:#0F0F0F; --ink-2:#4A4A46; --ink-3:#8A8A84;
+  --paper:#F3F2EE; --paper-2:#E9E8E3; --ink:#0F0F0F; --ink-2:#4A4A46; --ink-3:#6C6C66;
   --night:#0B0B0C; --blue:#1C45F2; --line:rgba(15,15,15,.18); --line-d:rgba(243,242,238,.2);
   --sans:"Archivo",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
   --pad:64px; --max:1440px;
@@ -533,7 +533,7 @@ button.ref{width:100%;text-align:left;background:none;border:0;border-bottom:1px
 /* Guides */
 .guide-head{padding-bottom:56px}
 .guide-answer{margin-top:40px;background:#151515;color:var(--paper);padding:26px 28px;max-width:860px}
-.guide-answer .label{color:#4f6dff;font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase}
+.guide-answer .label{color:#7d97ff;font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase}
 .guide-answer p:last-child{margin-top:12px;font-size:19px;line-height:1.5}
 .guide h2:first-child{margin-top:0}
 .guide ol,.guide ul{color:var(--ink-2)}
