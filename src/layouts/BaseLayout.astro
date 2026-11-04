@@ -24,6 +24,8 @@ const pth = Astro.url.pathname.replace(/\/$/, "") || "/";
 const frPath = pth === "/en" ? "/" : pth.replace(/^\/en(?=\/)/, "");
 const hasEn = !FR_ONLY.includes(frPath) && !FR_ONLY_PREFIX.some((x) => frPath.startsWith(x));
 const enPath = frPath === "/" ? "/en" : "/en" + frPath;
+// Même forme d'URL que la balise canonical et le sitemap (barre finale)
+const hrefLang = (p) => new URL(p.endsWith("/") ? p : p + "/", site).href;
 // Réseaux sociaux : certains ne lisent pas le WebP, on sert l'original JPEG/PNG quand il existe.
 const ogBase = ogImage.replace(/\.webp$/, "");
 const ogFile = [".jpg", ".jpeg", ".png", ".JPG"].map((x) => ogBase + x).find((p) => fs.existsSync("public" + p)) || ogImage;
@@ -106,9 +108,9 @@ const allSchema = [orgLd, siteLd, ...schema];
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {hasEn && <link rel="alternate" hreflang="fr" href={new URL(frPath, site).href} />}
-    {hasEn && <link rel="alternate" hreflang="en" href={new URL(enPath, site).href} />}
-    {hasEn && <link rel="alternate" hreflang="x-default" href={new URL(frPath, site).href} />}
+    {hasEn && <link rel="alternate" hreflang="fr" href={hrefLang(frPath)} />}
+    {hasEn && <link rel="alternate" hreflang="en" href={hrefLang(enPath)} />}
+    {hasEn && <link rel="alternate" hreflang="x-default" href={hrefLang(frPath)} />}
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="author" content="Event & Safety Engineering" />
     <meta name="generator" content="Astro" />
