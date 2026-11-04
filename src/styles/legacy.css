@@ -32,6 +32,7 @@
 .kcell{padding:28px 26px;border-right:1px solid rgba(243,242,238,.2)}
 .kcell:last-child{border-right:0}
 .kcell *,.section .kcell p{color:var(--paper)}
+.section .kcell h3{font:inherit;font-weight:700;text-transform:none;margin:0}
 
 /* Bandeau contact SOCLE® */
 .cband{background:var(--night);color:var(--paper);padding:88px 0}

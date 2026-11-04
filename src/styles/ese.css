@@ -316,7 +316,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .ftr .big{font-variation-settings:"wdth" 72;font-weight:850;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(70px,13vw,230px);line-height:.8;white-space:nowrap}
 .ftr .big .dot{width:.15em;height:.15em}
 .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-top:70px;padding-top:34px;border-top:1px solid var(--line-d)}
-.ft-grid h5{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,242,238,.5);margin-bottom:18px}
+.ft-grid h2{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,242,238,.5);margin-bottom:18px}
 .ft-grid a{display:block;margin-bottom:10px}
 .ft-grid a:hover{color:#7d97ff}
 .ft-grid p{color:rgba(243,242,238,.75);max-width:36ch}
