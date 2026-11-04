@@ -67,7 +67,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .lockup b{display:block;font-weight:800;font-size:30px;letter-spacing:-.01em;line-height:.9}
 .lockup small{display:block;font:500 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;margin-top:7px}
 .hdr .right{justify-self:end;display:flex;align-items:center;gap:22px}
-.hdr .lang{font:500 11.5px/1 var(--mono);letter-spacing:.16em}
+.hdr .lang{font:500 11.5px/1 var(--mono);letter-spacing:.16em;padding:7px 4px;margin:-7px -4px}
 .menu-btn{display:none;font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;align-items:center;gap:10px}
 .menu-btn i{display:block;width:22px;height:2px;background:currentColor;box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor}
 .hdr.on-dark{background:var(--night);color:var(--paper);border-color:var(--night)}
