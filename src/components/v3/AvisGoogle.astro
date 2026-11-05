@@ -14,7 +14,7 @@ const stars = (n) => "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 
   <div class="wrap" style="display:block">
     <p class="kick">{tx.k}</p>
     <h2 class="hl md" style="margin-top:30px">{tx.t}<span class="nw"><span class="dot" aria-hidden="true"></span></span></h2>
-    <p class="avis-score"><b>{note}</b> / 5 · {AVIS.count} {tx.n}</p>
+    <p class="avis-score"><b>{note}</b>{` / 5 · ${AVIS.count} ${tx.n}`}</p>
     <div class="avis-list">
       {AVIS.reviews.map((r) => (
         <figure class="avis">
