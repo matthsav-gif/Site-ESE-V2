@@ -43,6 +43,11 @@
       "source": "/beat-per-light",
       "destination": "https://www.beatperlight.com",
       "permanent": false
+    },
+    {
+      "source": "/cobel",
+      "destination": "https://www.cobel.fr/",
+      "permanent": false
     }
   ]
 }
