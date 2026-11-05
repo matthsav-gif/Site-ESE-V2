@@ -33,6 +33,16 @@
       ],
       "destination": "https://ese-techsolutions.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/corestage",
+      "destination": "https://corestage.fr",
+      "permanent": false
+    },
+    {
+      "source": "/beat-per-light",
+      "destination": "https://www.beatperlight.com",
+      "permanent": false
     }
   ]
 }
