@@ -58,7 +58,7 @@ const faq = FAQ3[lang];
           <div class="f"><label for="f-msg">{tx.f.msg}</label><textarea id="f-msg" name="message" maxlength="3000" placeholder={tx.f.ph}></textarea></div>
           <input type="hidden" name="_subject" value={en ? "Quote request (website, EN)" : "Demande de devis (site ESE)"} />
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <div class="send"><small id="fmsg">{tx.f.note}</small><button class="btn btn-blue" type="submit">{tx.f.send} →</button></div>
+          <div class="send"><small id="fmsg" aria-live="polite">{tx.f.note}</small><button class="btn btn-blue" type="submit">{tx.f.send} →</button></div>
         </form>
         <p class="label" style="margin-top:14px;color:var(--ink-3);text-transform:none;letter-spacing:.02em">{tx.f.rgpd}</p>
       </div>
@@ -82,29 +82,46 @@ const faq = FAQ3[lang];
   for (const t of (params.get("type") || "").split(",")) { if (TYPE_MAP[t] !== undefined) { const r = document.getElementById("ty" + TYPE_MAP[t]); if (r) r.checked = true; } }
   const fq = params.get("format") || params.get("type");
   if (fq && FORMAT_MAP[fq] !== undefined) { const r = document.getElementById("fo" + FORMAT_MAP[fq]); if (r) r.checked = true; }
+  let sending = false;
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (sending) return;
     const prenom = document.getElementById("f-prenom"), nom = document.getElementById("f-nom"), email = document.getElementById("f-email");
     const checked = [...form.querySelectorAll('input[name="prestations"]:checked')].map((c) => c.value);
     const type = checked.length ? { value: checked.join(", ") } : null;
     let ok = true;
-    [prenom, nom].forEach((el) => { const bad = !el.value.trim(); el.closest(".f").classList.toggle("bad", bad); if (bad) ok = false; });
-    const badMail = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value); email.closest(".f").classList.toggle("bad", badMail); if (badMail) ok = false;
+    [prenom, nom].forEach((el) => { const bad = !el.value.trim(); el.closest(".f").classList.toggle("bad", bad); el.setAttribute("aria-invalid", String(bad)); if (bad) ok = false; });
+    const badMail = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value); email.closest(".f").classList.toggle("bad", badMail); email.setAttribute("aria-invalid", String(badMail)); if (badMail) ok = false;
     document.getElementById("err-projet").classList.toggle("is-hidden", !!type); if (!type) ok = false;
-    if (!ok) return;
+    if (!ok) {
+      // Le bouton est en bas du formulaire : on ramène sur le premier champ à corriger, sinon l'erreur reste hors écran.
+      const first = !type ? document.getElementById("ty0") : [prenom, nom, email].find((el) => el.getAttribute("aria-invalid") === "true");
+      first.closest(".f").scrollIntoView({ block: "center" });
+      first.focus({ preventScroll: true });
+      return;
+    }
     const showSuccess = () => {
       const t = type ? type.value : "";
       document.getElementById("sent-txt").textContent = lang === "en"
         ? `Thank you ${prenom.value.trim()}. Your request has been sent. ESE will reply within 2 working days.`
         : `Merci ${prenom.value.trim()}. Votre demande est bien partie. ESE vous répond sous 48 h ouvrées.`;
       form.classList.add("is-hidden");
-      document.getElementById("sent-note").classList.remove("is-hidden");
+      const note = document.getElementById("sent-note");
+      note.classList.remove("is-hidden");
+      note.scrollIntoView({ block: "center" });
     };
     const endpoint = form.dataset.endpoint;
     if (!endpoint) { showSuccess(); return; }
+    // Plusieurs prestations cochées : envoyées en un seul champ, pour qu'aucune ne se perde dans l'e-mail reçu.
+    const data = new FormData(form);
+    data.set("prestations", type.value);
+    const btn = form.querySelector('button[type="submit"]');
+    sending = true; btn.disabled = true;
+    const unlock = () => { sending = false; btn.disabled = false; };
     try {
-      const res = await fetch(endpoint, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
+      const res = await fetch(endpoint, { method: "POST", headers: { Accept: "application/json" }, body: data });
+      unlock();
       if (res.ok) { showSuccess(); window.va?.("event", { name: "Demande de devis envoyée", data: { prestations: type ? type.value.slice(0, 200) : "" } }); } else document.getElementById("fmsg").textContent = errMsg;
-    } catch (err) { document.getElementById("fmsg").textContent = errMsg; }
+    } catch (err) { unlock(); document.getElementById("fmsg").textContent = errMsg; }
   });
 </script>

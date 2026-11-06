@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { dt } from "../data/v3.js";
+---
+<BaseLayout title="Page introuvable · ESE" description="Cette page n'existe pas ou a été déplacée." robots="noindex, follow">
+  <section class="poster">
+    <div class="wrap" style="display:block">
+      <p class="kick">Erreur 404</p>
+      <h1 class="hl xl" style="margin-top:34px" set:html={dt("Cette page<br>n'existe pas")} />
+      <p class="sub wide" style="margin-top:30px">Elle a peut-être été déplacée. Repartez de l'accueil ou écrivez-nous.</p>
+      <p class="lede" style="margin-top:14px" lang="en">This page does not exist. <a href="/en" style="text-decoration:underline">English version</a>.</p>
+      <p style="display:flex;gap:26px;flex-wrap:wrap;margin-top:40px">
+        <a class="arrow" href="/">Accueil <i>→</i></a>
+        <a class="arrow" href="/references">Références <i>→</i></a>
+        <a class="arrow" href="/contact">Contact <i>→</i></a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

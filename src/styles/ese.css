@@ -5,7 +5,7 @@
    ========================================================== */
 :root{
   color-scheme:light;
-  --paper:#F3F2EE; --paper-2:#E9E8E3; --ink:#0F0F0F; --ink-2:#4A4A46; --ink-3:#8A8A84;
+  --paper:#F3F2EE; --paper-2:#E9E8E3; --ink:#0F0F0F; --ink-2:#4A4A46; --ink-3:#6C6C66;
   --night:#0B0B0C; --blue:#1C45F2; --line:rgba(15,15,15,.18); --line-d:rgba(243,242,238,.2);
   --sans:"Archivo",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
   --pad:64px; --max:1440px;
@@ -67,7 +67,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .lockup b{display:block;font-weight:800;font-size:30px;letter-spacing:-.01em;line-height:.9}
 .lockup small{display:block;font:500 10px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;margin-top:7px}
 .hdr .right{justify-self:end;display:flex;align-items:center;gap:22px}
-.hdr .lang{font:500 11.5px/1 var(--mono);letter-spacing:.16em}
+.hdr .lang{font:500 11.5px/1 var(--mono);letter-spacing:.16em;padding:7px 4px;margin:-7px -4px}
 .menu-btn{display:none;font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;align-items:center;gap:10px}
 .menu-btn i{display:block;width:22px;height:2px;background:currentColor;box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor}
 .hdr.on-dark{background:var(--night);color:var(--paper);border-color:var(--night)}
@@ -316,7 +316,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
 .ftr .big{font-variation-settings:"wdth" 72;font-weight:850;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(70px,13vw,230px);line-height:.8;white-space:nowrap}
 .ftr .big .dot{width:.15em;height:.15em}
 .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;margin-top:70px;padding-top:34px;border-top:1px solid var(--line-d)}
-.ft-grid h5{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,242,238,.5);margin-bottom:18px}
+.ft-grid h2{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,242,238,.5);margin-bottom:18px}
 .ft-grid a{display:block;margin-bottom:10px}
 .ft-grid a:hover{color:#7d97ff}
 .ft-grid p{color:rgba(243,242,238,.75);max-width:36ch}
@@ -382,7 +382,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;op
   .perim-h{flex-direction:column;align-items:flex-start}
   .qualif{grid-template-columns:1fr}
   .next{grid-template-columns:1fr}.next a+a{border-left:0;border-top:1px solid var(--ink);padding-left:0;text-align:left}
-  .facts{grid-template-columns:1fr 1fr}.facts div:nth-child(2){border-right:0}.facts div:nth-child(3){padding-left:0}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}.facts strong{overflow-wrap:break-word}.facts div:nth-child(2){border-right:0}.facts div:nth-child(3){padding-left:0}
   .facts div:nth-child(n+3){border-top:1px solid var(--line)}
   .chap{grid-template-columns:1fr;gap:20px;padding:48px 0}
   .videos{grid-template-columns:1fr}
@@ -533,7 +533,7 @@ button.ref{width:100%;text-align:left;background:none;border:0;border-bottom:1px
 /* Guides */
 .guide-head{padding-bottom:56px}
 .guide-answer{margin-top:40px;background:#151515;color:var(--paper);padding:26px 28px;max-width:860px}
-.guide-answer .label{color:#4f6dff;font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase}
+.guide-answer .label{color:#7d97ff;font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase}
 .guide-answer p:last-child{margin-top:12px;font-size:19px;line-height:1.5}
 .guide h2:first-child{margin-top:0}
 .guide ol,.guide ul{color:var(--ink-2)}
@@ -554,3 +554,7 @@ button.ref{width:100%;text-align:left;background:none;border:0;border-bottom:1px
 .avis figcaption{margin-top:auto;font:500 11px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 .avis-links{margin-top:26px;display:flex;gap:28px;flex-wrap:wrap}
 @media (max-width:980px){.avis-list{grid-template-columns:1fr}.avis:first-child{grid-column:auto}}
+
+/* Très petits écrans : les titres longs restent dans la page */
+@media (max-width:340px){.ref h3,.ref h2{font-size:30px}}
+@media (max-width:480px){.facts strong{font-size:19px}.facts div{padding-right:14px}.facts div+div{padding-left:14px}}

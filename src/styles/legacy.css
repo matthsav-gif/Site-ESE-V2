@@ -31,7 +31,15 @@
 .kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;background:#151515;color:var(--paper);margin-top:32px}
 .kcell{padding:28px 26px;border-right:1px solid rgba(243,242,238,.2)}
 .kcell:last-child{border-right:0}
-.kcell *{color:var(--paper)}
+.kcell *,.section .kcell p{color:var(--paper)}
+.section .kcell h3{font:inherit;font-weight:700;text-transform:none;margin:0}
+
+/* Bandeau contact SOCLE® */
+.cband{background:var(--night);color:var(--paper);padding:88px 0}
+.cband__inner{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;align-items:end}
+.cband .eyebrow{display:block;font:500 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;margin-bottom:22px}
+.cband h2{font-variation-settings:"wdth" 72;font-weight:850;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;font-size:clamp(32px,3.6vw,56px);color:#fff}
+.cband__meta{font:500 12px/2 var(--mono);letter-spacing:.06em}
 
 .legal{max-width:78ch}
 .legal h2{font-variation-settings:"wdth" 72;font-weight:850;text-transform:uppercase;font-size:clamp(26px,2.4vw,36px);line-height:1;margin:48px 0 14px;letter-spacing:-.015em}
@@ -58,7 +66,10 @@
   .phero__deco{width:64px;height:90px;top:30px}
   .split{grid-template-columns:1fr;gap:26px}
   .section{padding:64px 0}
+  .cband{padding:64px 0}
+  .cband__inner{grid-template-columns:1fr;gap:32px;align-items:start}
   .clist li{grid-template-columns:44px 1fr}
   .kcell{border-right:0;border-bottom:1px solid rgba(243,242,238,.2)}
 }
 .phero__grid > div{max-width:none!important}
+@media (max-width:340px){.phero h1{font-size:38px}}

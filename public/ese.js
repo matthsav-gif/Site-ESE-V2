@@ -2,11 +2,19 @@
 (function(){
   // Menu plein écran
   var ov=document.getElementById('ov');
-  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){ov.classList.add('open');b.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';});});
+  var opener=null;
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){opener=b;ov.classList.add('open');b.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';ov.querySelector('[data-close]').focus();});});
   document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',close);});
   ov.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',close);});
-  function close(){ov.classList.remove('open');document.body.style.overflow='';document.querySelectorAll('[data-open]').forEach(function(b){b.setAttribute('aria-expanded','false')});}
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  function close(){ov.classList.remove('open');document.body.style.overflow='';document.querySelectorAll('[data-open]').forEach(function(b){b.setAttribute('aria-expanded','false')});if(opener){opener.focus();opener=null;}}
+  document.addEventListener('keydown',function(e){
+    if(!ov.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    // Le clavier reste dans le menu tant qu'il est ouvert
+    if(e.key==='Tab'){var f=ov.querySelectorAll('a[href],button'),a=f[0],z=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}
+      else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
+  });
 
   // Apparition au défilement
   var rv=document.querySelectorAll('.rv');
