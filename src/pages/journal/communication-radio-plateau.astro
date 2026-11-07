@@ -1,0 +1,50 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+const faq = [
+  ["Comment juger la tenue d'un plateau pendant un show ?", "En écoutant la radio. Quand l'équipe est prête, les échanges sont courts, calmes et espacés : chacun sait quand parler et quand se taire. Quand la fréquence se remplit et que tout le monde veut exister dessus, les vraies informations se noient dans le bruit."],
+  ["Que faire quand la situation se tend en radio ?", "Ne pas parler plus fort. Reprendre une phrase simple, une consigne claire, et une personne qui tranche. La clarté remet la machine en route bien plus vite que l'autorité."],
+  ["Que faut-il transmettre à un régisseur ou un stage manager qui arrive en renfort ?", "L'essentiel pour être utile dès la première heure : la conduite, les contacts, les accès, les points sensibles et ce qu'on attend précisément de lui. Chez ESE, une intervention ponctuelle se prépare avec la même rigueur qu'une mission complète."],
+];
+---
+<GuidePage
+  label="Journal de terrain"
+  title="Une radio calme : comment se tient un plateau · ESE"
+  description="Communication radio, consignes, renforts : pourquoi un plateau se tient à la clarté plutôt qu'à la voix, et comment ESE prépare ce calme en amont, en régie générale et en stage management."
+  kicker="Journal de terrain · Novembre 2026"
+  h1="Une radio calme :<br>le plateau se tient en amont"
+  maj="2026-11-07"
+  answer="Un plateau ne se tient pas à la voix. Il se tient quand chacun sait quand parler, quand se taire et quand entrer en jeu, ce qui s'entend d'abord en radio. Ce calme se prépare en amont, dans les plannings, les interfaces, les briefs et les ordres d'intervention, y compris pour un renfort d'une journée. Une bonne régie se mesure au nombre de décisions qui n'ont plus besoin d'être prises le jour J."
+  faq={faq}
+  cta="Parler de votre plateau"
+  ctaHref="/contact?type=regie-generale"
+  related={[["Le régisseur général événementiel", "/guides/regisseur-general-evenementiel"], ["Le stage manager événementiel", "/guides/stage-manager-evenementiel"], ["Du plan au terrain : piloter, pas seulement planifier", "/journal/planning-pilotage-production"]]}
+>
+  <h2>Ce n'est pas celui qui parle le plus fort</h2>
+  <p>Au début, on croit qu'un plateau se tient à la voix : donner des consignes, être partout, rassurer tout le monde. Puis on regarde fonctionner une équipe rodée, et on voit autre chose. Un plateau respire à son rythme. Il y a des moments où tout le monde doit pouvoir avancer sans être interrompu, et des moments où un seul mot au bon instant évite une heure de retard.</p>
+  <p>Le métier consiste à sentir la différence. Sur les gros projets, du festival au stade, ce qui frappe le plus n'est pas la taille des structures : c'est le silence en radio quand tout tourne bien. Un silence de gens qui savent exactement ce qu'ils ont à faire, et à quel moment ils entrent en jeu.</p>
+
+  <h2>La radio dit presque tout</h2>
+  <p>On l'entend avant de voir quoi que ce soit. Quand ça va, les échanges sont courts, calmes, espacés. Quand ça se tend, la fréquence se remplit et l'information utile disparaît. Les régisseurs qui disent trois mots et relancent la machine ne sont pas plus autoritaires que les autres : ils sont plus clairs.</p>
+  <p>Sur une opération, nous regardons en premier :</p>
+  <ul>
+    <li>qui annonce, qui confirme, qui attend son tour ;</li>
+    <li>si les messages sont courts et compris du premier coup ;</li>
+    <li>si, en cas de tension, une phrase simple et une personne qui tranche reprennent la main.</li>
+  </ul>
+  <p>Une équipe qui se parle bien en radio est une équipe qui a compris le planning, les priorités et le rôle de chacun. C'est une chose que nous transmettons aux plus jeunes dès les premiers montages : un bon technicien s'entend avant de se voir.</p>
+
+  <h2>Le calme se prépare en amont</h2>
+  <p>Ce silence ne tombe pas du ciel. Il se construit dans les plannings, les interfaces, les briefs et les ordres d'intervention. Quand chacun sait quand et comment intervenir, le plateau se régule presque seul. Quand ce travail n'a pas été fait, tout le monde parle en même temps et plus personne n'entend rien.</p>
+  <p>C'est pour cela que la direction technique et la régie générale ne se jugent pas au nombre de décisions prises le jour J, mais au nombre de décisions qui n'ont plus besoin d'être prises.</p>
+
+  <h2>Un renfort se prépare aussi</h2>
+  <p>Un régisseur ou un stage manager qui arrive en renfort entre dans une équipe déjà lancée, avec ses habitudes, ses codes et son planning. Pour qu'il soit utile dès la première heure, il lui faut l'essentiel :</p>
+  <ul>
+    <li>la conduite ;</li>
+    <li>les contacts ;</li>
+    <li>les accès ;</li>
+    <li>les points sensibles ;</li>
+    <li>ce qu'on attend précisément de lui.</li>
+  </ul>
+  <p>Bien préparé, un renfort soulage tout de suite. Mal préparé, il ajoute une question de plus à une équipe déjà chargée. Chez ESE, une intervention ponctuelle se prépare avec la même rigueur qu'une mission complète : ce que nous cherchons sur chaque projet, c'est une équipe qui n'a pas besoin qu'on lui coure après. Et souvent, le meilleur indicateur de réussite reste une radio calme.</p>
+</GuidePage>

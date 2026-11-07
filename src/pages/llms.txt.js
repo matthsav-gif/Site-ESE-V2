@@ -56,6 +56,7 @@ Voir [toutes les références](${site}/references). Études de cas détaillées 
 - [Le stage manager événementiel : conduites, timing, coulisses](${site}/guides/stage-manager-evenementiel)
 
 ## Journal de terrain (retours d'exploitation)
+- [Une radio calme : comment se tient un plateau (communication radio, consignes, renforts)](${site}/journal/communication-radio-plateau)
 - [Météo et événement en plein air : qui décide d'arrêter, et sur quelle base](${site}/journal/meteo-evenement-plein-air)
 - [Note de calcul et design lumière : la technique se décide en amont](${site}/journal/note-de-calcul-design-lumiere-amont)
 - [Du plan au terrain : un planning ne pilote pas une production](${site}/journal/planning-pilotage-production)
