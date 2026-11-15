@@ -1,0 +1,55 @@
+---
+import GuidePage from "../../components/v3/GuidePage.astro";
+const faq = [
+  ["Pourquoi un plan d'implantation ne suffit-il pas pour un montage ?", "Parce qu'il dit où vont les choses, mais ni par où elles passent, ni dans quel ordre. Deux camions qui arrivent en même temps devant une seule porte, cela ne se voit pas sur un plan d'implantation. Il faut y ajouter un plan d'accès, un phasage des livraisons et des règles de circulation."],
+  ["Comment éviter de perdre la matinée du premier jour de montage ?", "En relisant la veille, avec les bonnes personnes, une feuille simple : qui ouvre le site, à quelle heure arrivent les camions, par quel accès et qui les accueille. Un retard du matin glisse sur l'après-midi, puis sur le lendemain : c'est la veille qu'il se prévient."],
+  ["Avec qui relire le plan d'accès et le phasage ?", "Avec ceux qui vont livrer. Ce sont eux qui voient le problème en premier : le gabarit d'un camion, l'ordre de déchargement, le temps passé au quai. Chez ESE, la régie générale commence avant le premier camion."],
+];
+---
+<GuidePage
+  label="Journal de terrain"
+  title="Accès, quai, premier jour : le montage se joue la veille · ESE"
+  description="Plan d'accès, phasage des livraisons, règles de circulation, feuille de la veille : comment ESE prépare le premier jour de montage pour que les camions ne s'attendent pas au quai."
+  kicker="Journal de terrain · Novembre 2026"
+  h1="Deux camions, une porte :<br>le montage se joue la veille"
+  maj="2026-11-15"
+  answer="Un plan d'implantation dit où vont les choses, pas par où elles passent ni dans quel ordre. Le premier jour de montage se perd souvent au portail ou au quai, quand les camions et les équipes attendent. La parade tient en deux outils : un plan d'accès avec phasage et règles de circulation, relu avec ceux qui livrent, et une feuille de la veille qui dit qui ouvre, quand arrivent les camions, par où et qui accueille. Pour ESE, la régie générale commence avant le premier camion."
+  faq={faq}
+  cta="Préparer votre montage"
+  ctaHref="/contact?type=regie-generale"
+  related={[["Le régisseur général événementiel", "/guides/regisseur-general-evenementiel"], ["La logistique staff, le métier invisible", "/journal/logistique-staff-evenementiel"], ["Du plan au terrain : piloter, pas seulement planifier", "/journal/planning-pilotage-production"]]}
+>
+  <h2>Sur le plan, tout était parfait</h2>
+  <p>Le décor et le son arrivent en même temps. Deux camions, une seule porte. Sur le plan, chaque élément avait sa place. Au quai, plus personne ne bouge : l'un attend que l'autre ait fini de décharger, les équipes attendent les deux.</p>
+  <p>Ce n'est pas une erreur de plan. Un plan d'implantation fait exactement ce qu'on lui demande : il dit où vont les choses. Il ne dit ni par où elles passent, ni dans quel ordre. Et c'est précisément là que se perd le temps d'un montage.</p>
+
+  <h2>Ce qu'on ajoute au plan d'implantation</h2>
+  <p>Pour qu'un site se monte sans embouteillage, nous complétons le plan d'implantation par trois documents qui parlent du mouvement plutôt que de la position :</p>
+  <ul>
+    <li><strong>un plan d'accès</strong> : par où entrent les camions, où ils déchargent et par où ils ressortent ;</li>
+    <li><strong>un phasage</strong> : qui livre à quel moment, pour que deux corps de métier ne se présentent pas en même temps devant la même porte ;</li>
+    <li><strong>des règles de circulation</strong> : sens de passage, zones de déchargement, cheminement des équipes et du matériel.</li>
+  </ul>
+  <p>Ces documents ne valent que s'ils sont relus avec ceux qui vont livrer. Ce sont eux qui voient le problème en premier : un camion qui ne passe pas, un ordre de déchargement impossible, un quai qui ne peut pas recevoir deux véhicules à la fois.</p>
+
+  <h2>« Qui a les clés du portail ? »</h2>
+  <p>C'est la question la plus chère d'un premier jour de montage. Les camions attendent, les équipes aussi, et la matinée file. Le problème, c'est que ce retard ne reste pas au matin : il glisse sur l'après-midi, puis sur le lendemain, et tout le planning se décale avec lui.</p>
+  <p>La parade tient souvent sur une feuille, relue la veille avec les bonnes personnes. Elle répond à quatre questions :</p>
+  <ul>
+    <li>qui ouvre le site ;</li>
+    <li>à quelle heure arrivent les camions ;</li>
+    <li>par quel accès ils entrent ;</li>
+    <li>qui les accueille sur place.</li>
+  </ul>
+  <p>Rien de compliqué. Mais si une seule de ces réponses manque, c'est toute une équipe qui attend devant un portail fermé.</p>
+
+  <h2>La régie générale commence avant le premier camion</h2>
+  <p>On juge souvent une régie à sa réactivité le jour J. Sur un montage, nous la jugeons plutôt à ce qui n'arrive pas : pas de camion bloqué, pas d'équipe qui attend, pas de matinée perdue. Ce résultat se prépare avant, dans le plan d'accès, le phasage et la feuille de la veille.</p>
+  <p>À retenir pour votre prochain montage :</p>
+  <ul>
+    <li>un plan d'implantation ne suffit pas : ajoutez accès, phasage et circulation ;</li>
+    <li>relisez-les avec ceux qui livrent, pas seulement entre vous ;</li>
+    <li>la veille, vérifiez qui ouvre, quand arrivent les camions, par où et qui accueille ;</li>
+    <li>un retard du matin se paie jusqu'au lendemain : c'est la veille qu'il se prévient.</li>
+  </ul>
+</GuidePage>
