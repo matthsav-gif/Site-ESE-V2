@@ -10,7 +10,7 @@
     "check": "astro build && node scripts/verifier-site.mjs"
   },
   "dependencies": {
-    "astro": "^5.6.0",
-    "@astrojs/sitemap": "^3.2.1"
+    "@astrojs/sitemap": "^3.7.6",
+    "astro": "^7.4.13"
   }
 }
