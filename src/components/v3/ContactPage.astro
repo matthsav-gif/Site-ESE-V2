@@ -111,7 +111,7 @@ const faq = FAQ3[lang];
       note.scrollIntoView({ block: "center" });
     };
     const endpoint = form.dataset.endpoint;
-    if (!endpoint) { showSuccess(); return; }
+    if (!endpoint) { document.getElementById("fmsg").textContent = errMsg; return; }
     // Plusieurs prestations cochées : envoyées en un seul champ, pour qu'aucune ne se perde dans l'e-mail reçu.
     const data = new FormData(form);
     data.set("prestations", type.value);
