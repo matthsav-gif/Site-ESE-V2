@@ -22,38 +22,25 @@ npm run preview  # prévisualise le résultat final
 
 ```
 src/
-  data/site.js          ← TOUS les contenus, coordonnées, liens (un seul fichier à éditer)
-  pages/                ← les 8 pages + 3 pages légales
-  components/           ← header, footer, bandeau contact, cartes…
-  layouts/BaseLayout    ← <head>, SEO, polices, JSON-LD
-  styles/               ← charte graphique (couleurs, typo, animations)
+  data/v3.js            ← contenus du site (FR et EN) : références, fiches, métiers, offre, FAQ, SEO
+  data/site.js          ← coordonnées, adresse du formulaire, textes des pages légales (site.en.js : anglais)
+  data/avis-google.json ← avis Google affichés sur l'accueil
+  pages/                ← 65 pages : accueil, métiers, références, guides, journal, pages légales, /en
+  components/v3/        ← gabarits des pages (accueil, métier, fiche référence, guide, contact…)
+  layouts/BaseLayout    ← <head>, SEO, données structurées
+  styles/ese.css        ← charte graphique et polices
 public/
-  images/               ← photos (remplacer / ajouter ici)
-  fonts/                ← Lulo Clean + DIN Next
-  logo-ese.png
+  images/  fonts/  ese.js (menu, filtres, lightbox)
+scripts/verifier-site.mjs ← contrôle du site construit (liens, titres, h1)
+vercel.json             ← en-têtes, cache, redirections
 ```
 
-## Ce qui reste à faire avant la mise en ligne
+## Mise en ligne
 
-- [ ] **Formulaire de contact** : renseigner `formEndpoint` dans `src/data/site.js`
-      (compte Formspree ou Resend → envoi vers `secretariat@ese-techsolutions.com`).
-      Tant qu'il est vide, le formulaire affiche un message de confirmation **sans envoyer**.
-- [ ] **Photos manquantes** (placeholders charte affichés à la place) :
-  - Défilés & luxe (Louis Vuitton / Garnier / Vichy)
-  - UNOC Nice (actuellement visuel provisoire `arena.jpg`)
-  - Page Expertise sécurité
-  - ~~Portrait Matthieu~~ ✅ intégré (`portrait-matthieu.jpg`)
-  → déposer dans `public/images/` et brancher dans `src/data/site.js`.
-- [ ] **URL site SOCLE®** : remplacer `socle.example` dans `src/data/site.js`.
-- [ ] **URL LinkedIn Matthieu** : `linkedinMatthieu` dans `src/data/site.js`.
-- [x] Pages **Mentions légales / CGV / Confidentialité** ✅ rédigées à partir des CGV officielles (V02, 7 mai 2026). Restent 2 points :
-  - **Hébergeur** dans les mentions légales : à compléter une fois l'hébergeur choisi (raison sociale + adresse).
-  - **Email RGPD** : la politique de confidentialité et les CGV utilisent `contact@ese-techsolutions.com` (comme le document officiel), alors que le contact public du site est `secretariat@`. Vérifier que les deux adresses existent / sont redirigées.
-- [ ] Vérifier l'orthographe et passer Lighthouse (cible 90+).
+Un push sur `main` met en production sur Vercel (projet `site-ese-yirw`). Chaque branche a sa preview. Avant de pousser :
 
-## Notes
+```bash
+npm run check    # construit le site puis contrôle liens, titres, descriptions et h1
+```
 
-- Les vidéos YouTube (facade lazy-load) ne sont pas encore intégrées — à ajouter sur la page
-  Références quand les liens des grappes manquantes seront fournis.
-- Le numéro de téléphone est masqué dans le header sur écrans de taille intermédiaire
-  (laptops) pour éviter le débordement ; il reste présent dans le footer et la page Contact.
+Rapport d'audit : `AUDIT-5.2.md`.

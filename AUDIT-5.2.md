@@ -109,3 +109,23 @@ La mention Google Fonts de la page confidentialité éventuelle est à retirer.
 1. **Fonctionnalité : suivi des demandes de devis.** Le formulaire envoie déjà un événement Vercel « Demande de devis envoyée ». On pourrait publier un petit tableau mensuel (demandes par métier et par page d'arrivée) dans le relevé du 1er : c'est la seule mesure qui dit si tout le travail SEO rapporte des clients.
 2. **Simplification : une seule source de contenus.** `site.js` et `site.en.js` (282 lignes chacun, en grande partie hérités de la V2) coexistent avec `v3.js`. Garder uniquement les coordonnées et le SEO encore utilisés réduirait le risque d'incohérence entre les pages, `llms.txt` et les posts automatiques.
 3. **Automatisation : contrôle d'échec des tâches.** Une tâche quotidienne de 2 minutes qui lit les journaux (posts, guides, relevés, avis) et prévient Matthieu si l'un d'eux n'a pas bougé dans les délais prévus. La panne actuelle aurait été vue en 7 jours au lieu de passer inaperçue.
+
+## Suite du 18 novembre (seconde passe, PR 2)
+
+La PR 1 est fusionnée et vérifiée en production : le plan UNOC répond 404 et les images sont servies avec un cache d'une semaine.
+
+Une seconde revue à neuf n'a pas trouvé de défaut supplémentaire sur le site : hreflang cohérents, aucune page anglaise orpheline, titres hiérarchisés, champs de formulaire étiquetés, liens externes valides, liens de `llms.txt` valides. Deux points à garder en tête : 170 balises d'image sans dimensions (sans effet visible, elles sont dans des cadres dimensionnés par le CSS) et pas de fil d'Ariane en données structurées.
+
+Fait sur la branche `ameliorations-5.2` (PR 2, en attente de fusion) :
+
+| Constat | Correction | Vérification |
+|---|---|---|
+| 5 | Astro 7.4.13, `compressHTML: true` pour garder la compression sans perte | `npm audit` : 0 alerte. 65 pages comparées une à une avec Astro 5 : même texte, mêmes balises, mêmes scripts ; menu, filtres, lightbox et formulaire testés |
+| 6 | Archivo et IBM Plex Mono servies depuis `/fonts` | Aucune requête vers Google, polices chargées, rendu identique |
+| 7 | `npm run check` (`scripts/verifier-site.mjs`), lancé par Vercel comme commande de build | Un défaut fait échouer le déploiement. Le workflow GitHub n'a pas pu être poussé : le jeton n'a pas le droit `workflow` |
+| 8 | Polices Lulo et DIN Next retirées | Build identique |
+| 9 | 22 images recompressées, 12,7 Mo ramenés à 6,9 Mo | Contrôle du site sans défaut |
+| 11 | Formulaire : message d'erreur au lieu d'un faux succès | Build |
+| 13 | README à jour | |
+
+Reste ouvert : constat 1 (tâches planifiées, à recréer depuis une session en mode bypass), constat 10 (titres et descriptions longs, à réécrire avec Matthieu), constat 12 (avis Google automatiques), constat 14 (CSP).
