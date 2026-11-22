@@ -173,9 +173,9 @@ $('#sous').textContent='Parc des expositions du Breil · Saumur · plans '+D.ind
 const canvas=$('#gl');
 const mobile=matchMedia('(max-width:760px)').matches||matchMedia('(pointer:coarse)').matches;
 const r=new THREE.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'});
-r.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:2));
+r.setPixelRatio(Math.min(devicePixelRatio,mobile?1.25:2));
 r.outputEncoding=THREE.sRGBEncoding;r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.0;
-r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;
+r.shadowMap.enabled=!mobile;r.shadowMap.type=THREE.PCFSoftShadowMap;
 const lin=c=>new THREE.Color(c).convertSRGBToLinear();
 const s=new THREE.Scene();
 const cam=new THREE.PerspectiveCamera(42,1,0.1,2500);cam.up.set(0,0,1);
@@ -502,8 +502,8 @@ const corps=[];
  const chev=new THREE.SphereGeometry(.112,12,6,0,PI*2,0,PI*.55);chev.rotateX(PI/2);chev.scale(1,.92,1.1);chev.translate(-.008,0,1.635);corps.push(partie(chev,0,3));}
 const base=THREE.BufferGeometryUtils.mergeBufferGeometries(corps,false);
 
-// sélection : sur téléphone, une personne sur deux dans la fosse
-const G0=D.gens.filter((g,i)=>!mobile||!(g[0]>11&&g[0]<56&&g[1]>0&&g[1]<40&&g[2]<.5)||i%2===0);
+// sélection : sur téléphone, une personne sur trois dans la fosse
+const G0=D.gens.filter((g,i)=>!mobile||!(g[0]>11&&g[0]<56&&g[1]>0&&g[1]<40&&g[2]<.5)||i%3===0);
 const NG=G0.length;
 const iP=new Float32Array(NG*4),iA=new Float32Array(NG*4),cH=new Float32Array(NG*3),cB=new Float32Array(NG*3),cS=new Float32Array(NG*3),cC=new Float32Array(NG*3);
 const HAUTS=['#1A1A1E','#24262E','#2F3B52','#5a1f24','#1E2A24','#4A4A52','#d8d4c8','#2A1E2E','#8A8A88','#151515','#b33a3a','#33507a','#e8e2d0','#3f6b4f','#c9a227','#7a4b8c','#0e0e10','#f0f0ec'];
@@ -589,8 +589,8 @@ lum(new THREE.SpotLight(0x30d8ff,1,60,0.5,0.8,1.3),1.6,[9,10,7],[34,14,0]);lum(n
 const halos=TOURS.map(([x,y,h])=>lum(new THREE.PointLight(0xff2030,1,14,1.6),2.4,[x+1.5,y,h*0.6]));
 lum(new THREE.SpotLight(0xffffff,1,30,0.35,0.6,1.5),2.0,[20,20,FAIT-0.5],[6,20,1.4]);
 lum(new THREE.SpotLight(0xfff0dd,1,40,0.9,0.7,1.4),0.9,[38,20,FAIT-0.3],[38,20,0]);           // service, pour lire la fosse
-for(const [x,y] of [[58,6],[58,29.5],[30.75,35.5]])lum(new THREE.PointLight(0xffb066,1,10,1.8),1.3,[x,y,2.8]);
-for(const [x,y] of [[12,49],[30,49.5],[46,50.7],[22.5,56],[37.5,56],[58,49]])lum(new THREE.PointLight(0xffc27a,1,20,1.6),1.6,[x,y,4.2]);
+if(!mobile)for(const [x,y] of [[58,6],[58,29.5],[30.75,35.5]])lum(new THREE.PointLight(0xffb066,1,10,1.8),1.3,[x,y,2.8]);
+for(const [x,y] of (mobile?[[22.5,52],[40,52]]:[[12,49],[30,49.5],[46,50.7],[22.5,56],[37.5,56],[58,49]]))lum(new THREE.PointLight(0xffc27a,1,20,1.6),1.6,[x,y,4.2]);
 if(!mobile)for(const [x,y] of [[-5,20],[-15,-3.5],[58,18]])lum(new THREE.PointLight(0xffd0a0,1,12,1.8),1.0,[x,y,2.6]);
 
 // Faisceaux : cônes additifs, plus lumineux près de la source.
@@ -619,7 +619,7 @@ const ledMats=parMat.led?parMat.led.map(m=>m.material):[];
 // Bloom du show, puis correction gamma.
 let comp=null,bloom=null;
 if(THREE.EffectComposer&&THREE.UnrealBloomPass){const w=innerWidth,h=innerHeight;
-  const rt=r.capabilities.isWebGL2&&THREE.WebGLMultisampleRenderTarget?new THREE.WebGLMultisampleRenderTarget(w,h,{format:THREE.RGBAFormat}):undefined;
+  const rt=!mobile&&r.capabilities.isWebGL2&&THREE.WebGLMultisampleRenderTarget?new THREE.WebGLMultisampleRenderTarget(w,h,{format:THREE.RGBAFormat}):undefined;
   comp=new THREE.EffectComposer(r,rt);comp.addPass(new THREE.RenderPass(s,cam));bloom=new THREE.UnrealBloomPass(new THREE.Vector2(w,h),mobile?0.6:0.75,0.5,0.6);comp.addPass(bloom);comp.addPass(new THREE.ShaderPass(THREE.GammaCorrectionShader));}
 const PAL=[['#FF2338','#00E8FF','#FF2030'],['#2F5BFF','#B04CFF','#3050FF'],['#FFFFFF','#00E8FF','#FFD8A0'],['#FF2338','#FFFFFF','#FF2030']];
 let soir=true;
@@ -684,7 +684,7 @@ const OEIL=1.65,RAYON=.28,SC=D.scene;
 const MURS=D.murs,BLOCS=D.blocs.slice(1);              // le premier bloc est la scène : on y monte par le plateau
 let pied=false,yaw=0,pitch=0,pos=new THREE.Vector3(),zSol=0,surPlateau=false;
 const touches={};
-const aide=$('#aide'),AIDE_M='Glisser pour tourner · molette ou pincer pour zoomer · clic droit ou deux doigts pour déplacer',AIDE_P='ZQSD, WASD ou flèches pour marcher · Maj pour courir · glisser pour regarder · Échap pour sortir';
+const aide=$('#aide'),AIDE_M='Glisser pour tourner · molette ou pincer pour zoomer · clic droit ou deux doigts pour déplacer',AIDE_P=mobile?'Pouce en bas à gauche pour marcher · glisser ailleurs pour regarder':'ZQSD, WASD ou flèches pour marcher · Maj pour courir · glisser pour regarder · Échap pour sortir';
 aide.textContent=AIDE_M;
 function dansScene(x,y){return x>SC.x0&&x<SC.x1&&y>SC.y0&&y<SC.y1;}
 function collisions(p){
@@ -718,7 +718,7 @@ canvas.addEventListener('pointerdown',e=>{if(!pied)return;canvas.setPointerCaptu
   else if(!regard)regard={id:e.pointerId,x:e.clientX,y:e.clientY};});
 canvas.addEventListener('pointermove',e=>{if(!pied)return;
   if(joy&&e.pointerId===joy.id){let dx=e.clientX-joy.x,dy=e.clientY-joy.y;const d=Math.hypot(dx,dy),R=50;if(d>R){dx*=R/d;dy*=R/d;}mv={x:dx/R,y:dy/R};bouton.style.transform=`translate(${dx}px,${dy}px)`;}
-  else if(regard&&e.pointerId===regard.id){const k=e.pointerType==='touch'?.006:.0045;yaw-=(e.clientX-regard.x)*k;pitch=Math.max(-1.2,Math.min(1.2,pitch-(e.clientY-regard.y)*k));regard.x=e.clientX;regard.y=e.clientY;}});
+  else if(regard&&e.pointerId===regard.id){const k=e.pointerType==='touch'?.005:.0035;yaw+=(e.clientX-regard.x)*k;pitch=Math.max(-1.2,Math.min(1.2,pitch+(e.clientY-regard.y)*k));regard.x=e.clientX;regard.y=e.clientY;}});
 const finPointeur=e=>{if(joy&&e.pointerId===joy.id){joy=null;mv={x:0,y:0};manette.hidden=true;}if(regard&&e.pointerId===regard.id)regard=null;};
 canvas.addEventListener('pointerup',finPointeur);canvas.addEventListener('pointercancel',finPointeur);
 
