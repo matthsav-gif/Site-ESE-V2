@@ -702,40 +702,24 @@ if(D.panos&&D.panos.length){
     return true;};
 }
 
-// ---------- 7. Vrais personnages 3D animés (Higgsfield / Meshy) près de la caméra, mannequins au loin ----------
-// Les N personnes les plus proches de la caméra deviennent des personnages texturés avec squelette et animation ;
-// leur mannequin est caché (enfoui sous le sol) tant qu'elles sont remplacées.
+// ---------- 7. Public réaliste figé : vrais personnages 3D (Higgsfield / Meshy) en poses fixes, instanciés sur toute la foule ----------
+// Sans animation ni squelette, chaque pose est un simple maillage répété : toute la jauge passe en personnages réalistes sans ralentir.
 let majPersos=()=>{};
-if(D.persos&&D.persos.length&&THREE.GLTFLoader&&THREE.SkeletonUtils){
-  const NB_PROCHES=mobile?22:80,gl=new THREE.GLTFLoader(),modeles=[];
-  etape('Arrivée des personnages…');
-  const charge1=(p,essai)=>new Promise(ok=>gl.load(p.f,g=>{modeles.push({g,anim:p.anim});ok();},undefined,()=>essai?ok():setTimeout(()=>charge1(p,1).then(ok),800)));
-  await Promise.all(D.persos.map(p=>charge1(p,0)));
-  if(modeles.length){
-    const danse=modeles.filter(m=>m.anim==='danse'),calme=modeles.filter(m=>m.anim!=='danse');
-    const pool=[];const gP=new THREE.Group();s.add(gP);window.gPersos=gP;
-    const fabrique=(m)=>{const racine=new THREE.Group();const o=THREE.SkeletonUtils.clone(m.g.scene);o.rotation.x=Math.PI/2;racine.add(o);
-      o.traverse(c=>{if(c.isMesh){c.castShadow=!mobile;c.receiveShadow=false;c.frustumCulled=false;const mt=c.material;if(mt){mt.roughness=Math.max(mt.roughness??.8,.65);mt.metalness=0;mt.envMapIntensity=.6;}}});
-      const mix=new THREE.AnimationMixer(o);const clip=m.g.animations[0];if(clip){const a=mix.clipAction(clip);a.play();a.time=Math.random()*clip.duration;}
-      racine.visible=false;gP.add(racine);return {racine,mix,type:m.anim,idx:-1};};
-    const nD=danse.length?NB_PROCHES:0,nC=calme.length?Math.round(NB_PROCHES*.6):0;
-    for(let i=0;i<nD;i++)pool.push(fabrique(danse[i%danse.length]));for(let i=0;i<nC;i++)pool.push(fabrique(calme[i%calme.length]));
-    const P=ig.attributes.iP,orig=new Float32Array(P.array),nG=NG;let dernier=0;
-    const cache=(i,on)=>{P.array[i*4+2]=on?-50:orig[i*4+2];};
-    majPersos=(t,dt)=>{pool.forEach(p=>{if(p.racine.visible)p.mix.update(dt);});
-      if(t-dernier<.35||!foule.visible)return;dernier=t;
-      const cx=cam.position.x,cy=cam.position.y;const cand=[];
-      for(let i=0;i<nG;i++){const dx=orig[i*4]-cx,dy=orig[i*4+1]-cy,d=dx*dx+dy*dy;if(d<1600)cand.push([d,i]);}
-      cand.sort((a,b)=>a[0]-b[0]);const nDm=pool.filter(p=>p.type==='danse').length,nCm=pool.length-nDm;let kd=0,kc=0;const voulus=new Set();
-      for(const [d,i] of cand){const an=iA[i*4],dz=an>.5&&an<2.5;if(dz&&kd<nDm){voulus.add(i);kd++;}else if(!dz&&kc<nCm){voulus.add(i);kc++;}if(kd>=nDm&&kc>=nCm)break;}
-      pool.forEach(p=>{if(p.idx>=0&&!voulus.has(p.idx)){cache(p.idx,false);p.idx=-1;p.racine.visible=false;}});
-      const pris=new Set(pool.map(p=>p.idx));
-      for(const i of voulus){if(pris.has(i))continue;const an=iA[i*4],veut=(an>.5&&an<2.5)?'danse':'calme';
-        let p=pool.find(q=>q.idx<0&&q.type===veut);if(!p)continue;
-        p.idx=i;p.racine.position.set(orig[i*4],orig[i*4+1],orig[i*4+2]);p.racine.rotation.z=orig[i*4+3]+Math.PI/2;const sc=iA[i*4+2];p.racine.scale.setScalar(sc);
-        p.racine.visible=true;cache(i,true);}
-      P.needsUpdate=true;};
-  }
+if(D.foule&&THREE.GLTFLoader){
+  etape('Arrivée du public…');
+  const charge1=(essai)=>new Promise(ok=>new THREE.GLTFLoader().load(D.foule,ok,undefined,()=>essai?ok(null):setTimeout(()=>charge1(1).then(ok),800)));
+  const g=await charge1(0);
+  if(g){const poses={danse:[],calme:[]};g.scene.updateMatrixWorld(true);
+    g.scene.traverse(c=>{if(!c.isMesh)return;const nom=c.name||(c.parent&&c.parent.name)||'';const geo=c.geometry.clone();geo.applyMatrix4(c.matrixWorld);geo.rotateX(Math.PI/2);
+      const m=c.material;m.roughness=.85;m.metalness=0;mats.push(m);(nom.startsWith('danse')?poses.danse:poses.calme).push({geo,m,L:[]});});
+    if(!poses.calme.length)poses.calme=poses.danse;if(!poses.danse.length)poses.danse=poses.calme;
+    if(poses.danse.length){let h=7;const al2=()=>{h=(h*16807)%2147483647;return h/2147483647;};
+      G0.forEach((p,i)=>{const L=(p[4]===1||p[4]===2)?poses.danse:poses.calme;L[(al2()*L.length)|0].L.push(i);});
+      const gF=new THREE.Group(),M4=new THREE.Matrix4(),Qz=new THREE.Quaternion(),Zv=new THREE.Vector3(0,0,1),Pv=new THREE.Vector3(),Sv=new THREE.Vector3();
+      for(const po of new Set([...poses.danse,...poses.calme])){if(!po.L.length)continue;const im=new THREE.InstancedMesh(po.geo,po.m,po.L.length);
+        po.L.forEach((i,k)=>{const p=G0[i],sc=iA[i*4+2];Qz.setFromAxisAngle(Zv,p[3]+Math.PI/2+(al2()-.5)*.3);M4.compose(Pv.set(p[0],p[1],p[2]),Qz,Sv.set(sc,sc,sc));im.setMatrixAt(k,M4);});
+        im.frustumCulled=false;im.castShadow=false;im.receiveShadow=false;gF.add(im);}
+      s.add(gF);window.gPersos=gF;foule.visible=false;}}
 }
 
 // ---------- 5. Interface : calques, étiquettes, points de vue, rendus, balade à pied ----------
@@ -762,7 +746,7 @@ $('#a-jour').onclick=()=>ambiance('jour');$('#a-soir').onclick=()=>ambiance('soi
 $('#c-zones').onchange=e=>calques.zones=e.target.checked;
 $('#c-secu').onchange=e=>{calques.secu=e.target.checked;secu.visible=calques.secu;};
 $('#c-elec').onchange=e=>{calques.elec=e.target.checked;elec.visible=calques.elec;};
-$('#c-gens').onchange=e=>{foule.visible=e.target.checked;if(window.gPersos)window.gPersos.visible=e.target.checked;};
+$('#c-gens').onchange=e=>{(window.gPersos||foule).visible=e.target.checked;};
 $('#c-toile').onchange=e=>{gStruct.visible=e.target.checked;majToit();};
 $('#bascule').onclick=()=>{const c=$('#calques');c.classList.toggle('ouvert');$('#bascule').setAttribute('aria-expanded',c.classList.contains('ouvert'));};
 
