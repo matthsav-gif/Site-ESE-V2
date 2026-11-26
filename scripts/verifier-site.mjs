@@ -2,6 +2,7 @@
 // Sans dépendance. Lancé par `npm run check` et par GitHub à chaque push. Sort en erreur au premier défaut.
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 const DIST = "dist";
 const files = new Set();
@@ -13,6 +14,10 @@ const existe = (u) => { u = u.split("#")[0].split("?")[0]; return !u || files.ha
 const erreurs = [];
 const titres = new Map(), descs = new Map();
 const pages = [...files].filter((f) => f.endsWith(".html"));
+
+// En-tête Content-Security-Policy de vercel.json : tout script en ligne doit y avoir son empreinte, sinon le navigateur le bloque.
+const csp = JSON.parse(fs.readFileSync("vercel.json", "utf8")).headers.flatMap((h) => h.headers).find((h) => h.key === "Content-Security-Policy")?.value || "";
+const horsCsp = (f) => f.startsWith("/v/"); // visite 3D : exclue de la CSP dans vercel.json
 
 for (const f of pages) {
   const s = fs.readFileSync(path.join(DIST, f), "utf8");
@@ -31,6 +36,13 @@ for (const f of pages) {
     const a = m[1];
     if (a.startsWith("//") || a.startsWith("/_vercel/")) continue; // /_vercel : servi par Vercel, absent du build
     if (!existe(a)) erreurs.push(`${url} : lien cassé vers ${a}`);
+  }
+  if (csp && !horsCsp(f)) for (const m of s.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)) {
+    const src = m[1].match(/src="([^"]*)"/)?.[1];
+    if (src) { if (!src.startsWith("/") || src.startsWith("//")) erreurs.push(`${url} : script externe ${src} non autorisé par la CSP`); continue; }
+    if (/ld\+json/.test(m[1])) continue;
+    const h = "'sha256-" + crypto.createHash("sha256").update(m[2], "utf8").digest("base64") + "'";
+    if (!csp.includes(h)) erreurs.push(`${url} : script en ligne absent de la CSP de vercel.json, ajouter ${h} dans script-src`);
   }
   for (const m of s.matchAll(/<img [^>]*>/g)) if (!/\salt[\s=>]/.test(m[0])) erreurs.push(`${url} : image sans attribut alt`);
 }

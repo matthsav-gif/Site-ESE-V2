@@ -23,6 +23,15 @@
       ]
     },
     {
+      "source": "/((?!v/).*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'sha256-ElShUWg/R0NC6WIMZp3N2FKE5siI90ZKCnHMHJYcUhk=' 'sha256-9ydYG8e8a57pQV/Uin0eOzIy6/bMea0AgKuwckg68io=' 'sha256-XZXv4usbL0HBhk1tA0yuCE1YqM99PKZbzi6ROi/JctE='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://img.youtube.com; font-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
       "source": "/images/(.*)",
       "headers": [
         {
