@@ -129,3 +129,7 @@ Fait sur la branche `ameliorations-5.2` (PR 2, en attente de fusion) :
 | 13 | README à jour | |
 
 Reste ouvert : constat 1 (tâches planifiées, à recréer depuis une session en mode bypass), constat 10 (titres et descriptions longs, à réécrire avec Matthieu), constat 12 (avis Google automatiques), constat 14 (CSP).
+
+## Suite du 26 novembre
+
+Constat 10 (titres et descriptions) corrigé par la PR 3. Constat 14 (CSP) traité : en-tête Content-Security-Policy dans `vercel.json` sur tout le site sauf `/v/` (visite 3D, qui charge des bibliothèques externes). Scripts : ceux du site plus les trois scripts en ligne, autorisés par leur empreinte. `npm run check` refuse le déploiement si un script en ligne change sans que son empreinte soit ajoutée. Test local : `node scripts/servir-dist-csp.mjs`.
