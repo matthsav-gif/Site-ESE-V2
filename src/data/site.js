@@ -253,11 +253,11 @@ export const SEO = {
   },
   "direction-technique": {
     title: "Direction technique événementielle à Paris et en France · ESE",
-    description: "Direction technique de vos événements à Paris, partout en France et à l'international : cahier des charges, prestataires, budget, plans, pilotage du montage au démontage. Renfort ou production complète.",
+    description: "Direction technique de vos événements à Paris, en France et à l'international : cahier des charges, prestataires, budget, plans, pilotage du montage au démontage.",
   },
   "regie-generale": {
     title: "Régie générale événementielle à Paris et en France · ESE",
-    description: "Régisseur général pour vos événements à Paris et partout en France : planning de montage et démontage, accès, coactivité, équipes et prestataires. Renfort à la journée ou régie complète.",
+    description: "Régisseur général pour vos événements à Paris et partout en France : planning de montage et démontage, accès, coactivité, équipes et prestataires.",
   },
   "expertise-securite": {
     title: "Notice de sécurité ERP et commission de sécurité · ESE",
@@ -265,7 +265,7 @@ export const SEO = {
   },
   references: {
     title: "Références ESE · JO Paris 2024, Tournées stade, Défilés luxe",
-    description: "Productions ESE : cérémonies JO/JOP Paris 2024, tournées en stade, défilés de luxe, sommets institutionnels, shows internationaux, à Paris, en France et à l'international.",
+    description: "Productions ESE : cérémonies JO/JOP Paris 2024, tournées en stade, défilés de luxe, sommets institutionnels, shows internationaux, à Paris, en France et à l'étranger.",
   },
   methodes: {
     title: "Approche & méthodes · SOCLE® · COBEL® · ESE",

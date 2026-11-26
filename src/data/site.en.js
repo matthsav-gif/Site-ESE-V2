@@ -277,6 +277,6 @@ export const SEO = {
   },
   contact: {
     title: "Contact ESE · Technical Direction & Event Production · Paris",
-    description: "Let's talk about your project. ESE, Event & Safety Engineering, 15 rue des Halles, 75001 Paris. 01 84 80 80 69. Technical direction, production management, safety expertise.",
+    description: "Let's talk about your project. ESE, Event & Safety Engineering, 15 rue des Halles, 75001 Paris. 01 84 80 80 69. Technical direction, production management, safety.",
   },
 };
